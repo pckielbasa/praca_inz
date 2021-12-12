@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+      <data>
+        <variable
+            name="addPersonViewModel"
+            type="com.example.praca_inz.ui.persons.addPerson.AddPersonViewModel" />
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/color_top_bar"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:id="@+id/addPersonTxt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/headerAddPersonText"
+                android:textColor="@color/black"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                tools:ignore="TextContrastCheck" />
+
+
+            <ImageView
+                android:id="@+id/backToPersons"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="0dp"
+                android:src="@drawable/ic_back"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ImageContrastCheck,ImageContrastCheck"
+                android:onClick="@{() -> addPersonViewModel.goBackToPersonStart() }"
+            />
+
+        </LinearLayout>
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/nameAddPersonTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/nameAddPersonText"
+        app:layout_constraintStart_toStartOf="@+id/nameAddPerson"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <EditText
+        android:id="@+id/nameAddPerson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameAddPersonTxt"
+        tools:ignore="SpeakableTextPresentCheck,labelFor " />
+
+    <EditText
+        android:id="@+id/surnameAddPerson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/nameAddPerson"
+        app:layout_constraintTop_toBottomOf="@+id/surnameAddPersonTxt"
+        tools:ignore="SpeakableTextPresentCheck,labelFor " />
+
+    <TextView
+        android:id="@+id/surnameAddPersonTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/surnameAddPersonText"
+        app:layout_constraintStart_toStartOf="@+id/nameAddPersonTxt"
+        app:layout_constraintTop_toBottomOf="@+id/nameAddPerson"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <Button
+        android:id="@+id/addPersonButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/addPersonButtonText"
+        app:layout_constraintEnd_toEndOf="@+id/nameAddPerson"
+        app:layout_constraintStart_toStartOf="@+id/nameAddPerson"
+        app:layout_constraintTop_toBottomOf="@+id/dateBirthAddPerson" />
+
+    <EditText
+        android:id="@+id/dateBirthAddPerson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:importantForAutofill="no"
+        android:inputType="date"
+        app:layout_constraintStart_toStartOf="@+id/nameAddPerson"
+        app:layout_constraintTop_toBottomOf="@+id/dataBirthAddPersonTxt"
+        tools:ignore="SpeakableTextPresentCheck, labelFor " />
+
+    <TextView
+        android:id="@+id/dataBirthAddPersonTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/dateAddPersonText"
+        app:layout_constraintStart_toStartOf="@+id/nameAddPersonTxt"
+        app:layout_constraintTop_toBottomOf="@+id/surnameAddPerson" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,44 @@
+<resources>
+    <!-- Titles-->
+    <string name="app_name">praca_inz</string>
+    <string name="title_calendar">Calendar</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_allergies">Allergies</string>
+    <string name="title_meals">Meals</string>
+    <string name="title_change">Person</string>
+    <!-- login fragment -->
+    <string name="usernameText">Username :</string>
+    <string name="passwordText">Password :</string>
+    <string name="loginButtonText">Login</string>
+    <string name="registerButtonText">Register</string>
+    <string name="headerLoginText">Log in to Allergy Diary</string>
+
+    <!-- register fragment -->
+    <string name="repeatPasswordText">Repeat password :</string>
+    <string name="emailText">Email :</string>
+    <string name="phoneNumberText">Phone number:</string>
+    <string name="headerRegisterText">Register your account</string>
+
+    <!-- person activity -->
+    <string name="headerPersonsText">Persons</string>
+    <string name="addPersonButtonText">Add person</string>
+    <string name="nameAddPersonText">Name :</string>
+    <string name="surnameAddPersonText">Surname :</string>
+    <string name="dateAddPersonText">Date od birth :</string>
+    <string name="headerAddPersonText">Add Person</string>
+    <!-- back button -->
+    <string name="backText">Back</string>
+
+    <!-- Main activity -->
+    <!--Change fragment -->
+    <string name="back_questionText">Are you sure you want to change the person?</string>
+    <string name="buttonChangePersonText">Change</string>
+    <string name="headerChangePersonText">Change of person</string>
+    <string name="changeInformationText">By clicking on the button below you will return to the selection of the person.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="jebacpic">JebacPic</string>
+
+
+</resources>

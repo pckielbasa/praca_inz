@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="loginViewModel"
+            type="com.example.praca_inz.authorization.login.LoginViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/loginButtonLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/loginButtonText"
+            app:layout_constraintTop_toBottomOf="@+id/passwordLogin"
+            app:layout_constraintStart_toStartOf="@+id/usernameLoginTxt"
+            tools:layout_editor_absoluteX="64dp" />
+
+        <Button
+            android:id="@+id/registerButtonLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/registerButtonText"
+            android:onClick="@{() -> loginViewModel.eventGoRegistration()}"
+            app:layout_constraintTop_toBottomOf="@+id/passwordLogin"
+            app:layout_constraintEnd_toEndOf="@+id/usernameLogin"
+            tools:layout_editor_absoluteX="128dp" />
+
+        <EditText
+            android:id="@+id/usernameLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:ems="10"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/usernameLoginTxt"
+            tools:ignore="SpeakableTextPresentCheck, LabelFor" />
+
+        <EditText
+            android:id="@+id/passwordLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="@+id/usernameLogin"
+            app:layout_constraintStart_toStartOf="@+id/usernameLogin"
+            app:layout_constraintTop_toBottomOf="@+id/passwordLoginTxt"
+            tools:layout_editor_absoluteX="100dp"
+            tools:layout_editor_absoluteY="245dp"
+            tools:ignore="SpeakableTextPresentCheck,LabelFor"
+            />
+
+        <TextView
+            android:id="@+id/usernameLoginTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="84dp"
+            android:text="@string/usernameText"
+            app:layout_constraintTop_toBottomOf="@+id/headerLoginTxt"
+            app:layout_constraintStart_toStartOf="@+id/usernameLogin"
+            tools:layout_editor_absoluteX="99dp" />
+
+        <TextView
+            android:id="@+id/passwordLoginTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/passwordText"
+            app:layout_constraintEnd_toEndOf="@+id/usernameLoginTxt"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/usernameLoginTxt"
+            app:layout_constraintTop_toBottomOf="@+id/usernameLogin" />
+
+        <TextView
+            android:id="@+id/headerLoginTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/headerLoginText"
+            android:textColor="@color/black"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

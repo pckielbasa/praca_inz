@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+      <data>
+        <variable
+            name="personViewModel"
+            type="com.example.praca_inz.ui.persons.person.PersonViewModel" />
+          <variable
+              name="personFragment"
+              type="com.example.praca_inz.ui.persons.person.PersonFragment" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/color_top_bar"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:id="@+id/personsTxt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/headerPersonsText"
+                android:textColor="@color/black"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+            <ImageView
+                android:id="@+id/addPersonImg"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="0dp"
+                android:onClick="@{() -> personViewModel.goAddPersonStart() }"
+                android:src="@drawable/ic_add"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ImageContrastCheck,ImageContrastCheck"
+                 />
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

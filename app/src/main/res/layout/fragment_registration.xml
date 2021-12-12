@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="registrationViewModel"
+            type="com.example.praca_inz.authorization.registration.RegistrationViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/passwordRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="@+id/usernameRegister"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/usernameRegister"
+            app:layout_constraintTop_toBottomOf="@+id/passwordTxt"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,LabelFor" />
+
+        <TextView
+        android:id="@+id/passwordTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:text="@string/passwordText"
+        app:layout_constraintStart_toStartOf="@+id/usernameTxt"
+        app:layout_constraintTop_toBottomOf="@+id/usernameRegister" />
+
+    <TextView
+        android:id="@+id/phoneNumberTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:text="@string/phoneNumberText"
+        app:layout_constraintStart_toStartOf="@+id/usernameTxt"
+        app:layout_constraintTop_toBottomOf="@+id/emailAddressRegister" />
+
+    <EditText
+        android:id="@+id/repeatPasswordRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/usernameRegister"
+        app:layout_constraintStart_toStartOf="@+id/usernameRegister"
+        app:layout_constraintTop_toBottomOf="@+id/repeatPasswordTxt"
+        tools:ignore="SpeakableTextPresentCheck,LabelFor" />
+
+    <Button
+        android:id="@+id/registerButtonRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:text="@string/registerButtonText"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumberRegister"
+        tools:layout_editor_absoluteX="102dp"
+        app:layout_constraintStart_toStartOf="@+id/usernameRegister"
+        />
+
+    <EditText
+        android:id="@+id/emailAddressRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/usernameRegister"
+        app:layout_constraintStart_toStartOf="@+id/usernameRegister"
+        app:layout_constraintTop_toBottomOf="@+id/emailTxt"
+        tools:ignore="SpeakableTextPresentCheck,LabelFor" />
+
+    <TextView
+        android:id="@+id/repeatPasswordTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:text="@string/repeatPasswordText"
+        app:layout_constraintStart_toStartOf="@+id/usernameTxt"
+        app:layout_constraintTop_toBottomOf="@+id/passwordRegister" />
+
+    <EditText
+        android:id="@+id/phoneNumberRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:importantForAutofill="no"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="@+id/usernameRegister"
+        app:layout_constraintStart_toStartOf="@+id/usernameRegister"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumberTxt"
+        tools:ignore="SpeakableTextPresentCheck,LabelFor" />
+
+    <TextView
+        android:id="@+id/emailTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="@string/emailText"
+        app:layout_constraintStart_toStartOf="@+id/usernameTxt"
+        app:layout_constraintTop_toBottomOf="@+id/repeatPasswordRegister" />
+
+    <Button
+        android:id="@+id/backButtonRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:text="@string/backText"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumberRegister"
+        tools:layout_editor_absoluteX="222dp"
+
+        app:layout_constraintEnd_toEndOf="@+id/usernameRegister"/>
+
+        <EditText
+            android:id="@+id/usernameRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:ems="10"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/usernameTxt"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,LabelFor" />
+
+        <TextView
+            android:id="@+id/usernameTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/usernameText"
+            app:layout_constraintTop_toBottomOf="@+id/textView9"
+            app:layout_constraintStart_toStartOf="@+id/usernameRegister"
+            tools:layout_editor_absoluteX="32dp" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/headerRegisterText"
+            android:textColor="@color/black"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
