@@ -15,21 +15,13 @@ import com.example.praca_inz.authorization.login.LoginViewModel
 import com.example.praca_inz.databinding.FragmentLoginBinding
 import com.example.praca_inz.databinding.FragmentRegistrationBinding
 
-
-
-
-
-
 class RegistrationFragment : Fragment() {
-
-
 
     private val registrationViewModel: RegistrationViewModel by lazy {
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onViewCreated()"
         }
-        ViewModelProvider(this, RegistrationViewModel.RegistrationViewModelFactory(activity.application)).get(
-            RegistrationViewModel::class.java)
+        ViewModelProvider(this, RegistrationViewModel.RegistrationViewModelFactory(activity.application))[RegistrationViewModel::class.java]
     }
     private lateinit var binding: FragmentRegistrationBinding
 

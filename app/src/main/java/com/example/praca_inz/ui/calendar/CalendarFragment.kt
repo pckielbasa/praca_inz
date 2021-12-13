@@ -19,7 +19,7 @@ class CalendarFragment : Fragment(){
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onViewCreated()"
         }
-        ViewModelProvider(this, CalendarViewModel.CalendarViewModelFactory(activity.application)).get(CalendarViewModel::class.java)
+        ViewModelProvider(this, CalendarViewModel.CalendarViewModelFactory(activity.application))[CalendarViewModel::class.java]
     }
 
     private lateinit var binding: FragmentCalendarBinding
@@ -42,7 +42,7 @@ class CalendarFragment : Fragment(){
         //Wyswietlanie aktualnej daty
         val date = getCurrentDateTime()
         val dateInString = date.toString("dd/MM/yyyy")
-        binding.dateCalendar.setText(dateInString)
+        binding.dateCalendar.text = dateInString
 
         calendarViewModel.openNavCalendar.observe(viewLifecycleOwner, Observer { openCalendar ->
             if(openCalendar){

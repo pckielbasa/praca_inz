@@ -33,7 +33,7 @@ class ChangeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         changeViewModel =
-            ViewModelProvider(this).get(ChangeViewModel::class.java)
+            ViewModelProvider(this)[ChangeViewModel::class.java]
 
         _binding = FragmentChangeBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -43,7 +43,7 @@ class ChangeFragment : Fragment() {
             textView.text = it
         })
 
-//uzycie przycisku do zmiany osoby
+
         binding.buttonChangePerson.setOnClickListener {
             navToMainActivity()
         }
@@ -54,9 +54,9 @@ class ChangeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-//Funkcja do zmiany osoby poprzez zmiane activity
+
     fun navToMainActivity(){
-        //Nie działa Person Activity !!!!
+
         val intent = Intent(context, PersonActivity::class.java)
         activity?.finish()
         startActivity(intent)

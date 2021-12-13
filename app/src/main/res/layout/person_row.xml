@@ -3,7 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     >
+    <data>
+        <variable
+            name="personViewModel"
+            type="com.example.praca_inz.ui.persons.person.PersonViewModel" />
 
+    </data>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -13,27 +18,39 @@
             android:layout_height="match_parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="4dp">
+                android:layout_width="411dp"
+                android:layout_height="128dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints">
 
                 <TextView
                     android:id="@+id/personName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginTop="16dp"
-                    android:textSize="20sp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
                     android:textColor="@color/black"
+                    android:textSize="20sp"
                     app:layout_constraintStart_toEndOf="@+id/imgPerson"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <TextView
+                    android:id="@+id/personSurname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@+id/personName"
+                    app:layout_constraintTop_toBottomOf="@+id/personName" />
+
                 <ImageView
                     android:id="@+id/imgPerson"
-                    android:layout_width="92dp"
-                    android:layout_height="88dp"
+                    android:layout_width="109dp"
+                    android:layout_height="102dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -45,22 +62,24 @@
                     android:id="@+id/dateOfBirth"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="28dp"
                     android:layout_marginTop="16dp"
-                    app:layout_constraintStart_toEndOf="@+id/imgPerson"
-                    app:layout_constraintTop_toBottomOf="@+id/personName" />
+                    app:layout_constraintStart_toStartOf="@+id/personName"
+                    app:layout_constraintTop_toBottomOf="@+id/personSurname" />
 
                 <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="38dp"
-                    android:layout_height="39dp"
+                    android:id="@+id/btnClick"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="16dp"
                     android:layout_marginBottom="8dp"
+                    android:onClick="@{() -> personViewModel.goEditPersonStart() }"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.506"
                     app:srcCompat="@drawable/ic_edit" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

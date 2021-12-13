@@ -25,7 +25,7 @@ class MealsFragment : Fragment() {
     ): View? {
 
         mealsViewModel =
-            ViewModelProvider(this).get(MealsViewModel::class.java)
+            ViewModelProvider(this)[MealsViewModel::class.java]
 
         _binding = FragmentMealsBinding.inflate(inflater, container, false)
         val root: View = binding.root

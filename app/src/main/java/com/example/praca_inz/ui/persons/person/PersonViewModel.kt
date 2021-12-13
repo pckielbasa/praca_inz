@@ -10,11 +10,22 @@ class PersonViewModel (app: Application) : AndroidViewModel(app) {
     val goAddPerson : LiveData<Boolean>
         get() = _goAddPerson
 
+    private val _goEditPerson = MutableLiveData<Boolean>()
+    val goEditPerson : LiveData<Boolean>
+        get() = _goEditPerson
+
     fun goAddPersonStart(){
         _goAddPerson.value = true
     }
     fun goAddPersonFinished(){
         _goAddPerson.value = false
+    }
+
+    fun goEditPersonStart(){
+        _goEditPerson.value = true
+    }
+    fun goEditPersonFinished(){
+        _goEditPerson.value = false
     }
 
     class PersonViewModelFactory constructor(private val app: Application): ViewModelProvider.Factory {

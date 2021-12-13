@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
@@ -14,6 +15,7 @@ import com.example.praca_inz.R
 import com.example.praca_inz.authorization.registration.RegistrationFragment
 import com.example.praca_inz.databinding.FragmentLoginBinding
 import com.example.praca_inz.ui.persons.PersonActivity
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
 
 class LoginFragment : Fragment() {
@@ -23,7 +25,7 @@ class LoginFragment : Fragment() {
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onViewCreated()"
         }
-        ViewModelProvider(this, LoginViewModel.LoginViewModelFactory(activity.application)).get(LoginViewModel::class.java)
+        ViewModelProvider(this, LoginViewModel.LoginViewModelFactory(activity.application))[LoginViewModel::class.java]
     }
 
     private lateinit var binding: FragmentLoginBinding
@@ -33,7 +35,6 @@ class LoginFragment : Fragment() {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
         binding.loginViewModel = loginViewModel
-
 
 
         binding.loginButtonLogin.setOnClickListener {
