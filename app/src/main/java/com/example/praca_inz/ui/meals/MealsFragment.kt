@@ -33,6 +33,8 @@ class MealsFragment : Fragment() {
         binding.mealsViewModel = mealsViewModel
 
 
+
+        //Menu Meals
         val tabLayout = binding.tabLayoutMeals
         val viewPager2 = binding.viewPagerMeals
         val adapter=ViewPagerMealsAdapter(requireActivity().supportFragmentManager, lifecycle)
@@ -45,13 +47,12 @@ class MealsFragment : Fragment() {
                     tab.text="Meals"
                 }
                 1->{
-                    tab.text="Snack"
+                    tab.text="Snacks"
                 }
                 2->{
-                    tab.text="Component"
+                    tab.text="Components"
                 }
             }
-
         }.attach()
 
         return binding.root

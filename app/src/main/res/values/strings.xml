@@ -33,10 +33,7 @@
 
     <!-- Main activity -->
     <!--Change fragment -->
-    <string name="back_questionText">Are you sure you want to change the person?</string>
-    <string name="buttonChangePersonText">Change</string>
-    <string name="headerChangePersonText">Change of person</string>
-    <string name="changeInformationText">By clicking on the button below you will return to the selection of the person.</string>
+    <string name="changeInformationText">I am transferring to the choice of persons. Pleas wait!</string>
 
     <!-- Meals fragment -->
     <string name="snackTabText">Snack</string>

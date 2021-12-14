@@ -12,48 +12,39 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appbarMeals"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayoutMeals"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <androidx.appcompat.widget.Toolbar
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:tabMode="fixed"
+            tools:ignore="SpeakableTextPresentCheck" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+<!--        <com.google.android.material.appbar.AppBarLayout-->
+<!--            android:id="@+id/appbarMeals"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
+<!--            <androidx.appcompat.widget.Toolbar-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content">-->
 
-                    <ImageView
-                        android:id="@+id/imageView6"
-                        android:layout_width="46dp"
-                        android:layout_height="46dp"
-                        android:layout_marginEnd="8dp"
-                        app:layout_constraintEnd_toStartOf="@+id/imageView5"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_search"
-                        tools:ignore="ImageContrastCheck" />
+<!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content">-->
 
-                    <ImageView
-                        android:id="@+id/imageView5"
-                        android:layout_width="46dp"
-                        android:layout_height="46dp"
-                        android:layout_marginEnd="16dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_star"
-                        tools:ignore="ImageContrastCheck" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.appcompat.widget.Toolbar>
+<!--                    <ImageView-->
+<!--                        android:id="@+id/imageView5"-->
+<!--                        android:layout_width="46dp"-->
+<!--                        android:layout_height="46dp"-->
+<!--                        android:layout_marginEnd="8dp"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent"-->
+<!--                        app:srcCompat="@drawable/ic_star"-->
+<!--                        tools:ignore="ImageContrastCheck" />-->
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabLayoutMeals"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:tabMode="fixed"
-                tools:ignore="SpeakableTextPresentCheck" />
+<!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--            </androidx.appcompat.widget.Toolbar>-->
 
-        </com.google.android.material.appbar.AppBarLayout>
+<!--        </com.google.android.material.appbar.AppBarLayout>-->
 
     <androidx.viewpager2.widget.ViewPager2
         android:layout_width="match_parent"
