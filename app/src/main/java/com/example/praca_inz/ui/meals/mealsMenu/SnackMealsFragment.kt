@@ -6,20 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.praca_inz.R
-import com.example.praca_inz.databinding.FragmentComponentMenuBinding
-import com.example.praca_inz.databinding.FragmentMealsBinding
+import com.example.praca_inz.databinding.FragmentSnackMealsBinding
 
+class SnackMealsFragment : Fragment() {
 
-class ComponentMenuFragment : Fragment() {
-
-    private lateinit var binding: FragmentComponentMenuBinding
-
+    private lateinit var binding: FragmentSnackMealsBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentComponentMenuBinding.inflate(inflater, container, false)
+
+        binding = FragmentSnackMealsBinding.inflate(inflater,container,false)
+
         return binding.root
+
+
     }
 
 

@@ -2,60 +2,58 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
     <data>
         <variable
-            name="allergiesViewModel"
-            type="com.example.praca_inz.ui.allergies.AllergiesViewModel" />
-
+            name="mealsViewModel"
+            type="com.example.praca_inz.ui.meals.MealsViewModel" />
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        android:orientation="vertical">
 
-
-        <LinearLayout
-            android:id="@+id/linearLayout"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayoutAllergies"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:gravity="center"
-            android:background="@color/color_top_bar"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="wrap_content"
+            app:tabMode="fixed"
+            tools:ignore="SpeakableTextPresentCheck" />
 
-            <TextView
-                android:id="@+id/headerAllergies"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:minHeight="60dp"
-                android:textColor="@color/black"
-                android:textSize="32sp"
-                android:textStyle="bold"
-                android:text="@string/title_allergies"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-            <ImageView
-                android:id="@+id/addAllergiesImg"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginEnd="0dp"
-                android:src="@drawable/ic_add"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ImageContrastCheck,ImageContrastCheck" />
-            <!--            android:onClick="@{() -> personViewModel.goAddPersonStart() }"-->
-        </LinearLayout>
+        <!--        <com.google.android.material.appbar.AppBarLayout-->
+        <!--            android:id="@+id/appbarMeals"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content">-->
+        <!--            <androidx.appcompat.widget.Toolbar-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content">-->
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="wrap_content">-->
+
+        <!--                    <ImageView-->
+        <!--                        android:id="@+id/imageView5"-->
+        <!--                        android:layout_width="46dp"-->
+        <!--                        android:layout_height="46dp"-->
+        <!--                        android:layout_marginEnd="8dp"-->
+        <!--                        app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                        app:layout_constraintTop_toTopOf="parent"-->
+        <!--                        app:srcCompat="@drawable/ic_star"-->
+        <!--                        tools:ignore="ImageContrastCheck" />-->
+
+        <!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+        <!--            </androidx.appcompat.widget.Toolbar>-->
+
+        <!--        </com.google.android.material.appbar.AppBarLayout>-->
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/viewPagerAllergies"
+            />
+
+    </LinearLayout>
+
 
 
 </layout>

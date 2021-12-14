@@ -13,13 +13,13 @@ class ViewPagerMealsAdapter(fragmentManager: FragmentManager,lifecycle: Lifecycl
     override fun createFragment(position: Int): Fragment {
        return when(position){
            0->{
-                MealsMenuFragment()
+                MealMealsFragment()
            }
            1->{
-               SnackMenuFragment()
+               SnackMealsFragment()
            }
            2->{
-              ComponentMenuFragment()
+              ComponentMealsFragment()
            }
            else ->{
                Fragment()

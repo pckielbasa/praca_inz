@@ -35,13 +35,14 @@
     <!--Change fragment -->
     <string name="changeInformationText">I am transferring to the choice of persons. Pleas wait!</string>
 
-    <!-- Meals fragment -->
+    <!-- Menu Names -->
     <string name="snackTabText">Snack</string>
-    <string name="mealsTabText">Meals</string>
+    <string name="mealsTabText">Meal</string>
     <string name="componentTabText">Component</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 
 </resources>

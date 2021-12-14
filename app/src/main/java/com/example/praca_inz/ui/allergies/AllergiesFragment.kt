@@ -11,6 +11,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.praca_inz.authorization.login.LoginViewModel
 import com.example.praca_inz.databinding.FragmentAllergiesBinding
 import com.example.praca_inz.databinding.FragmentLoginBinding
+import com.example.praca_inz.ui.meals.mealsMenu.ViewPagerMealsAdapter
+import com.google.android.material.tabs.TabLayoutMediator
 
 
 class AllergiesFragment : Fragment() {
@@ -31,7 +33,29 @@ class AllergiesFragment : Fragment() {
     ): View? {
         binding = FragmentAllergiesBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
-        binding.allergiesViewModel = allergiesViewModel
+
+        //Menu Allergies
+        val tabLayout = binding.tabLayoutAllergies
+        val viewPager2 = binding.viewPagerAllergies
+        val adapter= ViewPagerMealsAdapter(requireActivity().supportFragmentManager, lifecycle)
+
+        viewPager2.adapter=adapter
+
+        TabLayoutMediator(tabLayout,viewPager2){tab,position->
+            when(position){
+                0->{
+                    tab.text="Meals"
+                }
+                1->{
+                    tab.text="Snacks"
+                }
+                2->{
+                    tab.text="Components"
+                }
+            }
+        }.attach()
+
+//        binding.allergiesViewModel = allergiesViewModel
         return binding.root
     }
 
