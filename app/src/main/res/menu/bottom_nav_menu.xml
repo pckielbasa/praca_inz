@@ -7,9 +7,9 @@
         android:title="@string/title_meals" />
 
     <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_dashboard" />
+        android:id="@+id/navigation_medicine"
+        android:icon="@drawable/ic_medicine"
+        android:title="@string/title_medicine" />
 
     <item
         android:id="@+id/navigation_calendar"

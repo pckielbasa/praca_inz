@@ -8,38 +8,32 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.praca_inz.authorization.login.LoginViewModel
 import com.example.praca_inz.databinding.FragmentAllergiesBinding
+import com.example.praca_inz.databinding.FragmentLoginBinding
 
 
 class AllergiesFragment : Fragment() {
 
-    private lateinit var allergiesViewModel: AllergiesViewModel
-    private var _binding: FragmentAllergiesBinding? = null
+    private val allergiesViewModel: AllergiesViewModel by lazy {
+        val activity = requireNotNull(this.activity) {
+            "You can only access the viewModel after onViewCreated()"
+        }
+        ViewModelProvider(this, AllergiesViewModel.AllergiesViewModelFactory(activity.application))[AllergiesViewModel::class.java]
+    }
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentAllergiesBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        allergiesViewModel =
-            ViewModelProvider(this).get(AllergiesViewModel::class.java)
-
-        _binding = FragmentAllergiesBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.textAllergies
-        allergiesViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+        binding = FragmentAllergiesBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = this
+        binding.allergiesViewModel = allergiesViewModel
+        return binding.root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+
 }

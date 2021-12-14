@@ -2,7 +2,7 @@
     <!-- Titles-->
     <string name="app_name">praca_inz</string>
     <string name="title_calendar">Calendar</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_medicine">Medicine</string>
     <string name="title_allergies">Allergies</string>
     <string name="title_meals">Meals</string>
     <string name="title_change">Person</string>
@@ -38,9 +38,13 @@
     <string name="headerChangePersonText">Change of person</string>
     <string name="changeInformationText">By clicking on the button below you will return to the selection of the person.</string>
 
+    <!-- Meals fragment -->
+    <string name="snackTabText">Snack</string>
+    <string name="mealsTabText">Meals</string>
+    <string name="componentTabText">Component</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
 
 
 </resources>

@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="allergiesViewModel"
-            type="com.example.praca_inz.ui.allergies.AllergiesViewModel" />
+            name="medicineViewModel"
+            type="com.example.praca_inz.ui.medicine.MedicineViewModel" />
 
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,7 +27,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/headerAllergies"
+                android:id="@+id/headerMedicine"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -39,12 +39,12 @@
                 android:textColor="@color/black"
                 android:textSize="32sp"
                 android:textStyle="bold"
-                android:text="@string/title_allergies"
+                android:text="@string/title_medicine"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
             <ImageView
-                android:id="@+id/addAllergiesImg"
+                android:id="@+id/addMedicineImg"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginEnd="0dp"
@@ -52,7 +52,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="ImageContrastCheck,ImageContrastCheck" />
-            <!--            android:onClick="@{() -> personViewModel.goAddPersonStart() }"-->
+<!--            android:onClick="@{() -> personViewModel.goAddPersonStart() }"-->
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

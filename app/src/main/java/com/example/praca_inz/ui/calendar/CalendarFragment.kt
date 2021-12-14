@@ -32,7 +32,6 @@ class CalendarFragment : Fragment(){
         binding.calendarViewModel = calendarViewModel
 
 
-
         calendarViewModel.openNavCalendar.observe(viewLifecycleOwner, Observer { openData ->
             if (openData) {
                 navToMainActivity()

@@ -6,17 +6,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-
-import androidx.lifecycle.Observer
 import com.example.praca_inz.databinding.FragmentMealsBinding
+import com.example.praca_inz.ui.meals.mealsMenu.ViewPagerMealsAdapter
+import com.google.android.material.tabs.TabLayoutMediator
+
 
 class MealsFragment : Fragment() {
 
-    private  lateinit var mealsViewModel: MealsViewModel
-    private var _binding: FragmentMealsBinding? =null
+    private val mealsViewModel: MealsViewModel by lazy {
+        val activity = requireNotNull(this.activity) {
+            "You can only access the viewModel after onViewCreated()"
+        }
+        ViewModelProvider(this, MealsViewModel.MealsViewModelFactory(activity.application))[MealsViewModel::class.java]
+    }
 
-    private  val binding get() = _binding!!
+    private lateinit var binding: FragmentMealsBinding
 
 
     override fun onCreateView(inflater: LayoutInflater,
@@ -24,22 +28,35 @@ class MealsFragment : Fragment() {
                               savedInstanceState: Bundle?
     ): View? {
 
-        mealsViewModel =
-            ViewModelProvider(this)[MealsViewModel::class.java]
+        binding = FragmentMealsBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = this
+        binding.mealsViewModel = mealsViewModel
 
-        _binding = FragmentMealsBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        val textView: TextView = binding.textMeals
-        mealsViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+        val tabLayout = binding.tabLayoutMeals
+        val viewPager2 = binding.viewPagerMeals
+        val adapter=ViewPagerMealsAdapter(requireActivity().supportFragmentManager, lifecycle)
+
+        viewPager2.adapter=adapter
+
+        TabLayoutMediator(tabLayout,viewPager2){tab,position->
+            when(position){
+                0->{
+                    tab.text="Meals"
+                }
+                1->{
+                    tab.text="Snack"
+                }
+                2->{
+                    tab.text="Component"
+                }
+            }
+
+        }.attach()
+
+        return binding.root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+
 
 }

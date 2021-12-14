@@ -1,12 +1,33 @@
 package com.example.praca_inz.ui.meals
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.*
+import com.example.praca_inz.ui.persons.addPerson.AddPersonViewModel
 
-class MealsViewModel : ViewModel() {
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is Meals Fragment"
+class MealsViewModel (app: Application) : AndroidViewModel(app) {
+
+    private val _tabVariable = MutableLiveData<String>()
+    val tabVariable : LiveData<String>
+        get() = _tabVariable
+
+    fun tabComponent(){
+        _tabVariable.value = "Component"
     }
-    val text: LiveData<String> = _text
+    fun tabSnack(){
+        _tabVariable.value = "Snack"
+    }
+
+    fun tabMeals(){
+        _tabVariable.value = "Meals"
+    }
+    class MealsViewModelFactory constructor(private val app: Application): ViewModelProvider.Factory {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            return if (modelClass.isAssignableFrom(MealsViewModel::class.java)) {
+                MealsViewModel(this.app) as T
+            } else {
+                throw IllegalArgumentException("MealsViewModel Not Found")
+            }
+        }
+    }
+
 }
