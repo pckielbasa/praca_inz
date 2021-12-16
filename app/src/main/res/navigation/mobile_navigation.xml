@@ -27,11 +27,44 @@
         android:id="@+id/navigation_meals"
         android:name="com.example.praca_inz.ui.meals.MealsFragment"
         android:label="@string/title_meals"
-        tools:layout="@layout/fragment_meals" />
+        tools:layout="@layout/fragment_meals" >
+        <action
+            android:id="@+id/action_navigation_meals_to_componentMealsFragment"
+            app:destination="@id/componentMealsFragment" />
+        <action
+            android:id="@+id/action_navigation_meals_to_mealMealsFragment"
+            app:destination="@id/mealMealsFragment" />
+        <action
+            android:id="@+id/action_navigation_meals_to_snackMealsFragment"
+            app:destination="@id/snackMealsFragment" />
+        <action
+            android:id="@+id/action_navigation_meals_to_addMealsFragment"
+            app:destination="@id/addMealsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_change"
         android:name="com.example.praca_inz.ui.change.ChangeFragment"
         android:label="@string/title_change"
         tools:layout="@layout/fragment_change" />
+    <fragment
+        android:id="@+id/componentMealsFragment"
+        android:name="com.example.praca_inz.ui.meals.mealsMenu.ComponentMealsFragment"
+        android:label="fragment_component_meals"
+        tools:layout="@layout/fragment_component_meals" />
+    <fragment
+        android:id="@+id/mealMealsFragment"
+        android:name="com.example.praca_inz.ui.meals.mealsMenu.meal.MealMealsFragment"
+        android:label="fragment_meal_meals"
+        tools:layout="@layout/fragment_meal_meals" />
+    <fragment
+        android:id="@+id/snackMealsFragment"
+        android:name="com.example.praca_inz.ui.meals.mealsMenu.SnackMealsFragment"
+        android:label="fragment_snack_meals"
+        tools:layout="@layout/fragment_snack_meals" />
+    <fragment
+        android:id="@+id/addMealsFragment"
+        android:name="com.example.praca_inz.ui.meals.addMeals.AddMealsFragment"
+        android:label="fragment_add_meals"
+        tools:layout="@layout/fragment_add_meals" />
 </navigation>

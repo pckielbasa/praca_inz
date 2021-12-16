@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.praca_inz.databinding.FragmentCalendarBinding
@@ -22,7 +23,9 @@ class CalendarFragment : Fragment(){
         ViewModelProvider(this, CalendarViewModel.CalendarViewModelFactory(activity.application))[CalendarViewModel::class.java]
     }
 
+    private lateinit var tvDataPicker : TextView
     private lateinit var binding: FragmentCalendarBinding
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View {
@@ -31,24 +34,38 @@ class CalendarFragment : Fragment(){
         binding.lifecycleOwner = this
         binding.calendarViewModel = calendarViewModel
 
+        //Zmiana Daty
+        tvDataPicker = binding.dateCalendar
+        val myCalendar = Calendar.getInstance()
+        val datePicker = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+            myCalendar.set(Calendar.YEAR, year)
+            myCalendar.set(Calendar.MONTH, month)
+            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+            updateLabel(myCalendar)
+        }
 
         calendarViewModel.openNavCalendar.observe(viewLifecycleOwner, Observer { openData ->
             if (openData) {
-                navToMainActivity()
+                activity?.let { DatePickerDialog(it, datePicker, myCalendar.get(Calendar.YEAR),myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show() }
                 calendarViewModel.openNavCalendarFinished()
+
+
             }
         })
         //Wyswietlanie aktualnej daty
-        val date = getCurrentDateTime()
-        val dateInString = date.toString("dd/MM/yyyy")
-        binding.dateCalendar.text = dateInString
 
-        calendarViewModel.openNavCalendar.observe(viewLifecycleOwner, Observer { openCalendar ->
-            if(openCalendar){
-                calendarViewModel.openNavCalendarFinished()
-            }
-        })
-        //--------------------------------
+                val date = getCurrentDateTime()
+                val dateInString = date.toString("dd-MM-yyyy")
+                binding.dateCalendar.text = dateInString
+
+
+
+
+
+
+
+
+
 
         return binding.root
     }
@@ -58,18 +75,17 @@ class CalendarFragment : Fragment(){
         val formatter = SimpleDateFormat(format, locale)
         return formatter.format(this)
     }
-
     fun getCurrentDateTime(): Date {
         return Calendar.getInstance().time
     }
     //--------------------------------
 
-
-    fun navToMainActivity(){
-        val intent = Intent(context, AuthorizationActivity::class.java)
-        activity?.finish()
-        startActivity(intent)
+    fun updateLabel(myCalendar: Calendar, locale: Locale = Locale.getDefault()) {
+        val myFormat = "dd-MM-yyy"
+        val sdf = SimpleDateFormat(myFormat, Locale.getDefault())
+        tvDataPicker.setText(sdf.format(myCalendar.time))
     }
+
 
 
 }

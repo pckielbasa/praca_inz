@@ -2,64 +2,67 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-      <data>
+    <data>
         <variable
             name="personViewModel"
             type="com.example.praca_inz.ui.persons.person.PersonViewModel" />
-          <variable
-              name="personFragment"
-              type="com.example.praca_inz.ui.persons.person.PersonFragment" />
+        <variable
+            name="personFragment"
+            type="com.example.praca_inz.ui.persons.person.PersonFragment" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/linearLayout4"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@color/color_top_bar"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="wrap_content"
+            android:background="@color/colorTopBar"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/personsTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/headerPersonsText"
+                    android:theme="@style/HeadersText"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/addButtonPersons"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"  />
+
+                <ImageView
+                    android:id="@+id/addButtonPersons"
+                    android:layout_width="@dimen/addImageSize"
+                    android:layout_height="@dimen/addImageSize"
+                    android:layout_marginEnd="16dp"
+                    android:onClick="@{() -> personViewModel.goAddPersonStart() }"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_add" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.Toolbar>
 
 
-            <TextView
-                android:id="@+id/personsTxt"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/headerPersonsText"
-                android:textColor="@color/black"
-                android:textSize="32sp"
-                android:textStyle="bold"
-                tools:ignore="TextContrastCheck,TextContrastCheck" />
 
-            <ImageView
-                android:id="@+id/addPersonImg"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginEnd="0dp"
-                android:onClick="@{() -> personViewModel.goAddPersonStart() }"
-                android:src="@drawable/ic_add"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ImageContrastCheck,ImageContrastCheck" />
+        <androidx.viewpager2.widget.ViewPager2
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/viewPagerMeals"
+            android:background="@color/backgroundAppColor"
+            />
 
-        </LinearLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="418dp"
-            android:layout_height="670dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+    </LinearLayout>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

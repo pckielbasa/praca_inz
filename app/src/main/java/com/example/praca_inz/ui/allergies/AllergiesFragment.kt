@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.praca_inz.authorization.login.LoginViewModel
 import com.example.praca_inz.databinding.FragmentAllergiesBinding
 import com.example.praca_inz.databinding.FragmentLoginBinding
+import com.example.praca_inz.ui.allergies.allergiesMenu.ViewPagerAllergiesAdapter
 import com.example.praca_inz.ui.meals.mealsMenu.ViewPagerMealsAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -37,7 +38,7 @@ class AllergiesFragment : Fragment() {
         //Menu Allergies
         val tabLayout = binding.tabLayoutAllergies
         val viewPager2 = binding.viewPagerAllergies
-        val adapter= ViewPagerMealsAdapter(requireActivity().supportFragmentManager, lifecycle)
+        val adapter= ViewPagerAllergiesAdapter(requireActivity().supportFragmentManager, lifecycle)
 
         viewPager2.adapter=adapter
 

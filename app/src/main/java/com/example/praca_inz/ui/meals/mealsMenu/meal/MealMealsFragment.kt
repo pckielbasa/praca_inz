@@ -1,4 +1,4 @@
-package com.example.praca_inz.ui.meals.mealsMenu
+package com.example.praca_inz.ui.meals.mealsMenu.meal
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -18,7 +18,9 @@ class MealMealsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
       binding = FragmentMealMealsBinding.inflate(inflater, container, false)
-        return binding.root
+      binding.lifecycleOwner = this
+//      binding.loginViewModel = loginViewModel
+      return binding.root
     }
 
 

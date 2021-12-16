@@ -13,13 +13,19 @@ class CalendarViewModel (app: Application) : AndroidViewModel(app) {
         get() = _openNavCalendar
 
 
+
+
     fun openNavCalendarStart(){
         _openNavCalendar.value = true
     }
 
     fun openNavCalendarFinished(){
         _openNavCalendar.value = false
+
+
     }
+
+
 
     class CalendarViewModelFactory constructor(private val app: Application ): ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
