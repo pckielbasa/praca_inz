@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.praca_inz.R
 import com.example.praca_inz.databinding.FragmentMealsBinding
 import com.example.praca_inz.ui.meals.mealsMenu.ViewPagerMealsAdapter
+import com.example.praca_inz.ui.meals.mealsMenu.component.AddComponentMealsFragment
 import com.example.praca_inz.ui.meals.mealsMenu.snack.AddSnackMealsFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -85,8 +86,7 @@ fun goOpenPopupMenu(){
                 addSnackMeals()
             }
             R.id.action_component_meals ->
-                Toast.makeText(activity, "You Clicked : " + item.title, Toast.LENGTH_SHORT).show()
-        }
+                addComponentMeals()        }
         true
     })
     popupMenu.show()
@@ -96,5 +96,10 @@ fun addSnackMeals(){
     dialog.show(requireActivity().supportFragmentManager, "ADD SNACK")
 
 }
+    fun addComponentMeals(){
+        val dialog = AddComponentMealsFragment()
+        dialog.show(requireActivity().supportFragmentManager, "ADD COMPONENT")
+
+    }
 
 }
