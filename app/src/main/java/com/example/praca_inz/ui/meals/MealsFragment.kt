@@ -1,18 +1,18 @@
 package com.example.praca_inz.ui.meals
 
+import android.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.PopupMenu
-import android.widget.Toast
+import android.widget.*
 import androidx.navigation.fragment.findNavController
 import com.example.praca_inz.R
 import com.example.praca_inz.databinding.FragmentMealsBinding
-import com.example.praca_inz.ui.meals.addMeals.AddMealsFragment
 import com.example.praca_inz.ui.meals.mealsMenu.ViewPagerMealsAdapter
+import com.example.praca_inz.ui.meals.mealsMenu.snack.AddSnackMealsFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
 
@@ -26,7 +26,7 @@ class MealsFragment : Fragment() {
     }
 
     private lateinit var binding: FragmentMealsBinding
-
+    
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
@@ -37,6 +37,7 @@ class MealsFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.mealsViewModel = mealsViewModel
 
+        //PopupMenu
         mealsViewModel.eventOpenPopupMenu.observe(viewLifecycleOwner, { goOpen ->
             if(goOpen){
 
@@ -49,9 +50,7 @@ class MealsFragment : Fragment() {
         val tabLayout = binding.tabLayoutMeals
         val viewPager2 = binding.viewPagerMeals
         val adapter=ViewPagerMealsAdapter(requireActivity().supportFragmentManager, lifecycle)
-
         viewPager2.adapter=adapter
-
         TabLayoutMediator(tabLayout,viewPager2){tab,position->
             when(position){
                 0->{
@@ -66,8 +65,10 @@ class MealsFragment : Fragment() {
             }
         }.attach()
 
+
         return binding.root
     }
+
 
 fun goOpenPopupMenu(){
     val button = binding.addButtonMeals
@@ -80,7 +81,9 @@ fun goOpenPopupMenu(){
                 findNavController().navigate(R.id.action_navigation_meals_to_addMealsFragment)
             }
             R.id.action_snack_meals ->
-                Toast.makeText(activity, "You Clicked : " + item.title, Toast.LENGTH_SHORT).show()
+            {
+                addSnackMeals()
+            }
             R.id.action_component_meals ->
                 Toast.makeText(activity, "You Clicked : " + item.title, Toast.LENGTH_SHORT).show()
         }
@@ -88,6 +91,10 @@ fun goOpenPopupMenu(){
     })
     popupMenu.show()
 }
+fun addSnackMeals(){
+    val dialog = AddSnackMealsFragment()
+    dialog.show(requireActivity().supportFragmentManager, "ADD SNACK")
 
+}
 
 }

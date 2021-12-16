@@ -1,4 +1,4 @@
-package com.example.praca_inz.ui.meals.mealsMenu
+package com.example.praca_inz.ui.meals.mealsMenu.snack
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

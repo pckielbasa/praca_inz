@@ -28,8 +28,9 @@
     <string name="headerAddPersonText">Add Person</string>
     <string name="saveButtonText">Save</string>
     <string name="headerEditPersonText">Edit Person</string>
-    <!-- back button -->
+    <!-- buttons -->
     <string name="backText">Back</string>
+    <string name="addText">Add</string>
 
     <!-- Main activity -->
     <!--Change fragment -->
@@ -40,11 +41,14 @@
     <string name="mealsTabText">Meal</string>
     <string name="componentTabText">Component</string>
 
+    <!-- Meals Menu -->
+    <!-- Meals popup menu -->
+    <string name="addMealMealsText">Add Meal</string>
+    <string name="addSnackMealsText">Add Snack</string>
+    <string name="addComponentMealsText">Add Component</string>
+    <string name="componentNameText">Component name :</string>
+    <string name="snackNameText">Snack name :</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="addMealMeals">Meal</string>
-    <string name="addSnackMeals">Snack</string>
-    <string name="addComponentMeals">Component</string>
-
-
 </resources>

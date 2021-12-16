@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
         android:id="@+id/action_meal_meals"
-        android:title="@string/addMealMeals"
+        android:title="@string/addMealMealsText"
         app:showAsAction="never"/>
     <item
         android:id="@+id/action_snack_meals"
-        android:title="@string/addSnackMeals"
-        app:showAsAction="never"/>
+        android:title="@string/addSnackMealsText"
+        app:showAsAction="never"
+        />
     <item
         android:id="@+id/action_component_meals"
-        android:title="@string/addComponentMeals"
+        android:title="@string/addComponentMealsText"
         app:showAsAction="never"/>
 </menu>

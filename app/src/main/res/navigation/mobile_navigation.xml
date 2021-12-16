@@ -49,7 +49,7 @@
         tools:layout="@layout/fragment_change" />
     <fragment
         android:id="@+id/componentMealsFragment"
-        android:name="com.example.praca_inz.ui.meals.mealsMenu.ComponentMealsFragment"
+        android:name="com.example.praca_inz.ui.meals.mealsMenu.component.ComponentMealsFragment"
         android:label="fragment_component_meals"
         tools:layout="@layout/fragment_component_meals" />
     <fragment
@@ -59,7 +59,7 @@
         tools:layout="@layout/fragment_meal_meals" />
     <fragment
         android:id="@+id/snackMealsFragment"
-        android:name="com.example.praca_inz.ui.meals.mealsMenu.SnackMealsFragment"
+        android:name="com.example.praca_inz.ui.meals.mealsMenu.snack.SnackMealsFragment"
         android:label="fragment_snack_meals"
         tools:layout="@layout/fragment_snack_meals" />
     <fragment
