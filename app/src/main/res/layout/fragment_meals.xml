@@ -15,7 +15,7 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="?attr/actionBarSize"
             android:background="@color/colorTopBar"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme" >
@@ -53,7 +53,7 @@
             android:id="@+id/tabLayoutMeals"
             android:background="@color/backgroundAppColor"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/tabSize"
             app:tabMode="fixed"
             tools:ignore="SpeakableTextPresentCheck" />
 
@@ -62,9 +62,13 @@
     <androidx.viewpager2.widget.ViewPager2
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="?attr/actionBarSize"
+        android:clipToPadding="false"
         android:id="@+id/viewPagerMeals"
         android:background="@color/backgroundAppColor"
-        />
+        >
+
+    </androidx.viewpager2.widget.ViewPager2>
 
     </LinearLayout>
 

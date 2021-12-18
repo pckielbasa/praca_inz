@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.praca_inz.R
 import com.example.praca_inz.databinding.FragmentAddMealsBinding
 import com.example.praca_inz.databinding.FragmentAddPersonBinding
+import com.example.praca_inz.ui.meals.MealsFragment
 import com.example.praca_inz.ui.persons.addPerson.AddPersonViewModel
 
 class AddMealsFragment : Fragment() {
@@ -27,13 +29,20 @@ class AddMealsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         binding = FragmentAddMealsBinding.inflate(inflater, container, false)
-//        binding.lifecycleOwner = this
-//        binding.addMealsViewModel = addMealsViewModel
+        binding.lifecycleOwner = this
+        binding.addMealsViewModel = addMealsViewModel
 
+        addMealsViewModel.closeAddMeal.observe(viewLifecycleOwner, {
+            closeAdd ->
+            if (closeAdd){
+                addMealsViewModel.closeAddMelMealsFinished()
+                activity?.onBackPressed()
+            }
+        })
         return binding.root
     }
+
 
 
 }

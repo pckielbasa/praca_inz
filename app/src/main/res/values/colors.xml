@@ -13,4 +13,5 @@
     <color name="colorAccent">#00FF00</color>
     <color name="backgroundAppColor">#CCCCCC</color>
     <color name="backgroundPopupWindowColor">#BBBBBB</color>
+    <color name="underlineColor">#D8D6D6</color>
 </resources>

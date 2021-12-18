@@ -4,7 +4,7 @@
     <string name="title_calendar">Calendar</string>
     <string name="title_medicine">Medicines</string>
     <string name="title_allergies">Allergies</string>
-    <string name="title_meals">Meals</string>
+    <string name="title_meals">Food</string>
     <string name="title_change">Person</string>
     <!-- login fragment -->
     <string name="usernameText">Username :</string>

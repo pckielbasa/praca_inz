@@ -19,8 +19,8 @@
             android:layout_height="match_parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="411dp"
-                android:layout_height="120dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -31,47 +31,34 @@
 
 
                 <TextView
-                    android:id="@+id/MealNameTxt"
+                    android:id="@+id/tvMealName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:text="NAZWA POSILKu"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
+                    android:layout_marginTop="6dp"
+                    android:theme="@style/ListRow"
+                    android:paddingEnd="8dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/tvComponentsName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="SKLADNIKI"
-                    app:layout_constraintStart_toStartOf="@+id/MealNameTxt"
-                    app:layout_constraintTop_toBottomOf="@+id/MealNameTxt"
-                    tools:layout_editor_absoluteX="8dp" />
+                    android:layout_marginTop="4dp"
+                    android:paddingEnd="8dp"
+                    app:layout_constraintStart_toStartOf="@+id/tvMealName"
+                    app:layout_constraintTop_toBottomOf="@+id/tvMealName"
+                    tools:ignore="RtlSymmetry" />
 
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_edit" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/underlineColor"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvComponentsName" />
 
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="8dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:srcCompat="@drawable/ic_delete" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

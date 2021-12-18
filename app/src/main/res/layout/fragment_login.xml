@@ -18,26 +18,27 @@
             android:id="@+id/loginButtonLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
             android:text="@string/loginButtonText"
-            app:layout_constraintTop_toBottomOf="@+id/passwordLogin"
+            app:layout_constraintEnd_toStartOf="@+id/registerButtonLogin"
             app:layout_constraintStart_toStartOf="@+id/usernameLoginTxt"
-            tools:layout_editor_absoluteX="64dp" />
+            app:layout_constraintTop_toBottomOf="@+id/passwordLogin" />
 
         <Button
             android:id="@+id/registerButtonLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/registerButtonText"
             android:onClick="@{() -> loginViewModel.eventGoRegistration()}"
-            app:layout_constraintTop_toBottomOf="@+id/passwordLogin"
+            android:text="@string/registerButtonText"
             app:layout_constraintEnd_toEndOf="@+id/usernameLogin"
-            tools:layout_editor_absoluteX="128dp" />
+            app:layout_constraintStart_toEndOf="@+id/loginButtonLogin"
+            app:layout_constraintTop_toBottomOf="@+id/passwordLogin" />
 
         <EditText
             android:id="@+id/usernameLogin"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
@@ -51,7 +52,7 @@
 
         <EditText
             android:id="@+id/passwordLogin"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:importantForAutofill="no"
