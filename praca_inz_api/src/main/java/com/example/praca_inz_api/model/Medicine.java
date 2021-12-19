@@ -5,27 +5,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "User")
-public class User {
+@Document(collection = "Medicine")
+public class Medicine {
 
     @Id
     private String _id;
     @Indexed(unique = true)
-    private String username;
-    private String password;
-    @Indexed(unique = true)
-    private String email;
-    private Long phoneNumber;
+    private String medicineName;
 
-    @DBRef
-    private List<Person> userPersons = new ArrayList<>();
 }

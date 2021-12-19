@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -14,18 +13,20 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "User")
-public class User {
-
+@Document(collection = "ItemDaySchedule")
+public class ItemDaySchedule {
     @Id
     private String _id;
-    @Indexed(unique = true)
-    private String username;
-    private String password;
-    @Indexed(unique = true)
-    private String email;
-    private Long phoneNumber;
+    private Integer hour;
+    private Integer minute;
+    private String comment;
 
     @DBRef
-    private List<Person> userPersons = new ArrayList<>();
+    private List<Component> itemComponents = new ArrayList<>();
+
+    @DBRef
+    private List<Snack> itemSnacks = new ArrayList<>();
+
+    @DBRef
+    private List<Meal> itemMeals = new ArrayList<>();
 }
