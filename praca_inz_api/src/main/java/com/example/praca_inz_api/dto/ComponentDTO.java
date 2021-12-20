@@ -10,5 +10,6 @@ import lombok.NoArgsConstructor;
 public class ComponentDTO {
     private String componentName;
     private String commentAlertAllergies;
+    private String type = "component";
     private Boolean favourite;
 }

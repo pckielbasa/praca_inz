@@ -18,6 +18,7 @@ public class Snack {
     private String _id;
     @Indexed(unique = true)
     private String snackName;
+    private String type = "snack";
     private String commentAlertAllergies;
     @Field
     private Boolean favourite;

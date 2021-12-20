@@ -19,6 +19,7 @@ public class Component {
     @Indexed(unique = true)
     private String componentName;
     private String commentAlertAllergies;
+    private String type = "component";
     @Field
     private Boolean favourite;
 }

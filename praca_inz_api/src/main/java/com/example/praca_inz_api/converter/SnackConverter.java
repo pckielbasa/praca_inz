@@ -9,6 +9,7 @@ public class SnackConverter {
         return new SnackDTO(
                 entity.getSnackName(),
                 entity.getCommentAlertAllergies(),
+                entity.getType(),
                 entity.getFavourite()
         );
     }

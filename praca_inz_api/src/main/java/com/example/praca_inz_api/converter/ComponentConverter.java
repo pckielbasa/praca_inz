@@ -9,6 +9,7 @@ public class ComponentConverter {
         return new ComponentDTO(
                 entity.getComponentName(),
                 entity.getCommentAlertAllergies(),
+                entity.getType(),
                 entity.getFavourite()
         );
     }

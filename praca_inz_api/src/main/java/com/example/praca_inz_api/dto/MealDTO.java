@@ -11,5 +11,6 @@ public class MealDTO {
 
     private String mealName;
     private String commentAlertAllergies;
+    private String type = "meal";
     private Boolean favourite;
 }

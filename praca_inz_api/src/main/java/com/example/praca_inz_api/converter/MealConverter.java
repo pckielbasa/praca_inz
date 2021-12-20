@@ -10,6 +10,7 @@ public class MealConverter {
         return new MealDTO(
                 entity.getMealName(),
                 entity.getCommentAlertAllergies(),
+                entity.getType(),
                 entity.getFavourite());
     }
 }

@@ -23,6 +23,7 @@ public class Meal {
     @Indexed(unique = true)
     private String mealName;
     private String commentAlertAllergies;
+    private String type = "meal";
     @Field
     private Boolean favourite;
 
