@@ -25,6 +25,7 @@ public class UserController {
 
     @PostMapping
     public UserDTO addUser(@RequestBody User user){
+
         return UserConverter.toDTO(userRepo.addUser(user));
     }
 

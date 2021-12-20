@@ -10,4 +10,5 @@
     <dimen name="addImageSize">40dp</dimen>
     <dimen name="tabSize">40dp</dimen>
     <dimen name="toolbarSize">48</dimen>
+    <dimen name="loginTabSize">60</dimen>
 </resources>

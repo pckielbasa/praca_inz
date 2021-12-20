@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/container"
+    android:orientation="vertical"
     tools:context=".authorization.AuthorizationActivity" >
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView"
-        android:name="com.example.praca_inz.authorization.login.LoginFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-</FrameLayout>
+
+
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayoutLogin"
+            android:background="@color/backgroundAppColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabMode="fixed"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:id="@+id/viewPagerLogin"
+            android:background="@color/backgroundAppColor"
+            >
+
+        </androidx.viewpager2.widget.ViewPager2>
+</LinearLayout>

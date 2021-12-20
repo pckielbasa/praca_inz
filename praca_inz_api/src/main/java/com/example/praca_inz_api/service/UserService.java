@@ -16,8 +16,8 @@ public class UserService implements UserRepo {
     private UserDao userDao;
 
     @Override
-    public User addUser(User brand){
-        return userDao.save(brand);
+    public User addUser(User user){
+        return userDao.save(user);
     }
 
     @Override
@@ -25,11 +25,7 @@ public class UserService implements UserRepo {
         return userDao.findAll();
     }
 
-    @Override
-    public User getUserById(String id){
-        return userDao.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("no brand with id: "+id));
-    }
+
 
 
 

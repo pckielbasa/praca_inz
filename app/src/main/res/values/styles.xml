@@ -27,4 +27,9 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="AlertsStyle">
+        <item name="android:textColor">@color/alertColor</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

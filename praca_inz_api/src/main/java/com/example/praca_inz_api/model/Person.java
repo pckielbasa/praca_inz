@@ -21,7 +21,8 @@ public class Person {
     private String _id;
     private String personName;
     private String personSurname;
-    private Date dateOfBirth;
+    private String dateOfBirth;
+    private String imgURL;
 
     @DBRef
     private List<Meal> mealAllergies = new ArrayList<>();

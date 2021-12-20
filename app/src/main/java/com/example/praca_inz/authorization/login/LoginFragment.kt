@@ -41,25 +41,25 @@ class LoginFragment : Fragment() {
             loginSuccessful()
         }
 
-        loginViewModel.eventGoSignup.observe(viewLifecycleOwner, { goSignup ->
-            if(goSignup){
-                navToRegistrationFragment()
-                loginViewModel.eventGoRegistrationFinished()
-            }
-        })
+//        loginViewModel.eventGoSignup.observe(viewLifecycleOwner, { goSignup ->
+//            if(goSignup){
+//                navToRegistrationFragment()
+//                loginViewModel.eventGoRegistrationFinished()
+//            }
+//        })
 
 
 
         return binding.root
     }
 
-    fun navToRegistrationFragment(){
-
-        val transaction = activity?.supportFragmentManager?.beginTransaction()
-        transaction?.replace(R.id.fragmentContainerView, RegistrationFragment())
-        transaction?.addToBackStack(null)
-        transaction?.commit()
-    }
+//    fun navToRegistrationFragment(){
+//
+//        val transaction = activity?.supportFragmentManager?.beginTransaction()
+//        transaction?.replace(R.id.fragmentContainerView, RegistrationFragment())
+//        transaction?.addToBackStack(null)
+//        transaction?.commit()
+//    }
 
 //    fun checkLogin():Boolean{
 //        binding.usernameLogin.text.isNotEmpty().apply {

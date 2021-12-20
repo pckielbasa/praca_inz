@@ -17,5 +17,6 @@ public class Medicine {
     private String _id;
     @Indexed(unique = true)
     private String medicineName;
+    private String medicineComment;
 
 }

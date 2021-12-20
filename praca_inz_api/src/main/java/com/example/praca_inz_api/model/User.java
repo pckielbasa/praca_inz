@@ -28,4 +28,7 @@ public class User {
 
     @DBRef
     private List<Person> userPersons = new ArrayList<>();
+
+    @DBRef
+    private List<Meal> userMeals = new ArrayList<>();
 }

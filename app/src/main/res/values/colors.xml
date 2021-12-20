@@ -14,4 +14,5 @@
     <color name="backgroundAppColor">#CCCCCC</color>
     <color name="backgroundPopupWindowColor">#BBBBBB</color>
     <color name="underlineColor">#D8D6D6</color>
+    <color name="alertColor">#CC0000</color>
 </resources>

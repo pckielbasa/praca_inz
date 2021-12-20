@@ -33,34 +33,34 @@ class RegistrationFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.registrationViewModel = registrationViewModel
 
-        binding.backButtonRegister.setOnClickListener {
+//        binding.backButtonRegister.setOnClickListener {
+//
+//            navToLoginFragment()
+//            clearStack()
+//        }
 
-            navToLoginFragment()
-            clearStack()
-        }
-
-        binding.registerButtonRegister.setOnClickListener {
-            registerSuccessful()
-            clearStack()
-        }
+//        binding.registerButtonRegister.setOnClickListener {
+//            registerSuccessful()
+//            clearStack()
+//        }
 
         return binding.root    }
 
-    fun navToLoginFragment(){
+//    fun navToLoginFragment(){
+//
+//        val transaction = activity?.supportFragmentManager?.beginTransaction()
+//        transaction?.replace(R.id.fragmentContainerView, LoginFragment())
+//        transaction?.disallowAddToBackStack()
+//        transaction?.commit()
+//    }
 
-        val transaction = activity?.supportFragmentManager?.beginTransaction()
-        transaction?.replace(R.id.fragmentContainerView, LoginFragment())
-        transaction?.disallowAddToBackStack()
-        transaction?.commit()
-    }
-
-    fun registerSuccessful(){
-        val transaction = activity?.supportFragmentManager?.beginTransaction()
-        transaction?.replace(R.id.fragmentContainerView, LoginFragment())
-        transaction?.disallowAddToBackStack()
-        transaction?.commit()
-        Toast.makeText(activity,"Registration successful!",Toast.LENGTH_LONG).show();
-    }
+//    fun registerSuccessful(){
+////        val transaction = activity?.supportFragmentManager?.beginTransaction()
+////        transaction?.replace(R.id.fragmentContainerView, LoginFragment())
+////        transaction?.disallowAddToBackStack()
+////        transaction?.commit()
+//        Toast.makeText(activity,"Registration successful!",Toast.LENGTH_LONG).show();
+//    }
 
     fun clearStack(){
         val fm = requireActivity().supportFragmentManager
