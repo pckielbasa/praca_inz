@@ -10,11 +10,26 @@ class AddPersonViewModel(app: Application) : AndroidViewModel(app) {
     val goBackToPerson : LiveData<Boolean>
         get() = _goBackToPerson
 
+    private val _openNavCalendar = MutableLiveData<Boolean>()
+    val openNavCalendar : LiveData<Boolean>
+        get() = _openNavCalendar
+
+
     fun goBackToPersonStart(){
         _goBackToPerson.value = true
     }
     fun goBackToPersonFinished(){
         _goBackToPerson.value = false
+    }
+
+    fun openNavCalendarStart(){
+        _openNavCalendar.value = true
+    }
+
+    fun openNavCalendarFinished(){
+        _openNavCalendar.value = false
+
+
     }
 
 

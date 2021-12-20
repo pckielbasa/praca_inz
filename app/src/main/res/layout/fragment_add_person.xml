@@ -8,135 +8,140 @@
             type="com.example.praca_inz.ui.persons.addPerson.AddPersonViewModel" />
 
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/linearLayout2"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:background="@color/colorTopBar"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme" >
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/personsTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/addPersonButtonText"
+                    android:theme="@style/HeadersText"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/addButtonPersons"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"  />
+
+                <ImageView
+                    android:id="@+id/addButtonPersons"
+                    android:layout_width="@dimen/addImageSize"
+                    android:layout_height="@dimen/addImageSize"
+                    android:layout_marginEnd="16dp"
+                    android:onClick="@{() -> addPersonViewModel.goBackToPersonStart() }"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_back" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/backgroundAppColor">
 
             <TextView
-                android:id="@+id/addPersonTxt"
+                android:id="@+id/tvNamePersonAlert"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text=""
+                android:theme="@style/AlertsStyle"
+                app:layout_constraintStart_toStartOf="@+id/nameAddPerson"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/nameAddPerson"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/headerAddPersonText"
-                android:textColor="@color/black"
-                android:textSize="32sp"
-                android:textStyle="bold"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="32dp"
+                android:hint="@string/nameAddPersonText"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                android:theme="@style/EditTextStyle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvNamePersonAlert"
+                tools:ignore="SpeakableTextPresentCheck,labelFor " />
+
+            <EditText
+                android:id="@+id/surnameAddPerson"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:hint="@string/surnameAddPersonText"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                android:theme="@style/EditTextStyle"
+                app:layout_constraintEnd_toEndOf="@+id/nameAddPerson"
+                app:layout_constraintStart_toStartOf="@+id/nameAddPerson"
+                app:layout_constraintTop_toBottomOf="@+id/tvSurnamePersonAlert"
+                tools:ignore="SpeakableTextPresentCheck,labelFor " />
+
+            <TextView
+                android:id="@+id/tvSurnamePersonAlert"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text=""
+                android:theme="@style/AlertsStyle"
+                app:layout_constraintStart_toStartOf="@+id/tvNamePersonAlert"
+                app:layout_constraintTop_toBottomOf="@+id/nameAddPerson" />
+
+            <Button
+                android:id="@+id/addPersonButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/addPersonButtonText"
+                app:layout_constraintEnd_toEndOf="@+id/nameAddPerson"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="@+id/nameAddPerson"
+                app:layout_constraintTop_toBottomOf="@+id/tvDateOfBirth"
+                tools:ignore="DuplicateSpeakableTextCheck" />
+
+            <TextView
+                android:id="@+id/tvDateBirthAlert"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text=""
+                android:theme="@style/AlertsStyle"
+                app:layout_constraintStart_toStartOf="@+id/tvNamePersonAlert"
+                app:layout_constraintTop_toBottomOf="@+id/surnameAddPerson" />
+
+            <TextView
+                android:id="@+id/tvDateOfBirth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:onClick="@{() -> addPersonViewModel.openNavCalendarStart() }"
+                android:text="@string/dateAddPersonText"
+                android:textColor="@color/design_default_color_secondary_variant"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/tvSurnamePersonAlert"
+                app:layout_constraintTop_toBottomOf="@+id/tvDateBirthAlert"
                 tools:ignore="TextContrastCheck" />
 
-
-            <ImageView
-                android:id="@+id/backToPersons"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginEnd="0dp"
-                android:src="@drawable/ic_back"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ImageContrastCheck,ImageContrastCheck"
-                android:onClick="@{() -> addPersonViewModel.goBackToPersonStart() }"
-            />
-
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
-
-
-
-    <TextView
-        android:id="@+id/nameAddPersonTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/nameAddPersonText"
-        app:layout_constraintStart_toStartOf="@+id/nameAddPerson"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        tools:layout_editor_absoluteX="16dp" />
-
-    <EditText
-        android:id="@+id/nameAddPerson"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameAddPersonTxt"
-        tools:ignore="SpeakableTextPresentCheck,labelFor " />
-
-    <EditText
-        android:id="@+id/surnameAddPerson"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/nameAddPerson"
-        app:layout_constraintTop_toBottomOf="@+id/surnameAddPersonTxt"
-        tools:ignore="SpeakableTextPresentCheck,labelFor " />
-
-    <TextView
-        android:id="@+id/surnameAddPersonTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/surnameAddPersonText"
-        app:layout_constraintStart_toStartOf="@+id/nameAddPersonTxt"
-        app:layout_constraintTop_toBottomOf="@+id/nameAddPerson"
-        tools:layout_editor_absoluteX="16dp" />
-
-    <Button
-        android:id="@+id/addPersonButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:text="@string/addPersonButtonText"
-        app:layout_constraintEnd_toEndOf="@+id/nameAddPerson"
-        app:layout_constraintStart_toStartOf="@+id/nameAddPerson"
-        app:layout_constraintTop_toBottomOf="@+id/dateBirthAddPerson" />
-
-    <EditText
-        android:id="@+id/dateBirthAddPerson"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:importantForAutofill="no"
-        android:inputType="date"
-        app:layout_constraintStart_toStartOf="@+id/nameAddPerson"
-        app:layout_constraintTop_toBottomOf="@+id/dataBirthAddPersonTxt"
-        tools:ignore="SpeakableTextPresentCheck, labelFor " />
-
-    <TextView
-        android:id="@+id/dataBirthAddPersonTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/dateAddPersonText"
-        app:layout_constraintStart_toStartOf="@+id/nameAddPersonTxt"
-        app:layout_constraintTop_toBottomOf="@+id/surnameAddPerson" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </layout>

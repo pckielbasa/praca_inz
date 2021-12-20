@@ -64,10 +64,10 @@ class PersonFragment : Fragment() {
 
     fun goToAddPerson(){
 
-//        val transaction = activity?.supportFragmentManager?.beginTransaction()
-//        transaction?.replace(R.id.fragmentContainerViewPerson, AddPersonFragment())
-//        transaction?.addToBackStack(null)
-//        transaction?.commit()
+        val transaction = activity?.supportFragmentManager?.beginTransaction()
+        transaction?.replace(R.id.fragmentContainerViewPerson, AddPersonFragment())
+        transaction?.addToBackStack(null)
+        transaction?.commit()
 
 //        //Test Czy działa edit fragment
 //        val transaction = activity?.supportFragmentManager?.beginTransaction()
@@ -75,11 +75,11 @@ class PersonFragment : Fragment() {
 //        transaction?.addToBackStack(null)
 //        transaction?.commit()
 
-        //TYLKO DLA TESTOW
-        val intent = Intent(context, MainActivity::class.java)
-        activity?.finish()
-        startActivity(intent)
-        //------------------------
+//        //TYLKO DLA TESTOW
+//        val intent = Intent(context, MainActivity::class.java)
+//        activity?.finish()
+//        startActivity(intent)
+//        //------------------------
     }
 
     fun goEditPerson(){

@@ -12,9 +12,6 @@ class CalendarViewModel (app: Application) : AndroidViewModel(app) {
     val openNavCalendar : LiveData<Boolean>
         get() = _openNavCalendar
 
-
-
-
     fun openNavCalendarStart(){
         _openNavCalendar.value = true
     }

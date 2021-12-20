@@ -1,5 +1,6 @@
 package com.example.praca_inz.authorization.registration
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,10 +11,12 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import com.example.praca_inz.R
+import com.example.praca_inz.authorization.AuthorizationActivity
 import com.example.praca_inz.authorization.login.LoginFragment
 import com.example.praca_inz.authorization.login.LoginViewModel
 import com.example.praca_inz.databinding.FragmentLoginBinding
 import com.example.praca_inz.databinding.FragmentRegistrationBinding
+import com.example.praca_inz.ui.persons.PersonActivity
 
 class RegistrationFragment : Fragment() {
 
@@ -39,10 +42,12 @@ class RegistrationFragment : Fragment() {
 //            clearStack()
 //        }
 
-//        binding.registerButtonRegister.setOnClickListener {
-//            registerSuccessful()
-//            clearStack()
-//        }
+        binding.registerButtonRegister.setOnClickListener {
+            registerSuccessful()
+            val intent = Intent(context, AuthorizationActivity::class.java)
+            activity?.finish()
+            startActivity(intent)
+        }
 
         return binding.root    }
 
@@ -54,13 +59,13 @@ class RegistrationFragment : Fragment() {
 //        transaction?.commit()
 //    }
 
-//    fun registerSuccessful(){
-////        val transaction = activity?.supportFragmentManager?.beginTransaction()
-////        transaction?.replace(R.id.fragmentContainerView, LoginFragment())
-////        transaction?.disallowAddToBackStack()
-////        transaction?.commit()
-//        Toast.makeText(activity,"Registration successful!",Toast.LENGTH_LONG).show();
-//    }
+    fun registerSuccessful(){
+//        val transaction = activity?.supportFragmentManager?.beginTransaction()
+//        transaction?.replace(R.id.fragmentContainerView, LoginFragment())
+//        transaction?.disallowAddToBackStack()
+//        transaction?.commit()
+        Toast.makeText(activity,"Registration successful!",Toast.LENGTH_LONG).show();
+    }
 
     fun clearStack(){
         val fm = requireActivity().supportFragmentManager
