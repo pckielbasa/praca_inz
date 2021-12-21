@@ -15,7 +15,11 @@
         android:id="@+id/navigation_contact"
         android:name="com.example.praca_inz.ui.contact.ContactFragment"
         android:label="@string/title_contact"
-        tools:layout="@layout/fragment_medicine" />
+        tools:layout="@layout/fragment_contact" >
+        <action
+            android:id="@+id/action_navigation_contact_to_addContactFragment"
+            app:destination="@id/addContactFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_allergies"
@@ -46,5 +50,14 @@
         <action
             android:id="@+id/action_addMealsFragment_to_navigation_meals"
             app:destination="@id/navigation_meals" />
+    </fragment>
+    <fragment
+        android:id="@+id/addContactFragment"
+        android:name="com.example.praca_inz.ui.contact.addContact.AddContactFragment"
+        android:label="fragment_add_contact"
+        tools:layout="@layout/fragment_add_contact" >
+        <action
+            android:id="@+id/action_addContactFragment_to_navigation_contact"
+            app:destination="@id/navigation_contact" />
     </fragment>
 </navigation>

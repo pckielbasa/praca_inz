@@ -6,6 +6,7 @@
     <string name="title_allergies">Allergies</string>
     <string name="title_meals">Food</string>
     <string name="title_change">Person</string>
+    <string name="title_contactWith">Contact with</string>
     <!-- login fragment -->
     <string name="usernameText">Username :</string>
     <string name="passwordText">Password :</string>
@@ -28,27 +29,33 @@
     <string name="headerAddPersonText">Add Person</string>
     <string name="saveButtonText">Save</string>
     <string name="headerEditPersonText">Edit Person</string>
+
     <!-- buttons -->
     <string name="backText">Back</string>
     <string name="addText">Add</string>
 
     <!-- Main activity -->
-    <!--Change fragment -->
     <string name="changeInformationText">I am transferring to the choice of persons. Pleas wait!</string>
-
-    <!-- Menu Names -->
     <string name="snackTabText">Snack</string>
     <string name="mealsTabText">Meal</string>
     <string name="componentTabText">Component</string>
-
-    <!-- Meals Menu -->
-    <!-- Meals popup menu -->
     <string name="addMealMealsText">Add Meal</string>
     <string name="addSnackMealsText">Add Snack</string>
     <string name="addComponentMealsText">Add Component</string>
     <string name="componentNameText">Component name :</string>
     <string name="snackNameText">Snack name :</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="addChemistryText">Add chemistry</string>
+    <string name="addPlantText">Add plant</string>
+    <string name="addAnimalText">Add animal</string>
+    <string name="addContactItem">Add position</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="addToFavourite">Add to favourites</string>
+
+
+    <!--Array - contact things -->
+    <string-array name="contact_things">
+        <item>Chemistry</item>
+        <item>Plant</item>
+        <item>Animal</item>
+    </string-array>
 </resources>

@@ -5,16 +5,75 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.praca_inz.R
+import com.example.praca_inz.databinding.FragmentContactBinding
+import com.example.praca_inz.databinding.FragmentMealsBinding
+import com.example.praca_inz.ui.contact.addContact.AddContactFragment
+import com.example.praca_inz.ui.meals.MealsViewModel
+import com.example.praca_inz.ui.meals.mealsMenu.ViewPagerMealsAdapter
+import com.example.praca_inz.ui.meals.mealsMenu.component.AddComponentMealsFragment
+import com.example.praca_inz.ui.meals.mealsMenu.snack.AddSnackMealsFragment
+import com.google.android.material.tabs.TabLayoutMediator
 
 class ContactFragment : Fragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+    private val contactViewModel: ContactViewModel by lazy {
+        val activity = requireNotNull(this.activity) {
+            "You can only access the viewModel after onViewCreated()"
+        }
+        ViewModelProvider(this, ContactViewModel.ContactViewModelFactory(activity.application))[ContactViewModel::class.java]
+    }
+
+    private lateinit var binding: FragmentContactBinding
+
+
+    override fun onCreateView(inflater: LayoutInflater,
+                              container: ViewGroup?,
+                              savedInstanceState: Bundle?
     ): View? {
 
-        return inflater.inflate(R.layout.fragment_contact, container, false)
+        binding = FragmentContactBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = this
+        binding.contactViewModel = contactViewModel
+
+
+        contactViewModel.eventOpenPopupMenu.observe(viewLifecycleOwner, { goOpen ->
+            if(goOpen){
+                openAddContact()
+                contactViewModel.openPopupMenuFinished()
+            }
+        })
+
+        //Menu Meals
+        val tabLayout = binding.tabLayoutContact
+        val viewPager2 = binding.viewPagerContact
+        val adapter= ViewPagerContactAdapter(requireActivity().supportFragmentManager, lifecycle)
+        viewPager2.adapter=adapter
+        TabLayoutMediator(tabLayout,viewPager2){tab,position->
+            when(position){
+                0->{
+                    tab.text="Chemistry"
+                }
+                1->{
+                    tab.text="Plant"
+                }
+                2->{
+                    tab.text="Animal"
+                }
+            }
+        }.attach()
+
+
+        return binding.root
     }
+    fun openAddContact(){
+        val dialog = AddContactFragment()
+        dialog.show(requireActivity().supportFragmentManager, "ADD CONTACT THINGS")
+
+    }
+
 
 }
