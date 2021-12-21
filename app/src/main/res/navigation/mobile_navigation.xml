@@ -12,9 +12,9 @@
         tools:layout="@layout/fragment_calendar" />
 
     <fragment
-        android:id="@+id/navigation_medicine"
-        android:name="com.example.praca_inz.ui.medicine.MedicineFragment"
-        android:label="@string/title_medicine"
+        android:id="@+id/navigation_contact"
+        android:name="com.example.praca_inz.ui.contact.ContactFragment"
+        android:label="@string/title_contact"
         tools:layout="@layout/fragment_medicine" />
 
     <fragment

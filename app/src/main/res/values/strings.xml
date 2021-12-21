@@ -2,7 +2,7 @@
     <!-- Titles-->
     <string name="app_name">praca_inz</string>
     <string name="title_calendar">Calendar</string>
-    <string name="title_medicine">Medicines</string>
+    <string name="title_contact">Contact</string>
     <string name="title_allergies">Allergies</string>
     <string name="title_meals">Food</string>
     <string name="title_change">Person</string>
