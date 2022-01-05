@@ -27,9 +27,16 @@ class AddItemsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentAddItemsBinding.inflate(inflater, container, false)
-//        binding.lifecycleOwner = this
-//        binding.addItemsViewModel = addItemsViewModel
+        binding.lifecycleOwner = this
+        binding.addItemsViewModel = addItemsViewModel
 
+        addItemsViewModel.closeAddItem.observe(viewLifecycleOwner, {
+                closeAdd ->
+            if (closeAdd){
+                addItemsViewModel.closeAddItemFinished()
+                activity?.onBackPressed()
+            }
+        })
         return binding.root
     }
 

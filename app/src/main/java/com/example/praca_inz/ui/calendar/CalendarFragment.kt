@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.praca_inz.databinding.FragmentCalendarBinding
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import com.example.praca_inz.R
 import com.example.praca_inz.authorization.AuthorizationActivity
 import java.text.SimpleDateFormat
 import java.util.*
@@ -58,14 +60,9 @@ class CalendarFragment : Fragment(){
                 val dateInString = date.toString("dd-MM-yyyy")
                 binding.dateCalendar.text = dateInString
 
-
-
-
-
-
-
-
-
+        binding.addItemsDate.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_calendar_to_addItemsFragment)
+        }
 
         return binding.root
     }

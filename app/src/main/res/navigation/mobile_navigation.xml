@@ -9,7 +9,11 @@
         android:id="@+id/navigation_calendar"
         android:name="com.example.praca_inz.ui.calendar.CalendarFragment"
         android:label="@string/title_calendar"
-        tools:layout="@layout/fragment_calendar" />
+        tools:layout="@layout/fragment_calendar" >
+        <action
+            android:id="@+id/action_navigation_calendar_to_addItemsFragment"
+            app:destination="@id/addItemsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_contact"
@@ -38,10 +42,10 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_change"
-        android:name="com.example.praca_inz.ui.change.ChangeFragment"
-        android:label="@string/title_change"
-        tools:layout="@layout/fragment_change" />
+        android:id="@+id/navigation_profile"
+        android:name="com.example.praca_inz.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/addMealsFragment"
         android:name="com.example.praca_inz.ui.meals.addMeals.AddMealsFragment"
@@ -59,5 +63,14 @@
         <action
             android:id="@+id/action_addContactFragment_to_navigation_contact"
             app:destination="@id/navigation_contact" />
+    </fragment>
+    <fragment
+        android:id="@+id/addItemsFragment"
+        android:name="com.example.praca_inz.ui.calendar.addItems.AddItemsFragment"
+        android:label="fragment_add_items"
+        tools:layout="@layout/fragment_add_items" >
+        <action
+            android:id="@+id/action_addItemsFragment_to_navigation_calendar"
+            app:destination="@id/navigation_calendar" />
     </fragment>
 </navigation>

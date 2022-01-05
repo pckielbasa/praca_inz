@@ -35,26 +35,7 @@ class AllergiesFragment : Fragment() {
         binding = FragmentAllergiesBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
 
-        //Menu Allergies
-        val tabLayout = binding.tabLayoutAllergies
-        val viewPager2 = binding.viewPagerAllergies
-        val adapter= ViewPagerAllergiesAdapter(requireActivity().supportFragmentManager, lifecycle)
 
-        viewPager2.adapter=adapter
-
-        TabLayoutMediator(tabLayout,viewPager2){tab,position->
-            when(position){
-                0->{
-                    tab.text="Meals"
-                }
-                1->{
-                    tab.text="Snacks"
-                }
-                2->{
-                    tab.text="Components"
-                }
-            }
-        }.attach()
 
 //        binding.allergiesViewModel = allergiesViewModel
         return binding.root
