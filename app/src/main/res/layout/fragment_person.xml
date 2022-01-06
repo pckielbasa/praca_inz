@@ -9,6 +9,9 @@
         <variable
             name="personFragment"
             type="com.example.praca_inz.ui.persons.person.PersonFragment" />
+        <variable
+            name="property"
+            type="com.example.praca_inz.property.PersonProperty" />
     </data>
 
     <LinearLayout
@@ -54,15 +57,21 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/backgroundAppColor">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@{personViewModel.response}"
-                tools:layout_editor_absoluteX="122dp"
-                tools:layout_editor_absoluteY="122dp"
-                tools:ignore="MissingConstraints" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/photos_grid"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:padding="6dp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:listData="@{personViewModel.properties}"
+                tools:listitem="@layout/person_row" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>

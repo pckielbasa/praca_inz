@@ -58,7 +58,7 @@ class PersonFragment : Fragment() {
         })
 
 
-
+        binding.photosGrid.adapter = PersonAdapter()
         return binding.root
     }
 
