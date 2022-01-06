@@ -45,7 +45,11 @@
         android:id="@+id/navigation_profile"
         android:name="com.example.praca_inz.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_navigation_profile_to_addPersonFragment2"
+            app:destination="@id/addPersonFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/addMealsFragment"
         android:name="com.example.praca_inz.ui.meals.addMeals.AddMealsFragment"
@@ -72,5 +76,13 @@
         <action
             android:id="@+id/action_addItemsFragment_to_navigation_calendar"
             app:destination="@id/navigation_calendar" />
+    </fragment>
+    <fragment
+        android:id="@+id/addPersonFragment2"
+        android:name="com.example.praca_inz.ui.persons.addPerson.AddPersonFragment"
+        android:label="AddPersonFragment" >
+        <action
+            android:id="@+id/action_addPersonFragment2_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
     </fragment>
 </navigation>

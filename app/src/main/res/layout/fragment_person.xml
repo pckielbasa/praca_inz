@@ -52,14 +52,18 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.appcompat.widget.Toolbar>
 
-
-
-        <androidx.viewpager2.widget.ViewPager2
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/viewPagerMeals"
-            android:background="@color/backgroundAppColor"
-            />
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{personViewModel.response}"
+                tools:layout_editor_absoluteX="122dp"
+                tools:layout_editor_absoluteY="122dp"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 

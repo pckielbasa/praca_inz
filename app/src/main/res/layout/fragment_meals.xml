@@ -10,7 +10,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginBottom="?attr/actionBarSize">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -62,7 +63,6 @@
     <androidx.viewpager2.widget.ViewPager2
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="?attr/actionBarSize"
         android:clipToPadding="false"
         android:id="@+id/viewPagerMeals"
         android:background="@color/backgroundAppColor"

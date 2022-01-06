@@ -9,24 +9,21 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "Meal")
-public class Meal {
+public class Meal implements Serializable {
 
-    @Id
-    private String _id;
-    @Indexed(unique = true)
+    private String id;
     private String mealName;
     private String commentAlertAllergies;
     private String type = "meal";
-    @Field
     private Boolean favourite;
 
-    @DBRef
+
     private List<Component> mealComponents = new ArrayList<>();
 }

@@ -30,11 +30,10 @@
                     android:id="@+id/personName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:textColor="@color/black"
                     android:textSize="20sp"
-                    app:layout_constraintStart_toEndOf="@+id/imgPerson"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -46,17 +45,6 @@
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="@+id/personName"
                     app:layout_constraintTop_toBottomOf="@+id/personName" />
-
-                <ImageView
-                    android:id="@+id/imgPerson"
-                    android:layout_width="109dp"
-                    android:layout_height="102dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="ImageContrastCheck"
-                    tools:srcCompat="@tools:sample/avatars" />
 
                 <TextView
                     android:id="@+id/dateOfBirth"

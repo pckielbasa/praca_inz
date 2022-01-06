@@ -1,6 +1,7 @@
 package com.example.praca_inz.ui.persons.addPerson
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,12 +10,15 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.example.praca_inz.MainActivity
 import com.example.praca_inz.R
 import com.example.praca_inz.authorization.login.LoginFragment
 import com.example.praca_inz.authorization.login.LoginViewModel
 import com.example.praca_inz.databinding.FragmentAddPersonBinding
 import com.example.praca_inz.databinding.FragmentCalendarBinding
 import com.example.praca_inz.databinding.FragmentLoginBinding
+import com.example.praca_inz.ui.persons.PersonActivity
 import com.example.praca_inz.ui.persons.person.PersonFragment
 import java.text.SimpleDateFormat
 import java.util.*
@@ -51,14 +55,14 @@ class AddPersonFragment : Fragment() {
 
         binding.addPersonButton.setOnClickListener {
             addPersonSuccessful()
-            clearStack()
+
         }
 
         addPersonViewModel.goBackToPerson.observe(viewLifecycleOwner, { goAdd ->
             if(goAdd){
-                backToPerson()
+                activity?.onBackPressed()
                 addPersonViewModel.goBackToPersonFinished()
-                clearStack()
+
             }
         })
 
@@ -84,24 +88,13 @@ class AddPersonFragment : Fragment() {
     }
 
     fun addPersonSuccessful(){
-        val transaction = activity?.supportFragmentManager?.beginTransaction()
-        transaction?.replace(R.id.fragmentContainerViewPerson, PersonFragment())
-        transaction?.disallowAddToBackStack()
-        transaction?.commit()
+        val intent = Intent(context, PersonActivity::class.java)
+        activity?.finish()
+        startActivity(intent)
     }
 
-    fun backToPerson(){
-        val transaction = activity?.supportFragmentManager?.beginTransaction()
-        transaction?.replace(R.id.fragmentContainerViewPerson, PersonFragment())
-        transaction?.disallowAddToBackStack()
-        transaction?.commit()
-    }
-    fun clearStack(){
-        val fm = requireActivity().supportFragmentManager
-        for (i in 0 until fm.backStackEntryCount) {
-            fm.popBackStack()
-        }
-    }
+
+
 
     fun updateLabel(myCalendar: Calendar, locale: Locale = Locale.getDefault()) {
         val myFormat = "dd-MM-yyy"
