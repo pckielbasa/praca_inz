@@ -1,9 +1,7 @@
 package com.example.praca_inz.ui.calendar
 
 import android.app.Application
-import android.content.Intent
 import androidx.lifecycle.*
-import com.example.praca_inz.ui.persons.PersonActivity
 
 
 class CalendarViewModel (app: Application) : AndroidViewModel(app) {

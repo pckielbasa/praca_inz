@@ -25,10 +25,16 @@ public class User {
     @Indexed(unique = true)
     private String email;
     private Long phoneNumber;
+    
 
     @DBRef
-    private List<Person> userPersons = new ArrayList<>();
+    private List<Meal> foodList = new ArrayList<>();
+
+    @DBRef
+    private List<Component> contactList = new ArrayList<>();
+
+    @DBRef
+    private List<DaySchedule> dayScheduleList = new ArrayList<>();
 
 
-    private List<Meal> userMeals = new ArrayList<>();
 }

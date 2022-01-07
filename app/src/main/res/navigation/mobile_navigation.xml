@@ -32,13 +32,11 @@
         tools:layout="@layout/fragment_allergies" />
 
     <fragment
-        android:id="@+id/navigation_meals"
-        android:name="com.example.praca_inz.ui.meals.MealsFragment"
+        android:id="@+id/navigation_food"
+        android:name="com.example.praca_inz.ui.food.FoodFragment"
         android:label="@string/title_meals"
-        tools:layout="@layout/fragment_meals" >
-        <action
-            android:id="@+id/action_navigation_meals_to_addMealsFragment"
-            app:destination="@id/addMealsFragment" />
+        tools:layout="@layout/fragment_food" >
+
     </fragment>
 
     <fragment
@@ -46,19 +44,9 @@
         android:name="com.example.praca_inz.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" >
-        <action
-            android:id="@+id/action_navigation_profile_to_addPersonFragment2"
-            app:destination="@id/addPersonFragment2" />
+
     </fragment>
-    <fragment
-        android:id="@+id/addMealsFragment"
-        android:name="com.example.praca_inz.ui.meals.addMeals.AddMealsFragment"
-        android:label="fragment_add_meals"
-        tools:layout="@layout/fragment_add_meals" >
-        <action
-            android:id="@+id/action_addMealsFragment_to_navigation_meals"
-            app:destination="@id/navigation_meals" />
-    </fragment>
+
     <fragment
         android:id="@+id/addContactFragment"
         android:name="com.example.praca_inz.ui.contact.addContact.AddContactFragment"
@@ -77,12 +65,5 @@
             android:id="@+id/action_addItemsFragment_to_navigation_calendar"
             app:destination="@id/navigation_calendar" />
     </fragment>
-    <fragment
-        android:id="@+id/addPersonFragment2"
-        android:name="com.example.praca_inz.ui.persons.addPerson.AddPersonFragment"
-        android:label="AddPersonFragment" >
-        <action
-            android:id="@+id/action_addPersonFragment2_to_navigation_profile"
-            app:destination="@id/navigation_profile" />
-    </fragment>
+
 </navigation>

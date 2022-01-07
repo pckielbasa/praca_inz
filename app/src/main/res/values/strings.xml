@@ -61,4 +61,10 @@
         <item>Plant</item>
         <item>Animal</item>
     </string-array>
+
+    <string-array name="food_things">
+        <item>Meal</item>
+        <item>Snack</item>
+        <item>Component</item>
+    </string-array>
 </resources>

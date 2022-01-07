@@ -25,16 +25,7 @@ public class Person {
     private String imgURL;
 
     @DBRef
-    private List<Meal> mealAllergies = new ArrayList<>();
-
-    @DBRef
-    private List<Component> componentAllergies = new ArrayList<>();
-
-    @DBRef
-    private List<Snack> snackAllergies = new ArrayList<>();
-
-    @DBRef
-    private List<Medicine> personMedicines = new ArrayList<>();
+    private List<Meal> personAllergies = new ArrayList<>();
 
     @DBRef
     private List<DaySchedule> personSchedules = new ArrayList<>();

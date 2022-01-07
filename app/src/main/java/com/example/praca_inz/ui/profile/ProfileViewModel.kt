@@ -2,7 +2,7 @@ package com.example.praca_inz.ui.profile
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.example.praca_inz.ui.persons.person.PersonViewModel
+
 
 class ProfileViewModel (app: Application) : AndroidViewModel(app){
 

@@ -6,16 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.NavHostFragment
 import com.example.praca_inz.MainActivity
-import com.example.praca_inz.R
-import com.example.praca_inz.authorization.registration.RegistrationFragment
 import com.example.praca_inz.databinding.FragmentLoginBinding
-import com.example.praca_inz.ui.persons.PersonActivity
-import com.google.android.material.bottomsheet.BottomSheetDialog
 
 
 class LoginFragment : Fragment() {
@@ -69,7 +62,7 @@ class LoginFragment : Fragment() {
 
 
     fun loginSuccessful(){
-            val intent = Intent(context, PersonActivity::class.java)
+            val intent = Intent(context, MainActivity::class.java)
             activity?.finish()
             startActivity(intent)
 

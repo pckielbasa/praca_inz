@@ -10,10 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.praca_inz.authorization.login.LoginViewModel
 import com.example.praca_inz.databinding.FragmentAllergiesBinding
-import com.example.praca_inz.databinding.FragmentLoginBinding
-import com.example.praca_inz.ui.allergies.allergiesMenu.ViewPagerAllergiesAdapter
-import com.example.praca_inz.ui.meals.mealsMenu.ViewPagerMealsAdapter
-import com.google.android.material.tabs.TabLayoutMediator
+
 
 
 class AllergiesFragment : Fragment() {

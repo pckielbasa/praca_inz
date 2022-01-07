@@ -18,12 +18,13 @@ import java.util.List;
 @AllArgsConstructor
 public class Meal implements Serializable {
 
-    private String id;
+    @Id
+    private String _id;
     private String mealName;
     private String commentAlertAllergies;
     private String type = "meal";
     private Boolean favourite;
 
-
+    @DBRef
     private List<Component> mealComponents = new ArrayList<>();
 }

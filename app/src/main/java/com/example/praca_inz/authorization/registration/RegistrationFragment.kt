@@ -7,16 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
-import com.example.praca_inz.R
 import com.example.praca_inz.authorization.AuthorizationActivity
-import com.example.praca_inz.authorization.login.LoginFragment
-import com.example.praca_inz.authorization.login.LoginViewModel
-import com.example.praca_inz.databinding.FragmentLoginBinding
 import com.example.praca_inz.databinding.FragmentRegistrationBinding
-import com.example.praca_inz.ui.persons.PersonActivity
 
 class RegistrationFragment : Fragment() {
 

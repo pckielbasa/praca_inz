@@ -12,4 +12,5 @@ public class ItemDayDTO {
     private Integer hour;
     private Integer minute;
     private String comment;
+
 }

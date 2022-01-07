@@ -1,25 +1,29 @@
-package com.example.praca_inz.authorization
+package com.example.praca_inz.ui.food
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.praca_inz.authorization.login.LoginFragment
-import com.example.praca_inz.authorization.registration.RegistrationFragment
+import com.example.praca_inz.ui.food.components.ComponentFragment
+import com.example.praca_inz.ui.food.meals.MealFragment
+import com.example.praca_inz.ui.food.snacks.SnackFragment
 
-
-class ViewPagerAuthAdapter (fragmentManager: FragmentManager, lifecycle: Lifecycle):
+class ViewPagerFoodAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle):
     FragmentStateAdapter(fragmentManager, lifecycle) {
     override fun getItemCount(): Int {
-        return 2
+        return 3
     }
+
     override fun createFragment(position: Int): Fragment {
         return when(position){
             0->{
-                LoginFragment()
+                MealFragment()
             }
             1->{
-                RegistrationFragment()
+                SnackFragment()
+            }
+            2->{
+                ComponentFragment()
             }
             else ->{
                 Fragment()

@@ -1,10 +1,10 @@
-package com.example.praca_inz.ui.contact
+package com.example.praca_inz.ui.food
 
 import android.app.Application
 import androidx.lifecycle.*
+import com.example.praca_inz.ui.contact.ContactViewModel
 
-class ContactViewModel (app: Application) : AndroidViewModel(app) {
-
+class FoodViewModel  (app: Application) : AndroidViewModel(app){
     private val _eventOpenPopupMenu = MutableLiveData<Boolean>()
     val eventOpenPopupMenu : LiveData<Boolean>
         get() = _eventOpenPopupMenu
@@ -15,12 +15,13 @@ class ContactViewModel (app: Application) : AndroidViewModel(app) {
     fun openPopupMenuFinished(){
         _eventOpenPopupMenu.value = false
     }
-    class ContactViewModelFactory constructor(private val app: Application): ViewModelProvider.Factory {
+
+    class FoodViewModelFactory constructor(private val app: Application): ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return if (modelClass.isAssignableFrom(ContactViewModel::class.java)) {
-                ContactViewModel(this.app) as T
+            return if (modelClass.isAssignableFrom(FoodViewModel::class.java)) {
+                FoodViewModel(this.app) as T
             } else {
-                throw IllegalArgumentException("ContactViewModel Not Found")
+                throw IllegalArgumentException("FoodViewModel Not Found")
             }
         }
     }

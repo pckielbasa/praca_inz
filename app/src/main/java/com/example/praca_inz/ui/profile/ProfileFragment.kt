@@ -7,13 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
-import com.example.praca_inz.R
 import com.example.praca_inz.authorization.AuthorizationActivity
 import com.example.praca_inz.databinding.FragmentProfileBinding
-import com.example.praca_inz.ui.persons.PersonActivity
-import com.example.praca_inz.ui.persons.addPerson.AddPersonFragment
-
 
 
 class ProfileFragment : Fragment() {
@@ -45,22 +40,15 @@ class ProfileFragment : Fragment() {
         })
 
         binding.addPersonButton.setOnClickListener{
-            goToAddPerson()
+
         }
         binding.changePersonButton.setOnClickListener {
-            changePerson()
+
         }
         return binding.root
     }
 
-    fun goToAddPerson(){
-        findNavController().navigate(R.id.action_navigation_profile_to_addPersonFragment2)
-    }
-    fun changePerson(){
-        val intent = Intent(context, PersonActivity::class.java)
-        activity?.finish()
-        startActivity(intent)
-    }
+
 
     fun logoutFromApp(){
         val intent = Intent(context, AuthorizationActivity::class.java)
