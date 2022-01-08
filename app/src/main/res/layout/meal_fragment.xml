@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".ui.food.meals.MealFragment">
-
-    <TextView
+<data>
+    <variable
+        name="mealViewModel"
+        type="com.example.praca_inz.ui.food.meals.MealViewModel" />
+</data>
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@{mealViewModel.response}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</FrameLayout>
+
+</layout>

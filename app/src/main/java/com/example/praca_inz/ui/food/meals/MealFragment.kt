@@ -7,26 +7,28 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.praca_inz.R
+import com.example.praca_inz.databinding.MealFragmentBinding
 
 class MealFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = MealFragment()
+    private val mealViewModel: MealViewModel by lazy {
+        ViewModelProvider(this)[MealViewModel::class.java]
     }
 
-    private lateinit var viewModel: MealViewModel
-
+    private lateinit var binding:MealFragmentBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.meal_fragment, container, false)
+
+        binding = MealFragmentBinding.inflate(inflater)
+        binding.lifecycleOwner = this
+        binding.mealViewModel = mealViewModel
+
+        setHasOptionsMenu(true)
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MealViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
+
 
 }

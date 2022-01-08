@@ -7,26 +7,28 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.praca_inz.R
+import com.example.praca_inz.databinding.ComponentFragmentBinding
+import com.example.praca_inz.databinding.SnackFragmentBinding
+import com.example.praca_inz.ui.food.snacks.SnackViewModel
 
 class ComponentFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = ComponentFragment()
+    private val componentViewModel: ComponentViewModel by lazy {
+        ViewModelProvider(this)[ComponentViewModel::class.java]
     }
 
-    private lateinit var viewModel: ComponentViewModel
-
+    private lateinit var binding: ComponentFragmentBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.component_fragment, container, false)
-    }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ComponentViewModel::class.java)
-        // TODO: Use the ViewModel
+        binding = ComponentFragmentBinding.inflate(inflater)
+        binding.lifecycleOwner = this
+        binding.componentViewModel = componentViewModel
+
+        setHasOptionsMenu(true)
+        return binding.root
     }
 
 }

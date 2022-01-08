@@ -1,6 +1,6 @@
 package com.example.praca_inz.network
 
-import com.example.praca_inz.property.FoodProperty
+import com.example.praca_inz.property.ContactProperty
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -11,7 +11,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.GET
 
-private const val BASE_URL = "http://10.0.2.2:8080/food/"
+private const val BASE_URL = "http://10.0.2.2:8080/contact/"
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
@@ -23,15 +23,14 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
-
-interface FoodApiService {
+interface ContactApiService {
     @GET("all")
-    fun getFoods():
-            Deferred<List<FoodProperty>>
+    fun getContacts():
+            Deferred<List<ContactProperty>>
 }
 
-object FoodApi {
-    val retrofitService : FoodApiService by lazy {
-        retrofit.create(FoodApiService::class.java)
+object ContactApi {
+    val retrofitService : ContactApiService by lazy {
+        retrofit.create(ContactApiService::class.java)
     }
 }

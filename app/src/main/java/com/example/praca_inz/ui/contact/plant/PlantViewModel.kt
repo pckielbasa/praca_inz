@@ -1,9 +1,11 @@
-package com.example.praca_inz.ui.food.snacks
+package com.example.praca_inz.ui.contact.plant
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.praca_inz.network.ContactApi
 import com.example.praca_inz.network.FoodApi
+import com.example.praca_inz.property.ContactProperty
 import com.example.praca_inz.property.FoodProperty
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -13,23 +15,22 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SnackViewModel : ViewModel() {
+class PlantViewModel : ViewModel() {
 
     private val _response = MutableLiveData<String>()
     val response: LiveData<String>
         get() = _response
 
-
     private var viewModelJob = Job()
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main )
 
     init {
-        getSnackRealEstateProperties()
+        getPlantRealEstateProperties()
     }
 
-    private fun getSnackRealEstateProperties(){
+    private fun getPlantRealEstateProperties(){
         coroutineScope.launch {
-            val getPropertiesDeferred = FoodApi.retrofitService.getFoods()
+            val getPropertiesDeferred = ContactApi.retrofitService.getContacts()
             try {
                 val listResult = getPropertiesDeferred.await()
                 _response.value = "Success: ${listResult.size} Meals properties retrieved"
@@ -42,4 +43,5 @@ class SnackViewModel : ViewModel() {
         super.onCleared()
         viewModelJob.cancel()
     }
+
 }
