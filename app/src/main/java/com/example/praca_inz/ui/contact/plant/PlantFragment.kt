@@ -6,10 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import com.example.praca_inz.R
 import com.example.praca_inz.databinding.FragmentPlantBinding
-import com.example.praca_inz.databinding.MealFragmentBinding
-import com.example.praca_inz.ui.food.meals.MealViewModel
+import com.example.praca_inz.ui.contact.ContactGridAdapter
 
 class PlantFragment : Fragment() {
 
@@ -26,6 +24,8 @@ class PlantFragment : Fragment() {
         binding = FragmentPlantBinding.inflate(inflater)
         binding.lifecycleOwner = this
         binding.plantViewModel = plantViewModel
+
+        binding.componentsGrid.adapter = ContactGridAdapter()
 
         setHasOptionsMenu(true)
         return binding.root

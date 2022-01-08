@@ -1,4 +1,4 @@
-package com.example.praca_inz.ui.contact.animal
+package com.example.praca_inz.ui.contact
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.praca_inz.databinding.ContactListItemBinding
 import com.example.praca_inz.property.ContactProperty
 
-class AnimalGridAdapter : ListAdapter<ContactProperty, AnimalGridAdapter.ContactPropertyViewHolder>(DiffCallback) {
+class ContactGridAdapter : ListAdapter<ContactProperty, ContactGridAdapter.ContactPropertyViewHolder>(DiffCallback) {
 
     class ContactPropertyViewHolder(private var binding: ContactListItemBinding):
         RecyclerView.ViewHolder(binding.root) {
@@ -31,12 +31,12 @@ class AnimalGridAdapter : ListAdapter<ContactProperty, AnimalGridAdapter.Contact
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): AnimalGridAdapter.ContactPropertyViewHolder {
+    ): ContactGridAdapter.ContactPropertyViewHolder {
         return ContactPropertyViewHolder(ContactListItemBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
     override fun onBindViewHolder(
-        holder: AnimalGridAdapter.ContactPropertyViewHolder,
+        holder: ContactGridAdapter.ContactPropertyViewHolder,
         position: Int
     ) {
         val contactProperty = getItem(position)

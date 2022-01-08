@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.praca_inz.R
 import com.example.praca_inz.databinding.FragmentAnimalBinding
 import com.example.praca_inz.databinding.FragmentChemistryBinding
+import com.example.praca_inz.ui.contact.ContactGridAdapter
 import com.example.praca_inz.ui.contact.chemistry.ChemistryViewModel
 
 
@@ -29,7 +30,7 @@ class AnimalFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.animalViewModel = animalViewModel
 
-        binding.componentsGrid.adapter = AnimalGridAdapter()
+        binding.componentsGrid.adapter = ContactGridAdapter()
 
         setHasOptionsMenu(true)
         return binding.root

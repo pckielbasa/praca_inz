@@ -22,10 +22,10 @@ class PlantViewModel : ViewModel() {
     val status: LiveData<String>
         get() = _status
 
-    private val _property = MutableLiveData<ContactProperty>()
+    private val _properties = MutableLiveData<List<ContactProperty>>()
 
-    val property: LiveData<ContactProperty>
-        get() = _property
+    val properties: LiveData<List<ContactProperty>>
+        get() = _properties
 
     private var viewModelJob = Job()
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main )
@@ -40,7 +40,7 @@ class PlantViewModel : ViewModel() {
             try {
                 val listResult = getPropertiesDeferred.await()
                 if (listResult.isNotEmpty()) {
-                    _property.value = listResult[0]
+                    _properties.value = listResult
                 }
             } catch (e: Exception) {
                 _status.value = "Failure: ${e.message}"
