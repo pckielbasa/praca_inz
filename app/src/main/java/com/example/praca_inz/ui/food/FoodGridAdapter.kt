@@ -10,6 +10,9 @@ import com.example.praca_inz.property.FoodProperty
 
 class FoodGridAdapter : ListAdapter<FoodProperty, FoodGridAdapter.FoodPropertyViewHolder>(DiffCallback) {
 
+    enum class FoodGridStatus { LOADING, ERROR, DONE }
+
+
     class FoodPropertyViewHolder(private var binding: FoodListItemBinding):
         RecyclerView.ViewHolder(binding.root) {
         fun bind(foodProperty: FoodProperty) {

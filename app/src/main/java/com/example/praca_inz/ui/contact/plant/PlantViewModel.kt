@@ -7,6 +7,7 @@ import com.example.praca_inz.network.ContactApi
 import com.example.praca_inz.network.FoodApi
 import com.example.praca_inz.property.ContactProperty
 import com.example.praca_inz.property.FoodProperty
+import com.example.praca_inz.ui.contact.ContactGridAdapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -17,9 +18,9 @@ import retrofit2.Response
 
 class PlantViewModel : ViewModel() {
 
-    private val _status = MutableLiveData<String>()
+    private val _status = MutableLiveData<ContactGridAdapter.ContactApiStatus>()
 
-    val status: LiveData<String>
+    val status: LiveData<ContactGridAdapter.ContactApiStatus>
         get() = _status
 
     private val _properties = MutableLiveData<List<ContactProperty>>()
@@ -38,12 +39,13 @@ class PlantViewModel : ViewModel() {
         coroutineScope.launch {
             val getPropertiesDeferred = ContactApi.retrofitService.getContacts()
             try {
-                val listResult = getPropertiesDeferred.await()
-                if (listResult.isNotEmpty()) {
-                    _properties.value = listResult
-                }
+                _status.value = ContactGridAdapter.ContactApiStatus.LOADING
+                val listResult =  getPropertiesDeferred.await()
+                _status.value = ContactGridAdapter.ContactApiStatus.DONE
+                _properties.value = listResult
             } catch (e: Exception) {
-                _status.value = "Failure: ${e.message}"
+                _status.value = ContactGridAdapter.ContactApiStatus.ERROR
+                _properties.value = ArrayList()
             }
         }
     }

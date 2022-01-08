@@ -10,6 +10,10 @@ import com.example.praca_inz.property.ContactProperty
 
 class ContactGridAdapter : ListAdapter<ContactProperty, ContactGridAdapter.ContactPropertyViewHolder>(DiffCallback) {
 
+    enum class ContactApiStatus { LOADING, ERROR, DONE }
+
+
+
     class ContactPropertyViewHolder(private var binding: ContactListItemBinding):
         RecyclerView.ViewHolder(binding.root) {
         fun bind(contactProperty: ContactProperty) {

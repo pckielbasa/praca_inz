@@ -24,6 +24,18 @@ tools:context=".ui.food.components.ComponentFragment">
         app:listData="@{componentViewModel.properties}"
         tools:itemCount="16"
         tools:listitem="@layout/food_list_item" />
+
+    <ImageView
+        android:id="@+id/status_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:marsApiStatus="@{componentViewModel.status}" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
