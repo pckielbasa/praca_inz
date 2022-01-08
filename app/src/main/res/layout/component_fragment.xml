@@ -13,7 +13,7 @@ tools:context=".ui.food.components.ComponentFragment">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@{componentViewModel.response}" />
+        android:text="@{componentViewModel.property.type}" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

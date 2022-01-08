@@ -13,7 +13,7 @@ tools:context=".ui.contact.plant.PlantFragment">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@{plantViewModel.response}" />
+        android:text="@{plantViewModel.property.contactName}" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

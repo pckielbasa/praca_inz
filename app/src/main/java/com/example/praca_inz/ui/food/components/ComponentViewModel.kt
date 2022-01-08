@@ -16,9 +16,15 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ComponentViewModel : ViewModel() {
-    private val _response = MutableLiveData<String>()
-    val response: LiveData<String>
-        get() = _response
+    private val _status = MutableLiveData<String>()
+
+    val status: LiveData<String>
+        get() = _status
+
+    private val _property = MutableLiveData<FoodProperty>()
+
+    val property: LiveData<FoodProperty>
+        get() = _property
 
     private var viewModelJob = Job()
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main )
@@ -32,9 +38,11 @@ class ComponentViewModel : ViewModel() {
             val getPropertiesDeferred = FoodApi.retrofitService.getFoods()
             try {
                 val listResult = getPropertiesDeferred.await()
-                _response.value = "Success: ${listResult.size} Meals properties retrieved"
+                if (listResult.isNotEmpty()) {
+                    _property.value = listResult[0]
+                }
             } catch (e: Exception) {
-                _response.value = "Failure: ${e.message}"
+                _status.value = "Failure: ${e.message}"
             }
         }
     }

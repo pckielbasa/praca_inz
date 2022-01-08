@@ -29,6 +29,8 @@ class AnimalFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.animalViewModel = animalViewModel
 
+        binding.componentsGrid.adapter = AnimalGridAdapter()
+
         setHasOptionsMenu(true)
         return binding.root
     }
