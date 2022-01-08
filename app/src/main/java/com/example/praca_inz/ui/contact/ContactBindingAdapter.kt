@@ -18,7 +18,7 @@ fun bindStatus(statusImageView: ImageView, status: ContactGridAdapter.ContactApi
     when (status) {
         ContactGridAdapter.ContactApiStatus.LOADING -> {
             statusImageView.visibility = View.VISIBLE
-            statusImageView.setImageResource(R.drawable.ic_change)
+            statusImageView.setImageResource(R.drawable.loading_animation)
         }
         ContactGridAdapter.ContactApiStatus.ERROR -> {
             statusImageView.visibility = View.VISIBLE

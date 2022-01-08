@@ -35,7 +35,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:marsApiStatus="@{animalViewModel.status}" />
 
-    
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

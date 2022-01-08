@@ -20,7 +20,7 @@ fun bindStatus(statusImageView: ImageView, status: FoodGridAdapter.FoodGridStatu
     when (status) {
         FoodGridAdapter.FoodGridStatus.LOADING -> {
             statusImageView.visibility = View.VISIBLE
-            statusImageView.setImageResource(R.drawable.ic_change)
+            statusImageView.setImageResource(R.drawable.loading_animation)
         }
         FoodGridAdapter.FoodGridStatus.ERROR -> {
             statusImageView.visibility = View.VISIBLE
