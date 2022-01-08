@@ -7,6 +7,6 @@ import com.example.praca_inz.property.ContactProperty
 
 @BindingAdapter("listData")
 fun bindRecyclerView(recyclerView: RecyclerView, data: List<ContactProperty>?) {
-    val adapterChemistry = recyclerView.adapter as ContactGridAdapter
-    adapterChemistry.submitList(data)
+    val adapter = recyclerView.adapter as ContactGridAdapter
+    adapter.submitList(data)
 }

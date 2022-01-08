@@ -21,10 +21,10 @@ class MealViewModel : ViewModel() {
     val status: LiveData<String>
         get() = _status
 
-    private val _property = MutableLiveData<FoodProperty>()
+    private val _properties = MutableLiveData<List<FoodProperty>>()
 
-    val property: LiveData<FoodProperty>
-        get() = _property
+    val properties: LiveData<List<FoodProperty>>
+        get() = _properties
 
 
     private var viewModelJob = Job()
@@ -40,7 +40,7 @@ class MealViewModel : ViewModel() {
             try {
                 val listResult = getPropertiesDeferred.await()
                 if (listResult.isNotEmpty()) {
-                    _property.value = listResult[0]
+                    _properties.value = listResult
                 }
             } catch (e: Exception) {
                 _status.value = "Failure: ${e.message}"

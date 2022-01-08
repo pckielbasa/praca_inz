@@ -6,8 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.praca_inz.R
 import com.example.praca_inz.databinding.MealFragmentBinding
+import com.example.praca_inz.ui.food.FoodGridAdapter
 
 class MealFragment : Fragment() {
 
@@ -24,6 +24,8 @@ class MealFragment : Fragment() {
         binding = MealFragmentBinding.inflate(inflater)
         binding.lifecycleOwner = this
         binding.mealViewModel = mealViewModel
+
+        binding.componentsGrid.adapter = FoodGridAdapter()
 
         setHasOptionsMenu(true)
         return binding.root

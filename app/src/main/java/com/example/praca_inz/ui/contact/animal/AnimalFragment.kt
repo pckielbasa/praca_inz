@@ -6,11 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import com.example.praca_inz.R
 import com.example.praca_inz.databinding.FragmentAnimalBinding
-import com.example.praca_inz.databinding.FragmentChemistryBinding
 import com.example.praca_inz.ui.contact.ContactGridAdapter
-import com.example.praca_inz.ui.contact.chemistry.ChemistryViewModel
 
 
 class AnimalFragment : Fragment() {

@@ -3,7 +3,6 @@ package com.example.praca_inz.ui.food.components
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.praca_inz.network.ContactApi
 import com.example.praca_inz.network.FoodApi
 import com.example.praca_inz.property.ContactProperty
 import com.example.praca_inz.property.FoodProperty
@@ -11,9 +10,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+
 
 class ComponentViewModel : ViewModel() {
     private val _status = MutableLiveData<String>()
@@ -21,10 +18,10 @@ class ComponentViewModel : ViewModel() {
     val status: LiveData<String>
         get() = _status
 
-    private val _property = MutableLiveData<FoodProperty>()
+    private val _properties = MutableLiveData<List<FoodProperty>>()
 
-    val property: LiveData<FoodProperty>
-        get() = _property
+    val properties: LiveData<List<FoodProperty>>
+        get() = _properties
 
     private var viewModelJob = Job()
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main )
@@ -39,7 +36,7 @@ class ComponentViewModel : ViewModel() {
             try {
                 val listResult = getPropertiesDeferred.await()
                 if (listResult.isNotEmpty()) {
-                    _property.value = listResult[0]
+                    _properties.value = listResult
                 }
             } catch (e: Exception) {
                 _status.value = "Failure: ${e.message}"
