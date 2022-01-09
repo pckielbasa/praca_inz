@@ -23,6 +23,9 @@
         <action
             android:id="@+id/action_navigation_contact_to_addContactFragment"
             app:destination="@id/addContactFragment" />
+        <action
+            android:id="@+id/action_navigation_contact_to_detailContactFragment"
+            app:destination="@id/detailContactFragment" />
     </fragment>
 
     <fragment
@@ -40,6 +43,9 @@
         <action
             android:id="@+id/action_navigation_food_to_detailFoodFragment"
             app:destination="@id/detailFoodFragment" />
+        <action
+            android:id="@+id/action_navigation_food_to_addFoodFragment"
+            app:destination="@id/addFoodFragment" />
     </fragment>
 
     <fragment
@@ -72,7 +78,27 @@
         android:id="@+id/detailFoodFragment"
         android:name="com.example.praca_inz.ui.food.detail.DetailFoodFragment"
         android:label="detail_food_fragment"
-        tools:layout="@layout/detail_food_fragment" />
+        tools:layout="@layout/detail_food_fragment">
+        <argument
+            android:name="selectedProperty"
+            app:argType="com.example.praca_inz.property.FoodProperty"/>
+    </fragment>
+    <dialog
+        android:id="@+id/addFoodFragment"
+        android:name="com.example.praca_inz.ui.food.addFood.AddFoodFragment"
+        android:label="AddFoodFragment" >
+        <action
+            android:id="@+id/action_addFoodFragment_to_navigation_food"
+            app:destination="@id/navigation_food" />
+    </dialog>
+    <fragment
+        android:id="@+id/detailContactFragment"
+        android:name="com.example.praca_inz.ui.contact.detail.DetailContactFragment"
+        android:label="DetailContactFragment" >
+        <argument
+            android:name="selectedProperty"
+            app:argType="com.example.praca_inz.property.ContactProperty"/>
+    </fragment>
 
 
 </navigation>

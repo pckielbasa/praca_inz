@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.example.praca_inz.databinding.FragmentFoodBinding
 import com.example.praca_inz.ui.food.addFood.AddFoodFragment
 
@@ -34,7 +36,19 @@ class FoodFragment : Fragment() {
         })
 
         //OPEN LIST FROM DATABASE
-        binding.foodGrid.adapter = FoodGridAdapter()
+
+        binding.foodGrid.adapter = FoodGridAdapter(FoodGridAdapter.OnClickListener {
+            foodViewModel.displayPropertyDetails(it)
+        })
+
+        foodViewModel.navigateToSelectedProperty.observe(viewLifecycleOwner, Observer {
+            if ( null != it ) {
+                this.findNavController().navigate(FoodFragmentDirections.actionNavigationFoodToDetailFoodFragment(it))
+                foodViewModel.displayPropertyDetailsComplete()
+            }
+        })
+
+
         return binding.root
     }
 

@@ -5,9 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.praca_inz.databinding.FragmentContactBinding
 import com.example.praca_inz.ui.contact.addContact.AddContactFragment
+import com.example.praca_inz.ui.food.FoodFragmentDirections
+import com.example.praca_inz.ui.food.FoodGridAdapter
 
 
 class ContactFragment : Fragment() {
@@ -38,8 +42,16 @@ class ContactFragment : Fragment() {
         })
 
 
-        binding.contactGrid.adapter = ContactGridAdapter()
+        binding.contactGrid.adapter = ContactGridAdapter(ContactGridAdapter.OnClickListener {
+            contactViewModel.displayPropertyDetails(it)
+        })
 
+        contactViewModel.navigateToSelectedProperty.observe(viewLifecycleOwner, Observer {
+            if ( null != it ) {
+                this.findNavController().navigate(ContactFragmentDirections.actionNavigationContactToDetailContactFragment(it))
+                contactViewModel.displayPropertyDetailsComplete()
+            }
+        })
         return binding.root
     }
     private fun openAddContact(){

@@ -10,4 +10,6 @@ data class ContactProperty (
     val commentAlertAllergies:String,
     val type:String,
     val allergy:Boolean
-        ):Parcelable
+        ):Parcelable{
+
+        }

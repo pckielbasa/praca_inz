@@ -7,8 +7,10 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.praca_inz.databinding.ContactListItemBinding
 import com.example.praca_inz.property.ContactProperty
+import com.example.praca_inz.property.FoodProperty
+import com.example.praca_inz.ui.food.FoodGridAdapter
 
-class ContactGridAdapter : ListAdapter<ContactProperty, ContactGridAdapter.ContactPropertyViewHolder>(DiffCallback) {
+class ContactGridAdapter(val onClickListener:ContactGridAdapter.OnClickListener)  : ListAdapter<ContactProperty, ContactGridAdapter.ContactPropertyViewHolder>(DiffCallback) {
 
     enum class ContactApiStatus { LOADING, ERROR, DONE }
 
@@ -44,6 +46,13 @@ class ContactGridAdapter : ListAdapter<ContactProperty, ContactGridAdapter.Conta
         position: Int
     ) {
         val contactProperty = getItem(position)
+        holder.itemView.setOnClickListener {
+            onClickListener.onClick(contactProperty)
+        }
         holder.bind(contactProperty)
+    }
+
+    class OnClickListener(val clickListener: (contactProperty: ContactProperty) -> Unit) {
+        fun onClick(contactProperty: ContactProperty) = clickListener(contactProperty)
     }
 }

@@ -1,5 +1,6 @@
 package com.example.praca_inz.ui.food
 
+import android.annotation.SuppressLint
 import androidx.lifecycle.*
 import com.example.praca_inz.network.FoodApi
 import com.example.praca_inz.property.FoodProperty
@@ -31,6 +32,10 @@ class FoodViewModel : ViewModel(){
     val properties: LiveData<List<FoodProperty>>
         get() = _properties
 
+    private val _navigateToSelectedProperty = MutableLiveData<FoodProperty>()
+
+    val navigateToSelectedProperty: LiveData<FoodProperty>
+        get() = _navigateToSelectedProperty
 
     private var viewModelJob = Job()
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main )
@@ -57,4 +62,16 @@ class FoodViewModel : ViewModel(){
         super.onCleared()
         viewModelJob.cancel()
     }
+
+
+    fun displayPropertyDetails(foodProperty: FoodProperty) {
+        _navigateToSelectedProperty.value = foodProperty
+    }
+
+    @SuppressLint("NullSafeMutableLiveData")
+    fun displayPropertyDetailsComplete() {
+        _navigateToSelectedProperty.value = null
+    }
+
+
 }

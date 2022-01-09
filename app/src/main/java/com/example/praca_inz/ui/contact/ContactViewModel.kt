@@ -1,15 +1,17 @@
 package com.example.praca_inz.ui.contact
 
+import android.annotation.SuppressLint
 import android.app.Application
 import androidx.lifecycle.*
 import com.example.praca_inz.network.ContactApi
 import com.example.praca_inz.property.ContactProperty
+import com.example.praca_inz.property.FoodProperty
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class ContactViewModel (app: Application) : AndroidViewModel(app) {
+class ContactViewModel : ViewModel() {
 
     private val _eventOpenPopupMenu = MutableLiveData<Boolean>()
     val eventOpenPopupMenu : LiveData<Boolean>
@@ -30,6 +32,11 @@ class ContactViewModel (app: Application) : AndroidViewModel(app) {
 
     val properties: LiveData<List<ContactProperty>>
         get() = _properties
+
+    private val _navigateToSelectedProperty = MutableLiveData<ContactProperty>()
+
+    val navigateToSelectedProperty: LiveData<ContactProperty>
+        get() = _navigateToSelectedProperty
 
     private var viewModelJob = Job()
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main )
@@ -56,5 +63,15 @@ class ContactViewModel (app: Application) : AndroidViewModel(app) {
         super.onCleared()
         viewModelJob.cancel()
     }
+
+    fun displayPropertyDetails(contactProperty: ContactProperty) {
+        _navigateToSelectedProperty.value = contactProperty
+    }
+
+    @SuppressLint("NullSafeMutableLiveData")
+    fun displayPropertyDetailsComplete() {
+        _navigateToSelectedProperty.value = null
+    }
+
 
 }
