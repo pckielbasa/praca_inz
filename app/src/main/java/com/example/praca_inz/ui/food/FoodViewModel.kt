@@ -1,10 +1,15 @@
 package com.example.praca_inz.ui.food
 
-import android.app.Application
 import androidx.lifecycle.*
-import com.example.praca_inz.ui.contact.ContactViewModel
+import com.example.praca_inz.network.FoodApi
+import com.example.praca_inz.property.FoodProperty
+import com.example.praca_inz.ui.food.FoodGridAdapter.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 
-class FoodViewModel  (app: Application) : AndroidViewModel(app){
+class FoodViewModel : ViewModel(){
     private val _eventOpenPopupMenu = MutableLiveData<Boolean>()
     val eventOpenPopupMenu : LiveData<Boolean>
         get() = _eventOpenPopupMenu
@@ -16,13 +21,40 @@ class FoodViewModel  (app: Application) : AndroidViewModel(app){
         _eventOpenPopupMenu.value = false
     }
 
-    class FoodViewModelFactory constructor(private val app: Application): ViewModelProvider.Factory {
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return if (modelClass.isAssignableFrom(FoodViewModel::class.java)) {
-                FoodViewModel(this.app) as T
-            } else {
-                throw IllegalArgumentException("FoodViewModel Not Found")
+    private val _status = MutableLiveData<FoodGridStatus>()
+
+    val status: LiveData<FoodGridStatus>
+        get() = _status
+
+    private val _properties = MutableLiveData<List<FoodProperty>>()
+
+    val properties: LiveData<List<FoodProperty>>
+        get() = _properties
+
+
+    private var viewModelJob = Job()
+    private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main )
+
+    init {
+        getMealRealEstateProperties()
+    }
+
+    private fun getMealRealEstateProperties(){
+        coroutineScope.launch {
+            val getPropertiesDeferred = FoodApi.retrofitService.getFoods()
+            try {
+                _status.value = FoodGridStatus.LOADING
+                val listResult =  getPropertiesDeferred.await()
+                _status.value = FoodGridStatus.DONE
+                _properties.value = listResult
+            } catch (e: Exception) {
+                _status.value = FoodGridStatus.ERROR
+                _properties.value = ArrayList()
             }
         }
+    }
+    override fun onCleared() {
+        super.onCleared()
+        viewModelJob.cancel()
     }
 }

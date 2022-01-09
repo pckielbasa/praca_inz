@@ -37,6 +37,9 @@
         android:label="@string/title_meals"
         tools:layout="@layout/fragment_food" >
 
+        <action
+            android:id="@+id/action_navigation_food_to_detailFoodFragment"
+            app:destination="@id/detailFoodFragment" />
     </fragment>
 
     <fragment
@@ -65,5 +68,11 @@
             android:id="@+id/action_addItemsFragment_to_navigation_calendar"
             app:destination="@id/navigation_calendar" />
     </fragment>
+    <fragment
+        android:id="@+id/detailFoodFragment"
+        android:name="com.example.praca_inz.ui.food.detail.DetailFoodFragment"
+        android:label="detail_food_fragment"
+        tools:layout="@layout/detail_food_fragment" />
+
 
 </navigation>

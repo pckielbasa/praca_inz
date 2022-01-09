@@ -8,16 +8,14 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.example.praca_inz.databinding.FragmentContactBinding
 import com.example.praca_inz.ui.contact.addContact.AddContactFragment
-import com.google.android.material.tabs.TabLayoutMediator
+
 
 class ContactFragment : Fragment() {
 
     private val contactViewModel: ContactViewModel by lazy {
-        val activity = requireNotNull(this.activity) {
-            "You can only access the viewModel after onViewCreated()"
-        }
-        ViewModelProvider(this, ContactViewModel.ContactViewModelFactory(activity.application))[ContactViewModel::class.java]
+        ViewModelProvider(this)[ContactViewModel::class.java]
     }
+
 
     private lateinit var binding: FragmentContactBinding
 
@@ -39,29 +37,12 @@ class ContactFragment : Fragment() {
             }
         })
 
-        //Menu Meals
-        val tabLayout = binding.tabLayoutContact
-        val viewPager2 = binding.viewPagerContact
-        val adapter= ViewPagerContactAdapter(requireActivity().supportFragmentManager, lifecycle)
-        viewPager2.adapter=adapter
-        TabLayoutMediator(tabLayout,viewPager2){tab,position->
-            when(position){
-                0->{
-                    tab.text="Chemistry"
-                }
-                1->{
-                    tab.text="Plant"
-                }
-                2->{
-                    tab.text="Animal"
-                }
-            }
-        }.attach()
 
+        binding.contactGrid.adapter = ContactGridAdapter()
 
         return binding.root
     }
-    fun openAddContact(){
+    private fun openAddContact(){
         val dialog = AddContactFragment()
         dialog.show(requireActivity().supportFragmentManager, "ADD CONTACT THINGS")
 

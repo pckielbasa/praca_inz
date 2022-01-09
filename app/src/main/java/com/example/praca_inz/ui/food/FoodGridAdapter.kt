@@ -45,4 +45,8 @@ class FoodGridAdapter : ListAdapter<FoodProperty, FoodGridAdapter.FoodPropertyVi
         val foodProperty = getItem(position)
         holder.bind(foodProperty)
     }
+
+    class OnClickListener(val clickListener: (foodProperty: FoodProperty) -> Unit) {
+        fun onClick(foodProperty:FoodProperty) = clickListener(foodProperty)
+    }
 }
