@@ -17,9 +17,7 @@ import java.util.List;
 public class DaySchedule {
     @Id
     private String _id;
-    private Integer year;
-    private Integer month;
-    private Integer numberOfDay;
+    private String dayDate;
 
     @DBRef
     private List<ItemDaySchedule> dayScheduleIem = new ArrayList<>();

@@ -15,11 +15,13 @@ public class ItemDayService implements ItemDayRepo {
 
     @Override
     public Collection<ItemDaySchedule> getAllItems() {
+
         return itemDayDao.findAll();
     }
 
     @Override
     public ItemDaySchedule addItem(ItemDaySchedule itemDaySchedule) {
+
         return itemDayDao.save(itemDaySchedule);
     }
 }

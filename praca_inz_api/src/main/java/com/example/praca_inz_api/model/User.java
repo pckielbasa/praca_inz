@@ -30,5 +30,10 @@ public class User {
     @DBRef
     private List<DaySchedule> dayScheduleList = new ArrayList<>();
 
+    @DBRef
+    private List<Food> myFood = new ArrayList<>();
+
+    @DBRef
+    private List<Contact> myContact = new ArrayList<>();
 
 }

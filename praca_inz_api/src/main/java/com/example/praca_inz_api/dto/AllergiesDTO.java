@@ -7,8 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ItemDayDTO {
-
-    private String time;
-
+public class AllergiesDTO {
+    private String nameAllergy;
 }

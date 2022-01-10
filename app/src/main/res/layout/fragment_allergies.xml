@@ -38,12 +38,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.appcompat.widget.Toolbar>
 
-        <SearchView
-            android:id="@+id/shapeListSearchView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:iconifiedByDefault="false"
-            android:queryHint="Shape Name" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,76 +48,110 @@
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fillViewport="true">
+                android:fillViewport="true"
+                tools:ignore="UselessParent">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    >
+                    android:orientation="horizontal">
 
-                    <Button
-                        android:id="@+id/allFilter"
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/componentButton"
+                        style="@style/Widget.AppCompat.Button.Borderless"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:background="@color/colorPrimary"
-                        android:onClick="allFilterTapped"
-                        android:text="All"
-                        tools:ignore="TextContrastCheck,TextContrastCheck" />
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="Triangle"
-                        android:id="@+id/triangleFilter"
-                        android:background="@color/colorPrimary"
-                        android:onClick="triangleFilterTapped"/>
-
-                    <Button
-                        android:id="@+id/squareFilter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:background="@color/colorPrimary"
-                        android:onClick="squareFilterTapped"
-                        android:text="Square"
-                        tools:ignore="TextContrastCheck,TextContrastCheck" />
-
-                    <Button
-                        android:id="@+id/circleFilter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:background="@color/colorPrimary"
-                        android:onClick="circleFilterTapped"
-                        android:text="Circle"
-                        tools:ignore="TextContrastCheck,TextContrastCheck" />
-
-                    <Button
-                        android:id="@+id/octagonFilter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:background="@color/colorPrimary"
-                        android:onClick="octagonFilterTapped"
-                        android:text="Octagon"
-                        tools:ignore="TextContrastCheck,TextContrastCheck" />
-
-                    <Button
-                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:layout_height="match_parent"
-                        android:text="Rectangle"
-                        android:id="@+id/rectangleFilter"
-                        android:background="@color/colorPrimary"
-                        android:onClick="rectangleFilterTapped"/>
+                        android:background="@color/tabButtonColor"
+                        android:padding="10dp"
+                        android:text="@string/componentTabText"
+                        android:textColor="@color/black"
+                        app:layout_constraintBottom_toTopOf="@+id/food_grid"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/snackButton"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/snackButton"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/tabButtonColor"
+                        android:padding="10dp"
+                        android:text="@string/snackTabText"
+                        android:textColor="@color/black"
+                        app:layout_constraintBottom_toTopOf="@+id/food_grid"
+                        app:layout_constraintEnd_toStartOf="@+id/componentButton"
+                        app:layout_constraintStart_toEndOf="@+id/mealButton"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/mealButton"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        android:background="@color/tabButtonColor"
+                        android:text="@string/mealsTabText"
+                        android:textColor="@color/black"
+                        app:layout_constraintBottom_toTopOf="@+id/food_grid"
+                        app:layout_constraintEnd_toStartOf="@+id/snackButton"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/chemistryButton"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        android:background="@color/tabButtonColor"
+                        android:text="@string/chemistry"
+                        android:textColor="@color/black"
+                        app:layout_constraintBottom_toTopOf="@+id/contact_grid"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/plantButton"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/plantButton"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        android:background="@color/tabButtonColor"
+                        android:text="@string/plant"
+                        android:textColor="@color/black"
+                        app:layout_constraintBottom_toTopOf="@+id/contact_grid"
+                        app:layout_constraintEnd_toStartOf="@+id/chemistryButton"
+                        app:layout_constraintStart_toEndOf="@+id/animalButton"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/animalButton"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        android:background="@color/tabButtonColor"
+                        android:text="@string/animal"
+                        android:textColor="@color/black"
+                        app:layout_constraintBottom_toTopOf="@+id/contact_grid"
+                        app:layout_constraintEnd_toStartOf="@+id/plantButton"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </LinearLayout>
             </HorizontalScrollView>
         </LinearLayout>
 
 
-        <ListView
-            android:id="@+id/allergyListView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
     </LinearLayout>
 
 

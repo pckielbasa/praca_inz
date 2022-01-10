@@ -13,18 +13,18 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "ItemDaySchedule")
-public class ItemDaySchedule {
+@Document(collection = "Allergies")
+public class Allergies {
     @Id
     private String _id;
-    private String time;
+
+    private String nameAllergy;
 
     @DBRef
-    private List<Food> itemDayFood = new ArrayList<>();
+    private List<Food> allergiesFood = new ArrayList<>();
 
     @DBRef
-    private List<Contact> itemDayContact = new ArrayList<>();
-
+    private List<Contact> allergiesFoodContact = new ArrayList<>();
 
 
 }
