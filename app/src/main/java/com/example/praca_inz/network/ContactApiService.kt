@@ -10,8 +10,11 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 private const val BASE_URL = "http://10.0.2.2:8080/contact/"
+
+enum class ContactApiFilter(val type: String) { SHOW_CHEMISTRY("Chemistry"), SHOW_PLANT("Plant"), SHOW_ANIMAL("Animal") }
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
@@ -24,8 +27,8 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface ContactApiService {
-    @GET("all")
-    fun getContacts():
+    @GET("type")
+    fun getContactsAsync(@Query("type") type: String):
             Deferred<List<ContactProperty>>
 }
 

@@ -8,7 +8,9 @@ import com.example.praca_inz_api.repository.FoodRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class FoodService implements FoodRepo {
@@ -24,6 +26,13 @@ public class FoodService implements FoodRepo {
     @Override
     public Food addFood(Food food) {
         return foodDao.save(food);
+    }
+
+    @Override
+    public Collection<Food> getAllType(String type) {
+        return foodDao.findAll().stream()
+                .filter(offer -> offer.getType().equals(type))
+                .collect(Collectors.toList());
     }
 
 }

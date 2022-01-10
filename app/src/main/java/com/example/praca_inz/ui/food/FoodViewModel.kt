@@ -3,6 +3,7 @@ package com.example.praca_inz.ui.food
 import android.annotation.SuppressLint
 import androidx.lifecycle.*
 import com.example.praca_inz.network.FoodApi
+import com.example.praca_inz.network.FoodApiFilter
 import com.example.praca_inz.property.FoodProperty
 import com.example.praca_inz.ui.food.FoodGridAdapter.*
 import kotlinx.coroutines.CoroutineScope
@@ -41,12 +42,12 @@ class FoodViewModel : ViewModel(){
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main )
 
     init {
-        getMealRealEstateProperties()
+        getFoodProperties(FoodApiFilter.SHOW_MEAL)
     }
 
-    private fun getMealRealEstateProperties(){
+    private fun getFoodProperties(filter: FoodApiFilter){
         coroutineScope.launch {
-            val getPropertiesDeferred = FoodApi.retrofitService.getFoods()
+            val getPropertiesDeferred = FoodApi.retrofitService.getFoodsAsync(filter.type)
             try {
                 _status.value = FoodGridStatus.LOADING
                 val listResult =  getPropertiesDeferred.await()
@@ -72,6 +73,8 @@ class FoodViewModel : ViewModel(){
     fun displayPropertyDetailsComplete() {
         _navigateToSelectedProperty.value = null
     }
-
+    fun updateFilter(filter: FoodApiFilter) {
+        getFoodProperties(filter)
+    }
 
 }

@@ -4,11 +4,14 @@ import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.example.praca_inz.R
 import com.example.praca_inz.databinding.FragmentFoodBinding
+import com.example.praca_inz.network.FoodApiFilter
 import com.example.praca_inz.ui.food.addFood.AddFoodFragment
 
 
@@ -52,9 +55,19 @@ class FoodFragment : Fragment() {
         return binding.root
     }
 
-    fun openAddContact(){
+    private fun openAddContact(){
         val dialog = AddFoodFragment()
         dialog.show(requireActivity().supportFragmentManager, "ADD CONTACT THINGS")
-
     }
+
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        foodViewModel.updateFilter(
+//            when (item.itemId) {
+//                R.id.show_snack_menu -> FoodApiFilter.SHOW_SNACK
+//                R.id.show_component_menu -> FoodApiFilter.SHOW_COMPONENT
+//                else -> FoodApiFilter.SHOW_MEAL
+//            }
+//        )
+//        return true
+//    }
 }

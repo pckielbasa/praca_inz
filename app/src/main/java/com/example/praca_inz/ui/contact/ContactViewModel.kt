@@ -1,11 +1,10 @@
 package com.example.praca_inz.ui.contact
 
 import android.annotation.SuppressLint
-import android.app.Application
 import androidx.lifecycle.*
 import com.example.praca_inz.network.ContactApi
+import com.example.praca_inz.network.ContactApiFilter
 import com.example.praca_inz.property.ContactProperty
-import com.example.praca_inz.property.FoodProperty
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -42,12 +41,12 @@ class ContactViewModel : ViewModel() {
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main )
 
     init {
-        getContactRealEstateProperties()
+        getContactProperties(ContactApiFilter.SHOW_CHEMISTRY)
     }
 
-    private fun getContactRealEstateProperties(){
+    private fun getContactProperties(filter: ContactApiFilter){
         coroutineScope.launch {
-            val getPropertiesDeferred = ContactApi.retrofitService.getContacts()
+            val getPropertiesDeferred = ContactApi.retrofitService.getContactsAsync(filter.type)
             try {
                 _status.value = ContactGridAdapter.ContactApiStatus.LOADING
                 val listResult =  getPropertiesDeferred.await()
@@ -71,6 +70,10 @@ class ContactViewModel : ViewModel() {
     @SuppressLint("NullSafeMutableLiveData")
     fun displayPropertyDetailsComplete() {
         _navigateToSelectedProperty.value = null
+    }
+
+    fun updateFilter(filter: ContactApiFilter) {
+        getContactProperties(filter)
     }
 
 

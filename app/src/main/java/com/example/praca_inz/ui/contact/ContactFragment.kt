@@ -3,12 +3,16 @@ package com.example.praca_inz.ui.contact
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.praca_inz.R
 import com.example.praca_inz.databinding.FragmentContactBinding
+import com.example.praca_inz.network.ContactApiFilter
 import com.example.praca_inz.ui.contact.addContact.AddContactFragment
 import com.example.praca_inz.ui.food.FoodFragmentDirections
 import com.example.praca_inz.ui.food.FoodGridAdapter
@@ -60,5 +64,15 @@ class ContactFragment : Fragment() {
 
     }
 
+//    override fun onOptionsItemSelected(button: Button): Boolean {
+//        contactViewModel.updateFilter(
+//            when (item.itemId) {
+//                R.id.show_anilam_menu -> ContactApiFilter.SHOW_ANIMAL
+//                R.id.show_plant_menu -> ContactApiFilter.SHOW_ANIMAL
+//                else -> ContactApiFilter.SHOW_CHEMISTRY
+//            }
+//        )
+//        return true
+//    }
 
 }

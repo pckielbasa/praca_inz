@@ -26,6 +26,12 @@ public class FoodController {
     public List<FoodDTO> getAllFood(){
         return foodRepo.getAllFood().stream().map(FoodConverter::toDTO).collect(Collectors.toList());
     }
+    @GetMapping("/type")
+    public List<FoodDTO> getFoodType(@RequestParam(value = "type") String type){
+        return foodRepo.getAllType(type).stream()
+                .map(FoodConverter::toDTO)
+                .collect(Collectors.toList());
+    }
 
     @PostMapping
     public FoodDTO addFood(@RequestBody Food food){

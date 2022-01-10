@@ -21,11 +21,7 @@ public class ItemDaySchedule {
     private Integer minute;
     private String comment;
 
-    @DBRef
-    private List<Component> itemFoodList = new ArrayList<>();
 
-    @DBRef
-    private List<Component> itemContactList = new ArrayList<>();
 
 
 }
