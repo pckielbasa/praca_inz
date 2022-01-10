@@ -52,7 +52,51 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/backgroundAppColor">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/componentButton"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/componentTabText"
+                android:background="@color/tabButtonColor"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/food_grid"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/snackButton"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/snackButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/snackTabText"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:textColor="@color/black"
+                android:background="@color/tabButtonColor"
+                app:layout_constraintBottom_toTopOf="@+id/food_grid"
+                app:layout_constraintEnd_toStartOf="@+id/componentButton"
+                app:layout_constraintStart_toEndOf="@+id/mealButton"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/mealButton"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/mealsTabText"
+                android:background="@color/tabButtonColor"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/food_grid"
+                app:layout_constraintEnd_toStartOf="@+id/snackButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/food_grid"
                 android:layout_width="0dp"
@@ -62,7 +106,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/snackButton"
                 app:listData="@{foodViewModel.properties}"
                 tools:itemCount="16"
                 tools:listitem="@layout/food_list_item" />

@@ -7,5 +7,6 @@ import java.util.Collection;
 public interface UserRepo {
     Collection<User> getAllUsers();
     User addUser(User user);
+    User getUserByUsername(String username);
 
 }

@@ -6,6 +6,7 @@ import com.example.praca_inz_api.model.User;
 import com.example.praca_inz_api.repository.UserRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +22,11 @@ public class UserController {
     @GetMapping("/all")
     public List<UserDTO> getAllUsers(){
         return userRepo.getAllUsers().stream().map(UserConverter::toDTO).collect(Collectors.toList());
+    }
+
+    @GetMapping("/{username}")
+    public ResponseEntity<UserDTO> getUserByUsername(@PathVariable String username){
+        return ResponseEntity.ok().body(UserConverter.toDTO(userRepo.getUserByUsername(username)));
     }
 
     @PostMapping

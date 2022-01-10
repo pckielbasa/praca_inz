@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.praca_inz.R
 import com.example.praca_inz.databinding.FragmentFoodBinding
+import com.example.praca_inz.network.ContactApiFilter
 import com.example.praca_inz.network.FoodApiFilter
 import com.example.praca_inz.ui.food.addFood.AddFoodFragment
 
@@ -50,7 +51,21 @@ class FoodFragment : Fragment() {
                 foodViewModel.displayPropertyDetailsComplete()
             }
         })
-
+        binding.mealButton.setOnClickListener {
+            foodViewModel.updateFilter(
+                FoodApiFilter.SHOW_MEAL
+            )
+        }
+        binding.snackButton.setOnClickListener {
+            foodViewModel.updateFilter(
+                FoodApiFilter.SHOW_SNACK
+            )
+        }
+        binding.componentButton.setOnClickListener {
+            foodViewModel.updateFilter(
+                FoodApiFilter.SHOW_COMPONENT
+            )
+        }
 
         return binding.root
     }

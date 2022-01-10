@@ -15,4 +15,6 @@
     <color name="backgroundPopupWindowColor">#BBBBBB</color>
     <color name="underlineColor">#D8D6D6</color>
     <color name="alertColor">#CC0000</color>
+    <color name="tabButtonColor">#AAAAAA</color>
+    <color name="TabButtonIsClicked">#555555</color>
 </resources>

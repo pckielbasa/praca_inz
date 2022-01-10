@@ -64,7 +64,6 @@ class ContactFragment : Fragment() {
         }
         binding.chemistryButton.setOnClickListener {
             contactViewModel.updateFilter(
-//                binding.chemistryButton.resources.getDrawable(R.drawable.)
                 ContactApiFilter.SHOW_CHEMISTRY
             )
         }
@@ -81,6 +80,10 @@ class ContactFragment : Fragment() {
 
     }
 
+    private fun onClick(){
+        val check =true
+
+    }
 
 
 }

@@ -25,6 +25,10 @@ public class UserService implements UserRepo {
         return userDao.findAll();
     }
 
+    @Override
+    public User getUserByUsername(String username) {
+        return userDao.findUserByUsername(username);
+    }
 
 
 
