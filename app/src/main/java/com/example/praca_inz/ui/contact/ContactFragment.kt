@@ -56,6 +56,23 @@ class ContactFragment : Fragment() {
                 contactViewModel.displayPropertyDetailsComplete()
             }
         })
+
+        binding.animalButton.setOnClickListener {
+            contactViewModel.updateFilter(
+                    ContactApiFilter.SHOW_ANIMAL
+            )
+        }
+        binding.chemistryButton.setOnClickListener {
+            contactViewModel.updateFilter(
+//                binding.chemistryButton.resources.getDrawable(R.drawable.)
+                ContactApiFilter.SHOW_CHEMISTRY
+            )
+        }
+        binding.plantButton.setOnClickListener {
+            contactViewModel.updateFilter(
+                ContactApiFilter.SHOW_PLANT
+            )
+        }
         return binding.root
     }
     private fun openAddContact(){
@@ -64,15 +81,6 @@ class ContactFragment : Fragment() {
 
     }
 
-//    override fun onOptionsItemSelected(button: Button): Boolean {
-//        contactViewModel.updateFilter(
-//            when (item.itemId) {
-//                R.id.show_anilam_menu -> ContactApiFilter.SHOW_ANIMAL
-//                R.id.show_plant_menu -> ContactApiFilter.SHOW_ANIMAL
-//                else -> ContactApiFilter.SHOW_CHEMISTRY
-//            }
-//        )
-//        return true
-//    }
+
 
 }

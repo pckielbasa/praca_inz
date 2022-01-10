@@ -53,6 +53,9 @@
     <string name="changePassword">Change Password</string>
     <string name="changePerson">Change Person</string>
     <string name="add_items_on_the_date">Add items on the date</string>
+    <string name="chemistry">chemistry</string>
+    <string name="plant">plant</string>
+    <string name="animal">animal</string>
 
 
     <!--Array - contact things -->
