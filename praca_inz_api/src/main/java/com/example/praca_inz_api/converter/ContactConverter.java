@@ -8,8 +8,6 @@ public class ContactConverter {
         return new ContactDTO(
                 entity.getContactName(),
                 entity.getComposition(),
-                entity.getCommentAlertAllergies(),
-                entity.getType(),
-                entity.getAllergy());
+                entity.getType());
     }
 }

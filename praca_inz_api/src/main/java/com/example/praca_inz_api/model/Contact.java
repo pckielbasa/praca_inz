@@ -15,7 +15,5 @@ public class Contact {
     private String _id;
     private String contactName;
     private String composition;
-    private String commentAlertAllergies;
     private String type;
-    private Boolean allergy;
 }

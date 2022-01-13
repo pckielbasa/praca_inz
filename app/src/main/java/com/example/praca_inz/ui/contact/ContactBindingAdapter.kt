@@ -6,6 +6,7 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.praca_inz.R
 import com.example.praca_inz.property.ContactProperty
+import com.example.praca_inz.ui.food.FoodGridAdapter
 
 
 @BindingAdapter("listData")
@@ -26,6 +27,10 @@ fun bindStatus(statusImageView: ImageView, status: ContactGridAdapter.ContactApi
         }
         ContactGridAdapter.ContactApiStatus.DONE -> {
             statusImageView.visibility = View.GONE
+        }
+        ContactGridAdapter.ContactApiStatus.EMPTY -> {
+            statusImageView.visibility = View.VISIBLE
+            statusImageView.setImageResource(R.drawable.ic_empty)
         }
     }
 }

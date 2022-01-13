@@ -53,6 +53,9 @@ class FoodViewModel : ViewModel(){
                 val listResult =  getPropertiesDeferred.await()
                 _status.value = FoodGridStatus.DONE
                 _properties.value = listResult
+                if (listResult.isEmpty()){
+                    _status.value = FoodGridStatus.EMPTY
+                }
             } catch (e: Exception) {
                 _status.value = FoodGridStatus.ERROR
                 _properties.value = ArrayList()

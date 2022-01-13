@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 public class ContactDTO {
     private String contactName;
     private String composition;
-    private String commentAlertAllergies;
     private String type;
-    private Boolean allergy;
+
 }

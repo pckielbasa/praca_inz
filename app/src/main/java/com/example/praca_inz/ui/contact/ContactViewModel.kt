@@ -5,6 +5,8 @@ import androidx.lifecycle.*
 import com.example.praca_inz.network.ContactApi
 import com.example.praca_inz.network.ContactApiFilter
 import com.example.praca_inz.property.ContactProperty
+import com.example.praca_inz.ui.contact.ContactGridAdapter.*
+import com.example.praca_inz.ui.food.FoodGridAdapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -22,9 +24,9 @@ class ContactViewModel : ViewModel() {
     fun openPopupMenuFinished(){
         _eventOpenPopupMenu.value = false
     }
-    private val _status = MutableLiveData<ContactGridAdapter.ContactApiStatus>()
+    private val _status = MutableLiveData<ContactApiStatus>()
 
-    val status: LiveData<ContactGridAdapter.ContactApiStatus>
+    val status: LiveData<ContactApiStatus>
         get() = _status
 
     private val _properties = MutableLiveData<List<ContactProperty>>()
@@ -48,12 +50,15 @@ class ContactViewModel : ViewModel() {
         coroutineScope.launch {
             val getPropertiesDeferred = ContactApi.retrofitService.getContactsAsync(filter.type)
             try {
-                _status.value = ContactGridAdapter.ContactApiStatus.LOADING
+                _status.value = ContactApiStatus.LOADING
                 val listResult =  getPropertiesDeferred.await()
-                _status.value = ContactGridAdapter.ContactApiStatus.DONE
+                _status.value = ContactApiStatus.DONE
                 _properties.value = listResult
+                if (listResult.isEmpty()){
+                    _status.value = ContactApiStatus.EMPTY
+                }
             } catch (e: Exception) {
-                _status.value = ContactGridAdapter.ContactApiStatus.ERROR
+                _status.value = ContactApiStatus.ERROR
                 _properties.value = ArrayList()
             }
         }

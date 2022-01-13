@@ -75,14 +75,4 @@ class FoodFragment : Fragment() {
         dialog.show(requireActivity().supportFragmentManager, "ADD CONTACT THINGS")
     }
 
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        foodViewModel.updateFilter(
-//            when (item.itemId) {
-//                R.id.show_snack_menu -> FoodApiFilter.SHOW_SNACK
-//                R.id.show_component_menu -> FoodApiFilter.SHOW_COMPONENT
-//                else -> FoodApiFilter.SHOW_MEAL
-//            }
-//        )
-//        return true
-//    }
 }

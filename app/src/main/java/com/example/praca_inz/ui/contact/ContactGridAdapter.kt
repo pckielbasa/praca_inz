@@ -12,7 +12,7 @@ import com.example.praca_inz.ui.food.FoodGridAdapter
 
 class ContactGridAdapter(val onClickListener:ContactGridAdapter.OnClickListener)  : ListAdapter<ContactProperty, ContactGridAdapter.ContactPropertyViewHolder>(DiffCallback) {
 
-    enum class ContactApiStatus { LOADING, ERROR, DONE }
+    enum class ContactApiStatus { LOADING, ERROR, DONE, EMPTY}
 
 
 

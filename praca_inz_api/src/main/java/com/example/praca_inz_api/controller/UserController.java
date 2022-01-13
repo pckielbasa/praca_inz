@@ -1,9 +1,11 @@
 package com.example.praca_inz_api.controller;
 
 import com.example.praca_inz_api.converter.UserConverter;
+import com.example.praca_inz_api.dto.RegisterUserDTO;
 import com.example.praca_inz_api.dto.UserDTO;
 import com.example.praca_inz_api.model.User;
 import com.example.praca_inz_api.repository.UserRepo;
+import com.example.praca_inz_api.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,12 +14,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static org.springframework.http.HttpStatus.BAD_REQUEST;
+
 @RestController
 @RequestMapping("/user")
 @RequiredArgsConstructor
 public class UserController {
     @Autowired
     private UserRepo userRepo;
+
 
     @GetMapping("/all")
     public List<UserDTO> getAllUsers(){
@@ -27,6 +32,16 @@ public class UserController {
     @GetMapping("/{username}")
     public ResponseEntity<UserDTO> getUserByUsername(@PathVariable String username){
         return ResponseEntity.ok().body(UserConverter.toDTO(userRepo.getUserByUsername(username)));
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity<UserDTO> registerUser(@RequestBody RegisterUserDTO registerUserDTO){
+        User user = userRepo.registerUser(registerUserDTO);
+
+        if(user != null)
+            return ResponseEntity.ok(UserConverter.toDTO(user));
+
+        return ResponseEntity.status(BAD_REQUEST).body(null);
     }
 
     @PostMapping

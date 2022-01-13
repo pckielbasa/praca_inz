@@ -29,5 +29,9 @@ fun bindStatus(statusImageView: ImageView, status: FoodGridAdapter.FoodGridStatu
         FoodGridAdapter.FoodGridStatus.DONE -> {
             statusImageView.visibility = View.GONE
         }
+        FoodGridAdapter.FoodGridStatus.EMPTY -> {
+            statusImageView.visibility = View.VISIBLE
+            statusImageView.setImageResource(R.drawable.ic_empty)
+        }
     }
 }

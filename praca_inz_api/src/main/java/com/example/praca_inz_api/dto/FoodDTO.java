@@ -12,8 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class FoodDTO {
     private String foodName;
     private String composition;
-    private String commentAlertAllergies;
     private String type;
     private Boolean favourite;
-    private Boolean allergy;
+
 }

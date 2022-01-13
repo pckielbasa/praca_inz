@@ -8,10 +8,8 @@ public class FoodConverter {
         return new FoodDTO(
                 entity.getFoodName(),
                 entity.getComposition(),
-                entity.getCommentAlertAllergies(),
                 entity.getType(),
-                entity.getFavourite(),
-                entity.getAllergy()
+                entity.getFavourite()
         );
     }
 }

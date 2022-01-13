@@ -19,8 +19,7 @@ public class Food {
     private String _id;
     private String foodName;
     private String composition;
-    private String commentAlertAllergies;
     private String type;
     private Boolean favourite;
-    private Boolean allergy;
+
 }

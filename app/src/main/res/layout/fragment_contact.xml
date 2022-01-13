@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginBottom="?attr/actionBarSize">
+        >
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -55,52 +55,54 @@
             android:background="@color/backgroundAppColor">
 
 
-
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/chemistryButton"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/tabButtonColor"
                 android:text="@string/chemistry"
                 android:textColor="@color/black"
-                android:background="@color/tabButtonColor"
-                style="@style/Widget.AppCompat.Button.Borderless"
                 app:layout_constraintBottom_toTopOf="@+id/contact_grid"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/plantButton"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintEnd_toStartOf="@+id/plantButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/plantButton"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="@string/plant"
-                android:background="@color/tabButtonColor"
                 style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/tabButtonColor"
+                android:text="@string/plant"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toTopOf="@+id/contact_grid"
-                app:layout_constraintEnd_toStartOf="@+id/chemistryButton"
-                app:layout_constraintStart_toEndOf="@+id/animalButton"
+                app:layout_constraintEnd_toStartOf="@+id/animalButton"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/chemistryButton"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/animalButton"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/tabButtonColor"
                 android:text="@string/animal"
                 android:textColor="@color/black"
-                android:background="@color/tabButtonColor"
-
-                style="@style/Widget.AppCompat.Button.Borderless"
                 app:layout_constraintBottom_toTopOf="@+id/contact_grid"
-                app:layout_constraintEnd_toStartOf="@+id/plantButton"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/plantButton"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/contact_grid"
+                android:layout_marginBottom="?attr/actionBarSize"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:padding="6dp"
