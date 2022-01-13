@@ -33,4 +33,14 @@ public class ContactService implements ContactRepo {
                 .filter(offer -> offer.getType().equals(type))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<Contact> getListOfContactsByIds(List<String> idList) {
+        return idList
+                .stream()
+                .map(item->
+                        contactDao.findById(item)
+                                .orElseThrow(()->new RuntimeException("Id not found"+item)))
+                .collect(Collectors.toList());
+    }
 }

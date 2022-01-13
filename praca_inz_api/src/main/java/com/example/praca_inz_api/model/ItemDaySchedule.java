@@ -17,7 +17,8 @@ import java.util.List;
 public class ItemDaySchedule {
     @Id
     private String _id;
-    private String time;
+    private Integer hour;
+    private Integer minute;
 
     @DBRef
     private List<Food> itemDayFood = new ArrayList<>();

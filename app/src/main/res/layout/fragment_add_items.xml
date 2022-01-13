@@ -30,7 +30,7 @@
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/add_items_on_the_date"
+                    android:text="@string/add_row_on_the_day"
                     android:theme="@style/HeadersText"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/closeAddMealsButton"

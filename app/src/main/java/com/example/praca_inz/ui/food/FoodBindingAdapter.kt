@@ -2,6 +2,7 @@ package com.example.praca_inz.ui.food
 
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.praca_inz.R
@@ -32,6 +33,27 @@ fun bindStatus(statusImageView: ImageView, status: FoodGridAdapter.FoodGridStatu
         FoodGridAdapter.FoodGridStatus.EMPTY -> {
             statusImageView.visibility = View.VISIBLE
             statusImageView.setImageResource(R.drawable.ic_empty)
+        }
+    }
+}
+@BindingAdapter("foodApiStatus")
+fun bindStatus(staTextView: TextView, status: FoodGridAdapter.FoodGridStatus?) {
+    when (status) {
+        FoodGridAdapter.FoodGridStatus.LOADING -> {
+            staTextView.visibility = TextView.VISIBLE
+            staTextView.text = "Loading..."
+        }
+        FoodGridAdapter.FoodGridStatus.ERROR -> {
+            staTextView.visibility = TextView.VISIBLE
+            staTextView.text = "Connect Error!!! "
+        }
+
+        FoodGridAdapter.FoodGridStatus.DONE -> {
+        staTextView.visibility = TextView.GONE
+        }
+        FoodGridAdapter.FoodGridStatus.EMPTY -> {
+        staTextView.visibility = TextView.VISIBLE
+        staTextView.text="List is empty."
         }
     }
 }

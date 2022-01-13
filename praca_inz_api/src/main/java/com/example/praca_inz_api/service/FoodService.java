@@ -35,4 +35,14 @@ public class FoodService implements FoodRepo {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public List<Food> getListOfFoodByIds(List<String> idList) {
+        return  idList
+                .stream()
+                .map(item->
+                        foodDao.findById(item)
+                                .orElseThrow(()->new RuntimeException("Id not found"+item)))
+                .collect(Collectors.toList());
+    }
+
 }

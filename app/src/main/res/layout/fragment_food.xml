@@ -122,6 +122,17 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:marsApiStatus="@{foodViewModel.status}" />
 
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                app:foodApiStatus="@{foodViewModel.status}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/status_image" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("contact")
+@RequestMapping("/contact")
 @RequiredArgsConstructor
 public class ContactController {
     @Autowired
