@@ -2,14 +2,17 @@ package com.example.praca_inz_api.controller;
 
 import com.example.praca_inz_api.converter.ContactConverter;
 import com.example.praca_inz_api.converter.FoodConverter;
+import com.example.praca_inz_api.converter.ItemDayConverter;
 import com.example.praca_inz_api.dto.ContactDTO;
 import com.example.praca_inz_api.dto.FoodDTO;
+import com.example.praca_inz_api.dto.ItemDayDTO;
 import com.example.praca_inz_api.model.Contact;
 import com.example.praca_inz_api.model.Food;
 import com.example.praca_inz_api.repository.ContactRepo;
 import com.example.praca_inz_api.repository.FoodRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,6 +34,11 @@ public class FoodController {
         return foodRepo.getAllType(type).stream()
                 .map(FoodConverter::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<FoodDTO> getFoodById(@PathVariable String id){
+        return ResponseEntity.ok().body(FoodConverter.toDTO(foodRepo.getFoodById(id)));
     }
 
     @PostMapping

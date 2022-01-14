@@ -9,6 +9,6 @@ public interface FoodRepo {
     Collection<Food> getAllFood();
     Food addFood(Food food);
     Collection<Food> getAllType(String type);
-
+    Food getFoodById(String foodId);
     List<Food> getListOfFoodByIds(List<String> idList);
 }

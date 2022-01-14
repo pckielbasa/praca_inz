@@ -18,7 +18,7 @@ public class ItemDayController {
     private ItemDayRepo itemDayRepo;
 
     @GetMapping("/{id}")
-    public ResponseEntity<ItemDayDTO> getUserByID(@PathVariable String id){
+    public ResponseEntity<ItemDayDTO> getItemById(@PathVariable String id){
         return ResponseEntity.ok().body(ItemDayConverter.toDTO(itemDayRepo.getItemDayScheduleById(id)));
     }
 

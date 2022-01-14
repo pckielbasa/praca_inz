@@ -35,6 +35,13 @@ public class ContactService implements ContactRepo {
     }
 
     @Override
+    public Contact getContactById(String contactId) {
+        return contactDao.findById(contactId)
+                .orElseThrow(()-> new IllegalStateException(
+                        "Contact with "+contactId+"does not exists"));
+    }
+
+    @Override
     public List<Contact> getListOfContactsByIds(List<String> idList) {
         return idList
                 .stream()

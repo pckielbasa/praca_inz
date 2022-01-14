@@ -9,6 +9,7 @@ import com.example.praca_inz_api.model.Contact;
 import com.example.praca_inz_api.repository.ContactRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,6 +31,11 @@ public class ContactController {
         return contactRepo.getAllType(type).stream()
                 .map(ContactConverter::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ContactDTO> getFoodById(@PathVariable String id){
+        return ResponseEntity.ok().body(ContactConverter.toDTO(contactRepo.getContactById(id)));
     }
 
     @PostMapping

@@ -36,6 +36,13 @@ public class FoodService implements FoodRepo {
     }
 
     @Override
+    public Food getFoodById(String foodId) {
+        return foodDao.findById(foodId)
+                .orElseThrow(() -> new IllegalStateException(
+                        "Food with " + foodId + " does not exists."));
+    }
+
+    @Override
     public List<Food> getListOfFoodByIds(List<String> idList) {
         return  idList
                 .stream()

@@ -43,7 +43,17 @@ public class ItemDayService implements ItemDayRepo {
     public ItemDaySchedule getItemDayScheduleById(String itemDayId) {
         return itemDayDao.findById(itemDayId)
                 .orElseThrow(() -> new IllegalStateException(
-                        "monument with " + itemDayId + " does not exists."));
+                        "ItemDay with " + itemDayId + " does not exists."));
+    }
+
+    @Override
+    public List<ItemDaySchedule> getListOfItemsByIds(List<String> idList) {
+        return  idList
+                .stream()
+                .map(item->
+                        itemDayDao.findById(item)
+                                .orElseThrow(()->new RuntimeException("Id not found"+item)))
+                .collect(Collectors.toList());
     }
 
 

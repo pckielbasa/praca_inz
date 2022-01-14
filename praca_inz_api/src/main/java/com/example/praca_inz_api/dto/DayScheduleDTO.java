@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DayScheduleDTO {
-    private String id;
+
     private String dayDate;
-    private List<ItemDaySchedule> dayScheduleIemList;
+    private List<String> listOfItemsId;
 }
