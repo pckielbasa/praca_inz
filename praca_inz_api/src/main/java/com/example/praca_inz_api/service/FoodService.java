@@ -43,6 +43,11 @@ public class FoodService implements FoodRepo {
     }
 
     @Override
+    public String getFoodId(String foodId) {
+        return foodDao.findById(foodId).get().get_id();
+    }
+
+    @Override
     public List<Food> getListOfFoodByIds(List<String> idList) {
         return  idList
                 .stream()

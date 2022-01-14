@@ -1,7 +1,5 @@
 package com.example.praca_inz_api.dto;
 
-import com.example.praca_inz_api.model.Contact;
-import com.example.praca_inz_api.model.Food;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,11 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AllergiesDTO {
+public class AllergiesContactDTO {
     private String nameAllergy;
-    private String foodId;
     private String comment;
     private String contactId;
-
 }
-

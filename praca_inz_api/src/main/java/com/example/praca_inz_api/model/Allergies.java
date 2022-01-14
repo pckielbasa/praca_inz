@@ -15,8 +15,9 @@ public class Allergies {
     @Id
     private String _id;
     private String nameAllergy;
-    private Food food;
-    private Contact contact;
+    private String comment;
+    private String foodId;
+    private String contactId;
 
 
 }

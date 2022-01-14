@@ -42,6 +42,11 @@ public class ContactService implements ContactRepo {
     }
 
     @Override
+    public String getContactId(String contactId) {
+        return contactDao.findById(contactId).get().get_id();
+    }
+
+    @Override
     public List<Contact> getListOfContactsByIds(List<String> idList) {
         return idList
                 .stream()

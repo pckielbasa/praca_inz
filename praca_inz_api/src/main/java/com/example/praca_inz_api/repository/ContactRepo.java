@@ -11,5 +11,6 @@ public interface ContactRepo {
     Contact addContact(Contact contact);
     Collection<Contact> getAllType(String type);
     Contact getContactById(String contactId);
+    String getContactId(String contactId);
     List<Contact> getListOfContactsByIds(List<String> idList);
 }
