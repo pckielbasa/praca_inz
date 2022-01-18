@@ -39,12 +39,7 @@ class ProfileFragment : Fragment() {
             }
         })
 
-        binding.addPersonButton.setOnClickListener{
 
-        }
-        binding.changePersonButton.setOnClickListener {
-
-        }
         return binding.root
     }
 

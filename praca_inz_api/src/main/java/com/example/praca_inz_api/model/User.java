@@ -36,4 +36,7 @@ public class User {
     @DBRef
     private List<Contact> myContact = new ArrayList<>();
 
+    @DBRef
+    private List<Allergies> myAllergies = new ArrayList<>();
+
 }

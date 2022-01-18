@@ -80,10 +80,7 @@ class ContactFragment : Fragment() {
 
     }
 
-    private fun onClick(){
-        val check =true
 
-    }
 
 
 }

@@ -57,6 +57,8 @@
     <string name="plant">plant</string>
     <string name="animal">animal</string>
     <string name="colon">:</string>
+    <string name="changeEmail">Change email</string>
+    <string name="changePhoneNumber">Change phone number</string>
 
 
     <!--Array - contact things -->

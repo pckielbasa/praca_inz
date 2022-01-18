@@ -9,7 +9,9 @@
             type="com.example.praca_inz.authorization.login.LoginViewModel" />
     </data>
 
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -34,6 +36,7 @@
             android:layout_marginTop="4dp"
             android:layout_marginEnd="32dp"
             android:hint="@string/usernameText"
+            android:maxLength="16"
             android:importantForAutofill="no"
             android:inputType="textPersonName"
             android:theme="@style/EditTextStyle"
@@ -51,6 +54,7 @@
             android:importantForAutofill="no"
             android:inputType="textPassword"
             android:hint="@string/passwordText"
+            android:maxLength="16"
             android:theme="@style/EditTextStyle"
             app:layout_constraintEnd_toEndOf="@+id/usernameLogin"
             app:layout_constraintHorizontal_bias="1.0"
@@ -97,4 +101,6 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+
 </layout>
