@@ -41,46 +41,50 @@ class LoginFragment : Fragment() {
 
 
         binding.loginButtonLogin.setOnClickListener {
-           when{
-               TextUtils.isEmpty(emailLogin.text.toString().trim { it <=' ' })->{
-                   Toast.makeText(
-                       this.context,
-                       "Pleas enter email.",
-                       Toast.LENGTH_SHORT
-                   ).show()
-               }
-               TextUtils.isEmpty(passwordLogin.text.toString().trim { it <=' ' })->{
-                   Toast.makeText(
-                       this.context,
-                       "Pleas enter password.",
-                       Toast.LENGTH_SHORT
-                   ).show()
-               }
-           }
-            val email:String=emailLogin.text.toString().trim { it<=' ' }
-            val password:String=passwordLogin.text.toString().trim { it<=' ' }
-
-
-            FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password)
-                .addOnCompleteListener { task->
-                    if (task.isSuccessful){
-                        Toast.makeText(
-                            this.context,
-                            "Login successful.",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        val intent = Intent(context, MainActivity::class.java)
-                        startActivity(intent)
-                        activity?.finish()
-                    } else{
-                        Toast.makeText(
-                            this.context,
-                            "Login fails..",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
+            when {
+                TextUtils.isEmpty(emailLogin.text.toString().trim { it <= ' ' }) -> {
+                    Toast.makeText(
+                        this.context,
+                        "Pleas enter email.",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
+                TextUtils.isEmpty(passwordLogin.text.toString().trim { it <= ' ' }) -> {
+                    Toast.makeText(
+                        this.context,
+                        "Pleas enter password.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }else->{
+                val email: String = emailLogin.text.toString().trim { it <= ' ' }
+                val password: String = passwordLogin.text.toString().trim { it <= ' ' }
+
+
+                FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            Toast.makeText(
+                                this.context,
+                                "Login successful.",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            val intent = Intent(context, MainActivity::class.java)
+                            startActivity(intent)
+                            activity?.finish()
+                        } else {
+                            Toast.makeText(
+                                this.context,
+                                task.exception!!.message.toString(),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                }}
+
+
+
         }
+
 
 
 

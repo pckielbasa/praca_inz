@@ -6,16 +6,7 @@ import com.example.praca_inz.ui.calendar.CalendarViewModel
 
 class LoginViewModel (app: Application) : AndroidViewModel(app) {
 
-    private val _eventGoSignup = MutableLiveData<Boolean>()
-    val eventGoSignup : LiveData<Boolean>
-        get() = _eventGoSignup
 
-    fun eventGoRegistration(){
-        _eventGoSignup.value = true
-    }
-    fun eventGoRegistrationFinished(){
-        _eventGoSignup.value = false
-    }
 
 
     class LoginViewModelFactory constructor(private val app: Application): ViewModelProvider.Factory {
