@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "346141592274",
+    "project_id": "dziennikalergika",
+    "storage_bucket": "dziennikalergika.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:346141592274:android:e5c71b7340fe59249ffb0b",
+        "android_client_info": {
+          "package_name": "com.example.praca_inz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "346141592274-07ohkl2imc7cqil28ke738t2q59ldqr7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.praca_inz",
+            "certificate_hash": "a8e72d5db59d379479c719eaa225b43be457bfc3"
+          }
+        },
+        {
+          "client_id": "346141592274-to79r46dtf7s2iu0rdsdra4vdsnljcse.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjM9osNvUwbEppLsTKyZukcv9q4lEbq2I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "346141592274-to79r46dtf7s2iu0rdsdra4vdsnljcse.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
