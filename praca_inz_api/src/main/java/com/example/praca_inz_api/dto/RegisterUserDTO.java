@@ -11,7 +11,8 @@ import org.springframework.data.mongodb.core.index.Indexed;
 public class RegisterUserDTO {
 
     private String username;
-    private String password;
+    private String name;
     private String email;
+    private String surname;
     private Long phoneNumber;
 }

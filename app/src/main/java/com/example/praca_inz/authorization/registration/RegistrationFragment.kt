@@ -4,7 +4,6 @@ package com.example.praca_inz.authorization.registration
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,14 +12,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import at.favre.lib.crypto.bcrypt.BCrypt
 import com.example.praca_inz.authorization.AuthorizationActivity
-import com.example.praca_inz.authorization.LoginDatabase
 import com.example.praca_inz.databinding.FragmentRegistrationBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_registration.*
 
 class RegistrationFragment : Fragment() {
@@ -86,25 +82,9 @@ class RegistrationFragment : Fragment() {
                 val email:String=etEmail.text.toString().trim { it<=' ' }
                 val password:String=etPassword.text.toString().trim { it<=' ' }
                 val phoneNumber:String=etPhoneNumber.text.toString().trim { it<=' ' }
-                val passHash = BCrypt.withDefaults().hashToString(12,password.toCharArray())
-                val data = LoginDatabase(name,surname,email,passHash,phoneNumber)
 
-//                FirebaseDatabase.getInstance().getReference("/hash/$name/").setValue(data)
-//                    .addOnSuccessListener{
-//                        Toast.makeText(
-//                            this.context,
-//                            "Register successful!",
-//                            Toast.LENGTH_SHORT
-//                        ).show()
-//                    }
-//                    .addOnFailureListener{
-//                        Toast.makeText(
-//                            this.context,
-//                            "Register fails",
-//                            Toast.LENGTH_SHORT
-//                        ).show()
-//                    }
-                FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,passHash)
+
+                FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,password)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             val firebaseUser: FirebaseUser = task.result!!.user!!
@@ -117,8 +97,6 @@ class RegistrationFragment : Fragment() {
                             val intent = Intent(this.context, AuthorizationActivity::class.java)
                             intent.flags =
                                 Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                            intent.putExtra("user_id", firebaseUser.uid)
-                            intent.putExtra("password", password)
                             startActivity(intent)
                             activity?.finish()
 
@@ -137,30 +115,10 @@ class RegistrationFragment : Fragment() {
         }
 
 
-//        binding.registerButtonRegister.setOnClickListener {
-//            registerSuccessful()
-//            val intent = Intent(context, AuthorizationActivity::class.java)
-//            activity?.finish()
-//            startActivity(intent)
-//        }
 
         return binding.root    }
 
-//    fun navToLoginFragment(){
-//
-//        val transaction = activity?.supportFragmentManager?.beginTransaction()
-//        transaction?.replace(R.id.fragmentContainerView, LoginFragment())
-//        transaction?.disallowAddToBackStack()
-//        transaction?.commit()
-//    }
 
-    fun registerSuccessful(){
-//        val transaction = activity?.supportFragmentManager?.beginTransaction()
-//        transaction?.replace(R.id.fragmentContainerView, LoginFragment())
-//        transaction?.disallowAddToBackStack()
-//        transaction?.commit()
-        Toast.makeText(activity,"Registration successful!",Toast.LENGTH_LONG).show();
-    }
 
 
 }

@@ -14,10 +14,10 @@ import java.util.List;
 @AllArgsConstructor
 public class UserDTO {
 
-    private String id;
     private String username;
-    private String password;
+    private String name;
     private String email;
+    private String surname;
     private Long phoneNumber;
 
 }

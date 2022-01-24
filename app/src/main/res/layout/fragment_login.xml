@@ -14,7 +14,7 @@
     android:layout_height="match_parent">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
 
         <Button
@@ -29,16 +29,15 @@
             app:layout_constraintTop_toBottomOf="@+id/passwordLogin" />
 
         <EditText
-            android:id="@+id/usernameLogin"
+            android:id="@+id/emailLogin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="32dp"
-            android:hint="@string/usernameText"
-            android:maxLength="16"
+            android:hint="@string/emailText"
+            android:maxLength="26"
             android:importantForAutofill="no"
-            android:inputType="textPersonName"
             android:theme="@style/EditTextStyle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,9 +55,9 @@
             android:hint="@string/passwordText"
             android:maxLength="16"
             android:theme="@style/EditTextStyle"
-            app:layout_constraintEnd_toEndOf="@+id/usernameLogin"
+            app:layout_constraintEnd_toEndOf="@+id/emailLogin"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/usernameLogin"
+            app:layout_constraintStart_toStartOf="@+id/emailLogin"
             app:layout_constraintTop_toBottomOf="@+id/passwordLoginTxt"
             tools:ignore="SpeakableTextPresentCheck,LabelFor" />
 
@@ -69,7 +68,7 @@
             android:layout_marginTop="100dp"
             android:text=""
             android:theme="@style/AlertsStyle"
-            app:layout_constraintStart_toStartOf="@+id/usernameLogin"
+            app:layout_constraintStart_toStartOf="@+id/emailLogin"
             app:layout_constraintTop_toBottomOf="@+id/headerLoginTxt" />
 
         <TextView
@@ -82,7 +81,7 @@
             app:layout_constraintEnd_toEndOf="@+id/usernameLoginTxt"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/usernameLoginTxt"
-            app:layout_constraintTop_toBottomOf="@+id/usernameLogin" />
+            app:layout_constraintTop_toBottomOf="@+id/emailLogin" />
 
         <TextView
             android:id="@+id/headerLoginTxt"

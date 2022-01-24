@@ -27,8 +27,8 @@ public class UserService implements UserRepo {
     }
 
     @Override
-    public User getUserByUsername(String username) {
-        return userDao.findUserByUsername(username);
+    public User getUserByEmail(String email) {
+        return userDao.findUserByEmail(email);
     }
 
     public User getUserById(String userId) {
@@ -40,14 +40,23 @@ public class UserService implements UserRepo {
     @Override
     public User registerUser(RegisterUserDTO user){
 
-        if(user != null && user.getUsername() != null && !user.getUsername().isEmpty() && user.getEmail() != null && !user.getEmail().isEmpty() && user.getPassword() != null && !user.getPassword().isEmpty()) {
-            if(userDao.findUserByUsername(user.getUsername()) != null)
+        if(user != null
+                && user.getUsername() != null
+                && !user.getUsername().isEmpty()
+                && user.getSurname() != null
+                && !user.getSurname().isEmpty()
+                && user.getEmail() != null
+                && !user.getEmail().isEmpty()
+                && user.getName() != null
+                && !user.getName().isEmpty()) {
+            if(userDao.findUserByEmail(user.getEmail()) != null)
                 return null;
 
             User newUser = new User();
             newUser.setUsername(user.getUsername());
             newUser.setEmail(user.getEmail());
-            newUser.setPassword(user.getPassword());
+            newUser.setName(user.getName());
+            newUser.setSurname(user.getSurname());
             newUser.setPhoneNumber(user.getPhoneNumber());
 
             return userDao.save(newUser);

@@ -29,9 +29,9 @@ public class UserController {
         return userRepo.getAllUsers().stream().map(UserConverter::toDTO).collect(Collectors.toList());
     }
 
-    @GetMapping("/{username}")
-    public ResponseEntity<UserDTO> getUserByUsername(@PathVariable String username){
-        return ResponseEntity.ok().body(UserConverter.toDTO(userRepo.getUserByUsername(username)));
+    @GetMapping("/{email}")
+    public ResponseEntity<UserDTO> getUserByEmail(@PathVariable String email){
+        return ResponseEntity.ok().body(UserConverter.toDTO(userRepo.getUserByEmail(email)));
     }
 
     @PostMapping("/register")

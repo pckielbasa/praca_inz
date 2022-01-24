@@ -19,10 +19,9 @@ public class User {
 
     @Id
     private String _id;
-    @Indexed(unique = true)
     private String username;
-    private String password;
-    @Indexed(unique = true)
+    private String name;
+    private String surname;
     private String email;
     private Long phoneNumber;
 
