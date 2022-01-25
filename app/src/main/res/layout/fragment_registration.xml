@@ -12,7 +12,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -41,14 +42,14 @@
                 android:layout_marginEnd="16dp"
                 android:ems="10"
                 android:hint="@string/nameAddPersonText"
+                android:importantForAutofill="no"
                 android:inputType="textPersonName"
-                android:theme="@style/EditTextStyle"
 
                 android:maxLength="16"
+                android:theme="@style/EditTextStyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/headerLoginTxt"
-                android:importantForAutofill="no" />
+                app:layout_constraintTop_toBottomOf="@+id/headerLoginTxt" />
 
             <EditText
                 android:id="@+id/etSurname"
@@ -58,14 +59,14 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:ems="10"
+                android:hint="@string/surnameAddPersonText"
+                android:importantForAutofill="no"
                 android:inputType="textPersonName"
                 android:maxLength="16"
                 android:theme="@style/EditTextStyle"
-                android:hint="@string/surnameAddPersonText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etName"
-                android:importantForAutofill="no" />
+                app:layout_constraintTop_toBottomOf="@+id/etName" />
 
             <EditText
                 android:id="@+id/etPassword"
@@ -75,14 +76,14 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:ems="10"
-                android:theme="@style/EditTextStyle"
-                android:maxLength="16"
-                android:inputType="textPassword"
                 android:hint="@string/passwordText"
+                android:importantForAutofill="no"
+                android:inputType="textPassword"
+                android:maxLength="16"
+                android:theme="@style/EditTextStyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etEmail"
-                android:importantForAutofill="no" />
+                app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
             <EditText
                 android:id="@+id/etEmail"
@@ -92,14 +93,14 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:ems="10"
+                android:hint="@string/emailText"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress"
                 android:maxLength="26"
                 android:theme="@style/EditTextStyle"
-                android:inputType="textEmailAddress"
-                android:hint="@string/emailText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etSurname"
-                android:importantForAutofill="no" />
+                app:layout_constraintTop_toBottomOf="@+id/etSurname" />
 
             <EditText
                 android:id="@+id/etPhoneNumber"
@@ -131,6 +132,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/etPhoneNumber"
                 app:layout_constraintStart_toStartOf="@+id/etPhoneNumber"
                 app:layout_constraintTop_toBottomOf="@+id/etPhoneNumber" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

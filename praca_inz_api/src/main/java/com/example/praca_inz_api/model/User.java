@@ -23,7 +23,7 @@ public class User {
     private String name;
     private String surname;
     private String email;
-    private Long phoneNumber;
+    private String phoneNumber;
 
 
     @DBRef

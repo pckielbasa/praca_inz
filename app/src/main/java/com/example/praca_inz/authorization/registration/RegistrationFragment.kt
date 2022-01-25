@@ -9,24 +9,26 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import at.favre.lib.crypto.bcrypt.BCrypt
 import com.example.praca_inz.authorization.AuthorizationActivity
+import com.example.praca_inz.data.User
 import com.example.praca_inz.databinding.FragmentRegistrationBinding
+import com.example.praca_inz.network.JsonPlaceholderApi
+import com.example.praca_inz.network.RestApiService
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.android.synthetic.main.fragment_registration.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class RegistrationFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
-    private val registrationViewModel: RegistrationViewModel by lazy {
-        val activity = requireNotNull(this.activity) {
-            "You can only access the viewModel after onViewCreated()"
-        }
-        ViewModelProvider(this, RegistrationViewModel.RegistrationViewModelFactory(activity.application))[RegistrationViewModel::class.java]
-    }
+    private lateinit var registrationViewModel: RegistrationViewModel
     private lateinit var binding: FragmentRegistrationBinding
 
 
@@ -36,9 +38,9 @@ class RegistrationFragment : Fragment() {
         auth = Firebase.auth
         binding = FragmentRegistrationBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
-        binding.registrationViewModel = registrationViewModel
 
         //Firebase registration
+
         binding.registerButton.setOnClickListener {
             when{
                 TextUtils.isEmpty(etName.text.toString().trim { it <=' ' })->{
@@ -78,21 +80,40 @@ class RegistrationFragment : Fragment() {
                 }else ->
             {
                 val name:String=etName.text.toString().trim { it<=' ' }
-                val surname:String=etPassword.text.toString().trim { it<=' ' }
+                val surname:String=etSurname.text.toString().trim { it<=' ' }
                 val email:String=etEmail.text.toString().trim { it<=' ' }
                 val password:String=etPassword.text.toString().trim { it<=' ' }
                 val phoneNumber:String=etPhoneNumber.text.toString().trim { it<=' ' }
-
 
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,password)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             val firebaseUser: FirebaseUser = task.result!!.user!!
+                            val firebaseUID = firebaseUser.uid
                             Toast.makeText(
                                 this.context,
                                 "Register successfully !!",
                                 Toast.LENGTH_SHORT
                             ).show()
+
+                            val apiService = RestApiService()
+                            val user = User(  username = firebaseUID,
+                                email = email,
+                                name = name,
+                                surname = surname,
+                                phoneNumber = phoneNumber )
+
+                            apiService.addUser(user) {
+                                if (it?.username != null) {
+
+                                } else {
+                                    Toast.makeText(
+                                        this.context,
+                                        "",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                            }
 
                             val intent = Intent(this.context, AuthorizationActivity::class.java)
                             intent.flags =
@@ -117,8 +138,6 @@ class RegistrationFragment : Fragment() {
 
 
         return binding.root    }
-
-
 
 
 }

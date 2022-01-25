@@ -7,8 +7,8 @@ public class UserConverter {
     public static UserDTO toDTO(User entity){
         return new UserDTO(
                 entity.getUsername(),
-                entity.getName(),
                 entity.getEmail(),
+                entity.getName(),
                 entity.getSurname(),
                 entity.getPhoneNumber());
     }
