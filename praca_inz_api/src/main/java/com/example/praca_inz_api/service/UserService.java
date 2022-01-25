@@ -2,6 +2,7 @@ package com.example.praca_inz_api.service;
 
 import com.example.praca_inz_api.dao.UserDao;
 import com.example.praca_inz_api.dto.RegisterUserDTO;
+import com.example.praca_inz_api.model.DaySchedule;
 import com.example.praca_inz_api.model.User;
 
 import com.example.praca_inz_api.repository.UserRepo;
@@ -63,6 +64,18 @@ public class UserService implements UserRepo {
         }
 
         return null;
+    }
+
+    @Override
+    public User getUserByUsername(String username) {
+        return userDao.findUserByUsername(username);
+    }
+
+    @Override
+    public User addScheduleToList(DaySchedule daySchedule, String username) {
+        User user = getUserByUsername(username);
+        user.getDayScheduleList().add(daySchedule);
+        return userDao.save(user);
     }
 
 }

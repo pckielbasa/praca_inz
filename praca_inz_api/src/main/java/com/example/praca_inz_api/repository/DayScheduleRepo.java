@@ -9,7 +9,9 @@ import org.springframework.stereotype.Repository;
 
 
 public interface DayScheduleRepo  {
-    DaySchedule addDaySchedule(DayScheduleDTO dayScheduleDTO);
+    DaySchedule createDaySchedule(DayScheduleDTO dayScheduleDTO);
     DaySchedule getDayScheduleById(String dayScheduleId);
+    DaySchedule addDaySchedule(DayScheduleDTO dayScheduleDTO);
+
 
 }

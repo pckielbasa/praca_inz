@@ -52,7 +52,7 @@ public class ItemDayService implements ItemDayRepo {
                 .stream()
                 .map(item->
                         itemDayDao.findById(item)
-                                .orElseThrow(()->new RuntimeException("Id not found"+item)))
+                                .orElseThrow(()->new RuntimeException("Item day schedule Id not found"+item)))
                 .collect(Collectors.toList());
     }
 

@@ -34,6 +34,11 @@ public class UserController {
         return ResponseEntity.ok().body(UserConverter.toDTO(userRepo.getUserByEmail(email)));
     }
 
+    @GetMapping("")
+    public User getUserByUsername(@RequestParam(value = "username") String username){
+        return userRepo.getUserByUsername(username);
+    }
+
     @PostMapping("/register")
     public ResponseEntity<UserDTO> registerUser(@RequestBody RegisterUserDTO registerUserDTO){
         User user = userRepo.registerUser(registerUserDTO);

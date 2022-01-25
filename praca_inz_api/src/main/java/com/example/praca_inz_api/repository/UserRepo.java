@@ -1,6 +1,7 @@
 package com.example.praca_inz_api.repository;
 
 import com.example.praca_inz_api.dto.RegisterUserDTO;
+import com.example.praca_inz_api.model.DaySchedule;
 import com.example.praca_inz_api.model.User;
 
 import java.util.Collection;
@@ -10,4 +11,6 @@ public interface UserRepo {
     User addUser(User user);
     User getUserByEmail(String email);
     User registerUser(RegisterUserDTO user);
+    User getUserByUsername(String username);
+    User addScheduleToList(DaySchedule daySchedule, String username);
 }
