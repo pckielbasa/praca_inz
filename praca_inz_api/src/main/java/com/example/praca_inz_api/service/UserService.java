@@ -2,10 +2,7 @@ package com.example.praca_inz_api.service;
 
 import com.example.praca_inz_api.dao.UserDao;
 import com.example.praca_inz_api.dto.RegisterUserDTO;
-import com.example.praca_inz_api.model.Contact;
-import com.example.praca_inz_api.model.DaySchedule;
-import com.example.praca_inz_api.model.Food;
-import com.example.praca_inz_api.model.User;
+import com.example.praca_inz_api.model.*;
 
 import com.example.praca_inz_api.repository.UserRepo;
 import org.apache.velocity.exception.ResourceNotFoundException;
@@ -92,6 +89,13 @@ public class UserService implements UserRepo {
 
         User user = getUserByUsername(username);
         user.getMyContact().add(contact);
+        return userDao.save(user);
+    }
+
+    @Override
+    public User addAllergiesToList(Allergies allergies, String username) {
+        User user = getUserByUsername(username);
+        user.getMyAllergies().add(allergies);
         return userDao.save(user);
     }
 

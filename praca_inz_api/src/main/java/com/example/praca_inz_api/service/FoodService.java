@@ -35,6 +35,8 @@ public class FoodService implements FoodRepo {
                 .collect(Collectors.toList());
     }
 
+ 
+
     @Override
     public Food getFoodById(String foodId) {
         return foodDao.findById(foodId)
@@ -59,8 +61,8 @@ public class FoodService implements FoodRepo {
 
     @Override
     public Food createFood(FoodDTO foodDTO) {
-        
         Food food = new Food();
+
         food.setFoodName(foodDTO.getFoodName());
         food.setComposition(foodDTO.getComposition());
         food.setType(foodDTO.getType());

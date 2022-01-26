@@ -1,32 +1,30 @@
 package com.example.praca_inz_api.converter;
 
-import com.example.praca_inz_api.dto.AllergiesContactDTO;
-import com.example.praca_inz_api.dto.AllergiesDTO;
-import com.example.praca_inz_api.dto.AllergiesFoodDTO;
+import com.example.praca_inz_api.dto.AddContactAllergiesDTO;
+import com.example.praca_inz_api.dto.AddFoodAllergiesDTO;
 import com.example.praca_inz_api.model.Allergies;
+import com.example.praca_inz_api.model.Contact;
+import com.example.praca_inz_api.model.Food;
+
+import java.util.stream.Collectors;
 
 
 public class AllergiesConverter {
-    public static AllergiesDTO toDTO(Allergies entity){
-        return new AllergiesDTO(
-                entity.getNameAllergy(),
+    public static AddFoodAllergiesDTO toFoodDTO(Allergies entity){
+        return new AddFoodAllergiesDTO(
+              entity.getAllergyName(),
+                entity.getType(),
                 entity.getComment(),
-                entity.getFoodId(),
-                entity.getContactId()
+                entity.getFoodIdList().stream().map(Food::get_id).collect(Collectors.toList())
         );
     }
-    public static AllergiesFoodDTO toFoodDTO(Allergies entity){
-        return new AllergiesFoodDTO(
-                entity.getNameAllergy(),
+    public static AddContactAllergiesDTO toContactDTO(Allergies entity){
+        return new AddContactAllergiesDTO(
+                entity.getAllergyName(),
+                entity.getType(),
                 entity.getComment(),
-                entity.getFoodId()
+                entity.getContactIdList().stream().map(Contact::get_id).collect(Collectors.toList())
         );
     }
-    public static AllergiesContactDTO toContactDTO(Allergies entity){
-        return new AllergiesContactDTO(
-                entity.getNameAllergy(),
-                entity.getComment(),
-                entity.getContactId()
-        );
-    }
+
 }

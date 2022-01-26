@@ -1,10 +1,7 @@
 package com.example.praca_inz_api.repository;
 
 import com.example.praca_inz_api.dto.RegisterUserDTO;
-import com.example.praca_inz_api.model.Contact;
-import com.example.praca_inz_api.model.DaySchedule;
-import com.example.praca_inz_api.model.Food;
-import com.example.praca_inz_api.model.User;
+import com.example.praca_inz_api.model.*;
 
 import java.util.Collection;
 
@@ -17,4 +14,5 @@ public interface UserRepo {
     User addScheduleToList(DaySchedule daySchedule, String username);
     User addFoodToList (Food food, String username);
     User addContactToList (Contact contact, String username);
+    User addAllergiesToList(Allergies allergies, String username);
 }

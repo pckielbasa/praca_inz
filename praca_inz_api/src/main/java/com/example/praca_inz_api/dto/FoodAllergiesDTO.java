@@ -4,11 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AllergiesContactDTO {
-    private String nameAllergy;
+public class FoodAllergiesDTO {
+    private String username;
+    private String allergyName;
+    private String type;
     private String comment;
-    private String contactId;
+    private List<String> listOfFoodId;
+
 }

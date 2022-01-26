@@ -4,7 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Data
@@ -14,10 +18,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Allergies {
     @Id
     private String _id;
-    private String nameAllergy;
+    private String allergyName;
+    private String type;
     private String comment;
-    private String foodId;
-    private String contactId;
-
-
+    @DBRef(lazy = true)
+    private List<Food> foodIdList = new ArrayList<>();
+    @DBRef(lazy = true)
+    private List<Contact> contactIdList = new ArrayList<>();
 }
