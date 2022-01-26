@@ -10,7 +10,7 @@ import java.util.Collection;
 import java.util.List;
 
 public interface ItemDayRepo  {
-    ItemDaySchedule addItemDay(ItemDayDTO itemDayDTO);
+    ItemDaySchedule createItemDay(ItemDayDTO itemDayDTO);
     ItemDaySchedule getItemDayScheduleById(String itemDayId);
     List<ItemDaySchedule> getListOfItemsByIds(List<String> idList);
 }

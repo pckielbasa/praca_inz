@@ -5,13 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class FoodDTO {
-    private String username;
-    private String foodName;
+@NoArgsConstructor
+public class AddContactDTO {
+    private String contactName;
     private String composition;
     private String type;
-    private Boolean favourite;
-
 }

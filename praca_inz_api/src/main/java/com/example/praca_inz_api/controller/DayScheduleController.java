@@ -22,9 +22,11 @@ public class DayScheduleController {
     }
 
     @PostMapping(path = "/add")
-    public AddDayScheduleDTO addDaySchedule(@RequestBody DayScheduleDTO dayScheduleDTO){
-        return DayScheduleConverter.toDTO(dayScheduleRepo.addDaySchedule(dayScheduleDTO));
+    public AddDayScheduleDTO addDayScheduleToUser(@RequestBody DayScheduleDTO dayScheduleDTO){
+        return DayScheduleConverter.toDTO(dayScheduleRepo.addDayScheduleToUser(dayScheduleDTO));
     }
+
+
 
 
 }

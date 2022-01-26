@@ -25,6 +25,11 @@ public class DayScheduleService implements DayScheduleRepo {
     @Autowired
     private UserRepo userRepo;
 
+    public DaySchedule getDayScheduleById(String dayScheduleId) {
+        return dayScheduleDao.findById(dayScheduleId).
+                orElseThrow(() -> new IllegalStateException("Day schedule with "+dayScheduleId +"  does not exists."));
+    }
+
     @Override
     public DaySchedule createDaySchedule(DayScheduleDTO dayScheduleDTO) {
         DaySchedule daySchedule = new DaySchedule();
@@ -33,14 +38,8 @@ public class DayScheduleService implements DayScheduleRepo {
          return dayScheduleDao.save(daySchedule);
     }
 
-
-    public DaySchedule getDayScheduleById(String dayScheduleId) {
-        return dayScheduleDao.findById(dayScheduleId).
-                orElseThrow(() -> new IllegalStateException("Day schedule with "+dayScheduleId +"  does not exists."));
-    }
-
     @Override
-    public DaySchedule addDaySchedule(DayScheduleDTO dayScheduleDTO) {
+    public DaySchedule addDayScheduleToUser(DayScheduleDTO dayScheduleDTO) {
         DaySchedule daySchedule = createDaySchedule(dayScheduleDTO);
         userRepo.addScheduleToList(daySchedule,dayScheduleDTO.getUsername());
         return daySchedule;

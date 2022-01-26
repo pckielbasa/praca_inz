@@ -24,6 +24,6 @@ public class ItemDayController {
 
     @PostMapping(path="/add")
     public ItemDayDTO addItemDay(@RequestBody ItemDayDTO itemDayDTO){
-        return ItemDayConverter.toDTO(itemDayRepo.addItemDay(itemDayDTO));
+        return ItemDayConverter.toDTO(itemDayRepo.createItemDay(itemDayDTO));
     }
 }

@@ -30,7 +30,7 @@ public class ItemDayService implements ItemDayRepo {
     private ContactRepo contactRepo;
 
     @Override
-    public ItemDaySchedule addItemDay(ItemDayDTO itemDayDTO) {
+    public ItemDaySchedule createItemDay(ItemDayDTO itemDayDTO) {
         ItemDaySchedule itemDaySchedule = new ItemDaySchedule();
         itemDaySchedule.setHour(itemDayDTO.getHour());
         itemDaySchedule.setMinute(itemDayDTO.getMinute());
