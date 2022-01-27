@@ -5,8 +5,10 @@ import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterF
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.Deferred
+import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.GET
@@ -35,5 +37,19 @@ interface ContactApiService {
 object ContactApi {
     val retrofitService : ContactApiService by lazy {
         retrofit.create(ContactApiService::class.java)
+    }
+}
+
+object ContactServiceBuilder {
+    private val client = OkHttpClient.Builder().build()
+
+    private val retrofit = Retrofit.Builder()
+        .baseUrl(BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create())
+        .client(client)
+        .build()
+
+    fun<T> buildService(service: Class<T>): T{
+        return retrofit.create(service)
     }
 }

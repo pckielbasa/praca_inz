@@ -28,7 +28,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class RegistrationFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
-    private lateinit var registrationViewModel: RegistrationViewModel
     private lateinit var binding: FragmentRegistrationBinding
 
 

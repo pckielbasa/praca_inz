@@ -41,6 +41,13 @@ class FoodFragment : Fragment() {
 
         //OPEN LIST FROM DATABASE
 
+        foodViewModel.refresh.observe(viewLifecycleOwner,{ refreshFragment->
+        if(refreshFragment){
+            fragmentManager?.beginTransaction()?.detach(this)?.attach(this)?.commit()
+            foodViewModel.eventRefreshFinish()
+            }
+        })
+
         binding.foodGrid.adapter = FoodGridAdapter(FoodGridAdapter.OnClickListener {
             foodViewModel.displayPropertyDetails(it)
         })
@@ -74,5 +81,6 @@ class FoodFragment : Fragment() {
         val dialog = AddFoodFragment()
         dialog.show(requireActivity().supportFragmentManager, "ADD CONTACT THINGS")
     }
+
 
 }

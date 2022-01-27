@@ -99,6 +99,12 @@
             android:name="selectedProperty"
             app:argType="com.example.praca_inz.property.ContactProperty"/>
     </fragment>
+    <activity
+        android:id="@+id/splashScreenActivity"
+        android:name="com.example.praca_inz.SplashScreenActivity"
+        android:label="activity_splash_screen"
+        tools:layout="@layout/activity_splash_screen" />
+    <include app:graph="@navigation/authorization" />
 
 
 </navigation>

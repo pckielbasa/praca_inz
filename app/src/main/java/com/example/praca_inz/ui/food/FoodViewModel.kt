@@ -33,6 +33,10 @@ class FoodViewModel : ViewModel(){
     val properties: LiveData<List<FoodProperty>>
         get() = _properties
 
+    private val _refresh = MutableLiveData<Boolean>()
+    val refresh : LiveData<Boolean>
+        get() = _refresh
+
     private val _navigateToSelectedProperty = MutableLiveData<FoodProperty>()
 
     val navigateToSelectedProperty: LiveData<FoodProperty>
@@ -79,5 +83,13 @@ class FoodViewModel : ViewModel(){
     fun updateFilter(filter: FoodApiFilter) {
         getFoodProperties(filter)
     }
+    fun eventRefreshStart(){
+        _refresh.value = true
+    }
+
+    fun eventRefreshFinish(){
+        _refresh.value = false
+    }
+
 
 }
