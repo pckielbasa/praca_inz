@@ -10,27 +10,41 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.praca_inz.R
 import com.example.praca_inz.data.Food
 import com.example.praca_inz.databinding.AddFoodFragmentBinding
+import com.example.praca_inz.network.FoodApiFilter
 import com.example.praca_inz.network.RestApiService
 import com.example.praca_inz.ui.food.FoodFragment
+import com.example.praca_inz.ui.food.FoodFragmentDirections
 import com.example.praca_inz.ui.food.FoodViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.add_food_fragment.*
+import android.content.DialogInterface
+
+
+
 
 class AddFoodFragment : DialogFragment() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var binding: AddFoodFragmentBinding
-    private lateinit var foodViewModel: FoodViewModel
+    private val foodViewModel: FoodViewModel by lazy {
+        ViewModelProvider(this)[FoodViewModel::class.java]
+    }
+
+
+
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         auth = Firebase.auth
         binding = AddFoodFragmentBinding.inflate(inflater, container, false)
-       // binding.lifecycleOwner = this
         val mySpinner = binding.spinner
         var typeFood = ""
         val myAdapter = ArrayAdapter(
@@ -88,7 +102,7 @@ class AddFoodFragment : DialogFragment() {
                     val foodFavourite:Boolean = binding.addFoodFavouriteBtn.isChecked
                     val apiService = RestApiService()
                     val food = Food(
-                        username ="61f1e8bc40a0576f4ee6b933",
+                        username = FirebaseAuth.getInstance().currentUser!!.uid,
                         foodName = foodName,
                         composition = foodComposition,
                         type = type,
@@ -96,25 +110,17 @@ class AddFoodFragment : DialogFragment() {
                     )
                     apiService.addFood(food){
                         if (it?.favourite!=false) {
-                            Toast.makeText(
-                                this.context,
-                                "Added $typeFood to list and favourite ",
-                                Toast.LENGTH_SHORT
-                            ).show()
+
 
                         } else {
-                            Toast.makeText(
-                                this.context,
-                                "Added $typeFood to list!",
-                                Toast.LENGTH_SHORT
-                            ).show()
+
                         }
 
                     }
                 }
 
-
             }
+
             dismiss()
 
         }
@@ -122,8 +128,9 @@ class AddFoodFragment : DialogFragment() {
         binding.closeAddFoodWindow.setOnClickListener{
             dismiss()
         }
-
         return binding.root
+
     }
+
 
 }

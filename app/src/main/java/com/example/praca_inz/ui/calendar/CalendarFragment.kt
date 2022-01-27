@@ -14,6 +14,9 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.praca_inz.R
 import com.example.praca_inz.authorization.AuthorizationActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -24,7 +27,7 @@ class CalendarFragment : Fragment(){
         }
         ViewModelProvider(this, CalendarViewModel.CalendarViewModelFactory(activity.application))[CalendarViewModel::class.java]
     }
-
+    private lateinit var auth: FirebaseAuth
     private lateinit var tvDataPicker : TextView
     private lateinit var binding: FragmentCalendarBinding
 
@@ -35,7 +38,8 @@ class CalendarFragment : Fragment(){
         binding = FragmentCalendarBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
         binding.calendarViewModel = calendarViewModel
-
+        auth = Firebase.auth
+        val username = FirebaseAuth.getInstance().currentUser!!.uid
         //Zmiana Daty
         tvDataPicker = binding.dateCalendar
         val myCalendar = Calendar.getInstance()
@@ -54,17 +58,17 @@ class CalendarFragment : Fragment(){
 
             }
         })
-        //Wyswietlanie aktualnej daty
-
+                //Wyswietlanie aktualnej daty
                 val date = getCurrentDateTime()
                 val dateInString = date.toString("dd-MM-yyyy")
                 binding.dateCalendar.text = dateInString
 
-        binding.addItemsDate.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_calendar_to_addItemsFragment)
-        }
 
-        return binding.root
+                binding.addItemsDate.setOnClickListener {
+                    findNavController().navigate(R.id.action_navigation_calendar_to_addItemsFragment)
+                }
+
+                return binding.root
     }
 
     //Wyswietlanie aktualnej daty

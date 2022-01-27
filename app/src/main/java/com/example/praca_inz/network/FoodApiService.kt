@@ -40,6 +40,7 @@ object FoodApi {
     }
 }
 
+
 object FoodServiceBuilder {
     private val client = OkHttpClient.Builder().build()
 

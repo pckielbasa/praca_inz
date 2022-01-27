@@ -14,6 +14,9 @@ import com.example.praca_inz.data.Contact
 import com.example.praca_inz.databinding.FragmentAddContactBinding
 import com.example.praca_inz.databinding.FragmentContactBinding
 import com.example.praca_inz.network.RestApiService
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.add_food_fragment.*
 import kotlinx.android.synthetic.main.fragment_add_contact.*
 
@@ -21,6 +24,7 @@ import kotlinx.android.synthetic.main.fragment_add_contact.*
 class AddContactFragment : DialogFragment() {
 
     private lateinit var binding: FragmentAddContactBinding
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -33,7 +37,7 @@ class AddContactFragment : DialogFragment() {
         )
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         mySpinner.adapter = myAdapter
-
+        auth = Firebase.auth
         mySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(adapterView: AdapterView<*>?, view: View, i: Int, l: Long) {
                 when (i) {
@@ -80,25 +84,17 @@ class AddContactFragment : DialogFragment() {
                     val type:String = typeContact
                     val apiService = RestApiService()
                     val contact = Contact(
-                        username = "61f1e8bc40a0576f4ee6b933",
+                        username =  FirebaseAuth.getInstance().currentUser!!.uid,
                         contactName = contactName,
                         composition = contactComposition,
                         type = type
                     )
                 apiService.addContact(contact){
                     if (it?.type == null) {
-                        Toast.makeText(
-                            this.context,
-                            "Added $typeContact to list ",
-                            Toast.LENGTH_SHORT
-                        ).show()
+
 
                     } else {
-                        Toast.makeText(
-                            this.context,
-                            "Bad request",
-                            Toast.LENGTH_SHORT
-                        ).show()
+
                     }
                 }
 

@@ -3,10 +3,10 @@ package com.example.praca_inz.network
 import com.example.praca_inz.data.Contact
 import com.example.praca_inz.data.Food
 import com.example.praca_inz.data.User
+import com.example.praca_inz.property.UserProperty
+import kotlinx.coroutines.Deferred
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.Headers
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface JsonPlaceholderApi {
 
@@ -28,4 +28,8 @@ interface JsonPlaceholderApi {
     fun sendContactData(
         @Body contact: Contact
     ): Call<Contact>
+
+    @GET("")
+    fun getUserByUsernameAsync(@Query("username") type: String):
+            Deferred<List<UserProperty>>
 }

@@ -117,6 +117,8 @@ class RegistrationFragment : Fragment() {
                             val intent = Intent(this.context, AuthorizationActivity::class.java)
                             intent.flags =
                                 Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            intent.putExtra("username",
+                            FirebaseAuth.getInstance().currentUser!!.uid)
                             startActivity(intent)
                             activity?.finish()
 

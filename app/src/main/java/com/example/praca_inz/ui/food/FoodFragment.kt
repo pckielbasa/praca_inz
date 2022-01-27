@@ -1,5 +1,6 @@
 package com.example.praca_inz.ui.food
 
+import android.content.DialogInterface
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -23,6 +24,8 @@ class FoodFragment : Fragment() {
         ViewModelProvider(this)[FoodViewModel::class.java]
     }
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,13 +43,6 @@ class FoodFragment : Fragment() {
         })
 
         //OPEN LIST FROM DATABASE
-
-        foodViewModel.refresh.observe(viewLifecycleOwner,{ refreshFragment->
-        if(refreshFragment){
-            fragmentManager?.beginTransaction()?.detach(this)?.attach(this)?.commit()
-            foodViewModel.eventRefreshFinish()
-            }
-        })
 
         binding.foodGrid.adapter = FoodGridAdapter(FoodGridAdapter.OnClickListener {
             foodViewModel.displayPropertyDetails(it)

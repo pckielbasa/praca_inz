@@ -31,7 +31,7 @@ public class FoodService implements FoodRepo {
     @Override
     public Collection<Food> getAllType(String type) {
         return foodDao.findAll().stream()
-                .filter(offer -> offer.getType().equals(type))
+                .filter(food -> food.getType().equals(type))
                 .collect(Collectors.toList());
     }
 
@@ -77,5 +77,7 @@ public class FoodService implements FoodRepo {
         userRepo.addFoodToList(food,foodDTO.getUsername());
         return food;
     }
+
+
 
 }
