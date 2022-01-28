@@ -17,7 +17,8 @@ interface JsonPlaceholderApi {
             Deferred<List<FoodProperty>>
 
     @GET("type")
-    fun getContactsAsync(@Query("type") type: String):
+    fun getContactsAsync(@Query("type") type: String,
+                         @Query("username") username: String):
             Deferred<List<ContactProperty>>
 
     @GET("username")

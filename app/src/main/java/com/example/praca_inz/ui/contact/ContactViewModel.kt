@@ -4,9 +4,12 @@ import android.annotation.SuppressLint
 import androidx.lifecycle.*
 import com.example.praca_inz.network.ContactApi
 import com.example.praca_inz.network.ContactApiFilter
+import com.example.praca_inz.network.UserFilter
+
 import com.example.praca_inz.property.ContactProperty
 import com.example.praca_inz.ui.contact.ContactGridAdapter.*
 import com.example.praca_inz.ui.food.FoodGridAdapter
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -43,12 +46,13 @@ class ContactViewModel : ViewModel() {
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main )
 
     init {
-        getContactProperties(ContactApiFilter.SHOW_CHEMISTRY)
+        getContactProperties(ContactApiFilter.SHOW_CHEMISTRY, UserFilter.SHOW_USER)
     }
 
-    private fun getContactProperties(filter: ContactApiFilter){
+    private fun getContactProperties(filter: ContactApiFilter, filterUser: UserFilter){
         coroutineScope.launch {
-            val getPropertiesDeferred = ContactApi.retrofitService.getContactsAsync(filter.type)
+            val username = FirebaseAuth.getInstance().currentUser!!.uid
+            val getPropertiesDeferred = ContactApi.retrofitService.getContactsAsync(filter.type, username)
             try {
                 _status.value = ContactApiStatus.LOADING
                 val listResult =  getPropertiesDeferred.await()
@@ -77,8 +81,8 @@ class ContactViewModel : ViewModel() {
         _navigateToSelectedProperty.value = null
     }
 
-    fun updateFilter(filter: ContactApiFilter) {
-        getContactProperties(filter)
+    fun updateFilter(filter: ContactApiFilter, filterUser: UserFilter) {
+        getContactProperties(filter, filterUser)
     }
 
 

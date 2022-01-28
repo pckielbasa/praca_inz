@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.praca_inz.R
 import com.example.praca_inz.databinding.FragmentContactBinding
 import com.example.praca_inz.network.ContactApiFilter
+import com.example.praca_inz.network.UserFilter
 import com.example.praca_inz.ui.contact.addContact.AddContactFragment
 import com.example.praca_inz.ui.food.FoodFragmentDirections
 import com.example.praca_inz.ui.food.FoodGridAdapter
@@ -59,17 +60,20 @@ class ContactFragment : Fragment() {
 
         binding.animalButton.setOnClickListener {
             contactViewModel.updateFilter(
-                    ContactApiFilter.SHOW_ANIMAL
+                    ContactApiFilter.SHOW_ANIMAL,
+                    UserFilter.SHOW_USER
             )
         }
         binding.chemistryButton.setOnClickListener {
             contactViewModel.updateFilter(
-                ContactApiFilter.SHOW_CHEMISTRY
+                ContactApiFilter.SHOW_CHEMISTRY,
+                UserFilter.SHOW_USER
             )
         }
         binding.plantButton.setOnClickListener {
             contactViewModel.updateFilter(
-                ContactApiFilter.SHOW_PLANT
+                ContactApiFilter.SHOW_PLANT,
+                UserFilter.SHOW_USER
             )
         }
         return binding.root
