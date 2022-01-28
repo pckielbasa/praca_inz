@@ -19,9 +19,9 @@ interface JsonPlaceholderApi {
     fun getContactsAsync(@Query("type") type: String):
             Deferred<List<ContactProperty>>
 
-    @GET("usernametest")
+    @GET("username")
     fun getUserByUsernameAsync(@Query("username") type: String) :
-            Deferred<List<UserProperty>>
+            Deferred<UserProperty>
 
     @Headers("Content-Type: application/json")
     @POST("register")

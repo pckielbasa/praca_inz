@@ -41,9 +41,9 @@ class CalendarViewModel:ViewModel() {
     val status: LiveData<CalendarStatus>
         get() = _status
 
-    private val _properties = MutableLiveData<List<UserProperty>>()
+    private val _properties = MutableLiveData<UserProperty>()
 
-    val properties: LiveData<List<UserProperty>>
+    val properties: LiveData<UserProperty>
         get() = _properties
 
     private var viewModelJob = Job()
@@ -62,12 +62,11 @@ class CalendarViewModel:ViewModel() {
                 val listResult =  getPropertiesDeferred.await()
                 _status.value = CalendarStatus.DONE
                 _properties.value = listResult
-                if (listResult.isEmpty()){
+                if (listResult != null){
                     _status.value = CalendarStatus.EMPTY
                 }
             } catch (e: Exception) {
                 _status.value = CalendarStatus.ERROR
-                _properties.value = ArrayList()
             }
         }
     }

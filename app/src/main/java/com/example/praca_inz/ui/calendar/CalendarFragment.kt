@@ -64,7 +64,7 @@ class CalendarFragment : Fragment(){
 //                binding.addItemsDate.setOnClickListener {
 //                    findNavController().navigate(R.id.action_navigation_calendar_to_addItemsFragment)
 //                }
-                 binding.calendarGrid.adapter = CalendarGridAdapter()
+//                 binding.calendarGrid.adapter = CalendarGridAdapter()
                 return binding.root
     }
 
