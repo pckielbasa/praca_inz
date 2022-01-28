@@ -5,12 +5,12 @@ import com.example.praca_inz_api.dto.RegisterUserDTO;
 import com.example.praca_inz_api.dto.UserDTO;
 import com.example.praca_inz_api.model.User;
 import com.example.praca_inz_api.repository.UserRepo;
-import com.example.praca_inz_api.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,8 +25,8 @@ public class UserController {
 
 
     @GetMapping("/all")
-    public List<UserDTO> getAllUsers(){
-        return userRepo.getAllUsers().stream().map(UserConverter::toDTO).collect(Collectors.toList());
+    public List<User> getAllUsers(){
+        return new ArrayList<>(userRepo.getAllUsers());
     }
 
     @GetMapping("/email")
@@ -34,7 +34,7 @@ public class UserController {
         return userRepo.getUserByEmail(email);
     }
 
-    @GetMapping("")
+    @GetMapping("/username")
     public User getUserByUsername(@RequestParam(value = "username") String username){
         return userRepo.getUserByUsername(username);
     }

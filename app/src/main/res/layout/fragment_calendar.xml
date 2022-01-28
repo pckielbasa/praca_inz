@@ -50,33 +50,20 @@
             android:layout_height="match_parent"
             android:background="@color/backgroundAppColor">
 
+
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/contact_grid"
+                android:id="@+id/calendar_grid"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:padding="6dp"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:layout_constraintBottom_toTopOf="@+id/addItemsDate"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:listData="@{calendarViewModel.properties}"
                 tools:itemCount="16"
                 tools:listitem="@layout/fragment_day" />
-
-            <TextView
-                android:id="@+id/addItemsDate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
-                android:layout_marginBottom="?attr/actionBarSize"
-
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

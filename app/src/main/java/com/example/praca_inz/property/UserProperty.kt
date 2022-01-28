@@ -10,10 +10,10 @@ data class UserProperty (
     val name: String,
     val surname: String,
     val phoneNumber: String,
-    val dayScheduleList: DayScheduleListProperty,
-    val myFood:FoodProperty,
-    val myContact:ContactProperty,
-    val myAllergies:AllergiesProperty
+    val dayScheduleList: List<DayScheduleProperty>,
+    val myFood:List<FoodProperty>,
+    val myContact:List<ContactProperty>,
+    val myAllergies:List<AllergiesProperty>
 ): Parcelable {
 
 }

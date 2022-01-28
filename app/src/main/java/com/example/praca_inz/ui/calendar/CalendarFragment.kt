@@ -22,10 +22,7 @@ import java.util.*
 
 class CalendarFragment : Fragment(){
     private val calendarViewModel: CalendarViewModel by lazy {
-        val activity = requireNotNull(this.activity) {
-            "You can only access the viewModel after onViewCreated()"
-        }
-        ViewModelProvider(this, CalendarViewModel.CalendarViewModelFactory(activity.application))[CalendarViewModel::class.java]
+        ViewModelProvider(this)[CalendarViewModel::class.java]
     }
     private lateinit var auth: FirebaseAuth
     private lateinit var tvDataPicker : TextView
@@ -64,10 +61,10 @@ class CalendarFragment : Fragment(){
                 binding.dateCalendar.text = dateInString
 
 
-                binding.addItemsDate.setOnClickListener {
-                    findNavController().navigate(R.id.action_navigation_calendar_to_addItemsFragment)
-                }
-
+//                binding.addItemsDate.setOnClickListener {
+//                    findNavController().navigate(R.id.action_navigation_calendar_to_addItemsFragment)
+//                }
+                 binding.calendarGrid.adapter = CalendarGridAdapter()
                 return binding.root
     }
 

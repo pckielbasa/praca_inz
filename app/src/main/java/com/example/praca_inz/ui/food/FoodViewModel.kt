@@ -6,6 +6,7 @@ import com.example.praca_inz.network.FoodApi
 import com.example.praca_inz.network.FoodApiFilter
 import com.example.praca_inz.property.FoodProperty
 import com.example.praca_inz.ui.food.FoodGridAdapter.*
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

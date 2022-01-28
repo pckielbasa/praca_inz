@@ -28,15 +28,11 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
-interface FoodApiService {
-    @GET("type")
-    fun getFoodsAsync(@Query("type") type: String):
-            Deferred<List<FoodProperty>>
-}
+
 
 object FoodApi {
-    val retrofitService : FoodApiService by lazy {
-        retrofit.create(FoodApiService::class.java)
+    val retrofitService : JsonPlaceholderApi by lazy {
+        retrofit.create(JsonPlaceholderApi::class.java)
     }
 }
 

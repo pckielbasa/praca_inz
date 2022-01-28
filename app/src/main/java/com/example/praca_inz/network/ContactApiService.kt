@@ -28,15 +28,11 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
-interface ContactApiService {
-    @GET("type")
-    fun getContactsAsync(@Query("type") type: String):
-            Deferred<List<ContactProperty>>
-}
+
 
 object ContactApi {
-    val retrofitService : ContactApiService by lazy {
-        retrofit.create(ContactApiService::class.java)
+    val retrofitService : JsonPlaceholderApi by lazy {
+        retrofit.create(JsonPlaceholderApi::class.java)
     }
 }
 
