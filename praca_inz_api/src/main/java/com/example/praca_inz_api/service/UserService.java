@@ -9,7 +9,9 @@ import org.apache.velocity.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService implements UserRepo {
@@ -97,6 +99,13 @@ public class UserService implements UserRepo {
         User user = getUserByUsername(username);
         user.getMyAllergies().add(allergies);
         return userDao.save(user);
+    }
+
+    @Override
+    public Collection<User> getAllUsersUsername(String username) {
+        return userDao.findAll().stream()
+                .filter(user -> user.getUsername().equals(username))
+                .collect(Collectors.toList());
     }
 
 }

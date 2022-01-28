@@ -2,8 +2,11 @@ package com.example.praca_inz.ui.calendar
 
 import android.app.Application
 import androidx.lifecycle.*
+import com.example.praca_inz.network.FoodApiFilter
 import com.example.praca_inz.network.UserApi
+import com.example.praca_inz.network.UserFilter
 import com.example.praca_inz.property.UserProperty
+import com.example.praca_inz.ui.food.FoodGridAdapter
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -15,6 +18,8 @@ import retrofit2.Response
 
 
 class CalendarViewModel:ViewModel() {
+
+    enum class CalendarStatus { LOADING, ERROR, DONE,EMPTY }
 
     private val _openNavCalendar = MutableLiveData<Boolean>()
     val openNavCalendar : LiveData<Boolean>
@@ -31,9 +36,9 @@ class CalendarViewModel:ViewModel() {
     }
 
 
-    private val _status = MutableLiveData<String>()
+    private val _status = MutableLiveData<CalendarStatus>()
 
-    val status: LiveData<String>
+    val status: LiveData<CalendarStatus>
         get() = _status
 
     private val _properties = MutableLiveData<List<UserProperty>>()
@@ -45,20 +50,24 @@ class CalendarViewModel:ViewModel() {
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main )
 
     init {
-        getUserProperties()
+        getUserProperties(UserFilter.SHOW_USER)
     }
 
 
-    private fun getUserProperties(){
+    private fun getUserProperties(filter: UserFilter){
         coroutineScope.launch {
-            var getPropertiesDeferred = UserApi.retrofitService.getUserByUsernameAsync()
+            var getPropertiesDeferred = UserApi.retrofitService.getUserByUsernameAsync(filter.username)
             try {
-                var listResult = getPropertiesDeferred.await()
-                if (listResult.size > 0) {
-                    _properties.value = listResult
+                _status.value = CalendarStatus.LOADING
+                val listResult =  getPropertiesDeferred.await()
+                _status.value = CalendarStatus.DONE
+                _properties.value = listResult
+                if (listResult.isEmpty()){
+                    _status.value = CalendarStatus.EMPTY
                 }
             } catch (e: Exception) {
-                _status.value = "Failure: ${e.message}"
+                _status.value = CalendarStatus.ERROR
+                _properties.value = ArrayList()
             }
         }
     }
@@ -66,4 +75,5 @@ class CalendarViewModel:ViewModel() {
         super.onCleared()
         viewModelJob.cancel()
     }
+
 }

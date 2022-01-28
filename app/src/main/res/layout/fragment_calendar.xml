@@ -64,6 +64,26 @@
                 app:listData="@{calendarViewModel.properties}"
                 tools:itemCount="16"
                 tools:listitem="@layout/fragment_day" />
+            <ImageView
+                android:id="@+id/status_image"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:marsApiStatus="@{calendarViewModel.status}" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                app:calendarApiStatus="@{calendarViewModel.status}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/status_image" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

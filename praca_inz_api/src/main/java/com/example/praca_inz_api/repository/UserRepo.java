@@ -15,4 +15,5 @@ public interface UserRepo {
     User addFoodToList (Food food, String username);
     User addContactToList (Contact contact, String username);
     User addAllergiesToList(Allergies allergies, String username);
+    Collection<User> getAllUsersUsername(String username);
 }
