@@ -63,7 +63,6 @@ public class FoodService implements FoodRepo {
     @Override
     public Food createFood(FoodDTO foodDTO) {
 
-
             Food food = new Food();
             food.setUsername(foodDTO.getUsername());
             food.setFoodName(foodDTO.getFoodName());
@@ -71,11 +70,6 @@ public class FoodService implements FoodRepo {
             food.setType(foodDTO.getType());
             food.setFavourite(foodDTO.getFavourite());
             return foodDao.save(food);
-
-
-
-
-
     }
 
 

@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface ContactRepo {
     Collection<Contact> getAllContact();
-    Collection<Contact> getAllType(String type);
+    Collection<Contact> getAllType(String type, String username);
     Contact getContactById(String contactId);
     String getContactId(String contactId);
     List<Contact> getListOfContactsByIds(List<String> idList);

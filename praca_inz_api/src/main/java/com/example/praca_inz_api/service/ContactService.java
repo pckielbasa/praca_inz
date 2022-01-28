@@ -28,9 +28,10 @@ public class ContactService implements ContactRepo {
     }
 
     @Override
-    public Collection<Contact> getAllType(String type) {
+    public Collection<Contact> getAllType(String type, String username) {
         return contactDao.findAll().stream()
                 .filter(offer -> offer.getType().equals(type))
+                .filter(offer -> offer.getUsername().equals(username))
                 .collect(Collectors.toList());
     }
 
