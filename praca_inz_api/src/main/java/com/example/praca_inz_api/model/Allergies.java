@@ -18,6 +18,7 @@ import java.util.List;
 public class Allergies {
     @Id
     private String _id;
+    private String username;
     private String allergyName;
     private String type;
     private String comment;

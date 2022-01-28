@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 public class DayScheduleConverter {
     public static AddDayScheduleDTO toDTO(DaySchedule entity){
         return new AddDayScheduleDTO(
+                entity.getUsername(),
                 entity.getDayDate(),
                 entity.getDayScheduleIemList().stream().map(ItemDaySchedule::get_id).collect(Collectors.toList())
         );

@@ -14,6 +14,7 @@ import com.example.praca_inz.R
 import com.example.praca_inz.databinding.FragmentFoodBinding
 import com.example.praca_inz.network.ContactApiFilter
 import com.example.praca_inz.network.FoodApiFilter
+import com.example.praca_inz.network.UserFilter
 import com.example.praca_inz.ui.food.addFood.AddFoodFragment
 
 
@@ -56,17 +57,20 @@ class FoodFragment : Fragment() {
         })
         binding.mealButton.setOnClickListener {
             foodViewModel.updateFilter(
-                FoodApiFilter.SHOW_MEAL
+                FoodApiFilter.SHOW_MEAL,
+                UserFilter.SHOW_USER
             )
         }
         binding.snackButton.setOnClickListener {
             foodViewModel.updateFilter(
-                FoodApiFilter.SHOW_SNACK
+                FoodApiFilter.SHOW_SNACK,
+                UserFilter.SHOW_USER
             )
         }
         binding.componentButton.setOnClickListener {
             foodViewModel.updateFilter(
-                FoodApiFilter.SHOW_COMPONENT
+                FoodApiFilter.SHOW_COMPONENT,
+                UserFilter.SHOW_USER
             )
         }
 

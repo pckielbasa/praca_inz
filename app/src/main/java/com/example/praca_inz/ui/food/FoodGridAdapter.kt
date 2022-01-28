@@ -7,8 +7,9 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.praca_inz.databinding.FoodListItemBinding
 import com.example.praca_inz.property.FoodProperty
+import com.example.praca_inz.ui.food.FoodGridAdapter.*
 
-class FoodGridAdapter(private val onClickListener: OnClickListener) : ListAdapter<FoodProperty, FoodGridAdapter.FoodPropertyViewHolder>(DiffCallback) {
+class FoodGridAdapter(private val onClickListener: OnClickListener) : ListAdapter<FoodProperty, FoodPropertyViewHolder>(DiffCallback) {
 
     enum class FoodGridStatus { LOADING, ERROR, DONE,EMPTY }
 
@@ -34,12 +35,12 @@ class FoodGridAdapter(private val onClickListener: OnClickListener) : ListAdapte
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): FoodGridAdapter.FoodPropertyViewHolder {
+    ): FoodPropertyViewHolder {
         return FoodPropertyViewHolder(FoodListItemBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
     override fun onBindViewHolder(
-        holder: FoodGridAdapter.FoodPropertyViewHolder,
+        holder: FoodPropertyViewHolder,
         position: Int
     ) {
         val foodProperty = getItem(position)

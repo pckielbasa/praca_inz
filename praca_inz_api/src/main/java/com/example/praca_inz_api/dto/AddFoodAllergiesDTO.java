@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AddFoodAllergiesDTO {
-
+    private String username;
     private String allergyName;
     private String type;
     private String comment;

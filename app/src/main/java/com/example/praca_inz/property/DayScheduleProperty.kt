@@ -5,6 +5,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class DayScheduleProperty (
+    val username: String,
     val dayDate:String
         ): Parcelable {
 

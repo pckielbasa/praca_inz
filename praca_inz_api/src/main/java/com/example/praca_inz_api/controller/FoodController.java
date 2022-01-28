@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @RestController
 @RequestMapping("/food")
@@ -22,8 +23,9 @@ public class FoodController {
 
 
     @GetMapping("/type")
-    public List<AddFoodDTO> getFoodType(@RequestParam(value = "type") String type){
-        return foodRepo.getAllType(type).stream()
+    public List<AddFoodDTO> getFoodType(@RequestParam(value = "type") String type,
+                                        @RequestParam(value = "username") String username){
+        return foodRepo.getAllType(type,username).stream()
                 .map(FoodConverter::toDTO)
                 .collect(Collectors.toList());
     }

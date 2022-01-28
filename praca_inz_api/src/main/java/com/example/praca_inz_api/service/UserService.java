@@ -101,11 +101,5 @@ public class UserService implements UserRepo {
         return userDao.save(user);
     }
 
-    @Override
-    public Collection<User> getAllUsersUsername(String username) {
-        return userDao.findAll().stream()
-                .filter(user -> user.getUsername().equals(username))
-                .collect(Collectors.toList());
-    }
 
 }

@@ -35,6 +35,7 @@ public class AllergiesService implements AllergiesRepo {
     @Override
     public Allergies createFoodAllergies(FoodAllergiesDTO foodAllergiesDTO) {
         Allergies allergies = new Allergies();
+        allergies.setUsername(foodAllergiesDTO.getUsername());
         allergies.setAllergyName(foodAllergiesDTO.getAllergyName());
         allergies.setComment(foodAllergiesDTO.getComment());
         allergies.setType(foodAllergiesDTO.getType());
@@ -52,6 +53,7 @@ public class AllergiesService implements AllergiesRepo {
     @Override
     public Allergies createContactAllergies(ContactAllergiesDTO contactAllergiesDTO) {
         Allergies allergies = new Allergies();
+        allergies.setUsername(contactAllergiesDTO.getUsername());
         allergies.setAllergyName(contactAllergiesDTO.getAllergyName());
         allergies.setComment(contactAllergiesDTO.getComment());
         allergies.setType(contactAllergiesDTO.getType());

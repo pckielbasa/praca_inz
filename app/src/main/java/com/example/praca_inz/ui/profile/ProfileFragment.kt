@@ -9,6 +9,9 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.example.praca_inz.authorization.AuthorizationActivity
 import com.example.praca_inz.databinding.FragmentProfileBinding
+import com.example.praca_inz.network.username
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
 
 class ProfileFragment : Fragment() {
@@ -46,6 +49,7 @@ class ProfileFragment : Fragment() {
 
 
     fun logoutFromApp(){
+        FirebaseAuth.getInstance().signOut()
         val intent = Intent(context, AuthorizationActivity::class.java)
         activity?.finish()
         startActivity(intent)

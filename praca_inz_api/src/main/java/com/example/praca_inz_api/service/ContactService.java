@@ -59,6 +59,7 @@ public class ContactService implements ContactRepo {
     @Override
     public Contact createContact(ContactDTO contactDTO) {
         Contact contact = new Contact();
+        contact.setUsername(contactDTO.getUsername());
         contact.setContactName(contactDTO.getContactName());
         contact.setComposition(contactDTO.getComposition());
         contact.setType(contactDTO.getType());

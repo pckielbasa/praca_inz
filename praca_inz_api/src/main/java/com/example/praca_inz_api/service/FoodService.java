@@ -3,7 +3,6 @@ package com.example.praca_inz_api.service;
 import com.example.praca_inz_api.dao.FoodDao;
 
 import com.example.praca_inz_api.dto.FoodDTO;
-import com.example.praca_inz_api.model.DaySchedule;
 import com.example.praca_inz_api.model.Food;
 
 import com.example.praca_inz_api.repository.FoodRepo;
@@ -14,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 public class FoodService implements FoodRepo {
@@ -29,9 +29,10 @@ public class FoodService implements FoodRepo {
     }
 
     @Override
-    public Collection<Food> getAllType(String type) {
+    public Collection<Food> getAllType(String type, String username) {
         return foodDao.findAll().stream()
                 .filter(food -> food.getType().equals(type))
+                .filter(food -> food.getUsername().equals(username))
                 .collect(Collectors.toList());
     }
 
@@ -61,13 +62,20 @@ public class FoodService implements FoodRepo {
 
     @Override
     public Food createFood(FoodDTO foodDTO) {
-        Food food = new Food();
 
-        food.setFoodName(foodDTO.getFoodName());
-        food.setComposition(foodDTO.getComposition());
-        food.setType(foodDTO.getType());
-        food.setFavourite(foodDTO.getFavourite());
-        return foodDao.save(food);
+
+            Food food = new Food();
+            food.setUsername(foodDTO.getUsername());
+            food.setFoodName(foodDTO.getFoodName());
+            food.setComposition(foodDTO.getComposition());
+            food.setType(foodDTO.getType());
+            food.setFavourite(foodDTO.getFavourite());
+            return foodDao.save(food);
+
+
+
+
+
     }
 
 
@@ -78,6 +86,10 @@ public class FoodService implements FoodRepo {
         return food;
     }
 
+    @Override
+    public String findByFoodName(String foodName) {
+        return foodDao.findByFoodName(foodName).getFoodName();
+    }
 
 
 }

@@ -2,9 +2,11 @@ package com.example.praca_inz.ui.calendar
 
 import android.app.Application
 import androidx.lifecycle.*
+import com.example.praca_inz.data.Food
 import com.example.praca_inz.network.FoodApiFilter
 import com.example.praca_inz.network.UserApi
 import com.example.praca_inz.network.UserFilter
+import com.example.praca_inz.property.FoodProperty
 import com.example.praca_inz.property.UserProperty
 import com.example.praca_inz.ui.food.FoodGridAdapter
 import com.google.firebase.auth.FirebaseAuth
@@ -56,7 +58,8 @@ class CalendarViewModel:ViewModel() {
 
     private fun getUserProperties(filter: UserFilter){
         coroutineScope.launch {
-            var getPropertiesDeferred = UserApi.retrofitService.getUserByUsernameAsync(filter.username)
+            val username = FirebaseAuth.getInstance().currentUser!!.uid
+            var getPropertiesDeferred = UserApi.retrofitService.getUserByUsernameAsync(username)
             try {
                 _status.value = CalendarStatus.LOADING
                 val listResult =  getPropertiesDeferred.await()

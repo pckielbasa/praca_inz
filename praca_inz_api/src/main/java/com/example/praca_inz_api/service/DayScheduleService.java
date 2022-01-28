@@ -33,6 +33,7 @@ public class DayScheduleService implements DayScheduleRepo {
     @Override
     public DaySchedule createDaySchedule(DayScheduleDTO dayScheduleDTO) {
         DaySchedule daySchedule = new DaySchedule();
+        daySchedule.setUsername(dayScheduleDTO.getUsername());
         daySchedule.setDayDate(dayScheduleDTO.getDayDate());
         daySchedule.setDayScheduleIemList(itemDayRepo.getListOfItemsByIds(dayScheduleDTO.getListOfItemsId()));
          return dayScheduleDao.save(daySchedule);

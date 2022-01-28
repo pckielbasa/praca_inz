@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 public class ItemDayConverter {
     public static ItemDayDTO toDTO(ItemDaySchedule entity){
         return new ItemDayDTO(
+                entity.getUsername(),
                 entity.getHour(),
                 entity.getMinute(),
                 entity.getItemDayFood().stream().map(Food::get_id).collect(Collectors.toList()),

@@ -5,11 +5,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.praca_inz.databinding.FragmentDayBinding
+import com.example.praca_inz.databinding.CalendarItemListBinding
+
 import com.example.praca_inz.property.UserProperty
 
 class CalendarGridAdapter : ListAdapter<UserProperty, CalendarGridAdapter.UserPropertyViewHolder>(DiffCallback) {
-    class UserPropertyViewHolder(private var binding: FragmentDayBinding):
+    class UserPropertyViewHolder(private var binding: CalendarItemListBinding):
         RecyclerView.ViewHolder(binding.root) {
         fun bind(userProperty: UserProperty) {
             binding.property = userProperty
@@ -30,7 +31,7 @@ class CalendarGridAdapter : ListAdapter<UserProperty, CalendarGridAdapter.UserPr
         parent: ViewGroup,
         viewType: Int
     ): CalendarGridAdapter.UserPropertyViewHolder {
-        return UserPropertyViewHolder(FragmentDayBinding.inflate(LayoutInflater.from(parent.context)))
+        return UserPropertyViewHolder(CalendarItemListBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
     override fun onBindViewHolder(

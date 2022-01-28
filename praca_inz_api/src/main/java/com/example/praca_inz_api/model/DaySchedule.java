@@ -17,6 +17,7 @@ import java.util.List;
 public class DaySchedule {
     @Id
     private String _id;
+    private String username;
     private String dayDate;
 
     @DBRef(lazy = true)

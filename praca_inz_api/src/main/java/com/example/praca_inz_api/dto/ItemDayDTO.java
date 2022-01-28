@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ItemDayDTO {
 
-
+    private String username;
     private Integer hour;
     private Integer minute;
     private List<String> listOfFoodId;

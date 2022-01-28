@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AddDayScheduleDTO {
-
+    private String username;
     private String dayDate;
     private List<String> listOfItemsId;
 }

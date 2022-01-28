@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 public class AllergiesConverter {
     public static AddFoodAllergiesDTO toFoodDTO(Allergies entity){
         return new AddFoodAllergiesDTO(
+                entity.getUsername(),
               entity.getAllergyName(),
                 entity.getType(),
                 entity.getComment(),
@@ -20,6 +21,7 @@ public class AllergiesConverter {
     }
     public static AddContactAllergiesDTO toContactDTO(Allergies entity){
         return new AddContactAllergiesDTO(
+                entity.getUsername(),
                 entity.getAllergyName(),
                 entity.getType(),
                 entity.getComment(),

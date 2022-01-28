@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AddContactAllergiesDTO {
-
+    private String username;
     private String allergyName;
     private String type;
     private String comment;

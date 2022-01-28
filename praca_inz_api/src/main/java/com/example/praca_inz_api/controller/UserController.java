@@ -29,11 +29,6 @@ public class UserController {
         return new ArrayList<>(userRepo.getAllUsers());
     }
 
-    @GetMapping("/usernametest")
-    public List<User> getAllUsersUsername(@RequestParam(value = "username") String username){
-        return new ArrayList<>(userRepo.getAllUsersUsername(username));
-    }
-
     @GetMapping("/email")
     public User getUserByEmail(@RequestParam(value = "email") String email){
         return userRepo.getUserByEmail(email);

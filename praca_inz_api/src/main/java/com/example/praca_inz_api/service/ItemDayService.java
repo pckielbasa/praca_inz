@@ -32,6 +32,7 @@ public class ItemDayService implements ItemDayRepo {
     @Override
     public ItemDaySchedule createItemDay(ItemDayDTO itemDayDTO) {
         ItemDaySchedule itemDaySchedule = new ItemDaySchedule();
+        itemDaySchedule.setUsername(itemDayDTO.getUsername());
         itemDaySchedule.setHour(itemDayDTO.getHour());
         itemDaySchedule.setMinute(itemDayDTO.getMinute());
         itemDaySchedule.setItemDayFood(foodRepo.getListOfFoodByIds(itemDayDTO.getListOfFoodId()));

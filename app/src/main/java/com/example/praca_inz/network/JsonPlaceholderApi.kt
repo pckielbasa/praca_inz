@@ -12,7 +12,8 @@ import retrofit2.http.*
 
 interface JsonPlaceholderApi {
     @GET("type")
-    fun getFoodsAsync(@Query("type") type: String):
+    fun getFoodsAsync(@Query("type") type: String,
+                      @Query("username") username: String):
             Deferred<List<FoodProperty>>
 
     @GET("type")
@@ -20,7 +21,7 @@ interface JsonPlaceholderApi {
             Deferred<List<ContactProperty>>
 
     @GET("username")
-    fun getUserByUsernameAsync(@Query("username") type: String) :
+    fun getUserByUsernameAsync(@Query("username") username: String) :
             Deferred<UserProperty>
 
     @Headers("Content-Type: application/json")

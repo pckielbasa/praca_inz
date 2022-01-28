@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.lifecycle.*
 import com.example.praca_inz.network.FoodApi
 import com.example.praca_inz.network.FoodApiFilter
+import com.example.praca_inz.network.UserFilter
 import com.example.praca_inz.property.FoodProperty
 import com.example.praca_inz.ui.food.FoodGridAdapter.*
 import com.google.firebase.auth.FirebaseAuth
@@ -45,12 +46,13 @@ class FoodViewModel : ViewModel(){
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main )
 
     init {
-        getFoodProperties(FoodApiFilter.SHOW_MEAL)
+        getFoodProperties(FoodApiFilter.SHOW_MEAL, UserFilter.SHOW_USER)
     }
 
-    private fun getFoodProperties(filter: FoodApiFilter){
+    private fun getFoodProperties(filter: FoodApiFilter, filterUser: UserFilter){
         coroutineScope.launch {
-            val getPropertiesDeferred = FoodApi.retrofitService.getFoodsAsync(filter.type)
+            val username = FirebaseAuth.getInstance().currentUser!!.uid
+            val getPropertiesDeferred = FoodApi.retrofitService.getFoodsAsync(filter.type, username)
             try {
                 _status.value = FoodGridStatus.LOADING
                 val listResult =  getPropertiesDeferred.await()
@@ -79,8 +81,8 @@ class FoodViewModel : ViewModel(){
     fun displayPropertyDetailsComplete() {
         _navigateToSelectedProperty.value = null
     }
-    fun updateFilter(filter: FoodApiFilter) {
-        getFoodProperties(filter)
+    fun updateFilter(filter: FoodApiFilter, filterUser: UserFilter) {
+        getFoodProperties(filter, filterUser)
     }
 
 }

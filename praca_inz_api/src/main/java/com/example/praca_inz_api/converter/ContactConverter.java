@@ -7,6 +7,7 @@ import com.example.praca_inz_api.model.Contact;
 public class ContactConverter {
     public static AddContactDTO toDTO(Contact entity){
         return new AddContactDTO(
+                entity.getUsername(),
                 entity.getContactName(),
                 entity.getComposition(),
                 entity.getType());
