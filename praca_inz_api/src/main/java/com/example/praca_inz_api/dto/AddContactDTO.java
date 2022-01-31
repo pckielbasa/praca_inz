@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AddContactDTO {
+    private String username;
     private String contactName;
     private String composition;
     private String type;

@@ -85,7 +85,6 @@ class AddContactFragment : DialogFragment() {
                     val contactFavourite:Boolean = binding.addContactFavouriteBtn.isChecked
                     val apiService = RestApiService()
                     val contact = Contact(
-
                         username =  FirebaseAuth.getInstance().currentUser!!.uid,
                         contactName = contactName,
                         composition = contactComposition,

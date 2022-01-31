@@ -88,7 +88,6 @@ public class UserService implements UserRepo {
 
     @Override
     public User addContactToList(Contact contact, String username) {
-
         User user = getUserByUsername(username);
         user.getMyContact().add(contact);
         return userDao.save(user);
