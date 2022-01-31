@@ -7,8 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ContactDTO {
-    private String username;
+public class ContactListDTO {
     private String contactName;
     private String composition;
     private String type;

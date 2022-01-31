@@ -23,9 +23,8 @@ public class FoodController {
 
 
     @GetMapping("/type")
-    public List<AddFoodDTO> getFoodType(@RequestParam(value = "type") String type,
-                                        @RequestParam(value = "username") String username){
-        return foodRepo.getAllType(type,username).stream()
+    public List<AddFoodDTO> getFoodType(@RequestParam(value = "type") String type){
+        return foodRepo.getAllType(type).stream()
                 .map(FoodConverter::toDTO)
                 .collect(Collectors.toList());
     }

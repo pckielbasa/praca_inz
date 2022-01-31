@@ -13,8 +13,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Contact {
     @Id
     private String _id;
-    private String username;
     private String contactName;
     private String composition;
     private String type;
+    private Boolean favourite;
+    private Boolean allergy;
 }

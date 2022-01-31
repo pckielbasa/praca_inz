@@ -15,8 +15,8 @@ class DetailContactFragment : Fragment() {
         val application = requireNotNull(activity).application
         val binding = DetailContactFragmentBinding.inflate(inflater)
         binding.lifecycleOwner = this
-        val contactProperty = DetailContactFragmentArgs.fromBundle(requireArguments()).selectedProperty
-        val viewModelFactory = DetailContactViewModelFactory(contactProperty, application)
+        val myContactProperty = DetailContactFragmentArgs.fromBundle(requireArguments()).selectedProperty
+        val viewModelFactory = DetailContactViewModelFactory(myContactProperty, application)
         binding.viewModel = ViewModelProvider(
             this, viewModelFactory)[DetailContactViewModel::class.java]
         return binding.root

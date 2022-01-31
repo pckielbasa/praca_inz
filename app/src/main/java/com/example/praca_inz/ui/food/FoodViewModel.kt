@@ -1,11 +1,11 @@
 package com.example.praca_inz.ui.food
 
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.lifecycle.*
-import com.example.praca_inz.network.FoodApi
-import com.example.praca_inz.network.FoodApiFilter
-import com.example.praca_inz.network.UserFilter
+import com.example.praca_inz.network.*
 import com.example.praca_inz.property.FoodProperty
+import com.example.praca_inz.property.MyFoodProperty
 import com.example.praca_inz.ui.food.FoodGridAdapter.*
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.CoroutineScope
@@ -25,36 +25,39 @@ class FoodViewModel : ViewModel(){
         _eventOpenPopupMenu.value = false
     }
 
+
     private val _status = MutableLiveData<FoodGridStatus>()
 
     val status: LiveData<FoodGridStatus>
         get() = _status
 
-    private val _properties = MutableLiveData<List<FoodProperty>>()
+    private val _properties = MutableLiveData<List<MyFoodProperty>>()
 
-    val properties: LiveData<List<FoodProperty>>
+    val properties: LiveData<List<MyFoodProperty>>
         get() = _properties
 
 
 
-    private val _navigateToSelectedProperty = MutableLiveData<FoodProperty>()
+    private val _navigateToSelectedProperty = MutableLiveData<MyFoodProperty>()
 
-    val navigateToSelectedProperty: LiveData<FoodProperty>
+    val navigateToSelectedProperty: LiveData<MyFoodProperty>
         get() = _navigateToSelectedProperty
 
     private var viewModelJob = Job()
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main )
 
     init {
-        getFoodProperties(FoodApiFilter.SHOW_MEAL, UserFilter.SHOW_USER)
+        getFoodProperties(FoodApiFilter.SHOW_MEAL)
     }
 
-    private fun getFoodProperties(filter: FoodApiFilter, filterUser: UserFilter){
+    private fun getFoodProperties(filter: FoodApiFilter){
         coroutineScope.launch {
             val username = FirebaseAuth.getInstance().currentUser!!.uid
-            val getPropertiesDeferred = FoodApi.retrofitService.getFoodsAsync(filter.type, username)
+            Log.i("retrofit", username)
+            val getPropertiesDeferred = UserApi.retrofitService.getMyFoodsAsync(filter.type, username)
             try {
                 _status.value = FoodGridStatus.LOADING
+                filter.type
                 val listResult =  getPropertiesDeferred.await()
                 _status.value = FoodGridStatus.DONE
                 _properties.value = listResult
@@ -73,16 +76,16 @@ class FoodViewModel : ViewModel(){
     }
 
 
-    fun displayPropertyDetails(foodProperty: FoodProperty) {
-        _navigateToSelectedProperty.value = foodProperty
+    fun displayPropertyDetails(myFoodProperty: MyFoodProperty) {
+        _navigateToSelectedProperty.value = myFoodProperty
     }
 
     @SuppressLint("NullSafeMutableLiveData")
     fun displayPropertyDetailsComplete() {
         _navigateToSelectedProperty.value = null
     }
-    fun updateFilter(filter: FoodApiFilter, filterUser: UserFilter) {
-        getFoodProperties(filter, filterUser)
+    fun updateFilter(filter: FoodApiFilter) {
+        getFoodProperties(filter)
     }
 
 }

@@ -101,5 +101,21 @@ public class UserService implements UserRepo {
         return userDao.save(user);
     }
 
+    @Override
+    public List<Food> getMyFoodList(String type, String username) {
+        return getUserByUsername(username)
+                .getMyFood()
+                .stream()
+                .filter(food -> food.getType().equals(type)).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Contact> getMyContactList(String type, String username) {
+        return getUserByUsername(username)
+                .getMyContact()
+                .stream()
+                .filter(contact -> contact.getType().equals(type)).collect(Collectors.toList());
+    }
+
 
 }

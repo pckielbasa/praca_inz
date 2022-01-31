@@ -1,8 +1,10 @@
 package com.example.praca_inz_api.controller;
 
+import com.example.praca_inz_api.converter.ContactConverter;
+import com.example.praca_inz_api.converter.FoodConverter;
 import com.example.praca_inz_api.converter.UserConverter;
-import com.example.praca_inz_api.dto.RegisterUserDTO;
-import com.example.praca_inz_api.dto.UserDTO;
+import com.example.praca_inz_api.dto.*;
+import com.example.praca_inz_api.model.Food;
 import com.example.praca_inz_api.model.User;
 import com.example.praca_inz_api.repository.UserRepo;
 import lombok.RequiredArgsConstructor;
@@ -38,6 +40,19 @@ public class UserController {
     public User getUserByUsername(@RequestParam(value = "username") String username){
         return userRepo.getUserByUsername(username);
     }
+
+    @GetMapping("/myfood")
+    public List<FoodListDTO> getMyFoodList(@RequestParam(value = "type") String type,
+                                           @RequestParam(value = "username") String username){
+        return userRepo.getMyFoodList(type, username).stream().map(FoodConverter::toFoodDTO).collect(Collectors.toList());
+    }
+
+    @GetMapping("/mycontact")
+    public List<ContactListDTO> getMyContactList(@RequestParam(value = "type") String type,
+                                              @RequestParam(value = "username") String username){
+        return userRepo.getMyContactList(type, username).stream().map(ContactConverter::toContactDTO).collect(Collectors.toList());
+    }
+
 
     @PostMapping("/register")
     public ResponseEntity<UserDTO> registerUser(@RequestBody RegisterUserDTO registerUserDTO){

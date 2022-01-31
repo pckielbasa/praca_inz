@@ -23,9 +23,8 @@ public class ContactController {
 
 
     @GetMapping("/type")
-    public List<AddContactDTO> getFoodType(@RequestParam(value = "type") String type,
-                                           @RequestParam(value = "username")String username){
-        return contactRepo.getAllType(type,username).stream()
+    public List<AddContactDTO> getFoodType(@RequestParam(value = "type") String type){
+        return contactRepo.getAllType(type).stream()
                 .map(ContactConverter::toDTO)
                 .collect(Collectors.toList());
     }

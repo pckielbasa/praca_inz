@@ -82,12 +82,16 @@ class AddContactFragment : DialogFragment() {
                     val contactName:String = etContactName.text.toString().trim{it<=' '}
                     val contactComposition:String = etContactComposition.text.toString().trim{it<=' '}
                     val type:String = typeContact
+                    val contactFavourite:Boolean = binding.addContactFavouriteBtn.isChecked
                     val apiService = RestApiService()
                     val contact = Contact(
+
                         username =  FirebaseAuth.getInstance().currentUser!!.uid,
                         contactName = contactName,
                         composition = contactComposition,
-                        type = type
+                        type = type,
+                        favourite = contactFavourite,
+                        allergy = false
                     )
                 apiService.addContact(contact){
                     if (it?.type == null) {

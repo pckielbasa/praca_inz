@@ -81,7 +81,7 @@
         tools:layout="@layout/detail_food_fragment">
         <argument
             android:name="selectedProperty"
-            app:argType="com.example.praca_inz.property.FoodProperty"/>
+            app:argType="com.example.praca_inz.property.MyFoodProperty"/>
     </fragment>
     <dialog
         android:id="@+id/addFoodFragment"
@@ -97,7 +97,7 @@
         android:label="DetailContactFragment" >
         <argument
             android:name="selectedProperty"
-            app:argType="com.example.praca_inz.property.ContactProperty"/>
+            app:argType="com.example.praca_inz.property.MyContactProperty"/>
     </fragment>
     <activity
         android:id="@+id/splashScreenActivity"

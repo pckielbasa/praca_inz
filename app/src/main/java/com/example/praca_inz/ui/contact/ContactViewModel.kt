@@ -4,9 +4,11 @@ import android.annotation.SuppressLint
 import androidx.lifecycle.*
 import com.example.praca_inz.network.ContactApi
 import com.example.praca_inz.network.ContactApiFilter
+import com.example.praca_inz.network.UserApi
 import com.example.praca_inz.network.UserFilter
 
 import com.example.praca_inz.property.ContactProperty
+import com.example.praca_inz.property.MyContactProperty
 import com.example.praca_inz.ui.contact.ContactGridAdapter.*
 import com.example.praca_inz.ui.food.FoodGridAdapter
 import com.google.firebase.auth.FirebaseAuth
@@ -32,27 +34,27 @@ class ContactViewModel : ViewModel() {
     val status: LiveData<ContactApiStatus>
         get() = _status
 
-    private val _properties = MutableLiveData<List<ContactProperty>>()
+    private val _properties = MutableLiveData<List<MyContactProperty>>()
 
-    val properties: LiveData<List<ContactProperty>>
+    val properties: LiveData<List<MyContactProperty>>
         get() = _properties
 
-    private val _navigateToSelectedProperty = MutableLiveData<ContactProperty>()
+    private val _navigateToSelectedProperty = MutableLiveData<MyContactProperty>()
 
-    val navigateToSelectedProperty: LiveData<ContactProperty>
+    val navigateToSelectedProperty: LiveData<MyContactProperty>
         get() = _navigateToSelectedProperty
 
     private var viewModelJob = Job()
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main )
 
     init {
-        getContactProperties(ContactApiFilter.SHOW_CHEMISTRY, UserFilter.SHOW_USER)
+        getContactProperties(ContactApiFilter.SHOW_CHEMISTRY)
     }
 
-    private fun getContactProperties(filter: ContactApiFilter, filterUser: UserFilter){
+    private fun getContactProperties(filter: ContactApiFilter){
         coroutineScope.launch {
             val username = FirebaseAuth.getInstance().currentUser!!.uid
-            val getPropertiesDeferred = ContactApi.retrofitService.getContactsAsync(filter.type, username)
+            val getPropertiesDeferred = UserApi.retrofitService.getMyContactsAsync(filter.type, username)
             try {
                 _status.value = ContactApiStatus.LOADING
                 val listResult =  getPropertiesDeferred.await()
@@ -72,8 +74,8 @@ class ContactViewModel : ViewModel() {
         viewModelJob.cancel()
     }
 
-    fun displayPropertyDetails(contactProperty: ContactProperty) {
-        _navigateToSelectedProperty.value = contactProperty
+    fun displayPropertyDetails(myContactProperty: MyContactProperty) {
+        _navigateToSelectedProperty.value = myContactProperty
     }
 
     @SuppressLint("NullSafeMutableLiveData")
@@ -81,8 +83,8 @@ class ContactViewModel : ViewModel() {
         _navigateToSelectedProperty.value = null
     }
 
-    fun updateFilter(filter: ContactApiFilter, filterUser: UserFilter) {
-        getContactProperties(filter, filterUser)
+    fun updateFilter(filter: ContactApiFilter) {
+        getContactProperties(filter)
     }
 
 

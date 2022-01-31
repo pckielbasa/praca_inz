@@ -28,10 +28,9 @@ public class ContactService implements ContactRepo {
     }
 
     @Override
-    public Collection<Contact> getAllType(String type, String username) {
+    public Collection<Contact> getAllType(String type) {
         return contactDao.findAll().stream()
                 .filter(offer -> offer.getType().equals(type))
-                .filter(offer -> offer.getUsername().equals(username))
                 .collect(Collectors.toList());
     }
 
@@ -60,10 +59,11 @@ public class ContactService implements ContactRepo {
     @Override
     public Contact createContact(ContactDTO contactDTO) {
         Contact contact = new Contact();
-        contact.setUsername(contactDTO.getUsername());
         contact.setContactName(contactDTO.getContactName());
         contact.setComposition(contactDTO.getComposition());
         contact.setType(contactDTO.getType());
+        contact.setFavourite(contactDTO.getFavourite());
+        contact.setAllergy(contactDTO.getAllergy());
         return contactDao.save(contact);
 
     }

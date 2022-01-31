@@ -6,7 +6,7 @@
     <data>
         <variable
             name="property"
-            type="com.example.praca_inz.property.FoodProperty" />
+            type="com.example.praca_inz.property.MyFoodProperty" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

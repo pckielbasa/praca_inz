@@ -1,18 +1,17 @@
 package com.example.praca_inz.ui.food
 
-import android.content.DialogInterface
-import androidx.lifecycle.ViewModelProvider
+import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.praca_inz.R
 import com.example.praca_inz.databinding.FragmentFoodBinding
-import com.example.praca_inz.network.ContactApiFilter
 import com.example.praca_inz.network.FoodApiFilter
 import com.example.praca_inz.network.UserFilter
 import com.example.praca_inz.ui.food.addFood.AddFoodFragment
@@ -26,7 +25,6 @@ class FoodFragment : Fragment() {
     }
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,10 +36,11 @@ class FoodFragment : Fragment() {
         //OPEN ADD MEAL
         foodViewModel.eventOpenPopupMenu.observe(viewLifecycleOwner, { goOpen ->
             if(goOpen){
-                openAddContact()
+                openAddFood()
                 foodViewModel.openPopupMenuFinished()
             }
         })
+
 
         //OPEN LIST FROM DATABASE
 
@@ -57,30 +56,34 @@ class FoodFragment : Fragment() {
         })
         binding.mealButton.setOnClickListener {
             foodViewModel.updateFilter(
-                FoodApiFilter.SHOW_MEAL,
-                UserFilter.SHOW_USER
+                FoodApiFilter.SHOW_MEAL
             )
         }
         binding.snackButton.setOnClickListener {
             foodViewModel.updateFilter(
-                FoodApiFilter.SHOW_SNACK,
-                UserFilter.SHOW_USER
+                FoodApiFilter.SHOW_SNACK
+
             )
         }
         binding.componentButton.setOnClickListener {
             foodViewModel.updateFilter(
-                FoodApiFilter.SHOW_COMPONENT,
-                UserFilter.SHOW_USER
+                FoodApiFilter.SHOW_COMPONENT
+
             )
         }
 
         return binding.root
     }
 
-    private fun openAddContact(){
+    private fun openAddFood(){
         val dialog = AddFoodFragment()
         dialog.show(requireActivity().supportFragmentManager, "ADD CONTACT THINGS")
     }
+
+
+
+
+
 
 
 }

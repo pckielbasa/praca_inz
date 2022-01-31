@@ -8,9 +8,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AddFoodDTO {
-    private String username;
     private String foodName;
     private String composition;
     private String type;
     private Boolean favourite;
+    private Boolean allergy;
 }

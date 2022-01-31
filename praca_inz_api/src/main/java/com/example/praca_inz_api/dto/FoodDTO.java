@@ -13,5 +13,6 @@ public class FoodDTO {
     private String composition;
     private String type;
     private Boolean favourite;
+    private Boolean allergy;
 
 }

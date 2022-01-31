@@ -1,5 +1,4 @@
 <resources>
-    <!-- Titles-->
     <string name="app_name">praca_inz</string>
     <string name="title_calendar">Calendar</string>
     <string name="title_contact">Contact</string>
@@ -7,20 +6,15 @@
     <string name="title_meals">Food</string>
     <string name="title_profile">Profile</string>
     <string name="title_contactWith">Contact with</string>
-    <!-- login fragment -->
     <string name="usernameText">Username :</string>
     <string name="passwordText">Password :</string>
     <string name="loginButtonText">Login</string>
     <string name="registerButtonText">Register</string>
     <string name="headerLoginText">Log in to Allergy Diary</string>
-
-    <!-- register fragment -->
     <string name="repeatPasswordText">Repeat password :</string>
     <string name="emailText">Email :</string>
     <string name="phoneNumberText">Phone number:</string>
     <string name="headerRegisterText">Register your account</string>
-
-    <!-- person activity -->
     <string name="headerPersonsText">Persons</string>
     <string name="addPersonButtonText">Add person</string>
     <string name="nameAddPersonText">Name :</string>
@@ -29,12 +23,8 @@
     <string name="headerAddPersonText">Add Person</string>
     <string name="saveButtonText">Save</string>
     <string name="headerEditPersonText">Edit Person</string>
-
-    <!-- buttons -->
     <string name="backText">Back</string>
     <string name="addText">Add</string>
-
-    <!-- Main activity -->
     <string name="snackTabText">Snack</string>
     <string name="mealsTabText">Meal</string>
     <string name="componentTabText">Component</string>
@@ -59,9 +49,9 @@
     <string name="colon">:</string>
     <string name="changeEmail">Change email</string>
     <string name="changePhoneNumber">Change phone number</string>
+    <string name="composition">Composition:</string>
 
 
-    <!--Array - contact things -->
     <string-array name="contact_things">
         <item>Chemistry</item>
         <item>Plant</item>
@@ -72,5 +62,11 @@
         <item>Meal</item>
         <item>Snack</item>
         <item>Component</item>
+    </string-array>
+
+    <string-array name="type_allergies">
+        <item>Food allergy</item>
+        <item>Inhalation allergy</item>
+        <item>Contact allergy</item>
     </string-array>
 </resources>

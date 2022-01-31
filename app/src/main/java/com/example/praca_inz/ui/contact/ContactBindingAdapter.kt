@@ -7,12 +7,13 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.praca_inz.R
 import com.example.praca_inz.property.ContactProperty
+import com.example.praca_inz.property.MyContactProperty
 import com.example.praca_inz.ui.contact.ContactGridAdapter.ContactApiStatus
 import com.example.praca_inz.ui.food.FoodGridAdapter
 
 
 @BindingAdapter("listData")
-fun bindRecyclerView(recyclerView: RecyclerView, data: List<ContactProperty>?) {
+fun bindRecyclerView(recyclerView: RecyclerView, data: List<MyContactProperty>?) {
     val adapter = recyclerView.adapter as ContactGridAdapter
     adapter.submitList(data)
 }

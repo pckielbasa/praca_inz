@@ -4,6 +4,7 @@ import com.example.praca_inz_api.dto.RegisterUserDTO;
 import com.example.praca_inz_api.model.*;
 
 import java.util.Collection;
+import java.util.List;
 
 public interface UserRepo {
     Collection<User> getAllUsers();
@@ -15,5 +16,6 @@ public interface UserRepo {
     User addFoodToList (Food food, String username);
     User addContactToList (Contact contact, String username);
     User addAllergiesToList(Allergies allergies, String username);
-
+    List<Food> getMyFoodList(String type, String username);
+    List<Contact> getMyContactList(String type, String username);
 }

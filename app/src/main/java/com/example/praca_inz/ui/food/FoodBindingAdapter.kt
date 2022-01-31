@@ -6,13 +6,13 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.praca_inz.R
-import com.example.praca_inz.property.FoodProperty
+import com.example.praca_inz.property.MyFoodProperty
 import com.example.praca_inz.ui.contact.ContactGridAdapter
 import com.example.praca_inz.ui.food.FoodGridAdapter.*
 
 
 @BindingAdapter("listData")
-fun bindRecyclerView(recyclerView: RecyclerView, data: List<FoodProperty>?) {
+fun bindRecyclerView(recyclerView: RecyclerView, data: List<MyFoodProperty>?) {
     val adapter = recyclerView.adapter as FoodGridAdapter
     adapter.submitList(data)
 }

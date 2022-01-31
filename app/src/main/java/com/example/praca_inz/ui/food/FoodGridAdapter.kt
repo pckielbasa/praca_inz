@@ -6,28 +6,28 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.praca_inz.databinding.FoodListItemBinding
-import com.example.praca_inz.property.FoodProperty
-import com.example.praca_inz.ui.food.FoodGridAdapter.*
+import com.example.praca_inz.property.MyFoodProperty
+import com.example.praca_inz.ui.food.FoodGridAdapter.FoodPropertyViewHolder
 
-class FoodGridAdapter(private val onClickListener: OnClickListener) : ListAdapter<FoodProperty, FoodPropertyViewHolder>(DiffCallback) {
+class FoodGridAdapter(private val onClickListener: OnClickListener) : ListAdapter<MyFoodProperty, FoodPropertyViewHolder>(DiffCallback) {
 
     enum class FoodGridStatus { LOADING, ERROR, DONE,EMPTY }
 
 
     class FoodPropertyViewHolder(private var binding: FoodListItemBinding):
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(foodProperty: FoodProperty) {
-            binding.property = foodProperty
+        fun bind(myFoodProperty: MyFoodProperty) {
+            binding.property = myFoodProperty
             binding.executePendingBindings()
         }
     }
 
-    companion object DiffCallback : DiffUtil.ItemCallback<FoodProperty>() {
-        override fun areItemsTheSame(oldItem: FoodProperty, newItem: FoodProperty): Boolean {
+    companion object DiffCallback : DiffUtil.ItemCallback<MyFoodProperty>() {
+        override fun areItemsTheSame(oldItem: MyFoodProperty, newItem: MyFoodProperty): Boolean {
             return oldItem === newItem
         }
 
-        override fun areContentsTheSame(oldItem: FoodProperty, newItem: FoodProperty): Boolean {
+        override fun areContentsTheSame(oldItem: MyFoodProperty, newItem: MyFoodProperty): Boolean {
             return oldItem.foodName == newItem.foodName
         }
     }
@@ -43,14 +43,14 @@ class FoodGridAdapter(private val onClickListener: OnClickListener) : ListAdapte
         holder: FoodPropertyViewHolder,
         position: Int
     ) {
-        val foodProperty = getItem(position)
+        val myFoodProperty = getItem(position)
         holder.itemView.setOnClickListener {
-            onClickListener.onClick(foodProperty)
+            onClickListener.onClick(myFoodProperty)
         }
-        holder.bind(foodProperty)
+        holder.bind(myFoodProperty)
     }
 
-    class OnClickListener(val clickListener: (foodProperty: FoodProperty) -> Unit) {
-        fun onClick(foodProperty:FoodProperty) = clickListener(foodProperty)
+    class OnClickListener(val clickListener: (myFoodProperty: MyFoodProperty) -> Unit) {
+        fun onClick(myFoodProperty:MyFoodProperty) = clickListener(myFoodProperty)
     }
 }

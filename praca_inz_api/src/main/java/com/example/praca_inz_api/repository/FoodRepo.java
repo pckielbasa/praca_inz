@@ -9,12 +9,13 @@ import java.util.stream.Stream;
 
 public interface FoodRepo {
     Collection<Food> getAllFood();
-    Collection<Food> getAllType(String type, String username);
+    Collection<Food> getAllType(String type);
     Food getFoodById(String foodId);
     String getFoodId(String foodId);
     List<Food> getListOfFoodByIds(List<String> idList);
     Food createFood(FoodDTO foodDTO);
     Food addFoodToUser(FoodDTO foodDTO);
     String findByFoodName(String foodName);
+
 
 }

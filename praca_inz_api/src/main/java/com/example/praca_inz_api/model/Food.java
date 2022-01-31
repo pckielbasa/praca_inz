@@ -13,10 +13,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Food {
     @Id
     private String _id;
-    private String username;
     private String foodName;
     private String composition;
     private String type;
     private Boolean favourite;
+    private Boolean allergy;
 
 }

@@ -82,6 +82,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:ems="10"
+        android:hint="@string/composition"
         android:gravity="start|top"
         android:importantForAutofill="no"
         android:inputType="textMultiLine"

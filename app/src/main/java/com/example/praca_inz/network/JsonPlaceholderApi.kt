@@ -3,9 +3,7 @@ package com.example.praca_inz.network
 import com.example.praca_inz.data.Contact
 import com.example.praca_inz.data.Food
 import com.example.praca_inz.data.User
-import com.example.praca_inz.property.ContactProperty
-import com.example.praca_inz.property.FoodProperty
-import com.example.praca_inz.property.UserProperty
+import com.example.praca_inz.property.*
 import kotlinx.coroutines.Deferred
 import retrofit2.Call
 import retrofit2.http.*
@@ -24,6 +22,16 @@ interface JsonPlaceholderApi {
     @GET("username")
     fun getUserByUsernameAsync(@Query("username") username: String) :
             Deferred<UserProperty>
+
+    @GET("myfood")
+    fun getMyFoodsAsync(@Query("type") type: String,
+                        @Query("username") username: String):
+            Deferred<List<MyFoodProperty>>
+
+    @GET("mycontact")
+    fun getMyContactsAsync(@Query("type") type: String,
+                        @Query("username") username: String):
+            Deferred<List<MyContactProperty>>
 
     @Headers("Content-Type: application/json")
     @POST("register")

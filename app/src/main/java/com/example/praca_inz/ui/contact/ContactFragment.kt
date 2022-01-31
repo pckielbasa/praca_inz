@@ -61,19 +61,16 @@ class ContactFragment : Fragment() {
         binding.animalButton.setOnClickListener {
             contactViewModel.updateFilter(
                     ContactApiFilter.SHOW_ANIMAL,
-                    UserFilter.SHOW_USER
             )
         }
         binding.chemistryButton.setOnClickListener {
             contactViewModel.updateFilter(
                 ContactApiFilter.SHOW_CHEMISTRY,
-                UserFilter.SHOW_USER
             )
         }
         binding.plantButton.setOnClickListener {
             contactViewModel.updateFilter(
                 ContactApiFilter.SHOW_PLANT,
-                UserFilter.SHOW_USER
             )
         }
         return binding.root

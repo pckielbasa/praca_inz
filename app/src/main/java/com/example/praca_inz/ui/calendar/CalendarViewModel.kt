@@ -52,6 +52,7 @@ class CalendarViewModel:ViewModel() {
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main )
 
     init {
+
         getUserProperties(UserFilter.SHOW_USER)
     }
 

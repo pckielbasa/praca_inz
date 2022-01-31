@@ -7,5 +7,6 @@ data class Food (
     val foodName:String?,
     val composition:String?,
     val type:String,
-    val favourite:Boolean?
+    val favourite:Boolean?,
+    val allergy:Boolean?
         )

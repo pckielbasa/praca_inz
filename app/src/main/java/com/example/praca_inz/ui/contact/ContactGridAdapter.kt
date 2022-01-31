@@ -8,9 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.praca_inz.databinding.ContactListItemBinding
 import com.example.praca_inz.property.ContactProperty
 import com.example.praca_inz.property.FoodProperty
+import com.example.praca_inz.property.MyContactProperty
 import com.example.praca_inz.ui.food.FoodGridAdapter
 
-class ContactGridAdapter(val onClickListener:ContactGridAdapter.OnClickListener)  : ListAdapter<ContactProperty, ContactGridAdapter.ContactPropertyViewHolder>(DiffCallback) {
+class ContactGridAdapter(val onClickListener:ContactGridAdapter.OnClickListener)  : ListAdapter<MyContactProperty, ContactGridAdapter.ContactPropertyViewHolder>(DiffCallback) {
 
     enum class ContactApiStatus { LOADING, ERROR, DONE, EMPTY}
 
@@ -18,18 +19,18 @@ class ContactGridAdapter(val onClickListener:ContactGridAdapter.OnClickListener)
 
     class ContactPropertyViewHolder(private var binding: ContactListItemBinding):
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(contactProperty: ContactProperty) {
-            binding.property = contactProperty
+        fun bind(myContactProperty: MyContactProperty) {
+            binding.property = myContactProperty
             binding.executePendingBindings()
         }
     }
 
-    companion object DiffCallback : DiffUtil.ItemCallback<ContactProperty>() {
-        override fun areItemsTheSame(oldItem: ContactProperty, newItem: ContactProperty): Boolean {
+    companion object DiffCallback : DiffUtil.ItemCallback<MyContactProperty>() {
+        override fun areItemsTheSame(oldItem: MyContactProperty, newItem: MyContactProperty): Boolean {
             return oldItem === newItem
         }
 
-        override fun areContentsTheSame(oldItem: ContactProperty, newItem: ContactProperty): Boolean {
+        override fun areContentsTheSame(oldItem: MyContactProperty, newItem: MyContactProperty): Boolean {
             return oldItem.contactName == newItem.contactName
         }
     }
@@ -45,14 +46,14 @@ class ContactGridAdapter(val onClickListener:ContactGridAdapter.OnClickListener)
         holder: ContactGridAdapter.ContactPropertyViewHolder,
         position: Int
     ) {
-        val contactProperty = getItem(position)
+        val myContactProperty = getItem(position)
         holder.itemView.setOnClickListener {
-            onClickListener.onClick(contactProperty)
+            onClickListener.onClick(myContactProperty)
         }
-        holder.bind(contactProperty)
+        holder.bind(myContactProperty)
     }
 
-    class OnClickListener(val clickListener: (contactProperty: ContactProperty) -> Unit) {
-        fun onClick(contactProperty: ContactProperty) = clickListener(contactProperty)
+    class OnClickListener(val clickListener: (myContactProperty: MyContactProperty) -> Unit) {
+        fun onClick(myContactProperty: MyContactProperty) = clickListener(myContactProperty)
     }
 }
