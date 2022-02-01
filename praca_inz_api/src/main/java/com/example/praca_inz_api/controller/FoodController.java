@@ -3,7 +3,6 @@ package com.example.praca_inz_api.controller;
 import com.example.praca_inz_api.converter.FoodConverter;
 import com.example.praca_inz_api.dto.AddFoodDTO;
 import com.example.praca_inz_api.dto.FoodDTO;
-import com.example.praca_inz_api.model.Food;
 import com.example.praca_inz_api.repository.FoodRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @RestController
 @RequestMapping("/food")
@@ -42,8 +40,8 @@ public class FoodController {
 
 
     @DeleteMapping("/delete")
-    public void deleteFoodById(@RequestParam(value = "foodId") String foodId,
+    public void deleteFoodByFoodNameFromUser(@RequestParam(value = "foodName") String foodName,
                                   @RequestParam(value = "username") String username){
-        foodRepo.deleteFoodById(foodId, username);
+        foodRepo.deleteFoodByFoodName(foodName, username);
     }
 }

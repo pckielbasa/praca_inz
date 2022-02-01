@@ -4,7 +4,6 @@ package com.example.praca_inz_api.controller;
 import com.example.praca_inz_api.converter.ContactConverter;
 import com.example.praca_inz_api.dto.AddContactDTO;
 import com.example.praca_inz_api.dto.ContactDTO;
-import com.example.praca_inz_api.model.Contact;
 import com.example.praca_inz_api.repository.ContactRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,8 +40,8 @@ public class ContactController {
 
 
     @DeleteMapping("/delete")
-    public void deleteContactById(@RequestParam(value = "contactId") String contactId,
+    public void deleteContactByContactNameFromUser(@RequestParam(value = "contactName") String contactName,
                                   @RequestParam(value = "username") String username){
-        contactRepo.deleteContactById(contactId, username);
+        contactRepo.deleteContactByContactName(contactName, username);
     }
 }

@@ -82,6 +82,9 @@
         <argument
             android:name="selectedProperty"
             app:argType="com.example.praca_inz.property.MyFoodProperty"/>
+        <action
+            android:id="@+id/action_detailFoodFragment_to_navigation_food"
+            app:destination="@id/navigation_food" />
     </fragment>
     <dialog
         android:id="@+id/addFoodFragment"
@@ -98,6 +101,9 @@
         <argument
             android:name="selectedProperty"
             app:argType="com.example.praca_inz.property.MyContactProperty"/>
+        <action
+            android:id="@+id/action_detailContactFragment_to_navigation_contact"
+            app:destination="@id/navigation_contact" />
     </fragment>
     <activity
         android:id="@+id/splashScreenActivity"

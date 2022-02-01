@@ -26,6 +26,17 @@ class DetailFoodViewModel(myFoodProperty: MyFoodProperty, app:Application): Andr
         _eventOpenPopupMenu.value = false
     }
 
+    private val _eventDeleteFood = MutableLiveData<Boolean>()
+    val eventDeleteFood : LiveData<Boolean>
+        get() = _eventDeleteFood
+
+    fun deleteFoodStart(){
+        _eventDeleteFood.value = true
+    }
+    fun deleteFoodFinish(){
+        _eventDeleteFood.value = false
+    }
+
     init {
         _selectedProperty.value = myFoodProperty
     }

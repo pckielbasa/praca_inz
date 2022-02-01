@@ -5,10 +5,17 @@ import com.example.praca_inz.data.Food
 import com.example.praca_inz.data.User
 import com.example.praca_inz.property.*
 import kotlinx.coroutines.Deferred
+import okhttp3.ResponseBody
 import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.http.*
 
+
+
+
 interface JsonPlaceholderApi {
+    //GET MAPPING
     @GET("type")
     fun getFoodsAsync(@Query("type") type: String,
                       @Query("username") username: String):
@@ -33,6 +40,7 @@ interface JsonPlaceholderApi {
                         @Query("username") username: String):
             Deferred<List<MyContactProperty>>
 
+    //POST MAPPING
     @Headers("Content-Type: application/json")
     @POST("register")
     fun sendUserData(
@@ -51,4 +59,9 @@ interface JsonPlaceholderApi {
         @Body contact: Contact
     ): Call<Contact>
 
+    //DELETE MAPPING
+    @DELETE("delete")
+    fun deleteFood (@Query("foodName") foodName:String,
+                    @Query("username") username:String):
+           Call<Void?>?
 }

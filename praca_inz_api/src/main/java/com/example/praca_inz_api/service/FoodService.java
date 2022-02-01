@@ -90,8 +90,8 @@ public class FoodService implements FoodRepo {
     }
 
     @Override
-    public void deleteFoodById(String foodId, String username) {
-        Food food =getFoodById(foodId);
+    public void deleteFoodByFoodName(String foodName, String username) {
+        Food food = foodDao.findByFoodName(foodName);
         User user = userRepo.getUserByUsername(username);
         user = userRepo.deleteFoodFromUser(user, food);
         userDao.save(user);
