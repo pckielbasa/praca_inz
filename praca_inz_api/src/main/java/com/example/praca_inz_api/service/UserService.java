@@ -116,5 +116,17 @@ public class UserService implements UserRepo {
                 .filter(contact -> contact.getType().equals(type)).collect(Collectors.toList());
     }
 
+    @Override
+    public User deleteFoodFromUser(User user, Food food){
+
+        List<Food> myFood =user.getMyFood();
+        Food deleteFood = myFood.stream().filter(item -> item.get_id().equals(food.get_id()))
+                .findFirst()
+                .orElseThrow(()-> new ResourceNotFoundException("no food with id: "+ food.get_id()));
+        myFood.remove(deleteFood);
+        user.setMyFood(myFood);
+        return user;
+    }
+
 
 }

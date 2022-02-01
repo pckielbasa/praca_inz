@@ -2,11 +2,14 @@ package com.example.praca_inz_api.service;
 
 import com.example.praca_inz_api.dao.FoodDao;
 
+import com.example.praca_inz_api.dao.UserDao;
 import com.example.praca_inz_api.dto.FoodDTO;
 import com.example.praca_inz_api.model.Food;
 
+import com.example.praca_inz_api.model.User;
 import com.example.praca_inz_api.repository.FoodRepo;
 import com.example.praca_inz_api.repository.UserRepo;
+import org.apache.velocity.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +25,9 @@ public class FoodService implements FoodRepo {
 
     @Autowired
     private UserRepo userRepo;
+
+    @Autowired
+    private UserDao userDao;
 
     @Override
     public List<Food> getAllFood(){
@@ -82,6 +88,17 @@ public class FoodService implements FoodRepo {
     public String findByFoodName(String foodName) {
         return foodDao.findByFoodName(foodName).getFoodName();
     }
+
+    @Override
+    public void deleteFoodById(String foodId, String username) {
+        Food food =getFoodById(foodId);
+        User user = userRepo.getUserByUsername(username);
+        user = userRepo.deleteFoodFromUser(user, food);
+        userDao.save(user);
+        foodDao.delete(food);
+    }
+
+
 
 
 }
