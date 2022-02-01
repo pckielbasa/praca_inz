@@ -64,4 +64,9 @@ interface JsonPlaceholderApi {
     fun deleteFood (@Query("foodName") foodName:String,
                     @Query("username") username:String):
            Call<Void?>?
+
+    @DELETE("delete")
+    fun deleteContact (@Query("contactName") contactName:String,
+                    @Query("username") username:String):
+            Call<Void?>?
 }

@@ -56,7 +56,10 @@ class DetailFoodFragment : Fragment() {
 
         detailFoodViewModel.eventDeleteFood.observe(viewLifecycleOwner, { goDelete ->
             if(goDelete){
-                deleteFood()
+                val apiService = RestApiService()
+                val username = FirebaseAuth.getInstance().currentUser!!.uid
+                val foodName = detailFoodViewModel.selectedProperty.value!!.foodName
+                apiService.deleteFood(foodName, username)
                 val navController = NavHostFragment.findNavController(this)
                 navController.navigate(R.id.action_detailFoodFragment_to_navigation_food)
                 detailFoodViewModel.deleteFoodFinish()
@@ -71,27 +74,5 @@ class DetailFoodFragment : Fragment() {
         dialog.show(requireActivity().supportFragmentManager, "ADD ALLERGIES THINGS")
     }
 
-    private fun deleteFood(){
-        val username = FirebaseAuth.getInstance().currentUser!!.uid
-        val foodName = detailFoodViewModel.selectedProperty.value!!.foodName
-        val deleteRequest: Call<Void?>? = FoodApi.retrofitService.deleteFood(foodName,username)
-        deleteRequest!!.enqueue(object : Callback<Void?> {
-            override fun onResponse(call: Call<Void?>, response: Response<Void?>) {
-                Toast.makeText(
-                    context,
-                    "Deleted $foodName successful",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-
-            override fun onFailure(call: Call<Void?>, t: Throwable) {
-                Toast.makeText(
-                    context,
-                    "Deleted $foodName fault!",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        })
-    }
 
 }

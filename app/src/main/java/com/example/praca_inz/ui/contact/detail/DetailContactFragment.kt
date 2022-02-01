@@ -6,10 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
+import com.example.praca_inz.R
 import com.example.praca_inz.databinding.DetailContactFragmentBinding
+import com.example.praca_inz.network.RestApiService
+import com.example.praca_inz.ui.food.detail.DetailFoodViewModel
+import com.google.firebase.auth.FirebaseAuth
 
 
 class DetailContactFragment : Fragment() {
+    private val detailContactViewModel: DetailContactViewModel by lazy {
+        ViewModelProvider(this)[DetailContactViewModel::class.java]
+    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val application = requireNotNull(activity).application
@@ -19,6 +27,20 @@ class DetailContactFragment : Fragment() {
         val viewModelFactory = DetailContactViewModelFactory(myContactProperty, application)
         binding.viewModel = ViewModelProvider(
             this, viewModelFactory)[DetailContactViewModel::class.java]
+
+        detailContactViewModel.eventDeleteContact.observe(viewLifecycleOwner, { goDelete ->
+            if(goDelete){
+                val apiService = RestApiService()
+                val username = FirebaseAuth.getInstance().currentUser!!.uid
+                val contactName = detailContactViewModel.selectedProperty.value!!.contactName
+                apiService.deleteContact(contactName, username)
+                val navController = NavHostFragment.findNavController(this)
+                navController.navigate(R.id.action_detailContactFragment_to_navigation_contact)
+                detailContactViewModel.deleteContactFinish()
+            }
+        })
+
+
         return binding.root
     }
 

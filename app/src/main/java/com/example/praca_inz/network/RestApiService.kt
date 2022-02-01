@@ -1,8 +1,10 @@
 package com.example.praca_inz.network
 
+import android.widget.Toast
 import com.example.praca_inz.data.Contact
 import com.example.praca_inz.data.Food
 import com.example.praca_inz.data.User
+import com.google.firebase.auth.FirebaseAuth
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -52,6 +54,32 @@ class RestApiService {
                 }
             }
         )
+    }
+
+    fun deleteFood(foodName: String, username: String){
+        val deleteRequest: Call<Void?>? = FoodApi.retrofitService.deleteFood(foodName,username)
+        deleteRequest!!.enqueue(object : Callback<Void?> {
+            override fun onResponse(call: Call<Void?>, response: Response<Void?>) {
+
+            }
+
+            override fun onFailure(call: Call<Void?>, t: Throwable) {
+
+            }
+        })
+    }
+
+    fun deleteContact(contactName: String, username: String){
+        val deleteRequest: Call<Void?>? = ContactApi.retrofitService.deleteContact(contactName,username)
+        deleteRequest!!.enqueue(object : Callback<Void?> {
+            override fun onResponse(call: Call<Void?>, response: Response<Void?>) {
+
+            }
+
+            override fun onFailure(call: Call<Void?>, t: Throwable) {
+
+            }
+        })
     }
 
 

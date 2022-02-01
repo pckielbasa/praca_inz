@@ -14,6 +14,17 @@ class DetailContactViewModel(myContactProperty: MyContactProperty, app:Applicati
     val selectedProperty: LiveData<MyContactProperty>
         get() = _selectedProperty
 
+    private val _eventDeleteContact = MutableLiveData<Boolean>()
+    val eventDeleteContact : LiveData<Boolean>
+        get() = _eventDeleteContact
+
+    fun deleteContactStart(){
+        _eventDeleteContact.value = true
+    }
+    fun deleteContactFinish(){
+        _eventDeleteContact.value = false
+    }
+
     init {
         _selectedProperty.value = myContactProperty
     }

@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
 import com.example.praca_inz.R
 import com.example.praca_inz.data.Food
 import com.example.praca_inz.databinding.AddFoodFragmentBinding
@@ -106,7 +107,8 @@ class AddFoodFragment : DialogFragment() {
                 }
 
             }
-            dismiss()
+            val navController = NavHostFragment.findNavController(this)
+            navController.navigate(R.id.action_addFoodFragment_to_navigation_food)
 
         }
 
