@@ -38,4 +38,11 @@ public class ContactController {
     public AddContactDTO addContactToUser(@RequestBody ContactDTO contactDTO){
         return ContactConverter.toDTO(contactRepo.addContactToUser(contactDTO));
     }
+
+
+    @DeleteMapping("/delete")
+    public void deleteContactById(@RequestParam(value = "contactId") String contactId,
+                                  @RequestParam(value = "username") String username){
+        contactRepo.deleteContactById(contactId, username);
+    }
 }

@@ -1,10 +1,12 @@
 package com.example.praca_inz_api.service;
 
 import com.example.praca_inz_api.dao.ContactDao;
+import com.example.praca_inz_api.dao.UserDao;
 import com.example.praca_inz_api.dto.ContactDTO;
 import com.example.praca_inz_api.model.Contact;
 import com.example.praca_inz_api.model.DaySchedule;
 import com.example.praca_inz_api.model.Food;
+import com.example.praca_inz_api.model.User;
 import com.example.praca_inz_api.repository.ContactRepo;
 import com.example.praca_inz_api.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,9 @@ public class ContactService implements ContactRepo {
 
     @Autowired
     private UserRepo userRepo;
+
+    @Autowired
+    private UserDao userDao;
 
     @Override
     public List<Contact> getAllContact(){
@@ -74,6 +79,15 @@ public class ContactService implements ContactRepo {
         userRepo.addContactToList(contact,contactDTO.getUsername());
         return contact;
 
+    }
+
+    @Override
+    public void deleteContactById(String contactId, String username) {
+        Contact contact =getContactById(contactId);
+        User user = userRepo.getUserByUsername(username);
+        user = userRepo.deleteContactFromUser(user, contact);
+        userDao.save(user);
+        contactDao.delete(contact);
     }
 
 

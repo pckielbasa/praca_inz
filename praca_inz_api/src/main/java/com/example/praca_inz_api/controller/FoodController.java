@@ -29,11 +29,6 @@ public class FoodController {
                 .collect(Collectors.toList());
     }
 
-    @DeleteMapping("/delete")
-    public void deleteMyOfferById(@RequestParam(value = "foodId") String foodId,
-                                  @RequestParam(value = "username") String username){
-        foodRepo.deleteFoodById(foodId, username);
-    }
 
     @GetMapping("/{id}")
     public ResponseEntity<AddFoodDTO> getFoodById(@PathVariable String id){
@@ -43,5 +38,12 @@ public class FoodController {
     @PostMapping(path = "/add")
     public AddFoodDTO addFoodToUser(@RequestBody FoodDTO foodDTO){
         return FoodConverter.toDTO(foodRepo.addFoodToUser(foodDTO));
+    }
+
+
+    @DeleteMapping("/delete")
+    public void deleteFoodById(@RequestParam(value = "foodId") String foodId,
+                                  @RequestParam(value = "username") String username){
+        foodRepo.deleteFoodById(foodId, username);
     }
 }

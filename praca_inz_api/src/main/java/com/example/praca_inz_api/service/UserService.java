@@ -118,13 +118,23 @@ public class UserService implements UserRepo {
 
     @Override
     public User deleteFoodFromUser(User user, Food food){
-
         List<Food> myFood =user.getMyFood();
         Food deleteFood = myFood.stream().filter(item -> item.get_id().equals(food.get_id()))
                 .findFirst()
                 .orElseThrow(()-> new ResourceNotFoundException("no food with id: "+ food.get_id()));
         myFood.remove(deleteFood);
         user.setMyFood(myFood);
+        return user;
+    }
+
+    @Override
+    public User deleteContactFromUser(User user, Contact contact){
+        List<Contact> myContact =user.getMyContact();
+        Contact deleteContact = myContact.stream().filter(item -> item.get_id().equals(contact.get_id()))
+                .findFirst()
+                .orElseThrow(()-> new ResourceNotFoundException("no food with id: "+ contact.get_id()));
+        myContact.remove(deleteContact);
+        user.setMyContact(myContact);
         return user;
     }
 
