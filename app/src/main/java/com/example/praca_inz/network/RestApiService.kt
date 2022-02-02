@@ -56,7 +56,11 @@ class RestApiService {
                 }
                 override fun onResponse( call: Call<Contact>, response: Response<Contact>) {
                     val addedContact = response.body()
-                    onResult(addedContact)
+                    if (response.code() == 200){
+                        onResult(addedContact)
+                    }else{
+                        onResult(null)
+                    }
                 }
             }
         )

@@ -68,6 +68,7 @@ public class FoodService implements FoodRepo {
     @Override
     public Food createFood(FoodDTO foodDTO) {
             Food food = new Food();
+//            Food food1 = foodDao.findByFoodName(foodDTO.getFoodName());
             List<Food> myList = userRepo.getMyFoodList(foodDTO.getType(), foodDTO.getUsername());
             food.setFoodName(foodDTO.getFoodName());
             food.setComposition(foodDTO.getComposition());

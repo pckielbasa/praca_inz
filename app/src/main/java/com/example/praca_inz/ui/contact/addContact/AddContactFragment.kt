@@ -42,18 +42,13 @@ class AddContactFragment : DialogFragment() {
             override fun onItemSelected(adapterView: AdapterView<*>?, view: View, i: Int, l: Long) {
                 when (i) {
                     0 -> {
-                        //                    startActivity(Intent(activity, HomeActivity::class.java))
                         typeContact = myAdapter.getItem(0).toString();
-                        Toast.makeText(activity, "Wybrano 1" + typeContact, Toast.LENGTH_SHORT).show()
                     }
                     1 -> {
-            //                    startActivity(Intent(activity, HomeActivity::class.java))
                         typeContact = myAdapter.getItem(1).toString();
-                        Toast.makeText(activity, "Wybrano 1" + typeContact, Toast.LENGTH_SHORT).show()
                     }
                     2 -> {
                         typeContact = myAdapter.getItem(2).toString();
-                        Toast.makeText(activity, "Wybrano 2" + typeContact, Toast.LENGTH_SHORT).show()
                     }
 
                 }
@@ -93,22 +88,23 @@ class AddContactFragment : DialogFragment() {
                         allergy = false
                     )
                 apiService.addContact(contact){
-                    if (it?.type == null) {
-
-
-                    } else {
-
+                    if (it==null){
+                        Toast.makeText(
+                            this.context,
+                            "Contact already exist",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
 
             }
             }
-            dismiss()
+            this.dismiss()
 
         }
 
         binding.closeAddContactWindow.setOnClickListener{
-            dismiss()
+            this.dismiss()
         }
 
         return binding.root

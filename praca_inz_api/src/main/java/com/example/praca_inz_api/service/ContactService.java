@@ -64,11 +64,16 @@ public class ContactService implements ContactRepo {
     @Override
     public Contact createContact(ContactDTO contactDTO) {
         Contact contact = new Contact();
+        List<Contact> myList = userRepo.getMyContactList(contactDTO.getType(), contactDTO.getUsername());
         contact.setContactName(contactDTO.getContactName());
         contact.setComposition(contactDTO.getComposition());
         contact.setType(contactDTO.getType());
         contact.setFavourite(contactDTO.getFavourite());
         contact.setAllergy(contactDTO.getAllergy());
+        boolean anyMatch = myList.stream().anyMatch(item -> item.getContactName().equals(contact.getContactName()));
+        if (anyMatch){
+            return null;
+        }
         return contactDao.save(contact);
 
     }
@@ -76,6 +81,9 @@ public class ContactService implements ContactRepo {
     @Override
     public Contact addContactToUser(ContactDTO contactDTO) {
         Contact contact = createContact(contactDTO);
+        if (contact == null){
+            return null;
+        }
         userRepo.addContactToList(contact,contactDTO.getUsername());
         return contact;
 
