@@ -27,10 +27,6 @@ class AddFoodFragment : DialogFragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var binding: AddFoodFragmentBinding
 
-
-
-
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         auth = Firebase.auth
@@ -95,25 +91,27 @@ class AddFoodFragment : DialogFragment() {
                         allergy  = false
                     )
                     apiService.addFood(food){
-                        if (it?.favourite!=false) {
-
-
-                        } else {
-
-                        }
+                            if (it==null){
+                                Toast.makeText(
+                                    this.context,
+                                    "Food already exist",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
 
                     }
 
                 }
 
             }
-            val navController = NavHostFragment.findNavController(this)
-            navController.navigate(R.id.action_addFoodFragment_to_navigation_food)
+//            val navController = NavHostFragment.findNavController(this)
+//            navController.navigate(R.id.action_addFoodFragment_to_navigation_food)
 
+            this.dismiss()
         }
 
         binding.closeAddFoodWindow.setOnClickListener{
-            dismiss()
+            this.dismiss()
         }
         return binding.root
 

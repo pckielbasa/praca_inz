@@ -3,9 +3,11 @@ package com.example.praca_inz_api.controller;
 import com.example.praca_inz_api.converter.FoodConverter;
 import com.example.praca_inz_api.dto.AddFoodDTO;
 import com.example.praca_inz_api.dto.FoodDTO;
+import com.example.praca_inz_api.model.Food;
 import com.example.praca_inz_api.repository.FoodRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,8 +36,12 @@ public class FoodController {
     }
 
     @PostMapping(path = "/add")
-    public AddFoodDTO addFoodToUser(@RequestBody FoodDTO foodDTO){
-        return FoodConverter.toDTO(foodRepo.addFoodToUser(foodDTO));
+    public ResponseEntity<AddFoodDTO> addFoodToUser(@RequestBody FoodDTO foodDTO){
+        Food food = foodRepo.addFoodToUser(foodDTO);
+        if (food==null){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
+        return ResponseEntity.ok().body(FoodConverter.toDTO(food));
     }
 
 

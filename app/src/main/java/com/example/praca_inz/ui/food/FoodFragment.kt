@@ -1,5 +1,6 @@
 package com.example.praca_inz.ui.food
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -25,6 +26,11 @@ class FoodFragment : Fragment() {
     }
 
 
+    override fun onResume() {
+        super.onResume()
+        foodViewModel.updateFilter(FoodApiFilter.SHOW_MEAL)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -48,6 +54,9 @@ class FoodFragment : Fragment() {
             foodViewModel.displayPropertyDetails(it)
         })
 
+        foodViewModel.properties.observe(viewLifecycleOwner, {
+
+        })
         foodViewModel.navigateToSelectedProperty.observe(viewLifecycleOwner, Observer {
             if ( null != it ) {
                 this.findNavController().navigate(FoodFragmentDirections.actionNavigationFoodToDetailFoodFragment(it))

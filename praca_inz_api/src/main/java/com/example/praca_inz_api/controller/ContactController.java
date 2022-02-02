@@ -41,7 +41,7 @@ public class ContactController {
 
     @DeleteMapping("/delete")
     public void deleteContactByContactNameFromUser(@RequestParam(value = "contactName") String contactName,
-                                  @RequestParam(value = "username") String username){
+                                                   @RequestParam(value = "username") String username){
         contactRepo.deleteContactByContactName(contactName, username);
     }
 }

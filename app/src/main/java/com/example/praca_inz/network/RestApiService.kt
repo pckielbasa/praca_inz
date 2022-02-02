@@ -1,5 +1,6 @@
 package com.example.praca_inz.network
 
+import android.util.Log
 import android.widget.Toast
 import com.example.praca_inz.data.Contact
 import com.example.praca_inz.data.Food
@@ -32,10 +33,15 @@ class RestApiService {
             object : Callback<Food> {
                 override fun onFailure(call: Call<Food>, t: Throwable) {
                     onResult(null)
+
                 }
                 override fun onResponse( call: Call<Food>, response: Response<Food>) {
                     val addedFood = response.body()
-                    onResult(addedFood)
+                    if (response.code() == 200){
+                        onResult(addedFood)
+                    }else{
+                        onResult(null)
+                    }
                 }
             }
         )

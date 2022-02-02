@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/activity_main.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/add_allergies_fragment.xml" value="0.1574074074074074" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/add_food_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/authorization_activity.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/calendar_item_list.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/detail_contact_fragment.xml" value="0.20364583333333333" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/detail_food_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/food_list_item.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/fragment_add_allergies.xml" value="0.1574074074074074" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/fragment_add_contact.xml" value="0.20364583333333333" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/fragment_calendar.xml" value="0.25" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/fragment_contact.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/fragment_day.xml" value="0.1" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/fragment_food.xml" value="0.25" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/fragment_login.xml" value="0.2015625" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

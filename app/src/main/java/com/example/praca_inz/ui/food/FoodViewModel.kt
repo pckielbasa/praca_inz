@@ -50,7 +50,7 @@ class FoodViewModel : ViewModel(){
         getFoodProperties(FoodApiFilter.SHOW_MEAL)
     }
 
-    private fun getFoodProperties(filter: FoodApiFilter){
+    public fun getFoodProperties(filter: FoodApiFilter){
         coroutineScope.launch {
             val username = FirebaseAuth.getInstance().currentUser!!.uid
             Log.i("retrofit", username)
@@ -84,7 +84,7 @@ class FoodViewModel : ViewModel(){
     fun displayPropertyDetailsComplete() {
         _navigateToSelectedProperty.value = null
     }
-    fun updateFilter(filter: FoodApiFilter) {
+    public fun updateFilter(filter: FoodApiFilter) {
         getFoodProperties(filter)
     }
 

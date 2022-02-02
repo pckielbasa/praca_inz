@@ -68,11 +68,16 @@ public class FoodService implements FoodRepo {
     @Override
     public Food createFood(FoodDTO foodDTO) {
             Food food = new Food();
+            List<Food> myList = userRepo.getMyFoodList(foodDTO.getType(), foodDTO.getUsername());
             food.setFoodName(foodDTO.getFoodName());
             food.setComposition(foodDTO.getComposition());
             food.setType(foodDTO.getType());
             food.setFavourite(foodDTO.getFavourite());
             food.setAllergy(foodDTO.getAllergy());
+            boolean anyMatch = myList.stream().anyMatch(item -> item.getFoodName().equals(food.getFoodName()));
+            if (anyMatch){
+                return null;
+            }
             return foodDao.save(food);
     }
 
@@ -80,6 +85,9 @@ public class FoodService implements FoodRepo {
     @Override
     public Food addFoodToUser(FoodDTO foodDTO) {
         Food food = createFood(foodDTO);
+        if(food ==null){
+            return null;
+        }
         userRepo.addFoodToList(food,foodDTO.getUsername());
         return food;
     }
