@@ -47,7 +47,7 @@ class DetailFoodFragment : Fragment() {
                 val navController = NavHostFragment.findNavController(this)
                 navController.navigate(R.id.action_detailFoodFragment_to_navigation_food)
                 detailFoodViewModel.deleteFoodFinish()
-                Log.i("delete", "usun")
+
             }
         })
 
