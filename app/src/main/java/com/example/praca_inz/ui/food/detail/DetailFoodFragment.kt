@@ -1,6 +1,7 @@
 package com.example.praca_inz.ui.food.detail
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,6 +47,7 @@ class DetailFoodFragment : Fragment() {
                 val navController = NavHostFragment.findNavController(this)
                 navController.navigate(R.id.action_detailFoodFragment_to_navigation_food)
                 detailFoodViewModel.deleteFoodFinish()
+                Log.i("delete", "usun")
             }
         })
 
