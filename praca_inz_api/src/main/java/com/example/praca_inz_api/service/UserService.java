@@ -137,6 +137,4 @@ public class UserService implements UserRepo {
         user.setMyContact(myContact);
         return user;
     }
-
-
 }
