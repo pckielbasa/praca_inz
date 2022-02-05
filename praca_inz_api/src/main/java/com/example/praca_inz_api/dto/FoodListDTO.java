@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodListDTO {
+    private String _id;
     private String foodName;
     private String composition;
     private String type;

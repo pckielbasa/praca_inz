@@ -73,13 +73,6 @@ public class UserService implements UserRepo {
     }
 
     @Override
-    public User addScheduleToList(DaySchedule daySchedule, String username) {
-        User user = getUserByUsername(username);
-        user.getDayScheduleList().add(daySchedule);
-        return userDao.save(user);
-    }
-
-    @Override
     public User addFoodToList(Food food, String username) {
         User user = getUserByUsername(username);
         user.getMyFood().add(food);
@@ -90,6 +83,13 @@ public class UserService implements UserRepo {
     public User addContactToList(Contact contact, String username) {
         User user = getUserByUsername(username);
         user.getMyContact().add(contact);
+        return userDao.save(user);
+    }
+
+    @Override
+    public User addDayToCalendar(DaySchedule daySchedule, String username) {
+        User user = getUserByUsername(username);
+        user.getDayScheduleList().add(daySchedule);
         return userDao.save(user);
     }
 
@@ -117,8 +117,17 @@ public class UserService implements UserRepo {
     }
 
     @Override
+    public List<DaySchedule> getMyCalendar(String date, String username) {
+        return getUserByUsername(username)
+                .getDayScheduleList()
+                .stream()
+                .filter(day -> day.getDayDate().equals(date)).collect(Collectors.toList());
+    }
+
+
+    @Override
     public User deleteFoodFromUser(User user, Food food){
-        List<Food> myFood =user.getMyFood();
+        List<Food> myFood = user.getMyFood();
         Food deleteFood = myFood.stream().filter(item -> item.get_id().equals(food.get_id()))
                 .findFirst()
                 .orElseThrow(()-> new ResourceNotFoundException("no food with id: "+ food.get_id()));

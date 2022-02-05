@@ -12,12 +12,13 @@ public interface UserRepo {
     User getUserByEmail(String email);
     User registerUser(RegisterUserDTO user);
     User getUserByUsername(String username);
-    User addScheduleToList(DaySchedule daySchedule, String username);
     User addFoodToList (Food food, String username);
     User addContactToList (Contact contact, String username);
-    User addAllergiesToList(Allergies allergies, String username);
+    User addDayToCalendar (DaySchedule daySchedule, String username);
+    User addAllergiesToList (Allergies allergies, String username);
     List<Food> getMyFoodList(String type, String username);
     List<Contact> getMyContactList(String type, String username);
+    List<DaySchedule> getMyCalendar(String date, String username);
     User deleteFoodFromUser(User user, Food food);
     User deleteContactFromUser(User user, Contact contact);
 }

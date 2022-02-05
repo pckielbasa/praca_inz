@@ -18,6 +18,7 @@ public class FoodConverter {
     }
     public static FoodListDTO toFoodDTO(Food entity){
         return new FoodListDTO(
+                entity.get_id(),
                 entity.getFoodName(),
                 entity.getComposition(),
                 entity.getType(),

@@ -10,7 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ItemDayDTO {
-
+    private String dayDate;
     private String username;
     private Integer hour;
     private Integer minute;

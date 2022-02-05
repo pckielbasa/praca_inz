@@ -19,6 +19,7 @@ public class ContactConverter {
 
     public static ContactListDTO toContactDTO(Contact entity){
         return new ContactListDTO(
+                entity.get_id(),
                 entity.getContactName(),
                 entity.getComposition(),
                 entity.getType(),

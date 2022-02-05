@@ -5,6 +5,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class FoodProperty (
+    val _id:String,
     val username: String,
     val foodName:String,
     val composition:String,

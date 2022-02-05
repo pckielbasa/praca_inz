@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ContactListDTO {
+    private String _id;
     private String contactName;
     private String composition;
     private String type;

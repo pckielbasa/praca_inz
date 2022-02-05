@@ -17,6 +17,7 @@ import java.util.List;
 public class ItemDaySchedule {
     @Id
     private String _id;
+    private String dayDate;
     private String username;
     private Integer hour;
     private Integer minute;

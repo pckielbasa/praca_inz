@@ -13,5 +13,4 @@ import java.util.List;
 public class AddDayScheduleDTO {
     private String username;
     private String dayDate;
-    private List<String> listOfItemsId;
 }

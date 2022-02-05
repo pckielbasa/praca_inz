@@ -2,12 +2,15 @@ package com.example.praca_inz_api.service;
 
 import com.example.praca_inz_api.dao.FoodDao;
 
+import com.example.praca_inz_api.dao.ItemDayDao;
 import com.example.praca_inz_api.dao.UserDao;
 import com.example.praca_inz_api.dto.FoodDTO;
+import com.example.praca_inz_api.dto.FoodListDTO;
 import com.example.praca_inz_api.model.Food;
 
 import com.example.praca_inz_api.model.User;
 import com.example.praca_inz_api.repository.FoodRepo;
+import com.example.praca_inz_api.repository.ItemDayRepo;
 import com.example.praca_inz_api.repository.UserRepo;
 import org.apache.velocity.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +31,8 @@ public class FoodService implements FoodRepo {
 
     @Autowired
     private UserDao userDao;
+
+
 
     @Override
     public List<Food> getAllFood(){
@@ -92,6 +97,8 @@ public class FoodService implements FoodRepo {
         userRepo.addFoodToList(food,foodDTO.getUsername());
         return food;
     }
+
+
 
     @Override
     public String findByFoodName(String foodName) {
