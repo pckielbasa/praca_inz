@@ -74,4 +74,14 @@ public class ItemDayService implements ItemDayRepo {
 
     }
 
+    @Override
+    public List<Food> getFoodList(String itemId) {
+        return getItemDayScheduleById(itemId).getItemDayFood();
+    }
+
+    @Override
+    public List<Contact> getContactList(String itemId) {
+        return getItemDayScheduleById(itemId).getItemDayContact();
+    }
+
 }

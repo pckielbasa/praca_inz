@@ -15,4 +15,6 @@ public interface ItemDayRepo  {
     List<ItemDaySchedule> getListOfItemsByIds(List<String> idList);
     ItemDaySchedule createItem(ItemDayDTO itemDayDTO);
     ItemDaySchedule addItemToDaySchedule(ItemDayDTO itemDayDTO);
+    List<Food> getFoodList(String itemId);
+    List<Contact> getContactList(String itemId);
 }
