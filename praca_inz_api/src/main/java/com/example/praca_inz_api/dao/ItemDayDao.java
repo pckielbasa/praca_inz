@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ItemDayDao extends MongoRepository<ItemDaySchedule, String> {
+    ItemDaySchedule findItemDayScheduleByUsername(String username);
 }

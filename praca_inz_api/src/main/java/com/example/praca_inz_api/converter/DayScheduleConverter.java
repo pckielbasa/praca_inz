@@ -12,8 +12,7 @@ public class DayScheduleConverter {
     public static AddDayScheduleDTO toDTO(DaySchedule entity){
         return new AddDayScheduleDTO(
                 entity.getUsername(),
-                entity.getDayDate(),
-                entity.getItemList()
+                entity.getDayDate()
         );
     }
 

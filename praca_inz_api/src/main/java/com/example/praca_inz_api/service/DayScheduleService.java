@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -43,24 +44,23 @@ public class DayScheduleService implements DayScheduleRepo {
     @Override
     public DaySchedule createDaySchedule(DayScheduleDTO dayScheduleDTO) {
         DaySchedule daySchedule = new DaySchedule();
-        List<DaySchedule> myList = userRepo.getMyDay(dayScheduleDTO.getDayDate(), dayScheduleDTO.getUsername());
+        DaySchedule daySchedule1 = dayScheduleDao.findDayScheduleByUsernameAndDayDate(dayScheduleDTO.getUsername(), dayScheduleDTO.getDayDate());
         daySchedule.setUsername(dayScheduleDTO.getUsername());
         daySchedule.setDayDate(dayScheduleDTO.getDayDate());
-        boolean anyMatch = myList.stream().anyMatch(item -> item.getDayDate().equals(daySchedule.getDayDate()));
-        if (anyMatch){
-            return dayScheduleDao.findByDayDate(dayScheduleDTO.getDayDate());
-        }
-        return dayScheduleDao.save(daySchedule);
+        return Objects.requireNonNullElseGet(daySchedule1, () -> dayScheduleDao.save(daySchedule));
+
+
+
     }
 
     @Override
     public DaySchedule addDayScheduleToUser(DayScheduleDTO dayScheduleDTO) {
         DaySchedule daySchedule = createDaySchedule(dayScheduleDTO);
-        List<DaySchedule> myList = userRepo.getMyDay(dayScheduleDTO.getDayDate(), dayScheduleDTO.getUsername());
-        boolean anyMatch = myList.stream().anyMatch(item -> item.getDayDate().equals(daySchedule.getDayDate()));
+        List<DaySchedule> myList = userRepo.getMyDay(dayScheduleDTO.getUsername(), dayScheduleDTO.getDayDate());
+        boolean anyMatch =  myList.stream().anyMatch(item -> item.getDayDate().equals(dayScheduleDTO.getDayDate()));
         if (anyMatch){
-            return dayScheduleDao.findByDayDate(dayScheduleDTO.getDayDate());
-        }else{
+            return daySchedule;
+        }else {
             userRepo.addDayToCalendar(daySchedule,dayScheduleDTO.getUsername());
             return daySchedule;
         }

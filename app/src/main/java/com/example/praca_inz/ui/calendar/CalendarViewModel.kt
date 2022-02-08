@@ -36,7 +36,7 @@ class CalendarViewModel:ViewModel() {
     }
 
     private fun getMyDay(){
-        val date = "12/01/2021"
+        val date = "12/10/2021"
         val username = FirebaseAuth.getInstance().currentUser!!.uid
         UserApi.retrofitService.getMyDayAsync(date, username).enqueue( object: Callback<String> {
             override fun onFailure(call: Call<String>, t: Throwable) {

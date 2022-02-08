@@ -49,6 +49,11 @@ public class DayScheduleController {
         return dayScheduleRepo.getDayScheduleById(id);
     }
 
+    @GetMapping("/date")
+    public DaySchedule getDayByDate(@RequestParam(value = "date") String date){
+        return dayScheduleDao.findByDayDate(date);
+    }
+
     @PostMapping(path = "/add")
     public AddDayScheduleDTO addDayScheduleToUser(@RequestBody DayScheduleDTO dayScheduleDTO){
         DaySchedule daySchedule = dayScheduleRepo.addDayScheduleToUser(dayScheduleDTO);

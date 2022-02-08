@@ -8,6 +8,7 @@ import com.example.praca_inz_api.dto.FoodDTO;
 import com.example.praca_inz_api.dto.FoodListDTO;
 import com.example.praca_inz_api.model.Food;
 
+import com.example.praca_inz_api.model.ItemDaySchedule;
 import com.example.praca_inz_api.model.User;
 import com.example.praca_inz_api.repository.FoodRepo;
 import com.example.praca_inz_api.repository.ItemDayRepo;
