@@ -11,13 +11,19 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import at.favre.lib.crypto.bcrypt.BCrypt
 import com.example.praca_inz.MainActivity
+import com.example.praca_inz.data.DaySchedule
 import com.example.praca_inz.databinding.FragmentLoginBinding
+import com.example.praca_inz.network.RestApiService
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_registration.*
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.util.*
 
 
 class LoginFragment : Fragment() {
@@ -68,7 +74,17 @@ class LoginFragment : Fragment() {
                                 "Login successful.",
                                 Toast.LENGTH_SHORT
                             ).show()
+                            val apiService = RestApiService()
+                            val username = FirebaseAuth.getInstance().currentUser!!.uid
+                            val date = getCurrentDateTime()
+                            val dateInString = date.toString("dd/MM/yyyy")
                             val intent = Intent(context, MainActivity::class.java)
+                            val daySchedule = DaySchedule(
+                                username = username,
+                                dayDate = dateInString
+                            )
+                            apiService.addDaySchedule(daySchedule){
+                            }
                             startActivity(intent)
                             activity?.finish()
                         } else {
@@ -84,7 +100,13 @@ class LoginFragment : Fragment() {
         return binding.root
     }
 
-
+    fun Date.toString(format: String, locale: Locale = Locale.getDefault()): String {
+        val formatter = SimpleDateFormat(format, locale)
+        return formatter.format(this)
+    }
+    fun getCurrentDateTime(): Date {
+        return Calendar.getInstance().time
+    }
 
 
 

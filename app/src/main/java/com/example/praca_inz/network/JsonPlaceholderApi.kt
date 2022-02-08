@@ -1,6 +1,7 @@
 package com.example.praca_inz.network
 
 import com.example.praca_inz.data.Contact
+import com.example.praca_inz.data.DaySchedule
 import com.example.praca_inz.data.Food
 import com.example.praca_inz.data.User
 import com.example.praca_inz.property.*
@@ -62,6 +63,12 @@ interface JsonPlaceholderApi {
     fun sendContactData(
         @Body contact: Contact
     ): Call<Contact>
+
+    @Headers("Content-Type: application/json")
+    @POST("add")
+    fun sendCalendarData(
+        @Body daySchedule: DaySchedule
+    ): Call<DaySchedule>
 
     //DELETE MAPPING
     @DELETE("delete")

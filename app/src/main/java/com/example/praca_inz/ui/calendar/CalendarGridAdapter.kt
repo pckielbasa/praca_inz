@@ -6,11 +6,16 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.praca_inz.databinding.CalendarItemListBinding
+import com.example.praca_inz.property.MyContactProperty
 import com.example.praca_inz.property.MyDayProperty
+import com.example.praca_inz.ui.calendar.CalendarGridAdapter.*
+import com.example.praca_inz.ui.contact.ContactGridAdapter
 
 
-class CalendarGridAdapter : ListAdapter<MyDayProperty, CalendarGridAdapter.MyDayPropertyViewHolder>(DiffCallback) {
-    enum class CalendarApiStatus { LOADING, ERROR, DONE,EMPTY }
+class CalendarGridAdapter(val onClickListener: OnClickListener)
+    : ListAdapter<MyDayProperty,
+        MyDayPropertyViewHolder>(DiffCallback) {
+
     class MyDayPropertyViewHolder(private var binding: CalendarItemListBinding):
         RecyclerView.ViewHolder(binding.root) {
         fun bind(myDayProperty: MyDayProperty) {
@@ -31,16 +36,22 @@ class CalendarGridAdapter : ListAdapter<MyDayProperty, CalendarGridAdapter.MyDay
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): CalendarGridAdapter.MyDayPropertyViewHolder {
+    ): MyDayPropertyViewHolder {
         return MyDayPropertyViewHolder(CalendarItemListBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
     override fun onBindViewHolder(
-        holder: CalendarGridAdapter.MyDayPropertyViewHolder,
+        holder: MyDayPropertyViewHolder,
         position: Int
     ) {
         val myDayProperty = getItem(position)
+        holder.itemView.setOnClickListener {
+            onClickListener.onClick(myDayProperty)
+        }
         holder.bind(myDayProperty)
     }
 
+    class OnClickListener(val clickListener: (myDayProperty:MyDayProperty) -> Unit) {
+        fun onClick(myDayProperty: MyDayProperty) = clickListener(myDayProperty)
+    }
 }

@@ -8,9 +8,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-private const val BASE_URL = "http://10.0.2.2:8080/food/"
-
-enum class FoodApiFilter(val type: String) { SHOW_MEAL("Meal"), SHOW_SNACK("Snack"), SHOW_COMPONENT("Component") }
+private const val BASE_URL = "http://10.0.2.2:8080/calendar/"
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
@@ -22,20 +20,17 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
-
-
-object FoodApi {
+object CalendarApi {
     val retrofitService : JsonPlaceholderApi by lazy {
         retrofit.create(JsonPlaceholderApi::class.java)
     }
 }
 
-
-object FoodServiceBuilder {
+object CalendarServiceBuilder {
     private val client = OkHttpClient.Builder().build()
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl(BASE_URL) // change this IP for testing by your actual machine IP
+        .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .client(client)
         .build()

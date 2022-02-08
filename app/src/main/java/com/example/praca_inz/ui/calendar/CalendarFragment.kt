@@ -14,6 +14,8 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.praca_inz.R
 import com.example.praca_inz.authorization.AuthorizationActivity
+import com.example.praca_inz.ui.calendar.CalendarGridAdapter.*
+import com.example.praca_inz.ui.contact.ContactFragmentDirections
 import com.example.praca_inz.ui.food.FoodGridAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -53,18 +55,23 @@ class CalendarFragment : Fragment(){
             if (openData) {
                 activity?.let { DatePickerDialog(it, datePicker, myCalendar.get(Calendar.YEAR),myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show() }
                 calendarViewModel.openNavCalendarFinished()
-
-
             }
         })
                 //Wyswietlanie aktualnej daty
                 val date = getCurrentDateTime()
-                val dateInString = date.toString("dd-MM-yyyy")
+                val dateInString = date.toString("dd/MM/yyyy")
                 binding.dateCalendar.text = dateInString
 
 
-                binding.calendarGrid.adapter = CalendarGridAdapter()
+        binding.calendarGrid.adapter = CalendarGridAdapter(OnClickListener {
+            calendarViewModel.displayPropertyDetails(it) })
 
+        calendarViewModel.navigateToSelectedProperty.observe(viewLifecycleOwner, Observer {
+            if ( null != it ) {
+                this.findNavController().navigate(CalendarFragmentDirections.actionNavigationCalendarToDetailDayFragment(it))
+                calendarViewModel.displayPropertyDetailsComplete()
+            }
+        })
                 return binding.root
     }
 
@@ -79,9 +86,9 @@ class CalendarFragment : Fragment(){
     //--------------------------------
 
     fun updateLabel(myCalendar: Calendar, locale: Locale = Locale.getDefault()) {
-        val myFormat = "dd-MM-yyy"
+        val myFormat = "dd/MM/yyyy"
         val sdf = SimpleDateFormat(myFormat, Locale.getDefault())
-        tvDataPicker.setText(sdf.format(myCalendar.time))
+        tvDataPicker.text = sdf.format(myCalendar.time)
     }
 
 

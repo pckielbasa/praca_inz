@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_navigation_calendar_to_addItemsFragment"
             app:destination="@id/addItemsFragment" />
+        <action
+            android:id="@+id/action_navigation_calendar_to_detailDayFragment"
+            app:destination="@id/detailDayFragment" />
     </fragment>
 
     <fragment
@@ -111,6 +114,18 @@
         android:label="activity_splash_screen"
         tools:layout="@layout/activity_splash_screen" />
     <include app:graph="@navigation/authorization" />
+    <fragment
+        android:id="@+id/detailDayFragment"
+        android:name="com.example.praca_inz.ui.calendar.detail.DetailDayFragment"
+        android:label="detail_day_fragment"
+        tools:layout="@layout/detail_day_fragment" >
+        <argument
+            android:name="selectedProperty"
+            app:argType="com.example.praca_inz.property.MyDayProperty"/>
+        <action
+            android:id="@+id/action_detailDayFragment_to_navigation_calendar"
+            app:destination="@id/navigation_calendar" />
+    </fragment>
 
 
 </navigation>

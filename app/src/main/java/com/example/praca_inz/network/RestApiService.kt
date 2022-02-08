@@ -3,6 +3,7 @@ package com.example.praca_inz.network
 import android.util.Log
 import android.widget.Toast
 import com.example.praca_inz.data.Contact
+import com.example.praca_inz.data.DaySchedule
 import com.example.praca_inz.data.Food
 import com.example.praca_inz.data.User
 import com.google.firebase.auth.FirebaseAuth
@@ -58,6 +59,25 @@ class RestApiService {
                     val addedContact = response.body()
                     if (response.code() == 200){
                         onResult(addedContact)
+                    }else{
+                        onResult(null)
+                    }
+                }
+            }
+        )
+    }
+
+    fun addDaySchedule(dayData: DaySchedule, onResult: (DaySchedule?) -> Unit){
+        val retrofit = CalendarServiceBuilder.buildService(JsonPlaceholderApi::class.java)
+        retrofit.sendCalendarData(dayData).enqueue(
+            object : Callback<DaySchedule> {
+                override fun onFailure(call: Call<DaySchedule>, t: Throwable) {
+                    onResult(null)
+                }
+                override fun onResponse( call: Call<DaySchedule>, response: Response<DaySchedule>) {
+                    val addedDaySchedule = response.body()
+                    if (response.code() == 200){
+                        onResult(addedDaySchedule)
                     }else{
                         onResult(null)
                     }
