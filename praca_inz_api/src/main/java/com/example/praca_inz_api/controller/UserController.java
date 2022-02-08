@@ -63,6 +63,7 @@ public class UserController {
         return userRepo.getMyContactList(type, username).stream().map(ContactConverter::toContactDTO).collect(Collectors.toList());
     }
 
+
     @GetMapping("/myday")
     public List<ItemsListDTO> getMyDay(@RequestParam(value = "date") String date,
                                                  @RequestParam(value = "username") String username){

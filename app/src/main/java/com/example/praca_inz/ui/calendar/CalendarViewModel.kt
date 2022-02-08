@@ -39,6 +39,12 @@ class CalendarViewModel:ViewModel() {
         _openNavCalendar.value = false
     }
 
+    private var date =""
+      public fun setDate(date:String) {
+          this.date = date
+      }
+
+
     private val _status = MutableLiveData<MyDayStatus>()
     val status: LiveData<MyDayStatus>
         get() = _status
@@ -61,12 +67,11 @@ class CalendarViewModel:ViewModel() {
         getMyDay()
     }
 
-    private fun getMyDay() {
-        val date = getCurrentDateTime()
-        val dateInString = date.toString("dd/MM/yyyy")
+    fun getMyDay() {
         val username = FirebaseAuth.getInstance().currentUser!!.uid
         coroutineScope.launch {
-            var getPropertiesDeferred = UserApi.retrofitService.getMyDayAsync(dateInString, username)
+
+            var getPropertiesDeferred = UserApi.retrofitService.getMyDayAsync(date, username)
             try {
                 _status.value = MyDayStatus.LOADING
                 val listResult =  getPropertiesDeferred.await()
@@ -96,12 +101,5 @@ class CalendarViewModel:ViewModel() {
         _navigateToSelectedProperty.value = null
     }
 
-    fun Date.toString(format: String, locale: Locale = Locale.getDefault()): String {
-        val formatter = SimpleDateFormat(format, locale)
-        return formatter.format(this)
-    }
-    fun getCurrentDateTime(): Date {
-        return Calendar.getInstance().time
-    }
 
 }
