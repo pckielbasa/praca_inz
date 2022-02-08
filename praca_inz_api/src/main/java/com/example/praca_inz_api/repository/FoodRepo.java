@@ -17,7 +17,7 @@ public interface FoodRepo {
     Food createFood(FoodDTO foodDTO);
     Food addFoodToUser(FoodDTO foodDTO);
     String findByFoodName(String foodName);
-    void deleteFoodByFoodName(String foodName, String username );
+    void deleteFoodById(String foodId, String username );
 
 
 }

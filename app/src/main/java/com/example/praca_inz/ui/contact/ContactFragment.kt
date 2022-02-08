@@ -13,7 +13,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.praca_inz.R
 import com.example.praca_inz.databinding.FragmentContactBinding
 import com.example.praca_inz.network.ContactApiFilter
-import com.example.praca_inz.network.UserFilter
 import com.example.praca_inz.ui.contact.addContact.AddContactFragment
 import com.example.praca_inz.ui.food.FoodFragmentDirections
 import com.example.praca_inz.ui.food.FoodGridAdapter

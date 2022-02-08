@@ -6,7 +6,7 @@
 <data>
     <variable
         name="property"
-        type="com.example.praca_inz.property.UserProperty" />
+        type="com.example.praca_inz.property.MyDayProperty" />
 </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,12 +22,37 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="2dp"
             android:layout_marginBottom="16dp"
-            android:text="@{property.email}"
+            android:text="@{property.hour}"
             app:layout_constraintBottom_toTopOf="@+id/view2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
 
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/colon"
+            app:layout_constraintBottom_toTopOf="@+id/view2"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@{property.minute}"
+            app:layout_constraintBottom_toTopOf="@+id/view2"
+            app:layout_constraintStart_toEndOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
         <View
             android:id="@+id/view2"

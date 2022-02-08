@@ -3,6 +3,7 @@ package com.example.praca_inz_api.controller;
 import com.example.praca_inz_api.converter.ContactConverter;
 import com.example.praca_inz_api.converter.DayScheduleConverter;
 import com.example.praca_inz_api.converter.FoodConverter;
+import com.example.praca_inz_api.converter.ItemDayConverter;
 import com.example.praca_inz_api.dao.DayScheduleDao;
 import com.example.praca_inz_api.dto.*;
 import com.example.praca_inz_api.model.DaySchedule;
@@ -34,14 +35,14 @@ public class DayScheduleController {
         return new ArrayList<>(dayScheduleRepo.getAllDays());
     }
 
-    @GetMapping("/dayitems")
-    public List<ItemDaySchedule> getMyItemList(@RequestParam(value = "dayDate") String dayDate){
-       DaySchedule daySchedule = dayScheduleDao.findByDayDate(dayDate);
-        if (daySchedule == null){
-            return null;
-        }
-        return dayScheduleRepo.getMyItems(dayDate);
-    }
+//    @GetMapping("/dayitems")
+//    public List<ItemsListDTO> getMyItemList(@RequestParam(value = "date") String date){
+//       DaySchedule daySchedule = dayScheduleDao.findByDayDate(date);
+//        if (daySchedule == null){
+//            return null;
+//        }
+//        return dayScheduleRepo.getMyItems(date).stream().map(ItemDayConverter::toListDTO).collect(Collectors.toList());
+//    }
 
     @GetMapping("/{id}")
     public DaySchedule getDayById(@PathVariable String id){

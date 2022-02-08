@@ -14,6 +14,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.praca_inz.R
 import com.example.praca_inz.authorization.AuthorizationActivity
+import com.example.praca_inz.ui.food.FoodGridAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -37,6 +38,7 @@ class CalendarFragment : Fragment(){
         binding.calendarViewModel = calendarViewModel
         auth = Firebase.auth
         val username = FirebaseAuth.getInstance().currentUser!!.uid
+
         //Zmiana Daty
         tvDataPicker = binding.dateCalendar
         val myCalendar = Calendar.getInstance()
@@ -61,10 +63,8 @@ class CalendarFragment : Fragment(){
                 binding.dateCalendar.text = dateInString
 
 
-//                binding.addItemsDate.setOnClickListener {
-//                    findNavController().navigate(R.id.action_navigation_calendar_to_addItemsFragment)
-//                }
-//                 binding.calendarGrid.adapter = CalendarGridAdapter()
+
+
                 return binding.root
     }
 

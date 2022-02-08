@@ -90,8 +90,8 @@ public class ContactService implements ContactRepo {
     }
 
     @Override
-    public void deleteContactByContactName(String contactName, String username) {
-        Contact contact =contactDao.findContactByContactName(contactName);
+    public void deleteContactById(String contactId, String username) {
+        Contact contact =contactDao.findContactBy_id(contactId);
         User user = userRepo.getUserByUsername(username);
         user = userRepo.deleteContactFromUser(user, contact);
         userDao.save(user);

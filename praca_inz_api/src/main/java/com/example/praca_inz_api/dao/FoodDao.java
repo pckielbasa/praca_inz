@@ -7,5 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface FoodDao extends MongoRepository<Food,String> {
     Food findByFoodName(String foodName);
-    Food deleteFoodByFoodName(String foodName);
+    Food findBy_id(String foodId);
+
 }

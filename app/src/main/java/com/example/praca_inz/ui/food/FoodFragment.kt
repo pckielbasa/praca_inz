@@ -14,7 +14,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.praca_inz.R
 import com.example.praca_inz.databinding.FragmentFoodBinding
 import com.example.praca_inz.network.FoodApiFilter
-import com.example.praca_inz.network.UserFilter
 import com.example.praca_inz.ui.food.addFood.AddFoodFragment
 
 
@@ -25,11 +24,6 @@ class FoodFragment : Fragment() {
         ViewModelProvider(this)[FoodViewModel::class.java]
     }
 
-
-    override fun onResume() {
-        super.onResume()
-        foodViewModel.updateFilter(FoodApiFilter.SHOW_MEAL)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,9 +48,6 @@ class FoodFragment : Fragment() {
             foodViewModel.displayPropertyDetails(it)
         })
 
-        foodViewModel.properties.observe(viewLifecycleOwner, {
-
-        })
         foodViewModel.navigateToSelectedProperty.observe(viewLifecycleOwner, Observer {
             if ( null != it ) {
                 this.findNavController().navigate(FoodFragmentDirections.actionNavigationFoodToDetailFoodFragment(it))

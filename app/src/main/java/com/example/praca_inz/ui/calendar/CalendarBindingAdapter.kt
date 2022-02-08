@@ -6,52 +6,53 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.praca_inz.R
+import com.example.praca_inz.property.MyDayProperty
 import com.example.praca_inz.property.UserProperty
-import com.example.praca_inz.ui.calendar.CalendarViewModel.CalendarStatus
+import com.example.praca_inz.ui.calendar.CalendarViewModel.*
 import com.example.praca_inz.ui.food.FoodGridAdapter
 
 @BindingAdapter("listData")
-fun bindRecyclerView(recyclerView: RecyclerView, data: List<UserProperty>?) {
+fun bindRecyclerView(recyclerView: RecyclerView, data: List<MyDayProperty>?) {
     val adapter = recyclerView.adapter as CalendarGridAdapter
     adapter.submitList(data)
 }
 
 @BindingAdapter("marsApiStatus")
-fun bindStatus(statusImageView: ImageView, status: CalendarStatus?) {
+fun bindStatus(statusImageView: ImageView, status: MyDayStatus?) {
     when (status) {
-        CalendarStatus.LOADING -> {
+        MyDayStatus.LOADING -> {
             statusImageView.visibility = View.VISIBLE
             statusImageView.setImageResource(R.drawable.loading_animation)
         }
-        CalendarStatus.ERROR -> {
+        MyDayStatus.ERROR -> {
             statusImageView.visibility = View.VISIBLE
             statusImageView.setImageResource(R.drawable.ic_cloud_off)
         }
-        CalendarStatus.DONE -> {
+        MyDayStatus.DONE -> {
             statusImageView.visibility = View.GONE
         }
-        CalendarStatus.EMPTY -> {
+        MyDayStatus.EMPTY -> {
             statusImageView.visibility = View.VISIBLE
             statusImageView.setImageResource(R.drawable.ic_empty)
         }
     }
 }
 @BindingAdapter("calendarApiStatus")
-fun bindStatus(staTextView: TextView, status: CalendarStatus?) {
+fun bindStatus(staTextView: TextView, status: MyDayStatus?) {
     when (status) {
-        CalendarStatus.LOADING -> {
+        MyDayStatus.LOADING -> {
             staTextView.visibility = TextView.VISIBLE
             staTextView.text = "Loading..."
         }
-        CalendarStatus.ERROR -> {
+        MyDayStatus.ERROR -> {
             staTextView.visibility = TextView.VISIBLE
             staTextView.text = "Connect Error!!! "
         }
 
-        CalendarStatus.DONE -> {
+        MyDayStatus.DONE -> {
             staTextView.visibility = TextView.GONE
         }
-        CalendarStatus.EMPTY -> {
+        MyDayStatus.EMPTY -> {
             staTextView.visibility = TextView.VISIBLE
             staTextView.text="List is empty."
         }

@@ -1,16 +1,13 @@
 package com.example.praca_inz.ui.contact
 
 import android.annotation.SuppressLint
-import androidx.lifecycle.*
-import com.example.praca_inz.network.ContactApi
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.example.praca_inz.network.ContactApiFilter
 import com.example.praca_inz.network.UserApi
-import com.example.praca_inz.network.UserFilter
-
-import com.example.praca_inz.property.ContactProperty
 import com.example.praca_inz.property.MyContactProperty
-import com.example.praca_inz.ui.contact.ContactGridAdapter.*
-import com.example.praca_inz.ui.food.FoodGridAdapter
+import com.example.praca_inz.ui.contact.ContactGridAdapter.ContactApiStatus
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

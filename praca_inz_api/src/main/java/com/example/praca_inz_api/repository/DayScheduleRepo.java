@@ -20,5 +20,5 @@ public interface DayScheduleRepo  {
     DaySchedule createDaySchedule(DayScheduleDTO dayScheduleDTO);
     DaySchedule addDayScheduleToUser(DayScheduleDTO dayScheduleDTO);
     DaySchedule addItemToDay (ItemDaySchedule itemDaySchedule, String dayDate);
-    List<ItemDaySchedule> getMyItems(String dayDate);
+    List<ItemDaySchedule> getMyItems(String date, String username);
 }

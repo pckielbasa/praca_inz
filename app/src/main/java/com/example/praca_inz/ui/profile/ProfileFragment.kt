@@ -2,16 +2,14 @@ package com.example.praca_inz.ui.profile
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.praca_inz.authorization.AuthorizationActivity
 import com.example.praca_inz.databinding.FragmentProfileBinding
-import com.example.praca_inz.network.username
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 
 
 class ProfileFragment : Fragment() {

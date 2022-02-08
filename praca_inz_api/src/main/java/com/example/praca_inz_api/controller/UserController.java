@@ -1,11 +1,12 @@
 package com.example.praca_inz_api.controller;
 
-import com.example.praca_inz_api.converter.ContactConverter;
-import com.example.praca_inz_api.converter.FoodConverter;
-import com.example.praca_inz_api.converter.UserConverter;
+import com.example.praca_inz_api.converter.*;
+import com.example.praca_inz_api.dao.UserDao;
 import com.example.praca_inz_api.dto.*;
+import com.example.praca_inz_api.model.DaySchedule;
 import com.example.praca_inz_api.model.Food;
 import com.example.praca_inz_api.model.User;
+import com.example.praca_inz_api.repository.DayScheduleRepo;
 import com.example.praca_inz_api.repository.UserRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,11 @@ public class UserController {
     @Autowired
     private UserRepo userRepo;
 
+    @Autowired
+    private UserDao userDao;
+
+    @Autowired
+    private DayScheduleRepo dayScheduleRepo;
 
     @GetMapping("/all")
     public List<User> getAllUsers(){
@@ -41,6 +47,11 @@ public class UserController {
         return userRepo.getUserByUsername(username);
     }
 
+    @GetMapping("/finbyname")
+    public User getUserBYName(@RequestParam(value = "name") String name){
+        return userDao.findByName(name);
+    }
+
     @GetMapping("/myfood")
     public List<FoodListDTO> getMyFoodList(@RequestParam(value = "type") String type,
                                            @RequestParam(value = "username") String username){
@@ -53,6 +64,16 @@ public class UserController {
         return userRepo.getMyContactList(type, username).stream().map(ContactConverter::toContactDTO).collect(Collectors.toList());
     }
 
+    @GetMapping("/myday")
+    public List<ItemsListDTO> getMyDay(@RequestParam(value = "date") String date,
+                                      @RequestParam(value = "username") String username){
+        List<DaySchedule> list =  userRepo.getMyDay(username,date);
+        if (list == null){
+            return null;
+        }else{
+            return dayScheduleRepo.getMyItems(date, username).stream().map(ItemDayConverter::toListDTO).collect(Collectors.toList());
+        }
+    }
 
     @PostMapping("/register")
     public ResponseEntity<UserDTO> registerUser(@RequestBody RegisterUserDTO registerUserDTO){

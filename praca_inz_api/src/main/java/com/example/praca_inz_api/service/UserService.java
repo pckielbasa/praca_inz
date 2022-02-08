@@ -1,5 +1,6 @@
 package com.example.praca_inz_api.service;
 
+import com.example.praca_inz_api.dao.DayScheduleDao;
 import com.example.praca_inz_api.dao.UserDao;
 import com.example.praca_inz_api.dto.RegisterUserDTO;
 import com.example.praca_inz_api.model.*;
@@ -17,6 +18,9 @@ import java.util.stream.Collectors;
 public class UserService implements UserRepo {
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+    private DayScheduleDao dayScheduleDao;
 
     @Override
     public User addUser(User user){
@@ -117,11 +121,17 @@ public class UserService implements UserRepo {
     }
 
     @Override
-    public List<DaySchedule> getMyCalendar(String date, String username) {
-        return getUserByUsername(username)
-                .getDayScheduleList()
-                .stream()
-                .filter(day -> day.getDayDate().equals(date)).collect(Collectors.toList());
+    public List<DaySchedule> getMyDay (String username, String date) {
+        DaySchedule daySchedule = dayScheduleDao.findByDayDate(date);
+        if (daySchedule == null){
+            return null;
+        }else{
+            return getUserByUsername(username)
+                    .getDayScheduleList()
+                    .stream()
+                    .filter(day -> day.getDayDate().equals(date)).collect(Collectors.toList());
+        }
+
     }
 
 
@@ -146,4 +156,6 @@ public class UserService implements UserRepo {
         user.setMyContact(myContact);
         return user;
     }
+
+
 }

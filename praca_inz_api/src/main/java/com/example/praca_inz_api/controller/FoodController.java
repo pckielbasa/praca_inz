@@ -48,8 +48,8 @@ public class FoodController {
 
 
     @DeleteMapping("/delete")
-    public void deleteFoodByFoodNameFromUser(@RequestParam(value = "foodName") String foodName,
+    public void deleteFoodByIdFromUser(@RequestParam(value = "foodId") String foodId,
                                   @RequestParam(value = "username") String username){
-        foodRepo.deleteFoodByFoodName(foodName, username);
+        foodRepo.deleteFoodById(foodId, username);
     }
 }

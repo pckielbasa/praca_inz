@@ -32,8 +32,8 @@ class DetailContactFragment : Fragment() {
             if(goDelete){
                 val apiService = RestApiService()
                 val username = FirebaseAuth.getInstance().currentUser!!.uid
-                val contactName = detailContactViewModel.selectedProperty.value!!.contactName
-                apiService.deleteContact(contactName, username)
+                val contactId = detailContactViewModel.selectedProperty.value!!._id
+                apiService.deleteContact(contactId, username)
                 val navController = NavHostFragment.findNavController(this)
                 navController.navigate(R.id.action_detailContactFragment_to_navigation_contact)
                 detailContactViewModel.deleteContactFinish()

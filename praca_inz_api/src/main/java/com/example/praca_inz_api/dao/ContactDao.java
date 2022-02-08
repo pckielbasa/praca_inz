@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ContactDao extends MongoRepository<Contact,String> {
     Contact findContactByContactName(String contactName);
+    Contact findContactBy_id(String contactId);
 }

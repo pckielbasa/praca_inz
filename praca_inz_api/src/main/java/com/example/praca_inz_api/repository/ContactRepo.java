@@ -15,5 +15,5 @@ public interface ContactRepo {
     List<Contact> getListOfContactsByIds(List<String> idList);
     Contact createContact(ContactDTO contactDTO);
     Contact addContactToUser(ContactDTO contactDTO);
-    void deleteContactByContactName(String contactName, String username );
+    void deleteContactById(String contactId, String username );
 }

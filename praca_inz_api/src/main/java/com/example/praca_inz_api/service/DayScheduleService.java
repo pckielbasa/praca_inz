@@ -43,7 +43,7 @@ public class DayScheduleService implements DayScheduleRepo {
     @Override
     public DaySchedule createDaySchedule(DayScheduleDTO dayScheduleDTO) {
         DaySchedule daySchedule = new DaySchedule();
-        List<DaySchedule> myList = userRepo.getMyCalendar(dayScheduleDTO.getDayDate(), dayScheduleDTO.getUsername());
+        List<DaySchedule> myList = userRepo.getMyDay(dayScheduleDTO.getDayDate(), dayScheduleDTO.getUsername());
         daySchedule.setUsername(dayScheduleDTO.getUsername());
         daySchedule.setDayDate(dayScheduleDTO.getDayDate());
         boolean anyMatch = myList.stream().anyMatch(item -> item.getDayDate().equals(daySchedule.getDayDate()));
@@ -56,7 +56,7 @@ public class DayScheduleService implements DayScheduleRepo {
     @Override
     public DaySchedule addDayScheduleToUser(DayScheduleDTO dayScheduleDTO) {
         DaySchedule daySchedule = createDaySchedule(dayScheduleDTO);
-        List<DaySchedule> myList = userRepo.getMyCalendar(dayScheduleDTO.getDayDate(), dayScheduleDTO.getUsername());
+        List<DaySchedule> myList = userRepo.getMyDay(dayScheduleDTO.getDayDate(), dayScheduleDTO.getUsername());
         boolean anyMatch = myList.stream().anyMatch(item -> item.getDayDate().equals(daySchedule.getDayDate()));
         if (anyMatch){
             return dayScheduleDao.findByDayDate(dayScheduleDTO.getDayDate());
@@ -75,8 +75,14 @@ public class DayScheduleService implements DayScheduleRepo {
     }
 
     @Override
-    public List<ItemDaySchedule> getMyItems( String dayDate) {
-        return getDayByDate(dayDate).getItemList();
+    public List<ItemDaySchedule> getMyItems( String date, String username) {
+        List<DaySchedule> day = userRepo.getMyDay(username, date);
+        if (day == null){
+            return null;
+        }else{
+            return getDayByDate(date).getItemList();
+        }
+
     }
 
 
