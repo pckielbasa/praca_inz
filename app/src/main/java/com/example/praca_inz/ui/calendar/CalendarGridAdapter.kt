@@ -9,7 +9,7 @@ import com.example.praca_inz.databinding.CalendarItemListBinding
 import com.example.praca_inz.property.MyDayProperty
 
 
-class CalendarGridAdapter(private val onClickListener: OnClickListener)  : ListAdapter<MyDayProperty, CalendarGridAdapter.MyDayPropertyViewHolder>(DiffCallback) {
+class CalendarGridAdapter : ListAdapter<MyDayProperty, CalendarGridAdapter.MyDayPropertyViewHolder>(DiffCallback) {
     enum class CalendarApiStatus { LOADING, ERROR, DONE,EMPTY }
     class MyDayPropertyViewHolder(private var binding: CalendarItemListBinding):
         RecyclerView.ViewHolder(binding.root) {
@@ -43,7 +43,4 @@ class CalendarGridAdapter(private val onClickListener: OnClickListener)  : ListA
         holder.bind(myDayProperty)
     }
 
-    class OnClickListener(val clickListener: (myDayProperty: MyDayProperty) -> Unit) {
-        fun onClick(myDayProperty: MyDayProperty) = clickListener(myDayProperty)
-    }
 }

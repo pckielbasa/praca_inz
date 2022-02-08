@@ -11,6 +11,6 @@ import java.util.List;
 @AllArgsConstructor
 public class ItemsListDTO {
     private String _id;
-    private Integer hour;
-    private Integer minute;
+    private String hour;
+    private String minute;
 }

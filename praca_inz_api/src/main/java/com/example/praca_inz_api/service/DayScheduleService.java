@@ -48,9 +48,6 @@ public class DayScheduleService implements DayScheduleRepo {
         daySchedule.setUsername(dayScheduleDTO.getUsername());
         daySchedule.setDayDate(dayScheduleDTO.getDayDate());
         return Objects.requireNonNullElseGet(daySchedule1, () -> dayScheduleDao.save(daySchedule));
-
-
-
     }
 
     @Override
@@ -64,26 +61,23 @@ public class DayScheduleService implements DayScheduleRepo {
             userRepo.addDayToCalendar(daySchedule,dayScheduleDTO.getUsername());
             return daySchedule;
         }
-
     }
 
     @Override
-    public DaySchedule addItemToDay(ItemDaySchedule itemDaySchedule, String dayDate) {
-        DaySchedule daySchedule = getDayByDate(dayDate);
+    public List<ItemDaySchedule> getDaySchedule(String username, String date) {
+        DaySchedule daySchedule = dayScheduleDao.findDayScheduleByUsernameAndDayDate(username, date);
+        if (daySchedule == null){
+            return null;
+        }else {
+            return daySchedule.getItemList();
+        }
+    }
+
+    @Override
+    public DaySchedule addItemToDay(ItemDaySchedule itemDaySchedule, String date) {
+        DaySchedule daySchedule = dayScheduleDao.findDayScheduleByUsernameAndDayDate(itemDaySchedule.getUsername(), date);
         daySchedule.getItemList().add(itemDaySchedule);
         return dayScheduleDao.save(daySchedule);
     }
-
-    @Override
-    public List<ItemDaySchedule> getMyItems( String date, String username) {
-        List<DaySchedule> day = userRepo.getMyDay(username, date);
-        if (day == null){
-            return null;
-        }else{
-            return getDayByDate(date).getItemList();
-        }
-
-    }
-
 
 }

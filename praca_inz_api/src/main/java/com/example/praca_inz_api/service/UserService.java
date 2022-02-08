@@ -122,7 +122,7 @@ public class UserService implements UserRepo {
 
     @Override
     public List<DaySchedule> getMyDay (String username, String date) {
-        DaySchedule daySchedule = dayScheduleDao.findByDayDate(date);
+        DaySchedule daySchedule = dayScheduleDao.findDayScheduleByUsernameAndDayDate(username,date);
         if (daySchedule == null){
             return null;
         }else{
@@ -133,7 +133,6 @@ public class UserService implements UserRepo {
         }
 
     }
-
 
     @Override
     public User deleteFoodFromUser(User user, Food food){

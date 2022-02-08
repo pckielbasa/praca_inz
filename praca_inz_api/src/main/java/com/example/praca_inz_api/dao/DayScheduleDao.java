@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface DayScheduleDao extends MongoRepository<DaySchedule,String> {
     DaySchedule findByDayDate (String dayDate);
     DaySchedule findDayScheduleByUsernameAndDayDate(String username, String date);
+
 }

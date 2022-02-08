@@ -1,7 +1,6 @@
 package com.example.praca_inz_api.controller;
 
 import com.example.praca_inz_api.converter.ContactConverter;
-import com.example.praca_inz_api.converter.DayScheduleConverter;
 import com.example.praca_inz_api.converter.FoodConverter;
 import com.example.praca_inz_api.converter.ItemDayConverter;
 import com.example.praca_inz_api.dto.*;
@@ -47,7 +46,9 @@ public class ItemDayController {
 
     @PostMapping(path = "/add")
     public AddItemDayDTO addItemToDay(@RequestBody ItemDayDTO itemDayDTO){
-        ItemDaySchedule itemDaySchedule = itemDayRepo.addItemToDaySchedule(itemDayDTO);
+        ItemDaySchedule itemDaySchedule = itemDayRepo.addItemToMyDay(itemDayDTO);
         return ItemDayConverter.toAddDTO(itemDaySchedule);
     }
+
+
 }

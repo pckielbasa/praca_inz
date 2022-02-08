@@ -35,15 +35,6 @@ public class DayScheduleController {
         return new ArrayList<>(dayScheduleRepo.getAllDays());
     }
 
-//    @GetMapping("/dayitems")
-//    public List<ItemsListDTO> getMyItemList(@RequestParam(value = "date") String date){
-//       DaySchedule daySchedule = dayScheduleDao.findByDayDate(date);
-//        if (daySchedule == null){
-//            return null;
-//        }
-//        return dayScheduleRepo.getMyItems(date).stream().map(ItemDayConverter::toListDTO).collect(Collectors.toList());
-//    }
-
     @GetMapping("/{id}")
     public DaySchedule getDayById(@PathVariable String id){
         return dayScheduleRepo.getDayScheduleById(id);

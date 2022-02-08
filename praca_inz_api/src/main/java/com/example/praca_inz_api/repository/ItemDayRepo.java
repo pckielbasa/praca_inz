@@ -14,7 +14,7 @@ public interface ItemDayRepo  {
     ItemDaySchedule getItemDayScheduleById(String itemDayId);
     List<ItemDaySchedule> getListOfItemsByIds(List<String> idList);
     ItemDaySchedule createItem(ItemDayDTO itemDayDTO);
-    ItemDaySchedule addItemToDaySchedule(ItemDayDTO itemDayDTO);
+    ItemDaySchedule addItemToMyDay(ItemDayDTO itemDayDTO);
     List<Food> getFoodList(String itemId);
     List<Contact> getContactList(String itemId);
     ItemDaySchedule findItemDayByUsername(String username);

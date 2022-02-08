@@ -38,7 +38,11 @@ interface JsonPlaceholderApi {
     @GET("myday")
     fun getMyDayAsync(@Query("date") date: String,
                       @Query("username") username: String):
-            Call<String>
+            Call<List<MyDayProperty>>
+
+    @GET("all")
+    fun getAllUsers():
+        Call<List<MyDayProperty>>
 
     //POST MAPPING
     @Headers("Content-Type: application/json")

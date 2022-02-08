@@ -3,8 +3,7 @@ package com.example.praca_inz_api.controller;
 import com.example.praca_inz_api.converter.*;
 import com.example.praca_inz_api.dao.UserDao;
 import com.example.praca_inz_api.dto.*;
-import com.example.praca_inz_api.model.DaySchedule;
-import com.example.praca_inz_api.model.Food;
+import com.example.praca_inz_api.model.ItemDaySchedule;
 import com.example.praca_inz_api.model.User;
 import com.example.praca_inz_api.repository.DayScheduleRepo;
 import com.example.praca_inz_api.repository.UserRepo;
@@ -66,14 +65,14 @@ public class UserController {
 
     @GetMapping("/myday")
     public List<ItemsListDTO> getMyDay(@RequestParam(value = "date") String date,
-                                      @RequestParam(value = "username") String username){
-        List<DaySchedule> list =  userRepo.getMyDay(username,date);
-        if (list == null){
+                                                 @RequestParam(value = "username") String username){
+        List<ItemDaySchedule> daySchedule = dayScheduleRepo.getDaySchedule(username, date);
+        if (daySchedule == null){
             return null;
-        }else{
-            return dayScheduleRepo.getMyItems(date, username).stream().map(ItemDayConverter::toListDTO).collect(Collectors.toList());
         }
+        return dayScheduleRepo.getDaySchedule(username, date).stream().map(ItemDayConverter::toListDTO).collect(Collectors.toList());
     }
+
 
     @PostMapping("/register")
     public ResponseEntity<UserDTO> registerUser(@RequestBody RegisterUserDTO registerUserDTO){

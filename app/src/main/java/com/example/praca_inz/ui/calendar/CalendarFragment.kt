@@ -63,7 +63,7 @@ class CalendarFragment : Fragment(){
                 binding.dateCalendar.text = dateInString
 
 
-
+                binding.calendarGrid.adapter = CalendarGridAdapter()
 
                 return binding.root
     }

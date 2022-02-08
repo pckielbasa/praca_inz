@@ -2,6 +2,7 @@ package com.example.praca_inz_api.service;
 
 import com.example.praca_inz_api.dao.FoodDao;
 import com.example.praca_inz_api.dao.ItemDayDao;
+import com.example.praca_inz_api.dto.DayScheduleDTO;
 import com.example.praca_inz_api.dto.ItemDayDTO;
 import com.example.praca_inz_api.model.*;
 import com.example.praca_inz_api.repository.ContactRepo;
@@ -58,8 +59,8 @@ public class ItemDayService implements ItemDayRepo {
     @Override
     public ItemDaySchedule createItem(ItemDayDTO itemDayDTO) {
         ItemDaySchedule itemDaySchedule = new ItemDaySchedule();
-        itemDaySchedule.setDayDate(itemDayDTO.getDayDate());
         itemDaySchedule.setUsername(itemDayDTO.getUsername());
+        itemDaySchedule.setDayDate(itemDayDTO.getDayDate());
         itemDaySchedule.setHour(itemDayDTO.getHour());
         itemDaySchedule.setMinute(itemDayDTO.getMinute());
         itemDaySchedule.setItemDayFood(foodRepo.getListOfFoodByIds(itemDayDTO.getListOfFoodId()));
@@ -68,12 +69,12 @@ public class ItemDayService implements ItemDayRepo {
     }
 
     @Override
-    public ItemDaySchedule addItemToDaySchedule(ItemDayDTO itemDayDTO) {
-        ItemDaySchedule itemDaySchedule  = createItem(itemDayDTO);
+    public ItemDaySchedule addItemToMyDay(ItemDayDTO itemDayDTO) {
+        ItemDaySchedule itemDaySchedule = createItem(itemDayDTO);
         dayScheduleRepo.addItemToDay(itemDaySchedule, itemDayDTO.getDayDate());
         return itemDaySchedule;
-
     }
+
 
     @Override
     public List<Food> getFoodList(String itemId) {
@@ -111,5 +112,6 @@ public class ItemDayService implements ItemDayRepo {
         itemDaySchedule.setItemDayContact(myContact);
         return itemDaySchedule;
     }
+
 
 }

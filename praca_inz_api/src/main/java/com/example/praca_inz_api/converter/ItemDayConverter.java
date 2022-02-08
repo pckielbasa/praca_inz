@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 public class ItemDayConverter {
     public static ItemDayDTO toDTO(ItemDaySchedule entity){
         return new ItemDayDTO(
+                entity.get_id(),
                 entity.getDayDate(),
                 entity.getUsername(),
                 entity.getHour(),

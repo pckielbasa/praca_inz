@@ -4,10 +4,16 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.praca_inz.network.UserApi
+import com.example.praca_inz.property.MyDayProperty
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.await
 
 
 class CalendarViewModel:ViewModel() {
@@ -26,29 +32,42 @@ class CalendarViewModel:ViewModel() {
         _openNavCalendar.value = false
     }
 
-    private val _response = MutableLiveData<String>()
-    val response:LiveData<String>
-        get() = _response
+    private val _status = MutableLiveData<String>()
 
+    val status: LiveData<String>
+        get() = _status
+
+    private val _properties = MutableLiveData<List<MyDayProperty>>()
+
+    val properties: LiveData<List<MyDayProperty>>
+        get() = _properties
+
+    private var viewModelJob = Job()
+    private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main )
 
     init {
         getMyDay()
     }
 
-    private fun getMyDay(){
-        val date = "12/10/2021"
+    private fun getMyDay() {
+        val date = "12/11/2021"
         val username = FirebaseAuth.getInstance().currentUser!!.uid
-        UserApi.retrofitService.getMyDayAsync(date, username).enqueue( object: Callback<String> {
-            override fun onFailure(call: Call<String>, t: Throwable) {
-                _response.value = "Failure: " + t.message
+        coroutineScope.launch {
+            var getPropertiesDeferred = UserApi.retrofitService.getMyDayAsync(date, username)
+            try {
+                var listResult = getPropertiesDeferred.await()
+                if (listResult.isNotEmpty()) {
+                    _properties.value = listResult
+                }
+            } catch (e: Exception) {
+                _status.value = "Failure: ${e.message}"
             }
-
-            override fun onResponse(call: Call<String>, response: Response<String>) {
-                _response.value = response.body()
-            }
-        })
+        }
     }
 
-
+    override fun onCleared() {
+        super.onCleared()
+        viewModelJob.cancel()
+    }
 
 }

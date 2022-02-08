@@ -19,8 +19,8 @@ public class ItemDaySchedule {
     private String _id;
     private String dayDate;
     private String username;
-    private Integer hour;
-    private Integer minute;
+    private String hour;
+    private String minute;
 
     @DBRef
     private List<Food> itemDayFood = new ArrayList<>();

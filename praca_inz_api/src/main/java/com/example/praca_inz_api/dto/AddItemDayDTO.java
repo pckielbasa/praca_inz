@@ -12,8 +12,8 @@ import java.util.List;
 public class AddItemDayDTO {
     private String dayDate;
     private String username;
-    private Integer hour;
-    private Integer minute;
+    private String hour;
+    private String minute;
     private List<String> listOfFoodId;
     private List<String> listOfContactId;
 }
