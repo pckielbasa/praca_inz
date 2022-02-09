@@ -4,8 +4,6 @@ import com.example.praca_inz_api.dao.ContactDao;
 import com.example.praca_inz_api.dao.UserDao;
 import com.example.praca_inz_api.dto.ContactDTO;
 import com.example.praca_inz_api.model.Contact;
-import com.example.praca_inz_api.model.DaySchedule;
-import com.example.praca_inz_api.model.Food;
 import com.example.praca_inz_api.model.User;
 import com.example.praca_inz_api.repository.ContactRepo;
 import com.example.praca_inz_api.repository.UserRepo;
@@ -66,7 +64,7 @@ public class ContactService implements ContactRepo {
         Contact contact = new Contact();
         List<Contact> myList = userRepo.getMyContactList(contactDTO.getType(), contactDTO.getUsername());
         contact.setContactName(contactDTO.getContactName());
-        contact.setComposition(contactDTO.getComposition());
+        contact.setPossibleAllergen(contactDTO.getComposition());
         contact.setType(contactDTO.getType());
         contact.setFavourite(contactDTO.getFavourite());
         contact.setAllergy(contactDTO.getAllergy());

@@ -16,15 +16,15 @@ import kotlinx.coroutines.launch
 
 class ContactViewModel : ViewModel() {
 
-    private val _eventOpenPopupMenu = MutableLiveData<Boolean>()
-    val eventOpenPopupMenu : LiveData<Boolean>
-        get() = _eventOpenPopupMenu
+    private val _goToAddContact = MutableLiveData<Boolean>()
+    val goToAddContact : LiveData<Boolean>
+        get() = _goToAddContact
 
-    fun openPopupMenu(){
-        _eventOpenPopupMenu.value = true
+    fun addContactStart(){
+        _goToAddContact.value = true
     }
-    fun openPopupMenuFinished(){
-        _eventOpenPopupMenu.value = false
+    fun addContactFinish(){
+        _goToAddContact.value = false
     }
     private val _status = MutableLiveData<ContactApiStatus>()
 

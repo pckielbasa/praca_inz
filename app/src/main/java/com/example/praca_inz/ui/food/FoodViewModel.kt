@@ -14,17 +14,16 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 class FoodViewModel : ViewModel(){
-    private val _eventOpenPopupMenu = MutableLiveData<Boolean>()
-    val eventOpenPopupMenu : LiveData<Boolean>
-        get() = _eventOpenPopupMenu
+    private val _goToAddFood = MutableLiveData<Boolean>()
+    val goToAddFood : LiveData<Boolean>
+        get() = _goToAddFood
 
-    fun openPopupMenu(){
-        _eventOpenPopupMenu.value = true
+    fun addFoodStart(){
+        _goToAddFood.value = true
     }
-    fun openPopupMenuFinished(){
-        _eventOpenPopupMenu.value = false
+    fun addFoodFinish(){
+        _goToAddFood.value = false
     }
-
 
     private val _status = MutableLiveData<FoodGridStatus>()
 

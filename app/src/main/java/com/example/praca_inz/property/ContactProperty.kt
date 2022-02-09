@@ -7,7 +7,7 @@ import kotlinx.android.parcel.Parcelize
 data class ContactProperty (
     val username: String,
     val contactName:String,
-    val composition:String,
+    val possibleAllergen:String,
     val type:String,
         ):Parcelable{
 

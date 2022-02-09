@@ -88,15 +88,10 @@
         <action
             android:id="@+id/action_detailFoodFragment_to_navigation_food"
             app:destination="@id/navigation_food" />
-    </fragment>
-    <dialog
-        android:id="@+id/addFoodFragment"
-        android:name="com.example.praca_inz.ui.food.addFood.AddFoodFragment"
-        android:label="AddFoodFragment" >
         <action
-            android:id="@+id/action_addFoodFragment_to_navigation_food"
-            app:destination="@id/navigation_food" />
-    </dialog>
+            android:id="@+id/action_detailFoodFragment_to_reportAllergyFragment"
+            app:destination="@id/reportAllergyFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailContactFragment"
         android:name="com.example.praca_inz.ui.contact.detail.DetailContactFragment"
@@ -125,6 +120,24 @@
         <action
             android:id="@+id/action_detailDayFragment_to_navigation_calendar"
             app:destination="@id/navigation_calendar" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFoodFragment"
+        android:name="com.example.praca_inz.ui.food.add.AddFoodFragment"
+        android:label="fragment_add_food"
+        tools:layout="@layout/fragment_add_food" >
+        <action
+            android:id="@+id/action_addFoodFragment_to_navigation_food"
+            app:destination="@id/navigation_food" />
+    </fragment>
+    <fragment
+        android:id="@+id/reportAllergyFragment"
+        android:name="com.example.praca_inz.ui.reportAllergy.ReportAllergyFragment"
+        android:label="fragment_report_allergy"
+        tools:layout="@layout/fragment_report_allergy" >
+        <action
+            android:id="@+id/action_reportAllergyFragment_to_detailFoodFragment"
+            app:destination="@id/detailFoodFragment" />
     </fragment>
 
 

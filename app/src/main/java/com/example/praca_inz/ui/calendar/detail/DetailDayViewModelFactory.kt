@@ -4,8 +4,6 @@ import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.praca_inz.property.MyDayProperty
-import com.example.praca_inz.property.MyFoodProperty
-import com.example.praca_inz.ui.food.detail.DetailFoodViewModel
 
 class DetailDayViewModelFactory (
     private val myDayProperty: MyDayProperty,

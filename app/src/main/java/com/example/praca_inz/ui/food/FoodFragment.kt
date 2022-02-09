@@ -10,11 +10,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.example.praca_inz.R
 import com.example.praca_inz.databinding.FragmentFoodBinding
 import com.example.praca_inz.network.FoodApiFilter
-import com.example.praca_inz.ui.food.addFood.AddFoodFragment
 
 
 class FoodFragment : Fragment() {
@@ -34,10 +34,10 @@ class FoodFragment : Fragment() {
         binding.foodViewModel = foodViewModel
 
         //OPEN ADD MEAL
-        foodViewModel.eventOpenPopupMenu.observe(viewLifecycleOwner, { goOpen ->
+        foodViewModel.goToAddFood.observe(viewLifecycleOwner, { goOpen ->
             if(goOpen){
                 openAddFood()
-                foodViewModel.openPopupMenuFinished()
+                foodViewModel.addFoodFinish()
             }
         })
 
@@ -76,8 +76,8 @@ class FoodFragment : Fragment() {
     }
 
     private fun openAddFood(){
-        val dialog = AddFoodFragment()
-        dialog.show(requireActivity().supportFragmentManager, "ADD CONTACT THINGS")
+        val navController = NavHostFragment.findNavController(this)
+        navController.navigate(R.id.action_navigation_food_to_addFoodFragment)
     }
 
 

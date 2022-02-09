@@ -8,10 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.praca_inz.R
 import com.example.praca_inz.databinding.DetailDayFragmentBinding
-import com.example.praca_inz.databinding.DetailFoodFragmentBinding
-import com.example.praca_inz.ui.food.detail.DetailFoodFragmentArgs
-import com.example.praca_inz.ui.food.detail.DetailFoodViewModel
-import com.example.praca_inz.ui.food.detail.DetailFoodViewModelFactory
 
 class DetailDayFragment : Fragment() {
 

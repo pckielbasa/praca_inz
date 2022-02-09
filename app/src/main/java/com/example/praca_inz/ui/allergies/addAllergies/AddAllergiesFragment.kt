@@ -9,7 +9,6 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.DialogFragment
 import com.example.praca_inz.R
-import com.example.praca_inz.databinding.AddFoodFragmentBinding
 import com.example.praca_inz.databinding.FragmentAddAllergiesBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth

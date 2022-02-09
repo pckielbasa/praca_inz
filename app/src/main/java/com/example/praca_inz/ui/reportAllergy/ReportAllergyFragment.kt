@@ -1,4 +1,4 @@
-package com.example.praca_inz.ui.contact.addContact
+package com.example.praca_inz.ui.reportAllergy
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -8,24 +8,24 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.praca_inz.R
 
-class AddContactFragment : Fragment() {
+class ReportAllergyFragment : Fragment() {
 
     companion object {
-        fun newInstance() = AddContactFragment()
+        fun newInstance() = ReportAllergyFragment()
     }
 
-    private lateinit var viewModel: AddContactViewModel
+    private lateinit var viewModel: ReportAllergyViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_add_contact, container, false)
+        return inflater.inflate(R.layout.fragment_report_allergy, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(AddContactViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(ReportAllergyViewModel::class.java)
         // TODO: Use the ViewModel
     }
 

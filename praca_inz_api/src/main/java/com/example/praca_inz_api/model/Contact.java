@@ -15,7 +15,7 @@ public class Contact {
     private String _id;
     private String username;
     private String contactName;
-    private String composition;
+    private String possibleAllergen;
     private String type;
     private Boolean favourite;
     private Boolean allergy;

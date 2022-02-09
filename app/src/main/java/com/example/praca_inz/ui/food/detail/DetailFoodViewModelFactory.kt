@@ -3,11 +3,14 @@ package com.example.praca_inz.ui.food.detail
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.praca_inz.property.MyContactProperty
 import com.example.praca_inz.property.MyFoodProperty
+import com.example.praca_inz.ui.contact.detail.DetailContactViewModel
 
-class DetailFoodViewModelFactory (
+class DetailFoodViewModelFactory  (
     private val myFoodProperty: MyFoodProperty,
-    private val application: Application) : ViewModelProvider.Factory {
+    private val application: Application
+) : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(DetailFoodViewModel::class.java)) {

@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.example.praca_inz.R
 import com.example.praca_inz.databinding.FragmentContactBinding
@@ -38,10 +39,10 @@ class ContactFragment : Fragment() {
         binding.contactViewModel = contactViewModel
 
 
-        contactViewModel.eventOpenPopupMenu.observe(viewLifecycleOwner, { goOpen ->
+        contactViewModel.goToAddContact.observe(viewLifecycleOwner, { goOpen ->
             if(goOpen){
                 openAddContact()
-                contactViewModel.openPopupMenuFinished()
+                contactViewModel.addContactFinish()
             }
         })
 
@@ -75,8 +76,8 @@ class ContactFragment : Fragment() {
         return binding.root
     }
     private fun openAddContact(){
-        val dialog = AddContactFragment()
-        dialog.show(requireActivity().supportFragmentManager, "ADD CONTACT THINGS")
+        val navController = NavHostFragment.findNavController(this)
+        navController.navigate(R.id.action_navigation_contact_to_addContactFragment)
 
     }
 

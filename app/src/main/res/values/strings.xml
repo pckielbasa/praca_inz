@@ -50,6 +50,16 @@
     <string name="changeEmail">Change email</string>
     <string name="changePhoneNumber">Change phone number</string>
     <string name="composition">Composition:</string>
+    <string name="addFood">Add Food</string>
+    <string name="chooseFoodType">Choose the type of food</string>
+    <string name="confirmation">Are you sure you want to delete this item?</string>
+    <string name="deletionInformation">If you delete this item, you will have to remove it from the allergy item and it will automatically be removed from your daily schedule if it has ever been used.</string>
+    <string name="deletingInformation">Deleting items</string>
+    <string name="managementPanel">Management panel</string>
+    <string name="addingToAllergies">Adding to allergies</string>
+    <string name="addingToAllergiesInformation">When adding an allergy item, you will need to fill out a form that will serve as your report. The time after which symptoms occur, how to deal with the allergy and what happens when allergies occur, should be specified.</string>
+    <string name="addingToAllergiesQuestion">Are you sure you want to add the item to the allergy list?</string>
+    <string name="sure">Yes, I am sure</string>
 
 
     <string-array name="contact_things">
