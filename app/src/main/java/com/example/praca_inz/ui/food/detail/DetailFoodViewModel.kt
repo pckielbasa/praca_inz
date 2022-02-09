@@ -22,7 +22,6 @@ class DetailFoodViewModel(myFoodProperty: MyFoodProperty, app: Application): And
     }
 
     private val _selectedProperty = MutableLiveData<MyFoodProperty>()
-
     val selectedProperty: LiveData<MyFoodProperty>
         get() = _selectedProperty
 

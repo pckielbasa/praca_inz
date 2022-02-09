@@ -61,7 +61,7 @@
 
     <fragment
         android:id="@+id/addContactFragment"
-        android:name="com.example.praca_inz.ui.contact.addContact.AddContactFragment"
+        android:name="com.example.praca_inz.ui.contact.add.AddContactFragment"
         android:label="fragment_add_contact"
         tools:layout="@layout/fragment_add_contact" >
         <action

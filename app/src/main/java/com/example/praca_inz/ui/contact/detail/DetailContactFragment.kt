@@ -24,24 +24,31 @@ class DetailContactFragment : Fragment() {
         binding.lifecycleOwner = this
         val myContactProperty = DetailContactFragmentArgs.fromBundle(requireArguments()).selectedProperty
         val viewModelFactory = DetailContactViewModelFactory(myContactProperty, application)
-        binding.viewModel = ViewModelProvider(
+        binding.detailContactViewModel = ViewModelProvider(
             this, viewModelFactory)[DetailContactViewModel::class.java]
 
-        detailContactViewModel.eventDeleteContact.observe(viewLifecycleOwner, { goDelete ->
-            if(goDelete){
-                val apiService = RestApiService()
-                val username = FirebaseAuth.getInstance().currentUser!!.uid
-                val contactId = detailContactViewModel.selectedProperty.value!!._id
-                apiService.deleteContact(contactId, username)
-                val navController = NavHostFragment.findNavController(this)
-                navController.navigate(R.id.action_detailContactFragment_to_navigation_contact)
-                detailContactViewModel.deleteContactFinish()
+        detailContactViewModel.goToContact.observe(viewLifecycleOwner, { goOpen ->
+            if(goOpen){
+                backToContact()
+                detailContactViewModel.contactFinish()
             }
         })
 
+       binding.deleteContactButton.setOnClickListener {
+           val apiService = RestApiService()
+           val username = FirebaseAuth.getInstance().currentUser!!.uid
+           val contactId = detailContactViewModel.selectedProperty.value!!._id
+           apiService.deleteContact(contactId, username)
+           val navController = NavHostFragment.findNavController(this)
+           navController.navigate(R.id.action_detailContactFragment_to_navigation_contact)
+
+       }
 
         return binding.root
     }
 
-
+    private fun backToContact(){
+        val navController = NavHostFragment.findNavController(this)
+        navController.navigate(R.id.action_detailContactFragment_to_navigation_contact )
+    }
 }

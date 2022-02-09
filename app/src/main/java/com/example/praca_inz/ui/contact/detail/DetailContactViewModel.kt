@@ -9,21 +9,22 @@ import com.example.praca_inz.property.ContactProperty
 import com.example.praca_inz.property.MyContactProperty
 
 class DetailContactViewModel(myContactProperty: MyContactProperty, app:Application):AndroidViewModel(app) {
-    private val _selectedProperty = MutableLiveData<MyContactProperty>()
 
+    private val _goToContact = MutableLiveData<Boolean>()
+    val goToContact : LiveData<Boolean>
+        get() = _goToContact
+
+    fun contactStart(){
+        _goToContact.value = true
+    }
+    fun contactFinish(){
+        _goToContact.value = false
+    }
+
+    private val _selectedProperty = MutableLiveData<MyContactProperty>()
     val selectedProperty: LiveData<MyContactProperty>
         get() = _selectedProperty
 
-    private val _eventDeleteContact = MutableLiveData<Boolean>()
-    val eventDeleteContact : LiveData<Boolean>
-        get() = _eventDeleteContact
-
-    fun deleteContactStart(){
-        _eventDeleteContact.value = true
-    }
-    fun deleteContactFinish(){
-        _eventDeleteContact.value = false
-    }
 
     init {
         _selectedProperty.value = myContactProperty

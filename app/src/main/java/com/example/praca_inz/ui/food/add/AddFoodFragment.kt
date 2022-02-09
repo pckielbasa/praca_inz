@@ -87,7 +87,7 @@ class AddFoodFragment : Fragment() {
                 TextUtils.isEmpty(etFoodComposition.text.toString().trim{it <= ' '}) -> {
                     Toast.makeText(
                         this.context,
-                        "Pleas enter food food composition.",
+                        "Pleas enter food  composition.",
                         Toast.LENGTH_SHORT
                     ).show()
                 }else ->{
