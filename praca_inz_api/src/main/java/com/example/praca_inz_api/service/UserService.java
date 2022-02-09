@@ -135,6 +135,14 @@ public class UserService implements UserRepo {
     }
 
     @Override
+    public List<Allergies> getMyAllergiesList(String type, String username) {
+        return getUserByUsername(username)
+                .getMyAllergies()
+                .stream()
+                .filter(allergies -> allergies.getType().equals(type)).collect(Collectors.toList());
+    }
+
+    @Override
     public User deleteFoodFromUser(User user, Food food){
         List<Food> myFood = user.getMyFood();
         Food deleteFood = myFood.stream().filter(item -> item.get_id().equals(food.get_id()))

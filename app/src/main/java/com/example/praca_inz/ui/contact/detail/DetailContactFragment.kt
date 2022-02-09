@@ -1,15 +1,19 @@
 package com.example.praca_inz.ui.contact.detail
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import com.example.praca_inz.R
 import com.example.praca_inz.databinding.DetailContactFragmentBinding
 import com.example.praca_inz.network.RestApiService
+import com.example.praca_inz.ui.food.detail.DetailFoodFragmentDirections
 import com.google.firebase.auth.FirebaseAuth
 
 
@@ -44,11 +48,31 @@ class DetailContactFragment : Fragment() {
 
        }
 
+        binding.addAllergyButton.setOnClickListener {
+            val allergy=detailContactViewModel.selectedProperty.value!!.allergy
+            Log.i("allergy", allergy.toString())
+            if (allergy){
+                Toast.makeText(
+                    this.context,
+                    "This item exists in the allergy list.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }else{
+                openAllergyReport()
+            }
+        }
+
         return binding.root
     }
 
     private fun backToContact(){
         val navController = NavHostFragment.findNavController(this)
         navController.navigate(R.id.action_detailContactFragment_to_navigation_contact )
+    }
+    private fun openAllergyReport(){
+        val contactId = detailContactViewModel.selectedProperty.value!!._id
+        val action = DetailContactFragmentDirections.actionDetailContactFragmentToReportAllergyFragment("null",contactId)
+        Navigation.findNavController(requireView()).navigate(action)
+
     }
 }

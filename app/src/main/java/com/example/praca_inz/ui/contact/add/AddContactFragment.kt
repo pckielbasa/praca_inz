@@ -128,7 +128,7 @@ class AddContactFragment : Fragment() {
 
     private fun backToContact(){
         val navController = NavHostFragment.findNavController(this)
-        navController.navigate(R.id.action_addContactFragment_to_navigation_contact )
+        navController.navigate(R.id.action_navigation_contact_to_addContactFragment )
     }
 
 }

@@ -65,7 +65,7 @@
         android:label="fragment_add_contact"
         tools:layout="@layout/fragment_add_contact" >
         <action
-            android:id="@+id/action_addContactFragment_to_navigation_contact"
+            android:id="@+id/Z"
             app:destination="@id/navigation_contact" />
     </fragment>
     <fragment
@@ -102,6 +102,9 @@
         <action
             android:id="@+id/action_detailContactFragment_to_navigation_contact"
             app:destination="@id/navigation_contact" />
+        <action
+            android:id="@+id/action_detailContactFragment_to_reportAllergyFragment"
+            app:destination="@id/reportAllergyFragment" />
     </fragment>
     <activity
         android:id="@+id/splashScreenActivity"
@@ -138,6 +141,15 @@
         <action
             android:id="@+id/action_reportAllergyFragment_to_detailFoodFragment"
             app:destination="@id/detailFoodFragment" />
+        <action
+            android:id="@+id/action_reportAllergyFragment_to_detailContactFragment"
+            app:destination="@id/detailContactFragment" />
+        <argument
+            android:name="foodId"
+            app:argType="string" />
+        <argument
+            android:name="contactId"
+            app:argType="string" />
     </fragment>
 
 

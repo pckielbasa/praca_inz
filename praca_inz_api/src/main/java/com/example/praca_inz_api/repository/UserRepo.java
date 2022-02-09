@@ -19,6 +19,7 @@ public interface UserRepo {
     List<Food> getMyFoodList(String type, String username);
     List<Contact> getMyContactList(String type, String username);
     List<DaySchedule> getMyDay(String username, String date);
+    List<Allergies> getMyAllergiesList(String type, String username);
     User deleteFoodFromUser(User user, Food food);
     User deleteContactFromUser(User user, Contact contact);
 

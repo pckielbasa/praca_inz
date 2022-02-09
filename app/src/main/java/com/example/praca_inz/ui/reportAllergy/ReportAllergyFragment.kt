@@ -1,32 +1,36 @@
 package com.example.praca_inz.ui.reportAllergy
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.praca_inz.R
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.navArgs
+import com.example.praca_inz.databinding.FragmentReportAllergyBinding
 
 class ReportAllergyFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = ReportAllergyFragment()
+    private lateinit var binding:FragmentReportAllergyBinding
+    private val reportViewModel: ReportAllergyViewModel by lazy {
+        ViewModelProvider(this)[ReportAllergyViewModel::class.java]
     }
-
-    private lateinit var viewModel: ReportAllergyViewModel
-
+    private val args:ReportAllergyFragmentArgs by navArgs()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_report_allergy, container, false)
+
+        binding = FragmentReportAllergyBinding.inflate(inflater)
+        binding.lifecycleOwner = this
+        binding.reportViewModel = reportViewModel
+        val foodId = args.foodId
+        val contactId = args.contactId
+        binding.textView27.text = foodId
+        binding.textView28.text = contactId
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ReportAllergyViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
+
 
 }
