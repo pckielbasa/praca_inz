@@ -63,6 +63,15 @@
     <string name="sure">Yes, I am sure</string>
     <string name="addContact">Add Contact</string>
     <string name="possibleAllergen">Possible allergen :</string>
+    <string name="allergyReport">Allergy Report</string>
+    <string name="afterTime">How long do symptoms take?</string>
+    <string name="time">Time:</string>
+    <string name="allergyName">Name of the allergy :</string>
+    <string name="symptoms">Give symptoms :</string>
+    <string name="symptomsHint">Symptoms :</string>
+    <string name="howToHelp">How can I help with allergies?</string>
+    <string name="help">Help:</string>
+    <string name="addAllergy">Add allergy report</string>
 
 
     <string-array name="contact_things">

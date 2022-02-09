@@ -1,9 +1,6 @@
 package com.example.praca_inz.network
 
-import com.example.praca_inz.data.Contact
-import com.example.praca_inz.data.DaySchedule
-import com.example.praca_inz.data.Food
-import com.example.praca_inz.data.User
+import com.example.praca_inz.data.*
 import com.example.praca_inz.property.*
 import kotlinx.coroutines.Deferred
 import retrofit2.Call
@@ -69,6 +66,12 @@ interface JsonPlaceholderApi {
     fun sendCalendarData(
         @Body daySchedule: DaySchedule
     ): Call<DaySchedule>
+
+    @Headers("Content-Type: application/json")
+    @POST("add")
+    fun sendAllergiesData(
+        @Body allergiesReport: AllergiesReport
+    ): Call<AllergiesReport>
 
     //DELETE MAPPING
     @DELETE("delete")

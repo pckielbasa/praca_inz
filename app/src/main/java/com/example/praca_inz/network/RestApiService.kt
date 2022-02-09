@@ -2,10 +2,7 @@ package com.example.praca_inz.network
 
 import android.util.Log
 import android.widget.Toast
-import com.example.praca_inz.data.Contact
-import com.example.praca_inz.data.DaySchedule
-import com.example.praca_inz.data.Food
-import com.example.praca_inz.data.User
+import com.example.praca_inz.data.*
 import com.google.firebase.auth.FirebaseAuth
 import retrofit2.Call
 import retrofit2.Callback
@@ -78,6 +75,26 @@ class RestApiService {
                     val addedDaySchedule = response.body()
                     if (response.code() == 200){
                         onResult(addedDaySchedule)
+                    }else{
+                        onResult(null)
+                    }
+                }
+            }
+        )
+    }
+
+    fun addAllergy(allergyData: AllergiesReport, onResult: (AllergiesReport?) -> Unit){
+        val retrofit = AllergiesServiceBuilder.buildService(JsonPlaceholderApi::class.java)
+        retrofit.sendAllergiesData(allergyData).enqueue(
+            object : Callback<AllergiesReport> {
+                override fun onFailure(call: Call<AllergiesReport>, t: Throwable) {
+                    onResult(null)
+
+                }
+                override fun onResponse( call: Call<AllergiesReport>, response: Response<AllergiesReport>) {
+                    val addedAllergy = response.body()
+                    if (response.code() == 200){
+                        onResult(addedAllergy)
                     }else{
                         onResult(null)
                     }

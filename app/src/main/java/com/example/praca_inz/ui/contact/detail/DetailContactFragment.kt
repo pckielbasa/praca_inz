@@ -71,7 +71,9 @@ class DetailContactFragment : Fragment() {
     }
     private fun openAllergyReport(){
         val contactId = detailContactViewModel.selectedProperty.value!!._id
-        val action = DetailContactFragmentDirections.actionDetailContactFragmentToReportAllergyFragment("null",contactId)
+        val type = detailContactViewModel.selectedProperty.value!!.type
+        val allergenName = detailContactViewModel.selectedProperty.value!!.contactName
+        val action = DetailContactFragmentDirections.actionDetailContactFragmentToReportAllergyFragment("null",contactId, type, allergenName)
         Navigation.findNavController(requireView()).navigate(action)
 
     }

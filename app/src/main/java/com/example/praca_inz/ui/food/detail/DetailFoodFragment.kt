@@ -75,7 +75,9 @@ class DetailFoodFragment : Fragment() {
 
     private fun openAllergyReport(){
         val foodId = detailFoodViewModel.selectedProperty.value!!._id
-        val action = DetailFoodFragmentDirections.actionDetailFoodFragmentToReportAllergyFragment(foodId,"null")
+        val type = detailFoodViewModel.selectedProperty.value!!.type
+        val allergenName = detailFoodViewModel.selectedProperty.value!!.foodName
+        val action = DetailFoodFragmentDirections.actionDetailFoodFragmentToReportAllergyFragment(foodId,"null", type, allergenName)
         Navigation.findNavController(requireView()).navigate(action)
     }
 }
