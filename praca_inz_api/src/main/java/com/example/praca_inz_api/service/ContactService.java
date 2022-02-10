@@ -1,8 +1,10 @@
 package com.example.praca_inz_api.service;
 
+import com.example.praca_inz_api.dao.AllergiesDao;
 import com.example.praca_inz_api.dao.ContactDao;
 import com.example.praca_inz_api.dao.UserDao;
 import com.example.praca_inz_api.dto.ContactDTO;
+import com.example.praca_inz_api.model.Allergies;
 import com.example.praca_inz_api.model.Contact;
 import com.example.praca_inz_api.model.User;
 import com.example.praca_inz_api.repository.ContactRepo;
@@ -24,6 +26,9 @@ public class ContactService implements ContactRepo {
 
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+    private AllergiesDao allergiesDao;
 
     @Override
     public List<Contact> getAllContact(){
@@ -93,7 +98,11 @@ public class ContactService implements ContactRepo {
         User user = userRepo.getUserByUsername(username);
         user = userRepo.deleteContactFromUser(user, contact);
         userDao.save(user);
+        Allergies allergies = allergiesDao.findByAllergenId(contactId);
+        user = userRepo.deleteAllergiesFromUser(user, allergies);
+        userDao.save(user);
         contactDao.delete(contact);
+        allergiesDao.deleteByAllergenId(contactId);
     }
 
 

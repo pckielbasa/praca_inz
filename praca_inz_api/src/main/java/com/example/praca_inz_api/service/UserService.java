@@ -8,6 +8,7 @@ import com.example.praca_inz_api.model.*;
 import com.example.praca_inz_api.repository.UserRepo;
 import org.apache.velocity.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.expression.spel.ast.Literal;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -158,9 +159,20 @@ public class UserService implements UserRepo {
         List<Contact> myContact =user.getMyContact();
         Contact deleteContact = myContact.stream().filter(item -> item.get_id().equals(contact.get_id()))
                 .findFirst()
-                .orElseThrow(()-> new ResourceNotFoundException("no food with id: "+ contact.get_id()));
+                .orElseThrow(()-> new ResourceNotFoundException("no contact with id: "+ contact.get_id()));
         myContact.remove(deleteContact);
         user.setMyContact(myContact);
+        return user;
+    }
+
+    @Override
+    public User deleteAllergiesFromUser(User user, Allergies allergies) {
+        List<Allergies> myAllergies = user.getMyAllergies();
+        Allergies deleteAllergies = myAllergies.stream().filter(item->item.get_id().equals(allergies.get_id()))
+                .findFirst()
+                .orElseThrow(()-> new ResourceNotFoundException("no allergies with id: "+allergies.get_id()));
+        myAllergies.remove(deleteAllergies);
+        user.setMyAllergies(myAllergies);
         return user;
     }
 

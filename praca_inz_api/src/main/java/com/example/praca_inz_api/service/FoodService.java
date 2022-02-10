@@ -1,11 +1,13 @@
 package com.example.praca_inz_api.service;
 
+import com.example.praca_inz_api.dao.AllergiesDao;
 import com.example.praca_inz_api.dao.FoodDao;
 
 import com.example.praca_inz_api.dao.ItemDayDao;
 import com.example.praca_inz_api.dao.UserDao;
 import com.example.praca_inz_api.dto.FoodDTO;
 import com.example.praca_inz_api.dto.FoodListDTO;
+import com.example.praca_inz_api.model.Allergies;
 import com.example.praca_inz_api.model.Food;
 
 import com.example.praca_inz_api.model.ItemDaySchedule;
@@ -33,6 +35,8 @@ public class FoodService implements FoodRepo {
     @Autowired
     private UserDao userDao;
 
+    @Autowired
+    private AllergiesDao allergiesDao;
 
 
     @Override
@@ -112,7 +116,11 @@ public class FoodService implements FoodRepo {
         User user = userRepo.getUserByUsername(username);
         user = userRepo.deleteFoodFromUser(user, food);
         userDao.save(user);
+        Allergies allergies = allergiesDao.findByAllergenId(foodId);
+        user = userRepo.deleteAllergiesFromUser(user, allergies);
+        userDao.save(user);
         foodDao.delete(food);
+        allergiesDao.deleteByAllergenId(foodId);
     }
 
 

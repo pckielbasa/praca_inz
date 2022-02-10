@@ -5,6 +5,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class MyAllergiesProperty(
+    val _id:String,
     val type:String,
     val allergenName:String,
     val allergiesName:String,

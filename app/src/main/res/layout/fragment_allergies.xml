@@ -65,7 +65,7 @@
                     android:background="@color/tabButtonColor"
                     android:text="@string/mealsTabText"
                     android:textColor="@color/black" />
-                
+
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/componentButton"
                     style="@style/Widget.AppCompat.Button.Borderless"

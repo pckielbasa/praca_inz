@@ -129,5 +129,17 @@ class RestApiService {
         })
     }
 
+    fun deleteAllergy(allergiesId: String, username: String){
+        val deleteRequest: Call<Void?>? = AllergiesApi.retrofitService.deleteAllergy(allergiesId,username)
+        deleteRequest!!.enqueue(object : Callback<Void?> {
+            override fun onResponse(call: Call<Void?>, response: Response<Void?>) {
+
+            }
+
+            override fun onFailure(call: Call<Void?>, t: Throwable) {
+
+            }
+        })
+    }
 
 }

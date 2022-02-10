@@ -21,6 +21,7 @@ public class AllergiesConverter {
 
     public static AllergiesListDTO toListDTO(Allergies entity){
         return new AllergiesListDTO(
+                entity.get_id(),
                 entity.getType(),
                 entity.getAllergenName(),
                 entity.getAllergiesName(),

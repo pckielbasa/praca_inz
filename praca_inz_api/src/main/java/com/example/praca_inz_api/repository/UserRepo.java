@@ -22,5 +22,6 @@ public interface UserRepo {
     List<Allergies> getMyAllergiesList(String type, String username);
     User deleteFoodFromUser(User user, Food food);
     User deleteContactFromUser(User user, Contact contact);
+    User deleteAllergiesFromUser(User user, Allergies allergies);
 
 }

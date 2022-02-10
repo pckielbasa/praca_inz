@@ -13,10 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/allergies")
@@ -33,4 +30,11 @@ public class AllergiesController {
         }
         return ResponseEntity.ok().body(AllergiesConverter.toDTO(allergies));
     }
+
+    @DeleteMapping("/delete")
+    public void deleteAllergiesByIdFromUser(@RequestParam(value = "allergiesId") String allergiesId,
+                                       @RequestParam(value = "username") String username){
+        allergiesRepo.deleteAllergiesById(allergiesId, username);
+    }
+
 }

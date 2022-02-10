@@ -72,6 +72,13 @@
     <string name="howToHelp">How can I help with allergies?</string>
     <string name="help">Help:</string>
     <string name="addAllergy">Add allergy report</string>
+    <string name="allergiesInformation">Allergies Information</string>
+    <string name="howHelp">How can you help with allergies :</string>
+    <string name="whatSymptoms">What are the symptoms of an allergy :</string>
+    <string name="afterWhatTime">How long do allergy symptoms appear :</string>
+    <string name="whatCaused">What triggered the allergies :</string>
+    <string name="deleteAllergy">If the allergy is no longer present, you can remove it by clicking the button below. Be careful, this process cannot be undone.</string>
+    <string name="deleteAllergyButton">Delete Allergy</string>
 
 
     <string-array name="contact_things">

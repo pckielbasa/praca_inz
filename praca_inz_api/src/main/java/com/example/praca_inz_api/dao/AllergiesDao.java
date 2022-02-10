@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AllergiesDao extends MongoRepository<Allergies, String> {
+    Allergies findBy_id(String allergiesId);
+    void deleteByAllergenId(String allergenId);
+    Allergies findByAllergenId(String allergenId);
 }

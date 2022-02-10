@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AllergiesListDTO {
+    private String _id;
     private String type;
     private String allergenName;
     private String allergiesName;

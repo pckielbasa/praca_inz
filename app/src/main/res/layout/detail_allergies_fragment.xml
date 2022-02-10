@@ -7,27 +7,64 @@
             name="detailAllergiesViewModel"
             type="com.example.praca_inz.ui.allergies.detail.DetailAllergiesViewModel" />
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/backgroundAppColor">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
         <TextView
-            android:id="@+id/textView27"
+            android:id="@+id/textView23"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{detailAllergiesViewModel.selectedProperty.type}"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/allergiesInformation"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@+id/backButton"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="@dimen/addImageSize"
+            android:layout_height="@dimen/addImageSize"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="8dp"
+            android:onClick="@{() -> detailAllergiesViewModel.allergiesStart() }"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="32dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:text="@{detailAllergiesViewModel.selectedProperty.allergiesName }"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
         <TextView
             android:id="@+id/textView31"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
-            android:text="@{detailAllergiesViewModel.selectedProperty.allergenName}"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="16sp"
+            android:text="@string/whatCaused"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView27" />
 
@@ -35,23 +72,129 @@
             android:id="@+id/textView32"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@{detailAllergiesViewModel.selectedProperty.allergenName}"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:textSize="16sp"
+            android:text="@string/allergyName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+        <TextView
+            android:id="@+id/textView33"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="32dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:text="@{detailAllergiesViewModel.selectedProperty.allergenName }"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView31" />
 
         <TextView
-            android:id="@+id/textView33"
+            android:id="@+id/textView34"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
-            android:text="@{detailAllergiesViewModel.selectedProperty.symptoms}"
+            android:textSize="16sp"
+            android:text="@string/afterWhatTime"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView33" />
+
+        <TextView
+            android:id="@+id/textView35"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="32dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:text="@{detailAllergiesViewModel.selectedProperty.afterTime }"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView32" />
+            app:layout_constraintTop_toBottomOf="@+id/textView34" />
+
+        <TextView
+            android:id="@+id/textView36"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            android:text="@string/whatSymptoms"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView35" />
+
+        <TextView
+            android:id="@+id/textView37"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="32dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:text="@{detailAllergiesViewModel.selectedProperty.symptoms }"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView36" />
+
+        <TextView
+            android:id="@+id/textView38"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            android:text="@string/howHelp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView37" />
+
+        <TextView
+            android:id="@+id/textView39"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="32dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:text="@{detailAllergiesViewModel.selectedProperty.help }"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView38" />
+
+        <TextView
+            android:id="@+id/textView40"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/deleteAllergy"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView39" />
+
+        <Button
+            android:id="@+id/deleteAllergyButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="56dp"
+            android:text="@string/deleteAllergyButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/textView40"
+            app:layout_constraintStart_toStartOf="@+id/textView40"
+            app:layout_constraintTop_toBottomOf="@+id/textView40" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    </ScrollView>
 
 
 </layout>
