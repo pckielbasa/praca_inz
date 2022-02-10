@@ -4,14 +4,11 @@ import com.example.praca_inz_api.dao.DayScheduleDao;
 import com.example.praca_inz_api.dao.UserDao;
 import com.example.praca_inz_api.dto.RegisterUserDTO;
 import com.example.praca_inz_api.model.*;
-
 import com.example.praca_inz_api.repository.UserRepo;
 import org.apache.velocity.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.expression.spel.ast.Literal;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 

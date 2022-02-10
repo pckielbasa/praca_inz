@@ -4,7 +4,6 @@ import com.example.praca_inz_api.dao.AllergiesDao;
 import com.example.praca_inz_api.dao.UserDao;
 import com.example.praca_inz_api.dto.AllergiesDTO;
 import com.example.praca_inz_api.model.Allergies;
-import com.example.praca_inz_api.model.Food;
 import com.example.praca_inz_api.model.User;
 import com.example.praca_inz_api.repository.AllergiesRepo;
 import com.example.praca_inz_api.repository.UserRepo;

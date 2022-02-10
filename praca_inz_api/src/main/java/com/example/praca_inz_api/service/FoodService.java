@@ -2,27 +2,19 @@ package com.example.praca_inz_api.service;
 
 import com.example.praca_inz_api.dao.AllergiesDao;
 import com.example.praca_inz_api.dao.FoodDao;
-
-import com.example.praca_inz_api.dao.ItemDayDao;
 import com.example.praca_inz_api.dao.UserDao;
 import com.example.praca_inz_api.dto.FoodDTO;
-import com.example.praca_inz_api.dto.FoodListDTO;
 import com.example.praca_inz_api.model.Allergies;
 import com.example.praca_inz_api.model.Food;
-
-import com.example.praca_inz_api.model.ItemDaySchedule;
 import com.example.praca_inz_api.model.User;
 import com.example.praca_inz_api.repository.FoodRepo;
-import com.example.praca_inz_api.repository.ItemDayRepo;
 import com.example.praca_inz_api.repository.UserRepo;
-import org.apache.velocity.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Service
 public class FoodService implements FoodRepo {

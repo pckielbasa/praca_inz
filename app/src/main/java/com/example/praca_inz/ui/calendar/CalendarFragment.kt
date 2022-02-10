@@ -1,31 +1,21 @@
 package com.example.praca_inz.ui.calendar
 
 import android.app.DatePickerDialog
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.example.praca_inz.databinding.FragmentCalendarBinding
 import androidx.lifecycle.Observer
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.praca_inz.R
-import com.example.praca_inz.authorization.AuthorizationActivity
-import com.example.praca_inz.data.DaySchedule
-import com.example.praca_inz.ui.calendar.CalendarGridAdapter.*
-import com.example.praca_inz.ui.calendar.detail.DetailDayFragmentArgs
-import com.example.praca_inz.ui.contact.ContactFragmentDirections
-import com.example.praca_inz.ui.food.FoodGridAdapter
+import com.example.praca_inz.databinding.FragmentCalendarBinding
+import com.example.praca_inz.ui.calendar.CalendarGridAdapter.OnClickListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.fragment_calendar.*
 import java.text.SimpleDateFormat
 import java.util.*
 

@@ -12,19 +12,12 @@ import androidx.fragment.app.Fragment
 import com.example.praca_inz.authorization.AuthorizationActivity
 import com.example.praca_inz.data.User
 import com.example.praca_inz.databinding.FragmentRegistrationBinding
-import com.example.praca_inz.network.JsonPlaceholderApi
 import com.example.praca_inz.network.RestApiService
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.android.synthetic.main.fragment_registration.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class RegistrationFragment : Fragment() {
     private lateinit var auth: FirebaseAuth

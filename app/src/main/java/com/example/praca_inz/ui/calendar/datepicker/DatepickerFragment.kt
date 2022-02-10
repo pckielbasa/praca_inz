@@ -1,17 +1,14 @@
 package com.example.praca_inz.ui.calendar.datepicker
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
 import android.widget.LinearLayout
 import android.widget.Toast
-import com.example.praca_inz.R
+import androidx.fragment.app.Fragment
 import com.example.praca_inz.databinding.DatepickerFragmentBinding
-import com.example.praca_inz.databinding.FragmentCalendarBinding
 import java.util.*
 
 class DatepickerFragment : Fragment() {

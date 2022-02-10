@@ -7,8 +7,7 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.praca_inz.R
 import com.example.praca_inz.property.MyFoodProperty
-import com.example.praca_inz.ui.contact.ContactGridAdapter
-import com.example.praca_inz.ui.food.FoodGridAdapter.*
+import com.example.praca_inz.ui.food.FoodGridAdapter.FoodGridStatus
 
 
 @BindingAdapter("listData")

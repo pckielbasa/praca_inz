@@ -2,11 +2,13 @@ package com.example.praca_inz.ui.food
 
 import android.annotation.SuppressLint
 import android.util.Log
-import androidx.lifecycle.*
-import com.example.praca_inz.network.*
-import com.example.praca_inz.property.FoodProperty
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import com.example.praca_inz.network.FoodApiFilter
+import com.example.praca_inz.network.UserApi
 import com.example.praca_inz.property.MyFoodProperty
-import com.example.praca_inz.ui.food.FoodGridAdapter.*
+import com.example.praca_inz.ui.food.FoodGridAdapter.FoodGridStatus
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

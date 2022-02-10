@@ -1,6 +1,5 @@
 package com.example.praca_inz_api.dto;
 
-import com.example.praca_inz_api.model.ItemDaySchedule;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

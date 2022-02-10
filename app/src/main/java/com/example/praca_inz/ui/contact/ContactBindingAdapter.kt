@@ -6,10 +6,8 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.praca_inz.R
-import com.example.praca_inz.property.ContactProperty
 import com.example.praca_inz.property.MyContactProperty
 import com.example.praca_inz.ui.contact.ContactGridAdapter.ContactApiStatus
-import com.example.praca_inz.ui.food.FoodGridAdapter
 
 
 @BindingAdapter("listData")

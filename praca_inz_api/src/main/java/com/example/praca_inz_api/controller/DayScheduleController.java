@@ -1,23 +1,16 @@
 package com.example.praca_inz_api.controller;
 
-import com.example.praca_inz_api.converter.ContactConverter;
 import com.example.praca_inz_api.converter.DayScheduleConverter;
-import com.example.praca_inz_api.converter.FoodConverter;
-import com.example.praca_inz_api.converter.ItemDayConverter;
 import com.example.praca_inz_api.dao.DayScheduleDao;
-import com.example.praca_inz_api.dto.*;
+import com.example.praca_inz_api.dto.AddDayScheduleDTO;
+import com.example.praca_inz_api.dto.DayScheduleDTO;
 import com.example.praca_inz_api.model.DaySchedule;
-import com.example.praca_inz_api.model.Food;
-import com.example.praca_inz_api.model.ItemDaySchedule;
 import com.example.praca_inz_api.repository.DayScheduleRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/calendar")

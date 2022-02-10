@@ -1,13 +1,9 @@
 package com.example.praca_inz.network
 
-import android.util.Log
-import android.widget.Toast
 import com.example.praca_inz.data.*
-import com.google.firebase.auth.FirebaseAuth
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
 
 
 class RestApiService {

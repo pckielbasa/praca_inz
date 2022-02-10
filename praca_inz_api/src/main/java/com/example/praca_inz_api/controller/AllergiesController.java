@@ -1,13 +1,9 @@
 package com.example.praca_inz_api.controller;
 
 import com.example.praca_inz_api.converter.AllergiesConverter;
-import com.example.praca_inz_api.converter.FoodConverter;
 import com.example.praca_inz_api.dto.AddAllergiesDTO;
-import com.example.praca_inz_api.dto.AddFoodDTO;
 import com.example.praca_inz_api.dto.AllergiesDTO;
-import com.example.praca_inz_api.dto.FoodDTO;
 import com.example.praca_inz_api.model.Allergies;
-import com.example.praca_inz_api.model.Food;
 import com.example.praca_inz_api.repository.AllergiesRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

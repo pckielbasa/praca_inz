@@ -1,26 +1,17 @@
 package com.example.praca_inz.ui.calendar
 
 import android.annotation.SuppressLint
-import android.widget.TextView
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.praca_inz.network.UserApi
-import com.example.praca_inz.property.MyContactProperty
 import com.example.praca_inz.property.MyDayProperty
-import com.example.praca_inz.ui.contact.ContactGridAdapter
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import retrofit2.await
-import java.text.SimpleDateFormat
-import java.util.*
-import kotlin.collections.ArrayList
 
 
 class CalendarViewModel:ViewModel() {

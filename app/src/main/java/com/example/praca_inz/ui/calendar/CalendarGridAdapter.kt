@@ -6,10 +6,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.praca_inz.databinding.CalendarItemListBinding
-import com.example.praca_inz.property.MyContactProperty
 import com.example.praca_inz.property.MyDayProperty
-import com.example.praca_inz.ui.calendar.CalendarGridAdapter.*
-import com.example.praca_inz.ui.contact.ContactGridAdapter
+import com.example.praca_inz.ui.calendar.CalendarGridAdapter.MyDayPropertyViewHolder
 
 
 class CalendarGridAdapter(val onClickListener: OnClickListener)

@@ -1,12 +1,10 @@
 package com.example.praca_inz_api.repository;
 
 import com.example.praca_inz_api.dto.FoodDTO;
-import com.example.praca_inz_api.dto.FoodListDTO;
 import com.example.praca_inz_api.model.Food;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Stream;
 
 public interface FoodRepo {
     Collection<Food> getAllFood();

@@ -3,7 +3,6 @@ package com.example.praca_inz.ui.contact.detail
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.praca_inz.property.ContactProperty
 import com.example.praca_inz.property.MyContactProperty
 
 

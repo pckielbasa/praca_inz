@@ -2,7 +2,6 @@ package com.example.praca_inz.ui.calendar.addItems
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.example.praca_inz.authorization.login.LoginViewModel
 
 class AddItemsViewModel (app: Application) : AndroidViewModel(app){
 

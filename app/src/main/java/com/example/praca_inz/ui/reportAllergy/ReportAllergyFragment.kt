@@ -15,7 +15,6 @@ import com.example.praca_inz.data.AllergiesReport
 import com.example.praca_inz.databinding.FragmentReportAllergyBinding
 import com.example.praca_inz.network.RestApiService
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.fragment_add_food.*
 import kotlinx.android.synthetic.main.fragment_report_allergy.*
 
 class ReportAllergyFragment : Fragment() {

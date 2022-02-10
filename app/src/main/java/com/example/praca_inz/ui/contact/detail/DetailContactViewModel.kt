@@ -4,8 +4,6 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.example.praca_inz.property.ContactProperty
 import com.example.praca_inz.property.MyContactProperty
 
 class DetailContactViewModel(myContactProperty: MyContactProperty, app:Application):AndroidViewModel(app) {

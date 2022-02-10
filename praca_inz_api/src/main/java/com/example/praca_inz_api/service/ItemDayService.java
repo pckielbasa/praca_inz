@@ -1,10 +1,10 @@
 package com.example.praca_inz_api.service;
 
-import com.example.praca_inz_api.dao.FoodDao;
 import com.example.praca_inz_api.dao.ItemDayDao;
-import com.example.praca_inz_api.dto.DayScheduleDTO;
 import com.example.praca_inz_api.dto.ItemDayDTO;
-import com.example.praca_inz_api.model.*;
+import com.example.praca_inz_api.model.Contact;
+import com.example.praca_inz_api.model.Food;
+import com.example.praca_inz_api.model.ItemDaySchedule;
 import com.example.praca_inz_api.repository.ContactRepo;
 import com.example.praca_inz_api.repository.DayScheduleRepo;
 import com.example.praca_inz_api.repository.FoodRepo;

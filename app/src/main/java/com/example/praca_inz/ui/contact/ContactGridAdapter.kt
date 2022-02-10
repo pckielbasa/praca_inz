@@ -6,11 +6,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.praca_inz.databinding.ContactListItemBinding
-import com.example.praca_inz.property.ContactProperty
-import com.example.praca_inz.property.FoodProperty
 import com.example.praca_inz.property.MyContactProperty
-import com.example.praca_inz.ui.contact.ContactGridAdapter.*
-import com.example.praca_inz.ui.food.FoodGridAdapter
+import com.example.praca_inz.ui.contact.ContactGridAdapter.ContactPropertyViewHolder
 
 class ContactGridAdapter(val onClickListener:OnClickListener)
     : ListAdapter<MyContactProperty,

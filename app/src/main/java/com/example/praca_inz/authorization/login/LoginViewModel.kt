@@ -1,8 +1,9 @@
 package com.example.praca_inz.authorization.login
 
 import android.app.Application
-import androidx.lifecycle.*
-import com.example.praca_inz.ui.calendar.CalendarViewModel
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 
 class LoginViewModel (app: Application) : AndroidViewModel(app) {
 

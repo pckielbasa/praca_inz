@@ -7,9 +7,7 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.praca_inz.R
 import com.example.praca_inz.property.MyDayProperty
-import com.example.praca_inz.property.UserProperty
-import com.example.praca_inz.ui.calendar.CalendarViewModel.*
-import com.example.praca_inz.ui.food.FoodGridAdapter
+import com.example.praca_inz.ui.calendar.CalendarViewModel.MyDayStatus
 
 @BindingAdapter("listData")
 fun bindRecyclerView(recyclerView: RecyclerView, data: List<MyDayProperty>?) {

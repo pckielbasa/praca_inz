@@ -2,20 +2,15 @@ package com.example.praca_inz_api.service;
 
 import com.example.praca_inz_api.dao.DayScheduleDao;
 import com.example.praca_inz_api.dto.DayScheduleDTO;
-import com.example.praca_inz_api.dto.ItemDayDTO;
 import com.example.praca_inz_api.model.DaySchedule;
-import com.example.praca_inz_api.model.Food;
 import com.example.praca_inz_api.model.ItemDaySchedule;
-import com.example.praca_inz_api.model.User;
 import com.example.praca_inz_api.repository.DayScheduleRepo;
-import com.example.praca_inz_api.repository.ItemDayRepo;
 import com.example.praca_inz_api.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 @Service
 public class DayScheduleService implements DayScheduleRepo {

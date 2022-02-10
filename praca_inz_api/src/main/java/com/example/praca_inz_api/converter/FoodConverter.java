@@ -1,7 +1,6 @@
 package com.example.praca_inz_api.converter;
 
 import com.example.praca_inz_api.dto.AddFoodDTO;
-import com.example.praca_inz_api.dto.FoodDTO;
 import com.example.praca_inz_api.dto.FoodListDTO;
 import com.example.praca_inz_api.model.Food;
 

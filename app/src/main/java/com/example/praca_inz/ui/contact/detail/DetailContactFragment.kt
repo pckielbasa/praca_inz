@@ -13,7 +13,6 @@ import androidx.navigation.fragment.NavHostFragment
 import com.example.praca_inz.R
 import com.example.praca_inz.databinding.DetailContactFragmentBinding
 import com.example.praca_inz.network.RestApiService
-import com.example.praca_inz.ui.food.detail.DetailFoodFragmentDirections
 import com.google.firebase.auth.FirebaseAuth
 
 
