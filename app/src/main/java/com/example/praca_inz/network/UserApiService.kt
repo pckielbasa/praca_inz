@@ -11,6 +11,14 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 
 private const val BASE_URL = "http://10.0.2.2:8080/user/"
 
+enum class AllergiesApiFilter(val type: String) {
+    SHOW_MEAL("Meal"),
+    SHOW_SNACK("Snack"),
+    SHOW_COMPONENT("Component"),
+    SHOW_CHEMISTRY("Chemistry"),
+    SHOW_PLANT("Plant"),
+    SHOW_ANIMAL("Animal") }
+
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
     .build()

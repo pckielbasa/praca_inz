@@ -63,6 +63,12 @@ public class UserController {
         return userRepo.getMyContactList(type, username).stream().map(ContactConverter::toContactDTO).collect(Collectors.toList());
     }
 
+    @GetMapping("/myallergies")
+    public List<AllergiesListDTO> getMyAllergiesList(@RequestParam(value = "type") String type,
+                                                 @RequestParam(value = "username") String username){
+        return userRepo.getMyAllergiesList(type, username).stream().map(AllergiesConverter::toListDTO).collect(Collectors.toList());
+    }
+
 
     @GetMapping("/myday")
     public List<ItemsListDTO> getMyDay(@RequestParam(value = "date") String date,

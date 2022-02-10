@@ -35,7 +35,11 @@
         android:id="@+id/navigation_allergies"
         android:name="com.example.praca_inz.ui.allergies.AllergiesFragment"
         android:label="@string/title_allergies"
-        tools:layout="@layout/fragment_allergies" />
+        tools:layout="@layout/fragment_allergies" >
+        <action
+            android:id="@+id/action_navigation_allergies_to_detailAllergiesFragment"
+            app:destination="@id/detailAllergiesFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_food"
@@ -157,6 +161,18 @@
         <action
             android:id="@+id/action_reportAllergyFragment_to_navigation_food"
             app:destination="@id/navigation_food" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailAllergiesFragment"
+        android:name="com.example.praca_inz.ui.allergies.detail.DetailAllergiesFragment"
+        android:label="detail_allergies_fragment"
+        tools:layout="@layout/detail_allergies_fragment" >
+        <argument
+            android:name="selectedProperty"
+            app:argType="com.example.praca_inz.property.MyAllergiesProperty"/>
+        <action
+            android:id="@+id/action_detailAllergiesFragment_to_navigation_allergies"
+            app:destination="@id/navigation_allergies" />
     </fragment>
 
 

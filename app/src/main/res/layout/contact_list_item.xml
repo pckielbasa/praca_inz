@@ -20,6 +20,7 @@
             android:layout_marginTop="8dp"
             android:textSize="24sp"
             android:textStyle="bold"
+            android:textColor="@color/black"
             android:text="@{property.contactName}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

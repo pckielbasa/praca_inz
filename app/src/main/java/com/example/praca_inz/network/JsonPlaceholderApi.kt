@@ -38,9 +38,10 @@ interface JsonPlaceholderApi {
                       @Query("username") username: String):
             Call<List<MyDayProperty>>
 
-    @GET("all")
-    fun getAllUsers():
-        Call<List<MyDayProperty>>
+    @GET("myallergies")
+    fun getMyAllergiesAsync(@Query("type") type: String,
+                      @Query("username") username: String):
+            Call<List<MyAllergiesProperty>>
 
     //POST MAPPING
     @Headers("Content-Type: application/json")
