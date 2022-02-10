@@ -3,7 +3,10 @@ package com.example.praca_inz.network
 import com.example.praca_inz.data.*
 import com.example.praca_inz.property.*
 import kotlinx.coroutines.Deferred
+import okhttp3.RequestBody
+import okhttp3.ResponseBody
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.*
 
 
@@ -42,6 +45,11 @@ interface JsonPlaceholderApi {
     fun getMyAllergiesAsync(@Query("type") type: String,
                       @Query("username") username: String):
             Call<List<MyAllergiesProperty>>
+
+    @GET("findallergy")
+    fun getAllergyByAllergenIdAsync(@Query("allergenId") allergenId: String):
+            Call<String>
+
 
     //POST MAPPING
     @Headers("Content-Type: application/json")
@@ -89,4 +97,5 @@ interface JsonPlaceholderApi {
     fun deleteAllergy (@Query("allergiesId") allergiesId:String,
                        @Query("username") username:String):
             Call<Void?>?
+
 }

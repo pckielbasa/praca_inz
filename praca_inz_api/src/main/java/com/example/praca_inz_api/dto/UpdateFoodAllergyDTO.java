@@ -5,12 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class ContactListDTO {
+@NoArgsConstructor
+public class UpdateFoodAllergyDTO {
     private String _id;
-    private String contactName;
-    private String composition;
-    private String type;
-    private Boolean favourite;
+    private Boolean allergy;
 }

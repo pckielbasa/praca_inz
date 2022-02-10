@@ -100,8 +100,7 @@ class AddFoodFragment : Fragment() {
                         foodName = foodName,
                         composition = foodComposition,
                         type = type,
-                        favourite = foodFavourite,
-                        allergy = false
+                        favourite = foodFavourite
                     )
                     apiService.addFood(food){
                         if(it==null){

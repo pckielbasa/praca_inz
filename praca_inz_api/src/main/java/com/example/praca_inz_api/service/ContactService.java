@@ -72,7 +72,6 @@ public class ContactService implements ContactRepo {
         contact.setPossibleAllergen(contactDTO.getComposition());
         contact.setType(contactDTO.getType());
         contact.setFavourite(contactDTO.getFavourite());
-        contact.setAllergy(contactDTO.getAllergy());
         boolean anyMatch = myList.stream().anyMatch(item -> item.getContactName().equals(contact.getContactName()));
         if (anyMatch){
             return null;
@@ -99,8 +98,10 @@ public class ContactService implements ContactRepo {
         user = userRepo.deleteContactFromUser(user, contact);
         userDao.save(user);
         Allergies allergies = allergiesDao.findByAllergenId(contactId);
-        user = userRepo.deleteAllergiesFromUser(user, allergies);
-        userDao.save(user);
+        if (allergies!= null){
+            user = userRepo.deleteAllergiesFromUser(user, allergies);
+            userDao.save(user);
+        }
         contactDao.delete(contact);
         allergiesDao.deleteByAllergenId(contactId);
     }

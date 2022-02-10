@@ -1,6 +1,8 @@
 package com.example.praca_inz_api.repository;
 
 import com.example.praca_inz_api.dto.FoodDTO;
+import com.example.praca_inz_api.dto.FoodListDTO;
+import com.example.praca_inz_api.dto.UpdateFoodAllergyDTO;
 import com.example.praca_inz_api.model.Food;
 
 import java.util.Collection;

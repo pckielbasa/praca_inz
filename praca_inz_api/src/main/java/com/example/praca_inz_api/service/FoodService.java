@@ -76,7 +76,6 @@ public class FoodService implements FoodRepo {
             food.setComposition(foodDTO.getComposition());
             food.setType(foodDTO.getType());
             food.setFavourite(foodDTO.getFavourite());
-            food.setAllergy(foodDTO.getAllergy());
             boolean anyMatch = myList.stream().anyMatch(item -> item.getFoodName().equals(food.getFoodName()));
             if (anyMatch){
                 return null;
@@ -109,13 +108,14 @@ public class FoodService implements FoodRepo {
         user = userRepo.deleteFoodFromUser(user, food);
         userDao.save(user);
         Allergies allergies = allergiesDao.findByAllergenId(foodId);
-        user = userRepo.deleteAllergiesFromUser(user, allergies);
-        userDao.save(user);
+        if (allergies != null) {
+            user = userRepo.deleteAllergiesFromUser(user, allergies);
+            userDao.save(user);
+        }
         foodDao.delete(food);
         allergiesDao.deleteByAllergenId(foodId);
+
     }
-
-
 
 
 }

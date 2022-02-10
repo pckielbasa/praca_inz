@@ -48,7 +48,7 @@ class DetailContactFragment : Fragment() {
        }
 
         binding.addAllergyButton.setOnClickListener {
-            val allergy=detailContactViewModel.selectedProperty.value!!.allergy
+            val allergy=false
             Log.i("allergy", allergy.toString())
             if (allergy){
                 Toast.makeText(

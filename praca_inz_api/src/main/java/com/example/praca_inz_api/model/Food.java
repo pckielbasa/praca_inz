@@ -18,6 +18,5 @@ public class Food {
     private String composition;
     private String type;
     private Boolean favourite;
-    private Boolean allergy;
 
 }

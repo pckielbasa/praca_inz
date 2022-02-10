@@ -11,8 +11,7 @@ public class FoodConverter {
                 entity.getFoodName(),
                 entity.getComposition(),
                 entity.getType(),
-                entity.getFavourite(),
-                entity.getAllergy()
+                entity.getFavourite()
         );
     }
     public static FoodListDTO toFoodDTO(Food entity){
@@ -21,8 +20,8 @@ public class FoodConverter {
                 entity.getFoodName(),
                 entity.getComposition(),
                 entity.getType(),
-                entity.getFavourite(),
-                entity.getAllergy()
+                entity.getFavourite()
         );
     }
+
 }

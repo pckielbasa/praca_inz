@@ -12,6 +12,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import com.example.praca_inz.R
 import com.example.praca_inz.databinding.DetailFoodFragmentBinding
+import com.example.praca_inz.network.AllergiesApi
 import com.example.praca_inz.network.RestApiService
 import com.google.firebase.auth.FirebaseAuth
 
@@ -52,7 +53,7 @@ class DetailFoodFragment : Fragment() {
         }
 
         binding.addAllergyButton.setOnClickListener {
-            val allergy=detailFoodViewModel.selectedProperty.value!!.allergy
+            val allergy= false
             Log.i("allergy", allergy.toString())
             if (allergy){
                 Toast.makeText(

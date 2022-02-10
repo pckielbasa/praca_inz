@@ -98,8 +98,7 @@ class AddContactFragment : Fragment() {
                     contactName = contactName,
                     composition = possibleAllergen,
                     type = type,
-                    favourite = contactFavourite,
-                    allergy = false
+                    favourite = contactFavourite
                 )
                 apiService.addContact(contact){
                     if (it == null){

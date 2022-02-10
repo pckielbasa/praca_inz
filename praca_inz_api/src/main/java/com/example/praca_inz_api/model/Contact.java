@@ -18,5 +18,4 @@ public class Contact {
     private String possibleAllergen;
     private String type;
     private Boolean favourite;
-    private Boolean allergy;
 }

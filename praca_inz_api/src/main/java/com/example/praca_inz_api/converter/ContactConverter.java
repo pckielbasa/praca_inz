@@ -11,8 +11,7 @@ public class ContactConverter {
                 entity.getContactName(),
                 entity.getPossibleAllergen(),
                 entity.getType(),
-                entity.getFavourite(),
-                entity.getAllergy()
+                entity.getFavourite()
         );
     }
 
@@ -22,8 +21,7 @@ public class ContactConverter {
                 entity.getContactName(),
                 entity.getPossibleAllergen(),
                 entity.getType(),
-                entity.getFavourite(),
-                entity.getAllergy()
+                entity.getFavourite()
         );
     }
 }

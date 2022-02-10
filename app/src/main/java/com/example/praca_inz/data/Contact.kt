@@ -5,6 +5,5 @@ data class Contact(
     val contactName:String?,
     val composition:String?,
     val type:String,
-    val favourite:Boolean,
-    val allergy:Boolean
+    val favourite:Boolean
 )

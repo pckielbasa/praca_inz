@@ -3,7 +3,10 @@ package com.example.praca_inz_api.controller;
 import com.example.praca_inz_api.converter.FoodConverter;
 import com.example.praca_inz_api.dto.AddFoodDTO;
 import com.example.praca_inz_api.dto.FoodDTO;
+import com.example.praca_inz_api.dto.FoodListDTO;
+import com.example.praca_inz_api.dto.UpdateFoodAllergyDTO;
 import com.example.praca_inz_api.model.Food;
+import com.example.praca_inz_api.model.User;
 import com.example.praca_inz_api.repository.FoodRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,12 +47,10 @@ public class FoodController {
         return ResponseEntity.ok().body(FoodConverter.toDTO(food));
     }
 
-
-
-
     @DeleteMapping("/delete")
     public void deleteFoodByIdFromUser(@RequestParam(value = "foodId") String foodId,
                                   @RequestParam(value = "username") String username){
         foodRepo.deleteFoodById(foodId, username);
     }
+
 }
