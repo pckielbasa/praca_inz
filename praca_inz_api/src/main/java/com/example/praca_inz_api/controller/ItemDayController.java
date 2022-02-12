@@ -41,5 +41,11 @@ public class ItemDayController {
         return ItemDayConverter.toAddDTO(itemDaySchedule);
     }
 
+    @DeleteMapping("/delete")
+    public void deleteItemByIdFromDay(@RequestParam(value = "itemId") String itemId,
+                                       @RequestParam(value = "dayDate") String dayDate){
+        itemDayRepo.deleteItemById(itemId, dayDate);
+    }
+
 
 }

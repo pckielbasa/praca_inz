@@ -2,10 +2,12 @@ package com.example.praca_inz_api.service;
 
 import com.example.praca_inz_api.dao.DayScheduleDao;
 import com.example.praca_inz_api.dto.DayScheduleDTO;
+import com.example.praca_inz_api.model.Allergies;
 import com.example.praca_inz_api.model.DaySchedule;
 import com.example.praca_inz_api.model.ItemDaySchedule;
 import com.example.praca_inz_api.repository.DayScheduleRepo;
 import com.example.praca_inz_api.repository.UserRepo;
+import org.apache.velocity.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -73,6 +75,17 @@ public class DayScheduleService implements DayScheduleRepo {
         DaySchedule daySchedule = dayScheduleDao.findDayScheduleByUsernameAndDayDate(itemDaySchedule.getUsername(), date);
         daySchedule.getItemList().add(itemDaySchedule);
         return dayScheduleDao.save(daySchedule);
+    }
+
+    @Override
+    public DaySchedule deleteItemFromDay(DaySchedule daySchedule, ItemDaySchedule itemDaySchedule) {
+        List<ItemDaySchedule> daysItem = daySchedule.getItemList();
+        ItemDaySchedule deleteItem = daysItem.stream().filter(item->item.get_id().equals(itemDaySchedule.get_id()))
+                .findFirst()
+                .orElseThrow(()->new ResourceNotFoundException("No items with id: "+itemDaySchedule.getItemId()));
+        daysItem.remove(deleteItem);
+        daySchedule.setItemList(daysItem);
+        return daySchedule;
     }
 
 }

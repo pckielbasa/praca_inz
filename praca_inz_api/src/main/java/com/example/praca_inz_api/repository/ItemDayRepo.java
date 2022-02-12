@@ -16,4 +16,5 @@ public interface ItemDayRepo  {
     ItemDaySchedule createItem(ItemDayDTO itemDayDTO);
     ItemDaySchedule addItemToMyDay(ItemDayDTO itemDayDTO);
     ItemDaySchedule findItemDayByUsername(String username);
+    void deleteItemById(String itemId, String dayDate );
 }

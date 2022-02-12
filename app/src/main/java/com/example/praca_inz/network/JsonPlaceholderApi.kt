@@ -92,4 +92,8 @@ interface JsonPlaceholderApi {
                        @Query("username") username:String):
             Call<Void?>?
 
+    @DELETE("delete")
+    fun deleteItemDay (@Query("itemId") itemId:String,
+                       @Query("dayDate") dayDate:String):
+            Call<Void?>?
 }

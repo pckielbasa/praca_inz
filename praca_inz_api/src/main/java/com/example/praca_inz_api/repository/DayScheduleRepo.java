@@ -2,7 +2,9 @@ package com.example.praca_inz_api.repository;
 
 import com.example.praca_inz_api.dto.DayScheduleDTO;
 import com.example.praca_inz_api.model.DaySchedule;
+import com.example.praca_inz_api.model.Food;
 import com.example.praca_inz_api.model.ItemDaySchedule;
+import com.example.praca_inz_api.model.User;
 
 import java.util.Collection;
 import java.util.List;
@@ -16,4 +18,6 @@ public interface DayScheduleRepo  {
     DaySchedule addDayScheduleToUser(DayScheduleDTO dayScheduleDTO);
     List<ItemDaySchedule> getDaySchedule(String username, String date);
     DaySchedule addItemToDay(ItemDaySchedule itemDaySchedule, String date);
+    DaySchedule deleteItemFromDay (DaySchedule daySchedule, ItemDaySchedule itemDaySchedule);
+
 }

@@ -37,6 +37,7 @@ public class ItemDayConverter {
     public static ItemsListDTO toListDTO(ItemDaySchedule entity){
         return new ItemsListDTO(
                 entity.get_id(),
+                entity.getDayDate(),
                 entity.getTime(),
                 entity.getItemId(),
                 entity.getItemName(),

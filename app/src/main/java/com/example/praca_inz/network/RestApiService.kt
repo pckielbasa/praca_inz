@@ -157,4 +157,17 @@ class RestApiService {
         })
     }
 
+    fun deleteItemDay(itemId: String, dayDate: String){
+        val deleteRequest: Call<Void?>? = CalendarApi.retrofitService.deleteItemDay(itemId,dayDate)
+        deleteRequest!!.enqueue(object : Callback<Void?> {
+            override fun onResponse(call: Call<Void?>, response: Response<Void?>) {
+
+            }
+
+            override fun onFailure(call: Call<Void?>, t: Throwable) {
+
+            }
+        })
+    }
+
 }

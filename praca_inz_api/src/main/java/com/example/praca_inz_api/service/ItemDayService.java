@@ -1,10 +1,9 @@
 package com.example.praca_inz_api.service;
 
+import com.example.praca_inz_api.dao.DayScheduleDao;
 import com.example.praca_inz_api.dao.ItemDayDao;
 import com.example.praca_inz_api.dto.ItemDayDTO;
-import com.example.praca_inz_api.model.Contact;
-import com.example.praca_inz_api.model.Food;
-import com.example.praca_inz_api.model.ItemDaySchedule;
+import com.example.praca_inz_api.model.*;
 import com.example.praca_inz_api.repository.ContactRepo;
 import com.example.praca_inz_api.repository.DayScheduleRepo;
 import com.example.praca_inz_api.repository.FoodRepo;
@@ -24,14 +23,12 @@ public class ItemDayService implements ItemDayRepo {
     @Autowired
     private  ItemDayDao itemDayDao;
 
-    @Autowired
-    private FoodRepo foodRepo;
-
-    @Autowired
-    private ContactRepo contactRepo;
 
     @Autowired
     private DayScheduleRepo dayScheduleRepo;
+
+    @Autowired
+    private DayScheduleDao dayScheduleDao;
 
     @Override
     public List<ItemDaySchedule> getAllItems(){
@@ -83,6 +80,16 @@ public class ItemDayService implements ItemDayRepo {
         return itemDayDao.findItemDayScheduleByUsername(username);
     }
 
+    @Override
+    public void deleteItemById(String itemId, String dayDate) {
+        ItemDaySchedule itemDaySchedule = itemDayDao.findBy_id(itemId);
+        DaySchedule daySchedule = dayScheduleRepo.getDayByDate(dayDate);
+
+        daySchedule = dayScheduleRepo.deleteItemFromDay(daySchedule, itemDaySchedule);
+        dayScheduleDao.save(daySchedule);
+
+        itemDayDao.delete(itemDaySchedule);
+    }
 
 
 }
