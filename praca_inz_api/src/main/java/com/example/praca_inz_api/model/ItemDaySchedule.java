@@ -21,13 +21,7 @@ public class ItemDaySchedule {
     private String username;
     private String hour;
     private String minute;
-
-    @DBRef
-    private List<Food> itemDayFood = new ArrayList<>();
-
-    @DBRef
-    private List<Contact> itemDayContact = new ArrayList<>();
-
-
+    private String itemId;
+    private String itemName;
 
 }

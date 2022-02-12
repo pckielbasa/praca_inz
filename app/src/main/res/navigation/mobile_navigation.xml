@@ -11,11 +11,14 @@
         android:label="@string/title_calendar"
         tools:layout="@layout/fragment_calendar" >
         <action
-            android:id="@+id/action_navigation_calendar_to_addItemsFragment"
-            app:destination="@id/addItemsFragment" />
-        <action
             android:id="@+id/action_navigation_calendar_to_detailDayFragment"
             app:destination="@id/detailDayFragment" />
+        <action
+            android:id="@+id/action_navigation_calendar_to_selectFoodFragment"
+            app:destination="@id/selectFoodFragment" />
+        <action
+            android:id="@+id/action_navigation_calendar_to_selectContactFragment"
+            app:destination="@id/selectContactFragment" />
     </fragment>
 
     <fragment
@@ -74,15 +77,6 @@
             app:destination="@id/navigation_contact" />
     </fragment>
     <fragment
-        android:id="@+id/addItemsFragment"
-        android:name="com.example.praca_inz.ui.calendar.addItems.AddItemsFragment"
-        android:label="fragment_add_items"
-        tools:layout="@layout/fragment_add_items" >
-        <action
-            android:id="@+id/action_addItemsFragment_to_navigation_calendar"
-            app:destination="@id/navigation_calendar" />
-    </fragment>
-    <fragment
         android:id="@+id/detailFoodFragment"
         android:name="com.example.praca_inz.ui.food.detail.DetailFoodFragment"
         android:label="detail_food_fragment"
@@ -100,7 +94,8 @@
     <fragment
         android:id="@+id/detailContactFragment"
         android:name="com.example.praca_inz.ui.contact.detail.DetailContactFragment"
-        android:label="DetailContactFragment" >
+        android:label="DetailContactFragment"
+        tools:layout="@layout/detail_contact_fragment">
         <argument
             android:name="selectedProperty"
             app:argType="com.example.praca_inz.property.MyContactProperty"/>
@@ -173,6 +168,58 @@
         <action
             android:id="@+id/action_detailAllergiesFragment_to_navigation_allergies"
             app:destination="@id/navigation_allergies" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectFoodFragment"
+        android:name="com.example.praca_inz.ui.calendar.selectFood.SelectFoodFragment"
+        android:label="select_food_fragment"
+        tools:layout="@layout/select_food_fragment" >
+
+        <action
+            android:id="@+id/action_selectFoodFragment_to_navigation_calendar"
+            app:destination="@id/navigation_calendar" />
+        <action
+            android:id="@+id/action_selectFoodFragment_to_addFoodToDayFragment"
+            app:destination="@id/addFoodToDayFragment" />
+        <action
+            android:id="@+id/action_selectFoodFragment_to_addFoodFragment"
+            app:destination="@id/addFoodFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectContactFragment"
+        android:name="com.example.praca_inz.ui.calendar.selectContact.SelectContactFragment"
+        android:label="select_contact_fragment"
+        tools:layout="@layout/select_contact_fragment" >
+        <action
+            android:id="@+id/action_selectContactFragment_to_addContactToDayFragment"
+            app:destination="@id/addContactToDayFragment" />
+        <action
+            android:id="@+id/action_selectContactFragment_to_addContactFragment"
+            app:destination="@id/addContactFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addContactToDayFragment"
+        android:name="com.example.praca_inz.ui.calendar.selectContact.addContactToDay.AddContactToDayFragment"
+        android:label="add_contact_to_day_fragment"
+        tools:layout="@layout/add_contact_to_day_fragment" >
+        <argument
+            android:name="selectedProperty"
+            app:argType="com.example.praca_inz.property.MyContactProperty"/>
+        <action
+            android:id="@+id/action_addContactToDayFragment_to_navigation_calendar"
+            app:destination="@id/navigation_calendar" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFoodToDayFragment"
+        android:name="com.example.praca_inz.ui.calendar.selectFood.addFoodToDay.AddFoodToDayFragment"
+        android:label="add_food_to_day_fragment"
+        tools:layout="@layout/add_food_to_day_fragment" >
+        <argument
+            android:name="selectedProperty"
+            app:argType="com.example.praca_inz.property.MyFoodProperty"/>
+        <action
+            android:id="@+id/action_addFoodToDayFragment_to_navigation_calendar"
+            app:destination="@id/navigation_calendar" />
     </fragment>
 
 

@@ -11,4 +11,6 @@ public class ItemsListDTO {
     private String _id;
     private String hour;
     private String minute;
+    private String itemId;
+    private String itemName;
 }

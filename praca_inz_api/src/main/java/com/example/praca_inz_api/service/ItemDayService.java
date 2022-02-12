@@ -63,8 +63,8 @@ public class ItemDayService implements ItemDayRepo {
         itemDaySchedule.setDayDate(itemDayDTO.getDayDate());
         itemDaySchedule.setHour(itemDayDTO.getHour());
         itemDaySchedule.setMinute(itemDayDTO.getMinute());
-        itemDaySchedule.setItemDayFood(foodRepo.getListOfFoodByIds(itemDayDTO.getListOfFoodId()));
-        itemDaySchedule.setItemDayContact(contactRepo.getListOfContactsByIds(itemDayDTO.getListOfContactId()));
+        itemDaySchedule.setItemId(itemDayDTO.getItemId());
+        itemDaySchedule.setItemName(itemDayDTO.getItemName());
         return itemDayDao.save(itemDaySchedule);
     }
 
@@ -76,42 +76,12 @@ public class ItemDayService implements ItemDayRepo {
     }
 
 
-    @Override
-    public List<Food> getFoodList(String itemId) {
-        return getItemDayScheduleById(itemId).getItemDayFood();
-    }
-
-    @Override
-    public List<Contact> getContactList(String itemId) {
-        return getItemDayScheduleById(itemId).getItemDayContact();
-    }
 
     @Override
     public ItemDaySchedule findItemDayByUsername(String username) {
         return itemDayDao.findItemDayScheduleByUsername(username);
     }
 
-    @Override
-    public ItemDaySchedule deleteFoodFromDay(ItemDaySchedule itemDaySchedule, Food food) {
-        List<Food> myFood = itemDaySchedule.getItemDayFood();
-        Food deleteFood = myFood.stream().filter(item -> item.get_id().equals(food.get_id()))
-                .findFirst()
-                .orElseThrow(()-> new ResourceNotFoundException("no food with id: "+ food.get_id()));
-        myFood.remove(deleteFood);
-        itemDaySchedule.setItemDayFood(myFood);
-        return itemDaySchedule;
-    }
-
-    @Override
-    public ItemDaySchedule deleteContactFromDay(ItemDaySchedule itemDaySchedule, Contact contact) {
-        List<Contact> myContact =itemDaySchedule.getItemDayContact();
-        Contact deleteContact = myContact.stream().filter(item -> item.get_id().equals(contact.get_id()))
-                .findFirst()
-                .orElseThrow(()-> new ResourceNotFoundException("no food with id: "+ contact.get_id()));
-        myContact.remove(deleteContact);
-        itemDaySchedule.setItemDayContact(myContact);
-        return itemDaySchedule;
-    }
 
 
 }

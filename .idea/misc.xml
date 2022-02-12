@@ -6,7 +6,11 @@
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/activity_main.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/activity_splash_screen.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/add_allergies_fragment.xml" value="0.1574074074074074" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/add_contact_day_fragment.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/add_contact_to_day_fragment.xml" value="0.18" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/add_food_day_fragment.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/add_food_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/add_food_to_day_fragment.xml" value="0.2" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/allergies_list_item.xml" value="0.14444444444444443" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/authorization_activity.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/calendar_item_list.xml" value="0.36666666666666664" />
@@ -14,25 +18,28 @@
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/datepicker_fragment.xml" value="0.1" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/delete_food_fragment.xml" value="0.33" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/detail_allergies_fragment.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/detail_contact_fragment.xml" value="0.25" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/detail_contact_fragment.xml" value="0.1" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/detail_day_fragment.xml" value="0.1" />
-        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/detail_food_fragment.xml" value="0.33" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/detail_food_fragment.xml" value="0.1" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/food_list_item.xml" value="0.25" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/fragment_add_allergies.xml" value="0.1574074074074074" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/fragment_add_contact.xml" value="0.2" />
-        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/fragment_add_food.xml" value="0.1" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/fragment_add_food.xml" value="0.25" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/fragment_add_items.xml" value="0.30480072463768115" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/fragment_allergies.xml" value="0.30480072463768115" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/fragment_blank.xml" value="0.30480072463768115" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/fragment_calendar.xml" value="0.25" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/fragment_contact.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/fragment_day.xml" value="0.33" />
-        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/fragment_food.xml" value="0.25" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/fragment_food.xml" value="0.1" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/fragment_login.xml" value="0.2015625" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/fragment_profile.xml" value="0.30480072463768115" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/fragment_registration.xml" value="0.30480072463768115" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/fragment_report_allergy.xml" value="0.25" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/main_fragment.xml" value="0.30480072463768115" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/select_contact_fragment.xml" value="0.25" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/select_food_fragment.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/selected_food_items.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36666666666666664" />
       </map>
     </option>

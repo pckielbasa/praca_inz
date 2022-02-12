@@ -57,7 +57,7 @@
                 android:layout_height="0dp"
                 android:padding="6dp"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:layout_constraintBottom_toTopOf="@+id/button4"
+                app:layout_constraintBottom_toTopOf="@+id/addContactDayButton"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -89,18 +89,28 @@
                 app:layout_constraintTop_toBottomOf="@+id/status_image" />
 
             <Button
-                android:id="@+id/button4"
-                android:layout_width="match_parent"
+                android:id="@+id/addFoodDayButton"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="4dp"
                 android:layout_marginEnd="8dp"
-                android:text="@string/add_row_on_the_day"
+                android:text="@string/add_food_on_the_day"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/calendar_grid"
-                />
+                app:layout_constraintStart_toEndOf="@+id/addContactDayButton"
+                app:layout_constraintTop_toBottomOf="@+id/calendar_grid" />
 
+            <Button
+                android:id="@+id/addContactDayButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="4dp"
+                android:text="@string/add_contact_on_the_day"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/addFoodDayButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/calendar_grid" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

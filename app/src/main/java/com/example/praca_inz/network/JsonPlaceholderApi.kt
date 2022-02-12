@@ -12,19 +12,7 @@ import retrofit2.http.*
 
 interface JsonPlaceholderApi {
     //GET MAPPING
-    @GET("type")
-    fun getFoodsAsync(@Query("type") type: String,
-                      @Query("username") username: String):
-            Deferred<List<FoodProperty>>
 
-    @GET("type")
-    fun getContactsAsync(@Query("type") type: String,
-                         @Query("username") username: String):
-            Deferred<List<ContactProperty>>
-
-    @GET("username")
-    fun getUserByUsernameAsync(@Query("username") username: String) :
-            Deferred<UserProperty>
 
     @GET("myfood")
     fun getMyFoodsAsync(@Query("type") type: String,

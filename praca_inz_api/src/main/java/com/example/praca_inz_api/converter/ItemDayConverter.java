@@ -17,8 +17,8 @@ public class ItemDayConverter {
                 entity.getUsername(),
                 entity.getHour(),
                 entity.getMinute(),
-                entity.getItemDayFood().stream().map(Food::get_id).collect(Collectors.toList()),
-                entity.getItemDayContact().stream().map(Contact::get_id).collect(Collectors.toList())
+                entity.getItemId(),
+                entity.getItemName()
         );
     }
 
@@ -28,15 +28,17 @@ public class ItemDayConverter {
                 entity.getUsername(),
                 entity.getHour(),
                 entity.getMinute(),
-                entity.getItemDayFood().stream().map(Food::get_id).collect(Collectors.toList()),
-                entity.getItemDayContact().stream().map(Contact::get_id).collect(Collectors.toList())
+                entity.getItemId(),
+                entity.getItemName()
         );
     }
     public static ItemsListDTO toListDTO(ItemDaySchedule entity){
         return new ItemsListDTO(
                 entity.get_id(),
                 entity.getHour(),
-                entity.getMinute()
+                entity.getMinute(),
+                entity.getItemId(),
+                entity.getItemName()
         );
     }
 }

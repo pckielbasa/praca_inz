@@ -4,6 +4,7 @@ import com.example.praca_inz_api.converter.AllergiesConverter;
 import com.example.praca_inz_api.dao.AllergiesDao;
 import com.example.praca_inz_api.dto.AddAllergiesDTO;
 import com.example.praca_inz_api.dto.AllergiesDTO;
+import com.example.praca_inz_api.dto.AllergiesListDTO;
 import com.example.praca_inz_api.model.Allergies;
 import com.example.praca_inz_api.repository.AllergiesRepo;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +23,15 @@ public class AllergiesController {
     @Autowired
     private AllergiesDao allergiesDao;
 
+    @GetMapping("find")
+    public AllergiesListDTO findAllergiesBYAllergenId(@RequestParam(value = "allergenId") String allergenId ){
+        Allergies allergies = allergiesDao.findByAllergenId(allergenId);
+        if(allergies == null){
+            return null;
+        }
+        return AllergiesConverter.toListDTO(allergies);
+    }
+
     @PostMapping(path = "/add")
     public ResponseEntity<AddAllergiesDTO> addAllergiesToUser(@RequestBody AllergiesDTO allergiesDTO){
         Allergies allergies = allergiesRepo.addAllergiesToUser(allergiesDTO);
@@ -37,13 +47,5 @@ public class AllergiesController {
         allergiesRepo.deleteAllergiesById(allergiesId, username);
     }
 
-    @GetMapping("/findallergy")
-    public ResponseEntity<String> findAllergyByAllergenId(@RequestParam(value = "allergenId") String allergenId){
-        Allergies allergies = allergiesDao.findByAllergenId(allergenId);
-        if (allergies == null){
-            return ResponseEntity.ok().body("Go");
-        }
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Allergy already exist");
-    }
 
 }

@@ -15,7 +15,7 @@ public class ItemDayDTO {
     private String username;
     private String hour;
     private String minute;
-    private List<String> listOfFoodId;
-    private List<String> listOfContactId;
+    private String itemId;
+    private String itemName;
 
 }

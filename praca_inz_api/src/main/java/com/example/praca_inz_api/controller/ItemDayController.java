@@ -34,15 +34,6 @@ public class ItemDayController {
         return ResponseEntity.ok().body(ItemDayConverter.toDTO(itemDayRepo.getItemDayScheduleById(id)));
     }
 
-    @GetMapping("/itemfood")
-    public List<FoodListDTO> getMyFoodList(@RequestParam(value = "itemId") String itemId){
-        return itemDayRepo.getFoodList(itemId).stream().map(FoodConverter::toFoodDTO).collect(Collectors.toList());
-    }
-
-    @GetMapping("/itemcontact")
-    public List<ContactListDTO> getMyContactList(@RequestParam(value = "itemId") String itemId){
-        return itemDayRepo.getContactList(itemId).stream().map(ContactConverter::toContactDTO).collect(Collectors.toList());
-    }
 
     @PostMapping(path = "/add")
     public AddItemDayDTO addItemToDay(@RequestBody ItemDayDTO itemDayDTO){

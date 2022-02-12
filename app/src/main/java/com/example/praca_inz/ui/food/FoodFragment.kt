@@ -77,10 +77,4 @@ class FoodFragment : Fragment() {
         navController.navigate(R.id.action_navigation_food_to_addFoodFragment)
     }
 
-
-
-
-
-
-
 }

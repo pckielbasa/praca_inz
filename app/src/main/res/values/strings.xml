@@ -42,7 +42,8 @@
     <string name="loggedInAs">Logged in as :</string>
     <string name="changePassword">Change Password</string>
     <string name="changePerson">Change Person</string>
-    <string name="add_row_on_the_day">Add row on the day</string>
+    <string name="add_food_on_the_day">Add food on the day</string>
+    <string name="add_contact_on_the_day">Add contact on the day</string>
     <string name="chemistry">chemistry</string>
     <string name="plant">plant</string>
     <string name="animal">animal</string>
@@ -79,6 +80,12 @@
     <string name="whatCaused">What triggered the allergies :</string>
     <string name="deleteAllergy">If the allergy is no longer present, you can remove it by clicking the button below. Be careful, this process cannot be undone.</string>
     <string name="deleteAllergyButton">Delete Allergy</string>
+    <string name="chooseTime">Please select time :</string>
+    <string name="selected_food">Selected food :</string>
+    <string name="selectMeal">Select Meal</string>
+    <string name="selectSnack">Select snack</string>
+    <string name="selectComponent">Select component</string>
+    <string name="click_by_remove">(Click on items to delete)</string>
 
 
     <string-array name="contact_things">
