@@ -123,6 +123,9 @@
         <action
             android:id="@+id/action_detailDayFragment_to_navigation_calendar"
             app:destination="@id/navigation_calendar" />
+        <action
+            android:id="@+id/action_detailDayFragment_to_reportAllergyFragment"
+            app:destination="@id/reportAllergyFragment" />
     </fragment>
     <fragment
         android:id="@+id/addFoodFragment"
@@ -174,7 +177,9 @@
         android:name="com.example.praca_inz.ui.calendar.selectFood.SelectFoodFragment"
         android:label="select_food_fragment"
         tools:layout="@layout/select_food_fragment" >
-
+        <argument
+            android:name="dayDate"
+            app:argType="string" />
         <action
             android:id="@+id/action_selectFoodFragment_to_navigation_calendar"
             app:destination="@id/navigation_calendar" />
@@ -190,6 +195,9 @@
         android:name="com.example.praca_inz.ui.calendar.selectContact.SelectContactFragment"
         android:label="select_contact_fragment"
         tools:layout="@layout/select_contact_fragment" >
+        <argument
+            android:name="dayDate"
+            app:argType="string" />
         <action
             android:id="@+id/action_selectContactFragment_to_addContactToDayFragment"
             app:destination="@id/addContactToDayFragment" />

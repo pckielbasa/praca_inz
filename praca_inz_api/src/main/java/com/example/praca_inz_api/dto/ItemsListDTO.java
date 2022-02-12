@@ -9,8 +9,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ItemsListDTO {
     private String _id;
-    private String hour;
-    private String minute;
+    private String time;
     private String itemId;
     private String itemName;
+    private String itemCompo;
+    private String type;
 }

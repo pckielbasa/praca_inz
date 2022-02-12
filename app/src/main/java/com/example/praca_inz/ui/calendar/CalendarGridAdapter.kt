@@ -28,7 +28,7 @@ class CalendarGridAdapter(val onClickListener: OnClickListener)
         }
 
         override fun areContentsTheSame(oldItem: MyDayProperty, newItem: MyDayProperty): Boolean {
-            return oldItem.hour == newItem.hour
+            return oldItem.time == newItem.time
         }
     }
     override fun onCreateViewHolder(

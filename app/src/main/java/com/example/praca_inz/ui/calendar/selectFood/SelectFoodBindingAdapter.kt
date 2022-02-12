@@ -11,7 +11,7 @@ import com.example.praca_inz.property.MyFoodProperty
 import com.example.praca_inz.ui.calendar.selectFood.SelectFoodGridAdapter.*
 
 
-@BindingAdapter("listData")
+@BindingAdapter("selectListData")
 fun bindRecyclerView(recyclerView: RecyclerView, data: List<MyFoodProperty>?) {
     val adapter = recyclerView.adapter as SelectFoodGridAdapter
     adapter.submitList(data)

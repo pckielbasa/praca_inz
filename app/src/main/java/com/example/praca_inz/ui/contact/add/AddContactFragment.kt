@@ -91,7 +91,7 @@ class AddContactFragment : Fragment() {
                 val contactName:String = etContactName.text.toString().trim { it<=' '}
                 val possibleAllergen:String = etContactPossibleAllergen.text.toString().trim { it<=' '}
                 val type =  typeContact
-                val contactFavourite:Boolean = binding.checkBox.isChecked
+                val contactFavourite:Boolean = false
                 val apiService = RestApiService()
                 val contact = Contact(
                     username =  FirebaseAuth.getInstance().currentUser!!.uid,

@@ -31,9 +31,10 @@ class CalendarViewModel:ViewModel() {
     }
 
     private var date =""
-      public fun setDate(date:String) {
+      fun setDate(date:String) {
           this.date = date
       }
+
 
 
     private val _status = MutableLiveData<MyDayStatus>()

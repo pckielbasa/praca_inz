@@ -61,10 +61,11 @@ public class ItemDayService implements ItemDayRepo {
         ItemDaySchedule itemDaySchedule = new ItemDaySchedule();
         itemDaySchedule.setUsername(itemDayDTO.getUsername());
         itemDaySchedule.setDayDate(itemDayDTO.getDayDate());
-        itemDaySchedule.setHour(itemDayDTO.getHour());
-        itemDaySchedule.setMinute(itemDayDTO.getMinute());
+        itemDaySchedule.setTime(itemDayDTO.getTime());
         itemDaySchedule.setItemId(itemDayDTO.getItemId());
         itemDaySchedule.setItemName(itemDayDTO.getItemName());
+        itemDaySchedule.setItemCompo(itemDayDTO.getItemCompo());
+        itemDaySchedule.setType(itemDayDTO.getType());
         return itemDayDao.save(itemDaySchedule);
     }
 

@@ -99,6 +99,25 @@ class RestApiService {
         )
     }
 
+    fun addItemDay(dayItem: DayItem, onResult: (DayItem?) -> Unit){
+        val retrofit = DayServiceBuilder.buildService(JsonPlaceholderApi::class.java)
+        retrofit.sendItemDayData(dayItem).enqueue(
+            object : Callback<DayItem> {
+                override fun onFailure(call: Call<DayItem>, t: Throwable) {
+                    onResult(null)
+                }
+                override fun onResponse( call: Call<DayItem>, response: Response<DayItem>) {
+                    val dayItem = response.body()
+                    if (response.code() == 200){
+                        onResult(dayItem)
+                    }else{
+                        onResult(null)
+                    }
+                }
+            }
+        )
+    }
+
     fun deleteFood(foodName: String, username: String){
         val deleteRequest: Call<Void?>? = FoodApi.retrofitService.deleteFood(foodName,username)
         deleteRequest!!.enqueue(object : Callback<Void?> {

@@ -12,7 +12,7 @@ import com.example.praca_inz.ui.calendar.selectContact.SelectContactGridAdapter.
 import com.example.praca_inz.ui.contact.ContactGridAdapter.ContactApiStatus
 
 
-@BindingAdapter("listData")
+@BindingAdapter("selectListData")
 fun bindRecyclerView(recyclerView: RecyclerView, data: List<MyContactProperty>?) {
     val adapter = recyclerView.adapter as SelectContactGridAdapter
     adapter.submitList(data)

@@ -55,7 +55,7 @@
     <string name="chooseFoodType">Choose the type of food</string>
     <string name="chooseContactType">Choose the type of contact</string>
     <string name="confirmation">Are you sure you want to delete this item?</string>
-    <string name="deletionInformation">If you delete this item, you will have to remove it from the allergy item and it will automatically be removed from your daily schedule if it has ever been used.</string>
+    <string name="deletionInformation">If you delete this item, it will be automatically removed from the allergy item.</string>
     <string name="deletingInformation">Deleting items</string>
     <string name="managementPanel">Management panel</string>
     <string name="addingToAllergies">Adding to allergies</string>
@@ -86,6 +86,9 @@
     <string name="selectSnack">Select snack</string>
     <string name="selectComponent">Select component</string>
     <string name="click_by_remove">(Click on items to delete)</string>
+    <string name="addingInformation">Adding item to day</string>
+    <string name="confirm">Confirm</string>
+    <string name="select_date">Please select date :</string>
 
 
     <string-array name="contact_things">

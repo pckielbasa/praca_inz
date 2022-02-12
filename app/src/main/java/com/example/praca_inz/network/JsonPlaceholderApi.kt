@@ -70,6 +70,12 @@ interface JsonPlaceholderApi {
         @Body allergiesReport: AllergiesReport
     ): Call<AllergiesReport>
 
+    @Headers("Content-Type: application/json")
+    @POST("add")
+    fun sendItemDayData(
+        @Body dayItem: DayItem
+    ): Call<DayItem>
+
     //DELETE MAPPING
     @DELETE("delete")
     fun deleteFood (@Query("foodId") foodId:String,

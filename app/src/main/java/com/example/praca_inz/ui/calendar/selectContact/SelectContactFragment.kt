@@ -9,10 +9,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.praca_inz.R
 import com.example.praca_inz.databinding.SelectContactFragmentBinding
 import com.example.praca_inz.network.ContactApiFilter
 import com.example.praca_inz.ui.contact.ContactGridAdapter
+import com.example.praca_inz.ui.reportAllergy.ReportAllergyFragmentArgs
 
 class SelectContactFragment : Fragment() {
 

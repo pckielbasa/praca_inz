@@ -93,7 +93,7 @@ class AddFoodFragment : Fragment() {
                     val foodName:String = etFoodName.text.toString().trim { it<=' '}
                     val foodComposition:String = etFoodComposition.text.toString().trim { it<=' '}
                     val type =  typeFood
-                    val foodFavourite:Boolean = binding.checkBox.isChecked
+                    val foodFavourite:Boolean = false
                     val apiService = RestApiService()
                     val food = Food(
                         username = FirebaseAuth.getInstance().currentUser!!.uid,

@@ -15,10 +15,11 @@ public class ItemDayConverter {
                 entity.get_id(),
                 entity.getDayDate(),
                 entity.getUsername(),
-                entity.getHour(),
-                entity.getMinute(),
+                entity.getTime(),
                 entity.getItemId(),
-                entity.getItemName()
+                entity.getItemName(),
+                entity.getItemCompo(),
+                entity.getType()
         );
     }
 
@@ -26,19 +27,21 @@ public class ItemDayConverter {
         return new AddItemDayDTO(
                 entity.getDayDate(),
                 entity.getUsername(),
-                entity.getHour(),
-                entity.getMinute(),
+                entity.getTime(),
                 entity.getItemId(),
-                entity.getItemName()
+                entity.getItemName(),
+                entity.getItemCompo(),
+                entity.getType()
         );
     }
     public static ItemsListDTO toListDTO(ItemDaySchedule entity){
         return new ItemsListDTO(
                 entity.get_id(),
-                entity.getHour(),
-                entity.getMinute(),
+                entity.getTime(),
                 entity.getItemId(),
-                entity.getItemName()
+                entity.getItemName(),
+                entity.getItemCompo(),
+                entity.getType()
         );
     }
 }

@@ -12,8 +12,9 @@ import java.util.List;
 public class AddItemDayDTO {
     private String dayDate;
     private String username;
-    private String hour;
-    private String minute;
+    private String time;
     private String itemId;
     private String itemName;
+    private String itemCompo;
+    private String type;
 }

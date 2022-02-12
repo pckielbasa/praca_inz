@@ -5,9 +5,11 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class MyDayProperty(
-    val _id:String,
-    val hour: String,
-    val minute: String
+    val time:String?,
+    val itemId:String?,
+    val itemName:String?,
+    val itemCompo:String?,
+    val type:String?
 ): Parcelable {
 
 }

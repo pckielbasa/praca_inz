@@ -54,7 +54,7 @@ class CalendarFragment : Fragment(){
                 "0$dayOfMonth/0$myMonth/$year"
             }else if (myMonth<10 && dayOfMonth>=10){
                 "$dayOfMonth/0$myMonth/$year"
-            }else if (myMonth>10 && dayOfMonth<10){
+            }else if (myMonth>=10 && dayOfMonth<10){
                 "0$dayOfMonth/$myMonth/$year"
             }else{
                 "$dayOfMonth/$myMonth/$year"
@@ -128,32 +128,6 @@ class CalendarFragment : Fragment(){
         val myFormat = "dd/MM/yyyy"
         val sdf = SimpleDateFormat(myFormat, Locale.getDefault())
         tvDataPicker.text = sdf.format(myCalendar.time)
-    }
-
-    private fun changeTime(){
-        val c = Calendar.getInstance()
-        val timePicker = TimePickerDialog(requireContext(), TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
-            val selectedTime = Calendar.getInstance()
-            selectedTime.set(Calendar.HOUR_OF_DAY,hourOfDay)
-            selectedTime.set(Calendar.MINUTE,minute)
-            val changeHour= selectedTime.time.hours
-            val changeMinute = selectedTime.time.minutes
-            val changeTime = if (changeHour<10 && changeMinute < 10){
-                "0$changeHour : 0$changeMinute"
-            }else if (changeHour<10 && changeMinute >= 10){
-                "0$changeHour : $changeMinute"
-            }else if(changeHour>=10 && changeMinute <10){
-                "$changeHour : 0$changeMinute"
-            }else{
-                "$changeHour : $changeMinute"
-            }
-
-        },
-            c.get(Calendar.HOUR_OF_DAY),
-            c.get(Calendar.MINUTE),
-            true)
-        timePicker.show()
-
     }
 
 
