@@ -1,6 +1,7 @@
 package com.example.praca_inz_api.controller;
 
 import com.example.praca_inz_api.converter.FoodConverter;
+import com.example.praca_inz_api.dao.FoodDao;
 import com.example.praca_inz_api.dto.AddFoodDTO;
 import com.example.praca_inz_api.dto.FoodDTO;
 import com.example.praca_inz_api.dto.FoodListDTO;
@@ -24,6 +25,8 @@ public class FoodController {
     @Autowired
     private FoodRepo foodRepo;
 
+    @Autowired
+    private FoodDao foodDao;
 
     @GetMapping("/type")
     public List<AddFoodDTO> getFoodType(@RequestParam(value = "type") String type){
@@ -31,6 +34,8 @@ public class FoodController {
                 .map(FoodConverter::toDTO)
                 .collect(Collectors.toList());
     }
+
+
 
 
     @GetMapping("/{id}")
@@ -52,5 +57,6 @@ public class FoodController {
                                   @RequestParam(value = "username") String username){
         foodRepo.deleteFoodById(foodId, username);
     }
+
 
 }

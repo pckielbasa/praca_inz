@@ -37,13 +37,13 @@ public class UserController {
     }
 
     @GetMapping("/email")
-    public User getUserByEmail(@RequestParam(value = "email") String email){
-        return userRepo.getUserByEmail(email);
+    public UserDTO getUserByEmail(@RequestParam(value = "email") String email){
+        return UserConverter.toDTO(userRepo.getUserByEmail(email));
     }
 
     @GetMapping("/username")
-    public User getUserByUsername(@RequestParam(value = "username") String username){
-        return userRepo.getUserByUsername(username);
+    public UserDTO getUserByUsername(@RequestParam(value = "username") String username){
+        return UserConverter.toDTO(userRepo.getUserByUsername(username));
     }
 
     @GetMapping("/finbyname")

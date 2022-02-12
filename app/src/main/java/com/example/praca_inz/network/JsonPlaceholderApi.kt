@@ -38,6 +38,9 @@ interface JsonPlaceholderApi {
     fun getAllergyByAllergenIdAsync(@Query("allergenId") allergenId: String):
             Call<String>
 
+    @GET("email")
+    fun  getUserByEmail(@Query("email") email:String):
+            Call<UserProperty>
 
     //POST MAPPING
     @Headers("Content-Type: application/json")
