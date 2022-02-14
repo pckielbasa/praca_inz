@@ -48,6 +48,7 @@ class DetailFoodFragment : Fragment() {
             val username = FirebaseAuth.getInstance().currentUser!!.uid
             val foodId = detailFoodViewModel.selectedProperty.value!!._id
             apiService.deleteFood(foodId, username)
+            Toast.makeText(context, "Item deleted", Toast.LENGTH_SHORT).show()
             val navController = NavHostFragment.findNavController(this)
             navController.navigate(R.id.action_detailFoodFragment_to_navigation_food)
         }
