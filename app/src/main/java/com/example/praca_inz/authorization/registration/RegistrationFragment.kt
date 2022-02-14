@@ -20,10 +20,9 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_registration.*
 
 class RegistrationFragment : Fragment() {
+
     private lateinit var auth: FirebaseAuth
     private lateinit var binding: FragmentRegistrationBinding
-
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
 

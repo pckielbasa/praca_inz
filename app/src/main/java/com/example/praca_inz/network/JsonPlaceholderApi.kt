@@ -11,13 +11,24 @@ import retrofit2.http.*
 
 
 interface JsonPlaceholderApi {
-    //GET MAPPING
-
 
     @GET("myfood")
     fun getMyFoodsAsync(@Query("type") type: String,
                         @Query("username") username: String):
             Deferred<List<MyFoodProperty>>
+
+    @Headers("Content-Type: application/json")
+    @POST("add")
+    fun sendFoodData(
+        @Body food: Food
+    ): Call<Food>
+
+    @DELETE("delete")
+    fun deleteFood (@Query("foodId") foodId:String,
+                    @Query("username") username:String):
+            Call<Void?>?
+
+
 
     @GET("mycontact")
     fun getMyContactsAsync(@Query("type") type: String,
@@ -49,11 +60,6 @@ interface JsonPlaceholderApi {
         @Body user: User
     ): Call<User>
 
-    @Headers("Content-Type: application/json")
-    @POST("add")
-    fun sendFoodData(
-        @Body food: Food
-    ): Call<Food>
 
     @Headers("Content-Type: application/json")
     @POST("add")
@@ -80,10 +86,7 @@ interface JsonPlaceholderApi {
     ): Call<DayItem>
 
     //DELETE MAPPING
-    @DELETE("delete")
-    fun deleteFood (@Query("foodId") foodId:String,
-                    @Query("username") username:String):
-           Call<Void?>?
+
 
     @DELETE("delete")
     fun deleteContact (@Query("contactId") contactId:String,

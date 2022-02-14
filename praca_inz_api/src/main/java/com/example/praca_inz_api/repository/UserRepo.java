@@ -2,9 +2,11 @@ package com.example.praca_inz_api.repository;
 
 import com.example.praca_inz_api.dto.RegisterUserDTO;
 import com.example.praca_inz_api.model.*;
+import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
 import java.util.List;
+
 
 public interface UserRepo {
     Collection<User> getAllUsers();
@@ -23,5 +25,4 @@ public interface UserRepo {
     User deleteFoodFromUser(User user, Food food);
     User deleteContactFromUser(User user, Contact contact);
     User deleteAllergiesFromUser(User user, Allergies allergies);
-
 }

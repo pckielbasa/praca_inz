@@ -13,7 +13,6 @@ class FoodGridAdapter(private val onClickListener: OnClickListener) : ListAdapte
 
     enum class FoodGridStatus { LOADING, ERROR, DONE,EMPTY }
 
-
     class FoodPropertyViewHolder(private var binding: FoodListItemBinding):
         RecyclerView.ViewHolder(binding.root) {
         fun bind(myFoodProperty: MyFoodProperty) {

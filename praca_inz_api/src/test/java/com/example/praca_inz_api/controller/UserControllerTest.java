@@ -3,14 +3,19 @@ package com.example.praca_inz_api.controller;
 import com.example.praca_inz_api.converter.AllergiesConverter;
 import com.example.praca_inz_api.converter.ContactConverter;
 import com.example.praca_inz_api.converter.FoodConverter;
+import com.example.praca_inz_api.converter.ItemDayConverter;
+import com.example.praca_inz_api.dto.AllergiesDTO;
+import com.example.praca_inz_api.dto.FoodDTO;
 import com.example.praca_inz_api.dto.FoodListDTO;
-import com.example.praca_inz_api.model.Allergies;
-import com.example.praca_inz_api.model.Contact;
-import com.example.praca_inz_api.model.Food;
-import com.example.praca_inz_api.model.User;
+import com.example.praca_inz_api.dto.ItemDayDTO;
+import com.example.praca_inz_api.model.*;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.mockito.Mockito;
+import org.springframework.http.ResponseEntity;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -111,4 +116,59 @@ public class UserControllerTest {
                 Assert.assertThat(userController.getMyAllergiesList("Food", "620733937afc0720579330ae"), Matchers.hasSize(1));
     }
 
+    @org.junit.jupiter.api.Test
+    void addItemToDay() {
+        ItemDayController itemDayController = mock(ItemDayController.class);
+        List<DaySchedule> daysList = new ArrayList<>();
+        DaySchedule daySchedule = new DaySchedule();
+        daySchedule.setDayDate("01/12/2022");
+        daysList.add(daySchedule);
+
+        ItemDaySchedule itemDaySchedule = new ItemDaySchedule(
+                "6208299a5adf15753afs33fd4",
+                "21/12/2022",
+                "aqPxpvWbRxSmTRgs9JoPovjxETn2",
+                "2 hour",
+                "6208299a5adf15753a523f34",
+                "Meal",
+                "component",
+                "Meal" );
+
+        given(itemDayController.addItemToDay(Mockito.any(ItemDayDTO.class)))
+                .willReturn( ItemDayConverter.toAddDTO(itemDaySchedule));
+        Assertions.assertEquals(daySchedule.getDayDate(),"01/12/2022");
+    }
+
+
+    @org.junit.jupiter.api.Test
+    void addFoodToUser() {
+        FoodController foodController = mock(FoodController.class);
+        Food food = new Food(
+                "6208299a5adf15753a523f34",
+                "620733937afc0720579330ae",
+                "Meal Test",
+                "Composition test",
+                "Meal",
+                false
+        );
+
+        given(foodController.addFoodToUser(Mockito.any(FoodDTO.class)))
+                .willReturn( ResponseEntity.ok().body(FoodConverter.toDTO(food)));
+
+        Assertions.assertEquals(food.getType(), "Meal" );
+    }
+
+    @org.junit.jupiter.api.Test
+    void addAllergiesToUser() {
+        AllergiesController allergiesController = mock(AllergiesController.class);
+        Allergies allergies = new Allergies();
+        allergies.setAllergenId("6208299a5adf15753a523f34");
+
+        given(allergiesController.addAllergiesToUser(Mockito.any(AllergiesDTO.class)))
+                .willReturn(ResponseEntity.ok().body(AllergiesConverter.toDTO(allergies)));
+
+        Assertions.assertEquals(allergies.getAllergenId(), "6208299a5adf15753a523f34");
+
+
+    }
 }

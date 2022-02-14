@@ -30,8 +30,7 @@ public class FoodControllerTest {
         given(foodController.addFoodToUser(Mockito.any(FoodDTO.class)))
                 .willReturn( ResponseEntity.ok().body(FoodConverter.toDTO(food)));
 
-
-        Assertions.assertNotEquals(food.getType(),"Random text" );
+        Assertions.assertEquals(food.getType(), "Meal" );
     }
 
 }

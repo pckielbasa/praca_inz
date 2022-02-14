@@ -24,7 +24,6 @@ public class User {
     private String email;
     private String phoneNumber;
 
-
     @DBRef
     private List<DaySchedule> dayScheduleList = new ArrayList<>();
 

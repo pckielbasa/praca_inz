@@ -22,26 +22,9 @@ import java.util.stream.Collectors;
 @RequestMapping("/food")
 @RequiredArgsConstructor
 public class FoodController {
+
     @Autowired
     private FoodRepo foodRepo;
-
-    @Autowired
-    private FoodDao foodDao;
-
-    @GetMapping("/type")
-    public List<AddFoodDTO> getFoodType(@RequestParam(value = "type") String type){
-        return foodRepo.getAllType(type).stream()
-                .map(FoodConverter::toDTO)
-                .collect(Collectors.toList());
-    }
-
-
-
-
-    @GetMapping("/{id}")
-    public ResponseEntity<AddFoodDTO> getFoodById(@PathVariable String id){
-        return ResponseEntity.ok().body(FoodConverter.toDTO(foodRepo.getFoodById(id)));
-    }
 
     @PostMapping(path = "/add")
     public ResponseEntity<AddFoodDTO> addFoodToUser(@RequestBody FoodDTO foodDTO){
@@ -54,9 +37,24 @@ public class FoodController {
 
     @DeleteMapping("/delete")
     public void deleteFoodByIdFromUser(@RequestParam(value = "foodId") String foodId,
-                                  @RequestParam(value = "username") String username){
+                                       @RequestParam(value = "username") String username){
         foodRepo.deleteFoodById(foodId, username);
     }
+
+
+    @GetMapping("/type")
+    public List<AddFoodDTO> getFoodType(@RequestParam(value = "type") String type){
+        return foodRepo.getAllType(type).stream()
+                .map(FoodConverter::toDTO)
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<AddFoodDTO> getFoodById(@PathVariable String id){
+        return ResponseEntity.ok().body(FoodConverter.toDTO(foodRepo.getFoodById(id)));
+    }
+
+
 
 
 }

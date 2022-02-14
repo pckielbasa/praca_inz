@@ -132,8 +132,6 @@
                 app:layout_constraintEnd_toEndOf="@+id/etPhoneNumber"
                 app:layout_constraintStart_toStartOf="@+id/etPhoneNumber"
                 app:layout_constraintTop_toBottomOf="@+id/etPhoneNumber" />
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
