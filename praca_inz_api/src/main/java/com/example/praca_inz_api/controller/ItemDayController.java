@@ -47,5 +47,4 @@ public class ItemDayController {
         itemDayRepo.deleteItemById(itemId, dayDate);
     }
 
-
 }

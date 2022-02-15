@@ -54,7 +54,4 @@ public class FoodController {
         return ResponseEntity.ok().body(FoodConverter.toDTO(foodRepo.getFoodById(id)));
     }
 
-
-
-
 }

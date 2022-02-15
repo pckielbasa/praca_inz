@@ -3,7 +3,7 @@ package com.example.praca_inz_api.converter;
 import com.example.praca_inz_api.dto.AddAllergiesDTO;
 import com.example.praca_inz_api.dto.AllergiesListDTO;
 import com.example.praca_inz_api.model.Allergies;
-;
+
 
 public class AllergiesConverter {
     public static AddAllergiesDTO toDTO(Allergies entity){

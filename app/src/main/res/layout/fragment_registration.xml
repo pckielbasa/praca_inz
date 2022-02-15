@@ -44,7 +44,6 @@
                 android:hint="@string/nameAddPersonText"
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
-
                 android:maxLength="16"
                 android:theme="@style/EditTextStyle"
                 app:layout_constraintEnd_toEndOf="parent"

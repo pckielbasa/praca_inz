@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/drawable-anydpi/ic_add.xml" value="0.11354166666666667" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/drawable-anydpi/ic_close.xml" value="0.3828125" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/drawable-anydpi/ic_empty.xml" value="0.3828125" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/activity_main.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/activity_splash_screen.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/add_allergies_fragment.xml" value="0.1574074074074074" />
@@ -41,6 +44,8 @@
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/select_food_fragment.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/layout/selected_food_items.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3828125" />
+        <entry key="..\:/Users/ja/Desktop/Repositories/praca_inz/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3828125" />
       </map>
     </option>
   </component>

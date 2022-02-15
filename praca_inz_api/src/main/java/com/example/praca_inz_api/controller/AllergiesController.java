@@ -46,6 +46,4 @@ public class AllergiesController {
                                        @RequestParam(value = "username") String username){
         allergiesRepo.deleteAllergiesById(allergiesId, username);
     }
-
-
 }

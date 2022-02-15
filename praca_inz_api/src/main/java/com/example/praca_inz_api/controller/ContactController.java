@@ -44,7 +44,6 @@ public class ContactController {
         return ResponseEntity.ok().body(ContactConverter.toDTO(contact));
     }
 
-
     @DeleteMapping("/delete")
     public void deleteContactByIdFromUser(@RequestParam(value = "contactId") String contactId,
                                                    @RequestParam(value = "username") String username){
