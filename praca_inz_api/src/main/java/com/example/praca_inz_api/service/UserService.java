@@ -171,6 +171,7 @@ public class UserService implements UserRepo {
         myAllergies.remove(deleteAllergies);
         user.setMyAllergies(myAllergies);
         return user;
+
     }
 
 

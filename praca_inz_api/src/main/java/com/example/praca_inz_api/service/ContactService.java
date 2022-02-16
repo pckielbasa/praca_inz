@@ -30,10 +30,7 @@ public class ContactService implements ContactRepo {
     @Autowired
     private AllergiesDao allergiesDao;
 
-    @Override
-    public List<Contact> getAllContact(){
-        return contactDao.findAll();
-    }
+
 
     @Override
     public Collection<Contact> getAllType(String type) {
@@ -47,21 +44,6 @@ public class ContactService implements ContactRepo {
         return contactDao.findById(contactId)
                 .orElseThrow(()-> new IllegalStateException(
                         "Contact with "+contactId+"does not exists"));
-    }
-
-    @Override
-    public String getContactId(String contactId) {
-        return contactDao.findById(contactId).get().get_id();
-    }
-
-    @Override
-    public List<Contact> getListOfContactsByIds(List<String> idList) {
-        return idList
-                .stream()
-                .map(item->
-                        contactDao.findById(item)
-                                .orElseThrow(()->new RuntimeException("Id not found"+item)))
-                .collect(Collectors.toList());
     }
 
     @Override

@@ -31,10 +31,7 @@ public class FoodService implements FoodRepo {
     private AllergiesDao allergiesDao;
 
 
-    @Override
-    public List<Food> getAllFood(){
-        return foodDao.findAll();
-    }
+
 
     @Override
     public Collection<Food> getAllType(String type) {
@@ -52,20 +49,9 @@ public class FoodService implements FoodRepo {
                         "Food with " + foodId + " does not exists."));
     }
 
-    @Override
-    public String getFoodId(String foodId) {
-        return foodDao.findById(foodId).get().get_id();
-    }
 
-    @Override
-    public List<Food> getListOfFoodByIds(List<String> idList) {
-        return  idList
-                .stream()
-                .map(item->
-                        foodDao.findById(item)
-                                .orElseThrow(()->new RuntimeException("Id not found"+item)))
-                .collect(Collectors.toList());
-    }
+
+
 
     @Override
     public Food createFood(FoodDTO foodDTO) {
@@ -95,11 +81,6 @@ public class FoodService implements FoodRepo {
     }
 
 
-
-    @Override
-    public String findByFoodName(String foodName) {
-        return foodDao.findByFoodName(foodName).getFoodName();
-    }
 
     @Override
     public void deleteFoodById(String foodId, String username) {

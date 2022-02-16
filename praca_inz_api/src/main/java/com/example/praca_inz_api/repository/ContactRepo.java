@@ -7,11 +7,8 @@ import java.util.Collection;
 import java.util.List;
 
 public interface ContactRepo {
-    Collection<Contact> getAllContact();
     Collection<Contact> getAllType(String type);
     Contact getContactById(String contactId);
-    String getContactId(String contactId);
-    List<Contact> getListOfContactsByIds(List<String> idList);
     Contact createContact(ContactDTO contactDTO);
     Contact addContactToUser(ContactDTO contactDTO);
     void deleteContactById(String contactId, String username );
